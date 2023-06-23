@@ -42,28 +42,31 @@ moisture_number <- mutate(moisture_number,
 # change length to location A and B.
 moisture_renamed <- mutate(moisture_number,
                             pile_length = case_when(
-                              str_detect(pile_length, "Quarter") ~ "Z",
-                              str_detect(pile_length, "Half") ~ "Y"))
+                              str_detect(pile_length, "Quarter") ~ "Y",
+                              str_detect(pile_length, "Half") ~ "X"))
 
+moisture_renamed <- mutate(moisture_renamed, pile_height = case_when(
+                             str_detect(pile_height, "Bottom") ~ "bottom",
+                             str_detect(pile_height, "Middle") ~ "middle",
+                             str_detect(pile_height, "Top") ~ "top"))
 # simple graph
 moisture_renamed %>%
 ggplot() +
   geom_point(aes(x = day,
                  y = moisture_content_pc,
-                 shape = pile_length,
                  colour = pile_height,
                  size = 5)) +
   geom_line(aes(x = day,
                 y = moisture_content_pc,
-                shape = pile_length,
                 colour = pile_height)) +
   geom_weather(aes(x = day,
                    y = 0.85,
                    weather = weather)) +
+  scale_y_continuous(labels = function(x) paste0(x*100, "%")) +
   labs(x = "day",
        y = "% moisture content",
-       colour = "height",
-       shape = "location") +
+       colour = "height") +
   scale_size(guide = 'none') +
+  facet_grid(pile_length ~ .) +
   scale_color_viridis(discrete = T) +
   theme_ipsum(base_size = 10)
