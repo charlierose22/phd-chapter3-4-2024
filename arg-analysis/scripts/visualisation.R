@@ -102,18 +102,14 @@ write.csv(samples_16S_plot,
 # 16S ---------------------------------------------------------------------
 
 # create a graph for total abundance of 16S data across samples.
-ggplot(location_16S, aes(x = day, y = mean, fill = length)) +
+ggplot(means_16S, aes(x = day, y = mean, fill = height)) +
   geom_col(position = 'dodge') +
+  geom_errorbar(aes(x = day,
+                    y = mean,
+                    ymin = mean - sd, 
+                    ymax = mean + sd), 
+                width = 1) +
   labs(x = "day", y = "ct", fill = "location") +
-  scale_color_viridis(discrete = T) +
-  facet_wrap(~ height) +
+  scale_color_viridis(discrete = F) +
   theme_ipsum(base_size = 10)
-ggsave(paste0("arg-analysis/figures/16S-location.png"), width = 8, height = 5)
-ggplot(time_16S, aes(x = day, y = mean, fill = length)) +
-  geom_col(position = 'dodge') +
-  labs(x = "day", y = "ct", fill = "location") +
-  scale_color_viridis(discrete = T) +
-  facet_wrap(~ height) +
-  theme_ipsum(base_size = 10)
-ggsave(paste0("arg-analysis/figures/16S-time.png"), width = 8, height = 5)
-
+ggsave(paste0("arg-analysis/figures/16S-november.png"), width = 8, height = 5)

@@ -269,8 +269,7 @@ delta_ct <- df_transposed_ct[, 2:70] - df_transposed_ct[, "AY1"]
 power_delta_ct <- 2 ^ -(delta_ct)
 
 # create delta ct csv
-write.csv(delta_ct, "arg-analysis/processed-data/
-          delta_ct_nostats.csv", row.names = TRUE)
+write.csv(delta_ct, "arg-analysis/data/processed-data/delta_ct_nostats.csv", row.names = TRUE)
 
 # Turn the rownames into the first column to preserve them.
 delta_ct_rownames <- rownames_to_column(power_delta_ct, "sample")
@@ -364,12 +363,9 @@ time_study <- assay_samples_means[grepl('bottom',
 time_study <- time_study[grepl('half', time_study$length), ]
 
 # create csvs of annotated data
-write.csv(assay_samples_means, "arg-analysis/processed-data/
-          annotated_delta_ct_means.csv")
-write.csv(time_study, "arg-analysis/processed-data/
-          annotated_time_study.csv")
-write.csv(location_study, "arg-analysis/processed-data/
-          annotated_location_study.csv")
+write.csv(assay_samples_means, "arg-analysis/data/processed-data/annotated_delta_ct_means.csv")
+write.csv(time_study, "arg-analysis/data/processed-data/annotated_time_study.csv")
+write.csv(location_study, "arg-analysis/data/processed-data/annotated_location_study.csv")
 
 
 # 16S ---------------------------------------------------------------------
@@ -418,21 +414,33 @@ mutate_long_16S <- mutate(
 )
 
 nona_16S <- mutate_long_16S %>% drop_na()
-means_16S <- nona_16S %>%
-  group_by(id) %>%
+annotated_16S <- nona_16S %>% left_join(samples, by = "id")
+
+community_renamed <- mutate(annotated_16S, height = case_when(
+  str_detect(height, "control") ~ "c",
+  str_detect(height, "bottom") ~ "b",
+  str_detect(height, "middle") ~ "m",
+  str_detect(height, "top") ~ "t"))
+
+means_16S <- community_renamed %>%
+  group_by(day, height) %>%
   summarise(
     mean = mean(ct),
-    std = sd(ct),
+    sd = sd(ct),
     n = length(ct),
-    se = std / sqrt(n)
+    se = sd / sqrt(n)
   )
 
-samples_16S = means_16S %>% left_join(samples, by = "id")
-samples_16S_plot <-
-  samples_16S[!grepl("control", samples_16S$height),]
-# create separate data sets for location study and time series.
-location_16S <-
-  samples_16S_plot[grepl('\\<1\\>|\\<29\\>', samples_16S_plot$day), ]
-time_16S <-
-  samples_16S_plot[grepl('bottom', samples_16S_plot$height), ]
-time_16S <- time_16S[grepl('half', time_16S$length), ]
+fit2 = aov(data = means_16S,
+          mean ~ height)
+
+tukey2 <- TukeyHSD(fit2)
+TukeyHSD(fit2)
+
+#Tukey test representation:
+plot(tukey2, las = 1 , col = "blue")
+
+summary(fit2)
+
+means_16S %>% 
+  kruskal.test(mean ~ height)
