@@ -422,6 +422,13 @@ community_renamed <- mutate(annotated_16S, height = case_when(
   str_detect(height, "middle") ~ "m",
   str_detect(height, "top") ~ "t"))
 
+community_plot <- community_renamed[!grepl("control", community_renamed$height),]
+# create separate data sets for location study and time series.
+location_16S <- community_plot[grepl('\\<1\\>|\\<29\\>', community_plot$day), ]
+time_16S <- community_plot[grepl('bottom', community_plot$height), ]
+time_16S <- time_16S[grepl('half', time_16S$length), ]
+
+# means total for 16S
 means_16S <- community_renamed %>%
   group_by(day, height) %>%
   summarise(
@@ -430,17 +437,50 @@ means_16S <- community_renamed %>%
     n = length(ct),
     se = sd / sqrt(n)
   )
-
 fit2 = aov(data = means_16S,
           mean ~ height)
-
 tukey2 <- TukeyHSD(fit2)
 TukeyHSD(fit2)
-
 #Tukey test representation:
 plot(tukey2, las = 1 , col = "blue")
-
 summary(fit2)
-
 means_16S %>% 
+  kruskal.test(mean ~ height)
+
+# means location for 16S
+means_16S_location <- location_16S %>%
+  group_by(day, height) %>%
+  summarise(
+    mean = mean(ct),
+    sd = sd(ct),
+    n = length(ct),
+    se = sd / sqrt(n)
+  )
+fit3 = aov(data = means_16S_location,
+           mean ~ height)
+tukey3 <- TukeyHSD(fit3)
+TukeyHSD(fit3)
+#Tukey test representation:
+plot(tukey3, las = 1 , col = "blue")
+summary(fit3)
+means_16S_location %>% 
+  kruskal.test(mean ~ height)
+
+# means time for 16S
+means_16S_time <- time_16S %>%
+  group_by(day) %>%
+  summarise(
+    mean = mean(ct),
+    sd = sd(ct),
+    n = length(ct),
+    se = sd / sqrt(n)
+  )
+fit4 = aov(data = means_16S_time,
+           mean ~ day)
+tukey4 <- TukeyHSD(fit4)
+TukeyHSD(fit4)
+#Tukey test representation:
+plot(tukey4, las = 1 , col = "blue")
+summary(fit4)
+means_16S_time %>% 
   kruskal.test(mean ~ height)
