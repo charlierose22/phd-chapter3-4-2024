@@ -37,7 +37,9 @@ for (target_antibiotic in target_antibiotics) {
     group_by(length, height) %>% 
     ggplot(aes(x = day, y = mean, fill = gene)) +
     geom_bar(position = "stack", stat = "identity") +
+    geom_errorbar(aes(ymin = mean - se, ymax = mean + se, color = gene), width = 0.2) +
     scale_fill_viridis(discrete = T) +
+    scale_color_viridis(discrete = T) +
     labs(x = "day", y = "abundance", fill = "gene") +
     facet_grid(length ~ height) +
     theme_ipsum(base_size = 10)
@@ -94,10 +96,6 @@ for (target_antibiotic in target_antibiotics) {
   ggsave(paste0("arg-analysis/figures/linegraph/time-error-linegraph-", 
                 target_antibiotic, ".png"), width = 6, height = 5)
 }
-
-write.csv(samples_16S_plot, 
-          "data/16S_abundance.csv", 
-          row.names = FALSE)
 
 # 16S ---------------------------------------------------------------------
 

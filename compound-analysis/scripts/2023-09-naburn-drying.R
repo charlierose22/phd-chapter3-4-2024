@@ -367,7 +367,9 @@ for (class in antibiotic_classes) {
     group_by(location, height) %>%
     ggplot(aes(x = day, y = mean, fill = name.x)) +
     geom_bar(position = "stack", stat = "identity") +
+    geom_errorbar(aes(ymin = mean - se, ymax = mean + se, colour = name.x), width = 0.2) +
     scale_fill_viridis(discrete = T) +
+    scale_color_viridis(discrete = T) +
     labs(x = "day", y = "intensity", fill = "compound") +
     facet_grid(location ~ height) +
     theme_ipsum(base_size = 10)
@@ -417,20 +419,12 @@ for (class in antibiotic_classes) {
   data4 <- time_study[time_study$class == class, ]
   
   # Create line graphs of the data.
-  ggplot(data4, aes(x = day,
-                    y = mean,
-                    colour = name.x)) +
-    geom_point() +
-    geom_errorbar(aes(
-      x = day,
-      ymin = mean - se,
-      ymax = mean + se
-    ),
-    width = .6) +
-    geom_line(aes(x = day,
-                  y = mean,
-                  colour =  name.x)) +
-    labs(x = "day", y = "intensity", colour = "compound") +
+  data4 %>% 
+  ggplot() +
+    geom_point(aes(x = day, y = mean, color = name.x)) +
+    geom_errorbar(aes(x = day, ymin = mean - se, ymax = mean + se), width = .2) +
+    geom_line(aes(x = day, y = mean, color =  name.x)) +
+    labs(x = "day", y = "intensity", color = "compound") +
     scale_color_viridis(discrete = TRUE) +
     theme_ipsum(base_size = 10)
   
@@ -588,3 +582,4 @@ ggsave(
   width = 7,
   height = 7
 )
+

@@ -367,6 +367,28 @@ write.csv(assay_samples_means, "arg-analysis/data/processed-data/annotated_delta
 write.csv(time_study, "arg-analysis/data/processed-data/annotated_time_study.csv")
 write.csv(location_study, "arg-analysis/data/processed-data/annotated_location_study.csv")
 
+# aov and tukey for location
+fit_location = aov(data = location_study,
+                  mean ~ height)
+tukey_location <- TukeyHSD(fit_location)
+TukeyHSD(fit_location)
+#Tukey test representation:
+plot(tukey_location, las = 1 , col = "blue")
+summary(fit_location)
+location_study %>% 
+  kruskal.test(mean ~ height)
+
+# aov and tukey for time
+fit_time = aov(data = time_study,
+                   mean ~ id)
+tukey_time <- TukeyHSD(fit_time)
+TukeyHSD(fit_time)
+#Tukey test representation:
+plot(tukey_time, las = 1 , col = "blue")
+summary(fit_time)
+time_study %>% 
+  kruskal.test(mean ~ id)
+# check id against day
 
 # 16S ---------------------------------------------------------------------
 
