@@ -1,3 +1,3 @@
-# Chapter (?) Drying Study
-R analysis of the data generated for the drying study chapter for my PhD. 
-## Characterisation of antimicrobial compounds and antimicrobial resistance genes over the 4-week minimum drying period for municipal wastewater-treated biosolid by-products.
+# PhD Chapter 3 Data Analysis
+R analysis of the data generated for Chapter 3 my PhD. 
+## Exploring Profiles of Antimicrobials and Antimicrobial Resistance During the Drying Process of Treated Biosolids.
