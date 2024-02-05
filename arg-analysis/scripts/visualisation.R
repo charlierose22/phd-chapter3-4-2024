@@ -4,6 +4,22 @@
 # Create a list of target antibiotics.
 target_antibiotics <- unique(assay_samples_means$target_antibiotics_major)
 
+# split based on target antibiotics for location 
+split_location <- split(location_study, location_study$target_antibiotics_major)
+loc_amino <- split_location$Aminoglycoside
+loc_beta <- split_location$`Beta Lactam`
+loc_int <- split_location$Integron
+loc_mdr <- split_location$MDR
+loc_mlsb <- split_location$MLSB
+loc_mge <- split_location$MGE
+loc_other <- split_location$Other
+loc_phen <- split_location$Phenicol
+loc_sulf <- split_location$Sulfonamide
+loc_tet <- split_location$Tetracycline
+loc_quin <- split_location$Quinolone
+loc_vanc <- split_location$Vancomycin
+loc_trim <- split_location$Trimethoprim
+
 # Create a loop for each target antibiotic.
 for (target_antibiotic in target_antibiotics) {
   
@@ -24,6 +40,19 @@ for (target_antibiotic in target_antibiotics) {
   ggsave(paste0("arg-analysis/figures/heatmaps/location-heatmap-", 
                 target_antibiotic, ".png"), width = 7, height = 7)
 }
+
+# beta-lactam Location
+loc_beta %>% 
+  group_by(length, height) %>% 
+  ggplot(aes(x = day, y = mean, fill = gene)) +
+  geom_bar(position = "stack", stat = "identity") +
+  geom_errorbar(aes(ymin = mean - se, ymax = mean + se), 
+                width = 2, position = "identity") +
+  scale_fill_viridis(discrete = T) +
+  scale_color_viridis(discrete = T) +
+  labs(x = "Day", y = "Abundance", fill = "Gene") +
+  facet_grid(length ~ height) +
+  theme_ipsum(base_size = 10)
 
 # Create a loop for each target antibiotic.
 for (target_antibiotic in target_antibiotics) {

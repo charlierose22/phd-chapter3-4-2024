@@ -327,8 +327,22 @@ nona_delta_ct <- delta_ct_long %>% drop_na()
 assays = nona_delta_ct %>% left_join(assayinformation, by = "assay")
 assay_samples = assays %>% left_join(samples, by = "id")
 
+# create separate data sets for location study and time series.
+location_study <- assay_samples[grepl('\\<1\\>|\\<29\\>', assay_samples$day), ]
+time_study <- assay_samples[grepl('bottom',assay_samples$height), ]
+
+# create csvs of annotated data
+write.csv(assay_samples, "arg-analysis/data/processed-data/annotated_delta_ct_means.csv")
+write.csv(time_study, "arg-analysis/data/processed-data/annotated_time_study.csv")
+write.csv(location_study, "arg-analysis/data/processed-data/annotated_location_study.csv")
+
+# change independent continuous variables to categorical factors for location study
+location_study$day <- cut(location_study$day, breaks = c(0, 2, 30), labels = c("1", "29"))
+time_study$day <- as.factor(time_study$day)
+
+# stats test for location and time
 # calculate means
-means <- assay_samples %>%
+means_loc <- location_study %>%
   group_by(pick(gene, day, height, target_antibiotics_major)) %>%
   summarise(
     mean = mean(delta_ct),
@@ -336,40 +350,56 @@ means <- assay_samples %>%
     n = length(delta_ct),
     se = std / sqrt(n)
   )
+means_time <- time_study %>%
+  group_by(pick(gene, day, target_antibiotics_major)) %>%
+  summarise(
+    mean = mean(delta_ct),
+    std = sd(delta_ct),
+    n = length(delta_ct),
+    se = std / sqrt(n)
+  )
 
-# create separate data sets for location study and time series.
-location_study <- assay_samples_means[grepl('\\<1\\>|\\<29\\>',
-                                            assay_samples_means$day), ]
-time_study <- assay_samples_means[grepl('bottom',
-                                        assay_samples_means$height), ]
-
-# create csvs of annotated data
-write.csv(means, "arg-analysis/data/processed-data/annotated_delta_ct_means.csv")
-write.csv(time_study, "arg-analysis/data/processed-data/annotated_time_study.csv")
-write.csv(location_study, "arg-analysis/data/processed-data/annotated_location_study.csv")
-
-# aov and tukey for location
-fit_location = aov(data = location_study,
-                  mean ~ height)
-tukey_location <- TukeyHSD(fit_location)
-TukeyHSD(fit_location)
-#Tukey test representation:
-plot(tukey_location, las = 1 , col = "blue")
-summary(fit_location)
+# checking assumptions
 location_study %>% 
-  kruskal.test(mean ~ height)
+  group_by(height) %>%
+  ggplot() +
+  geom_violin(aes(x = day, y = delta_ct, 
+                  fill = target_antibiotics_major, 
+                  color = target_antibiotics_major)) +
+  scale_y_log10() +
+  facet_grid(rows = vars(fct_rev(height))) +
+  labs(x = "day",
+       y = "relative abundance",
+       fill = "antibiotic class") +
+  guides(color = FALSE) +
+  theme_minimal()
 
-# aov and tukey for time
-fit_time = aov(data = time_study,
-                   mean ~ id)
-tukey_time <- TukeyHSD(fit_time)
-TukeyHSD(fit_time)
-#Tukey test representation:
-plot(tukey_time, las = 1 , col = "blue")
-summary(fit_time)
 time_study %>% 
-  kruskal.test(mean ~ id)
-# check id against day
+  ggplot() +
+  geom_violin(aes(x = day, y = delta_ct, 
+                  fill = target_antibiotics_major, 
+                  color = target_antibiotics_major)) +
+  scale_y_log10() +
+  labs(x = "day",
+       y = "relative abundance",
+       fill = "antibiotic class") +
+  guides(color = FALSE) +
+  theme_minimal()
+
+# create model
+mod_loc <- lm(data = location_study, delta_ct ~ height)
+summary(mod_loc)
+
+mod_time <- lm(data = time_study, delta_ct ~ day)
+summary(mod_time)
+
+# checking assumptions
+plot(mod_time, which = 1)
+# not normally distributed - kruskal wallis
+
+# kruskal-wallis h test
+kruskal.test(data = time_study, delta_ct ~ day)
+
 
 # 16S ---------------------------------------------------------------------
 
