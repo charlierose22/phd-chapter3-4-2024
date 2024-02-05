@@ -420,6 +420,7 @@ for (class in antibiotic_classes) {
   
   # Create line graphs of the data.
   data4 %>% 
+    group_by(class) %>%
   ggplot() +
     geom_point(aes(x = day, y = mean, color = name.x)) +
     geom_errorbar(aes(x = day, ymin = mean - se, ymax = mean + se), width = .2) +

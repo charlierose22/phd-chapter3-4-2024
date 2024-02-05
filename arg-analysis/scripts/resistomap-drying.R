@@ -323,9 +323,13 @@ delta_ct_long <- mutate(
 # remove nas
 nona_delta_ct <- delta_ct_long %>% drop_na()
 
+# left join for assay information and sample information
+assays = nona_delta_ct %>% left_join(assayinformation, by = "assay")
+assay_samples = assays %>% left_join(samples, by = "id")
+
 # calculate means
-means <- nona_delta_ct %>%
-  group_by(pick(id, assay)) %>%
+means <- assay_samples %>%
+  group_by(pick(gene, day, height, target_antibiotics_major)) %>%
   summarise(
     mean = mean(delta_ct),
     std = sd(delta_ct),
@@ -333,37 +337,14 @@ means <- nona_delta_ct %>%
     se = std / sqrt(n)
   )
 
-# left join for assay information and sample information
-assay_means = means %>% left_join(assayinformation, by = "assay")
-assay_samples_means = assay_means %>% left_join(samples, by = "id")
-
-# Rearrange columns.
-assay_samples_means <- subset(
-  assay_samples_means,
-  select = c(
-    assay,
-    gene,
-    target_antibiotics_major,
-    id,
-    day,
-    height,
-    length,
-    mean,
-    std,
-    n,
-    se
-  )
-)
-
 # create separate data sets for location study and time series.
 location_study <- assay_samples_means[grepl('\\<1\\>|\\<29\\>',
                                             assay_samples_means$day), ]
 time_study <- assay_samples_means[grepl('bottom',
                                         assay_samples_means$height), ]
-time_study <- time_study[grepl('half', time_study$length), ]
 
 # create csvs of annotated data
-write.csv(assay_samples_means, "arg-analysis/data/processed-data/annotated_delta_ct_means.csv")
+write.csv(means, "arg-analysis/data/processed-data/annotated_delta_ct_means.csv")
 write.csv(time_study, "arg-analysis/data/processed-data/annotated_time_study.csv")
 write.csv(location_study, "arg-analysis/data/processed-data/annotated_location_study.csv")
 
