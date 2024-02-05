@@ -1,4 +1,3 @@
-
 # LOAD TIDYVERSE AND CHECK PACKAGE UPDATES
 library(tidyverse)
 library(fuzzyjoin)
@@ -130,14 +129,14 @@ sample_info <-
   readr::read_csv("compound-analysis/data/sample-information/2023-09-naburn-drying-samples.csv")
 sample_included <- soloremoved %>% left_join(sample_info,
                                              by = "sample_location")
-sample_included$sample_name <- paste(sample_included$day,
-                                     sample_included$height,
-                                     sample_included$length,
-                                     sep = "-")
-sample_included <- select(sample_included,
-                          -day,
-                          -height,
-                          -length)
+#sample_included$sample_name <- paste(sample_included$day,
+#                                     sample_included$height,
+#                                     sample_included$length,
+#                                     sep = "-")
+#sample_included <- select(sample_included,
+#                          -day,
+#                          -height,
+#                          -length)
 
 #----
 # SPLIT RESULTS BASED ON MASS LIST VS MZCLOUD
@@ -176,56 +175,22 @@ pharmaceuticals <- splitmasslist$"kps_pharmaceuticals"
 
 # wide view for samples and fully annotated view
 antibiotics_means <- antibiotics %>%
-  group_by(pick(peak_number, sample_name)) %>%
+  group_by(pick(name, day, height)) %>%
   summarise(
     mean = mean(group_area),
     std = sd(group_area),
     n = length(group_area),
     se = std / sqrt(n)
   )
-antibiotics_info <- select(
-  antibiotics,
-  -replicate,
-  -sample,
-  -peak_rating,
-  -group_area,
-  -sample_location,
-  -sample_name
-)
-antibiotics_info <- unique(antibiotics_info)
-antibiotics_annotated <-
-  antibiotics_means %>% left_join(antibiotics_info,
-                                  by = "peak_number")
-antibiotics_annotated <- select(
-  antibiotics_annotated,
-  peak_number,
-  name,
-  formula,
-  calc_mw,
-  m_z,
-  sample_name,
-  mean,
-  std,
-  n,
-  se
-)
-# to see wide
-antibiotics_wide <- antibiotics_annotated %>%
-  group_by(name) %>%
-  pivot_wider(names_from = sample_name, values_from = mean)
-
-# split by day, height, location
-day_location <- antibiotics_annotated %>%
-  separate(sample_name, c("day", "height", "location"), sep = "-")
 
 # clean compound names in antibiotics dataset.
-day_location$name <- day_location$name %>%
+antibiotics_means$name <- antibiotics_means$name %>%
   fedmatch::clean_strings()
 
 # add antibiotic classes for common antibiotics
 class_info <-
   read.csv("compound-analysis/data/antimicrobial_classes.csv")
-location_classes <- day_location %>%
+location_classes <- antibiotics_means %>%
   fuzzy_left_join(class_info,
                   by = c("name" = "name"),
                   match_fun = str_detect)
@@ -325,7 +290,6 @@ location_study <-
   location_classes[grepl('01|29', location_classes$day),]
 time_study <-
   location_classes[grepl('bottom', location_classes$height),]
-time_study <- time_study[grepl('half', time_study$location),]
 
 # location study plots
 # Create a list of target antibiotics.
@@ -584,3 +548,54 @@ ggsave(
   height = 7
 )
 
+# Individual Plots
+# split based on target antibiotics for location 
+split_location <- split(location_study, location_study$class)
+loc_amino <- split_location$aminoglycoside
+loc_fung <- split_location$antifungal
+loc_beta <- split_location$'beta-lactam'
+loc_mlsb <- split_location$mlsb
+loc_other <- split_location$other
+loc_poly <- split_location$polyketide
+loc_quin <- split_location$quinolone
+loc_sulf <- split_location$sulfonamide
+loc_trim <- split_location$trimethoprim
+
+# split based on target antibiotics for time 
+split_time <- split(time_study, time_study$class)
+time_amino <- split_time$aminoglycoside
+time_fung <- split_time$antifungal
+time_beta <- split_time$'beta-lactam'
+time_mlsb <- split_time$mlsb
+time_other <- split_time$other
+time_poly <- split_time$polyketide
+time_quin <- split_time$quinolone
+time_sulf <- split_time$sulfonamide
+time_trim <- split_time$trimethoprim
+
+# beta-lactam Location
+library(wesanderson)
+loc_beta %>%
+  ggplot(aes(x = height, y = mean, fill = day)) +
+  geom_col(width = 0.6, position = position_dodge(width = 0.6)) +
+  geom_errorbar(aes(ymin = mean - se, ymax = mean + se), 
+                width = 0.2,
+                position = position_dodge(width = 0.6)) +
+  labs(x = "height", y = "intensity", fill = "day") +
+  facet_wrap(~name.x, scales = "free") +
+  scale_fill_manual(values = wes_palette("GrandBudapest2", n = 2)) +
+  theme_ipsum(base_size = 12)
+
+library(RColorBrewer)
+time_beta$day = as.numeric(time_beta$day)
+time_beta %>%
+  ggplot(aes(x = day, y = mean)) +
+  geom_point(aes(color = name.x)) +
+  geom_errorbar(aes(x = day,
+                    ymin = mean - se,
+                    ymax = mean + se),
+                width = .6) +
+  geom_line(aes(color =  name.x)) +
+  labs(x = "day", y = "intensity", color = "compound") +
+  scale_color_manual(values = brewer.pal("Set3", n = 10)) +
+  theme_ipsum(base_size = 12)

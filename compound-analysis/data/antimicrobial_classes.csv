@@ -1,9 +1,13 @@
 name,class
+acetomycin,polyketide
 albendazole,antihelmintic
+amicycline,tetracycline
 amikacin,aminoglycoside
 amorolfine,antifungal
 amphotericin,antifungal
 andidulafungin,antifungal
+anthracimycin,polyketide
+arbekacin,aminoglycoside
 arsphenamine,other
 atovaquone,antiprotozoal
 azithromycin,mlsb
@@ -12,6 +16,7 @@ bacitracin,other
 capreomycin,other
 caspofungin,antifungal
 cef,beta-lactam
+cefiderocol,beta-lactam
 ceph,beta-lactam
 chloramphenicol,other
 chlorhexidine,aminoglycoside
@@ -41,6 +46,7 @@ erythromycin,mlsb
 ethambutol,tuberculosis
 ethionamide,other
 fidaxomicin,other
+fleroxacin,quinolone
 floxacin,quinolone
 fluconazole,antifungal
 flucytosine,antifungal
@@ -53,6 +59,7 @@ gemifloxacin,quinolone
 gentamicin,aminoglycoside
 grepafloxacin,quinolone
 griseofulvin,antifungal
+guamecycline,tetracycline
 halicin,other
 imipenem,beta-lactam
 isavuconazole,antifungal
@@ -61,6 +68,7 @@ itraconazole,antifungal
 ivermectin,antihelmintic
 kanamycin,aminoglycoside
 ketoconazole,antifungal
+lefamulin,other
 levamisole,antihelmintic
 levofloxacin,quinolone
 lincomycin,mlsb
@@ -69,6 +77,7 @@ loracarbef,beta-lactam
 lymecycline,tetracycline
 mafenide,sulfonamide
 malacidin,other
+marbofloxacin,quinolone
 mebendazole,antihelmintic
 mepacrine,antiprotozoal
 metacycline,tetracycline
@@ -77,6 +86,7 @@ metronidazole,anaerobic
 micafungin,antifungal
 miconazole,antifungal
 minocycline,tetracycline
+monensin,polyketide
 moxalactam,beta-lactam
 moxifloxacin,quinolone
 mupirocin,other
@@ -88,11 +98,13 @@ nitrofurantoin,other
 norfloxacin,quinolone
 nystatin,antifungal
 ofloxacin,quinolone
+omadacycline,tetracycline
 oritavancin,glycopeptide
 paromomycin,aminoglycoside
 penem,beta-lactam
 pentamidine,antiprotozoal
 platensimycin,other
+plazomicin,aminoglycoside
 polymyxin,other
 posaconazole,antifungal
 praziquantel,antihelmintic
@@ -126,10 +138,3 @@ trovafloxacin,quinolone
 vancomycin,vancomycin
 voriconazole,antifungal
 zolid,other
-acetomycin,polyketide
-anthracimycin,polyketide
-monensin,polyketide
-plazomicin,aminoglycoside
-omadacycline,tetracycline
-cefiderocol,beta-lactam
-lefamulin,other

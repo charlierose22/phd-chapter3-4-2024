@@ -2,10 +2,10 @@
 # LOCATION ----------------------------------------------------------------
 
 # Create a list of target antibiotics.
-target_antibiotics <- unique(assay_samples_means$target_antibiotics_major)
+target_antibiotics <- unique(assay_samples$target_antibiotics_major)
 
 # split based on target antibiotics for location 
-split_location <- split(location_study, location_study$target_antibiotics_major)
+split_location <- split(means_loc, means_loc$target_antibiotics_major)
 loc_amino <- split_location$Aminoglycoside
 loc_beta <- split_location$`Beta Lactam`
 loc_int <- split_location$Integron
@@ -19,6 +19,22 @@ loc_tet <- split_location$Tetracycline
 loc_quin <- split_location$Quinolone
 loc_vanc <- split_location$Vancomycin
 loc_trim <- split_location$Trimethoprim
+
+# split based on target antibiotics for time 
+split_time <- split(means_time, means_time$target_antibiotics_major)
+time_amino <- split_time$Aminoglycoside
+time_beta <- split_time$`Beta Lactam`
+time_int <- split_time$Integron
+time_mdr <- split_time$MDR
+time_mlsb <- split_time$MLSB
+time_mge <- split_time$MGE
+time_other <- split_time$Other
+time_phen <- split_time$Phenicol
+time_sulf <- split_time$Sulfonamide
+time_tet <- split_time$Tetracycline
+time_quin <- split_time$Quinolone
+time_vanc <- split_time$Vancomycin
+time_trim <- split_time$Trimethoprim
 
 # Create a loop for each target antibiotic.
 for (target_antibiotic in target_antibiotics) {
@@ -40,19 +56,6 @@ for (target_antibiotic in target_antibiotics) {
   ggsave(paste0("arg-analysis/figures/heatmaps/location-heatmap-", 
                 target_antibiotic, ".png"), width = 7, height = 7)
 }
-
-# beta-lactam Location
-loc_beta %>% 
-  group_by(length, height) %>% 
-  ggplot(aes(x = day, y = mean, fill = gene)) +
-  geom_bar(position = "stack", stat = "identity") +
-  geom_errorbar(aes(ymin = mean - se, ymax = mean + se), 
-                width = 2, position = "identity") +
-  scale_fill_viridis(discrete = T) +
-  scale_color_viridis(discrete = T) +
-  labs(x = "Day", y = "Abundance", fill = "Gene") +
-  facet_grid(length ~ height) +
-  theme_ipsum(base_size = 10)
 
 # Create a loop for each target antibiotic.
 for (target_antibiotic in target_antibiotics) {
@@ -140,3 +143,58 @@ ggplot(means_16S, aes(x = day, y = mean, fill = height)) +
   scale_color_viridis(discrete = F) +
   theme_ipsum(base_size = 10)
 ggsave(paste0("arg-analysis/figures/16S-november.png"), width = 8, height = 5)
+
+
+# INDIVIDUAL --------------------------------------------------------------
+library(wesanderson)
+# aminoglycoside Location
+loc_amino %>%
+  ggplot(aes(x = height, y = mean, fill = day)) +
+  geom_col(width = 0.6, position = position_dodge(width = 0.6)) +
+  geom_errorbar(aes(ymin = mean - se, ymax = mean + se), 
+                width = 0.2,
+                position = position_dodge(width = 0.6)) +
+  scale_fill_viridis(discrete = T) +
+  labs(x = "height", y = "relative abundance", fill = "day") +
+  facet_wrap(~gene, scales = "free") +
+  theme_ipsum(base_size = 10)
+
+# beta-lactam Location
+loc_beta %>%
+  ggplot(aes(x = height, y = mean, fill = day)) +
+  geom_col(width = 0.6, position = position_dodge(width = 0.6)) +
+  geom_errorbar(aes(ymin = mean - se, ymax = mean + se), 
+                width = 0.2,
+                position = position_dodge(width = 0.6)) +
+  labs(x = "height", y = "relative abundance", fill = "day") +
+  facet_wrap(~gene, scales = "free") +
+  scale_fill_manual(values = wes_palette("GrandBudapest2", n = 2)) +
+  theme_ipsum(base_size = 12)
+
+loc_amino
+loc_int
+loc_mdr
+loc_mlsb
+loc_mge
+loc_other
+loc_phen
+loc_sulf
+loc_tet
+loc_quin
+loc_vanc
+loc_trim
+
+library(RColorBrewer)
+
+time_beta %>%
+  ggplot(aes(x = day, y = mean)) +
+  geom_point(aes(color = gene)) +
+  geom_errorbar(aes(x = day,
+                    ymin = mean - se,
+                    ymax = mean + se),
+                width = .6) +
+  geom_line(aes(color =  gene)) +
+  labs(x = "day", y = "abundance", color = "gene") +
+  ylim(0, 0.00015) +
+  scale_color_manual(values = brewer.pal("Set3", n = 10)) +
+  theme_ipsum(base_size = 12)

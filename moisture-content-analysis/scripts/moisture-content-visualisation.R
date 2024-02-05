@@ -1,5 +1,5 @@
 library(tidyverse)
-library(viridis)
+library(wesanderson)
 library(hrbrthemes)
 
 # import moisture data from folder
@@ -8,7 +8,7 @@ moisture_data <- readxl::read_excel("moisture-content-analysis/data/raw-data/Moi
   janitor::clean_names()
 
 grouped <- moisture_data %>% 
-  group_by(date, pile_height, pile_length)
+  group_by(date, pile_height)
 
 # add days instead of dates
 moisture_data$day = NA
@@ -32,9 +32,9 @@ moisture_renamed <- mutate(moisture_number,
                               str_detect(pile_length, "Half") ~ "half"))
 
 moisture_renamed <- mutate(moisture_renamed, pile_height = case_when(
-                             str_detect(pile_height, "Bottom") ~ "b",
-                             str_detect(pile_height, "Middle") ~ "m",
-                             str_detect(pile_height, "Top") ~ "t"))
+                             str_detect(pile_height, "Bottom") ~ "bottom",
+                             str_detect(pile_height, "Middle") ~ "middle",
+                             str_detect(pile_height, "Top") ~ "top"))
 
 moisture_stats <- moisture_renamed %>% 
   group_by(day, pile_height) %>% 
@@ -59,8 +59,7 @@ moisture_stats %>%
 ggplot() +
   geom_point(aes(x = day,
                  y = mean,
-                 colour = pile_height,
-                 size = 5)) +
+                 colour = pile_height)) +
   geom_line(aes(x = day,
                 y = mean,
                 colour = pile_height)) +
@@ -73,6 +72,5 @@ ggplot() +
   labs(x = "day",
        y = "% moisture content",
        colour = "height") +
-  scale_size(guide = 'none') +
-  scale_color_viridis(discrete = T) +
+  scale_color_manual(values = wes_palette("Darjeeling1", n = 3)) +
   theme_ipsum(base_size = 12)

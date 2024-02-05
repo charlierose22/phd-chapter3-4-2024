@@ -9,6 +9,7 @@ library(plyr)
 library(tidyverse)
 library(viridis)
 library(hrbrthemes)
+library(tidymodels)
 
 # IMPORT ------------------------------------------------------------------
 # import raw data
@@ -236,9 +237,6 @@ mutated_id <- mutate(
   )
 )
 
-# log all ct values
-# mutated_id$ct <- log(mutated_id$ct)
-
 # pivot the table, so assay is across the top
 mutated_wide <- mutated_id %>%
   pivot_wider(names_from = assay, values_from = ct)
@@ -336,9 +334,14 @@ write.csv(assay_samples, "arg-analysis/data/processed-data/annotated_delta_ct_me
 write.csv(time_study, "arg-analysis/data/processed-data/annotated_time_study.csv")
 write.csv(location_study, "arg-analysis/data/processed-data/annotated_location_study.csv")
 
+
+# STATISTICS --------------------------------------------------------------
+
 # change independent continuous variables to categorical factors for location study
-location_study$day <- cut(location_study$day, breaks = c(0, 2, 30), labels = c("1", "29"))
-time_study$day <- as.factor(time_study$day)
+location_study <- location_study %>%
+  mutate_at(vars(gene:length), as.factor)
+time_study <- time_study %>%
+  mutate_at(vars(height:length), as.factor)
 
 # stats test for location and time
 # calculate means
@@ -386,11 +389,19 @@ time_study %>%
   guides(color = FALSE) +
   theme_minimal()
 
-# create model
-mod_loc <- lm(data = location_study, delta_ct ~ height)
+# create models
+mod_loc <- location_study %>%
+  nest(data = -target_antibiotics_major) %>%
+  mutate(model = map(data, ~lm(delta_ct ~ height, data = .)), 
+         tidied = map(model, tidy)) %>%
+  unnest(tidied)
 summary(mod_loc)
 
-mod_time <- lm(data = time_study, delta_ct ~ day)
+mod_time <- time_study %>%
+  nest(data = -target_antibiotics_major) %>%
+  mutate(model = map(data, ~lm(delta_ct ~ day, data = .)), 
+         tidied = map(model, tidy)) %>%
+  unnest(tidied)
 summary(mod_time)
 
 # checking assumptions
@@ -399,7 +410,10 @@ plot(mod_time, which = 1)
 
 # kruskal-wallis h test
 kruskal.test(data = time_study, delta_ct ~ day)
+# not significant
 
+# checking assumptions
+plot(mod_loc, which = 1)
 
 # 16S ---------------------------------------------------------------------
 
