@@ -147,6 +147,7 @@ ggsave(paste0("arg-analysis/figures/16S-november.png"), width = 8, height = 5)
 
 # INDIVIDUAL --------------------------------------------------------------
 library(wesanderson)
+library(RColorBrewer)
 # aminoglycoside Location
 loc_amino %>%
   ggplot(aes(x = height, y = mean, fill = day)) +
@@ -168,7 +169,7 @@ loc_beta %>%
                 position = position_dodge(width = 0.6)) +
   labs(x = "height", y = "relative abundance", fill = "day") +
   facet_wrap(~gene, scales = "free") +
-  scale_fill_manual(values = wes_palette("GrandBudapest2", n = 2)) +
+  scale_fill_manual(values = brewer.pal("Dark2", n = 2)) +
   theme_ipsum(base_size = 12)
 
 loc_amino
@@ -196,5 +197,5 @@ time_beta %>%
   geom_line(aes(color =  gene)) +
   labs(x = "day", y = "abundance", color = "gene") +
   ylim(0, 0.00015) +
-  scale_color_manual(values = brewer.pal("Set3", n = 10)) +
+  scale_color_manual(values = brewer.pal("Dark2", n = 10)) +
   theme_ipsum(base_size = 12)

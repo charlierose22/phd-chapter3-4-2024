@@ -574,7 +574,7 @@ time_sulf <- split_time$sulfonamide
 time_trim <- split_time$trimethoprim
 
 # beta-lactam Location
-library(wesanderson)
+library(RColorBrewer)
 loc_beta %>%
   ggplot(aes(x = height, y = mean, fill = day)) +
   geom_col(width = 0.6, position = position_dodge(width = 0.6)) +
@@ -583,10 +583,9 @@ loc_beta %>%
                 position = position_dodge(width = 0.6)) +
   labs(x = "height", y = "intensity", fill = "day") +
   facet_wrap(~name.x, scales = "free") +
-  scale_fill_manual(values = wes_palette("GrandBudapest2", n = 2)) +
+  scale_fill_manual(values = brewer.pal("Dark2", n = 2)) +
   theme_ipsum(base_size = 12)
 
-library(RColorBrewer)
 time_beta$day = as.numeric(time_beta$day)
 time_beta %>%
   ggplot(aes(x = day, y = mean)) +
@@ -594,8 +593,9 @@ time_beta %>%
   geom_errorbar(aes(x = day,
                     ymin = mean - se,
                     ymax = mean + se),
-                width = .6) +
+                width = 1) +
   geom_line(aes(color =  name.x)) +
   labs(x = "day", y = "intensity", color = "compound") +
-  scale_color_manual(values = brewer.pal("Set3", n = 10)) +
-  theme_ipsum(base_size = 12)
+  scale_color_manual(values = brewer.pal("Dark2", n = 7)) +
+  theme_ipsum()
+

@@ -1,15 +1,13 @@
 # AIMS AND DESCRIPTION
-
+library(plyr)
 
 # SETUP -------------------------------------------------------------------
 # load necessary packages and source function script
 if (!exists("flag", mode = "function"))
   source("arg-analysis/scripts/functions.R")
-library(plyr)
 library(tidyverse)
 library(viridis)
 library(hrbrthemes)
-library(tidymodels)
 
 # IMPORT ------------------------------------------------------------------
 # import raw data
@@ -388,6 +386,8 @@ time_study %>%
        fill = "antibiotic class") +
   guides(color = FALSE) +
   theme_minimal()
+
+library(tidymodels)
 
 # create models
 mod_loc <- location_study %>%
