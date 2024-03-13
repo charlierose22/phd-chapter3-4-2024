@@ -1,6 +1,5 @@
 library(tidyverse)
-library(wesanderson)
-library(hrbrthemes)
+library(RColorBrewer)
 
 # import moisture data from folder
 moisture_data <- readxl::read_excel("moisture-content-analysis/data/raw-data/Moisture Content Analysis.xlsx",
@@ -47,7 +46,7 @@ fit = aov(data = moisture_stats,
 tukey <- TukeyHSD(fit)
 
 #Tukey test representation:
-plot(tukey, las = 1 , col = "blue")
+plot(tukey, las = 1 , col = "forestgreen")
 
 summary(fit)
 
@@ -66,11 +65,14 @@ ggplot() +
   geom_errorbar(aes(x = day,
                     y = mean,
                     ymin = mean - sd, 
-                    ymax = mean + sd), 
+                    ymax = mean + sd,
+                    colour = pile_height), 
                 width = 1) +
   scale_y_continuous(labels = function(x) paste0(x*100, "%")) +
   labs(x = "day",
        y = "% moisture content",
        colour = "height") +
-  scale_color_manual(values = wes_palette("Darjeeling1", n = 3)) +
-  theme_ipsum(base_size = 12)
+  scale_color_manual(values = brewer.pal("Dark2", n = 4)) +
+  theme_minimal(base_size = 12)
+
+RColorBrewer::display.brewer.all()

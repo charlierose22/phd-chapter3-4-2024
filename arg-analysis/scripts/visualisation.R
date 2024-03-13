@@ -155,10 +155,10 @@ loc_amino %>%
   geom_errorbar(aes(ymin = mean - se, ymax = mean + se), 
                 width = 0.2,
                 position = position_dodge(width = 0.6)) +
-  scale_fill_viridis(discrete = T) +
+  scale_fill_manual(values = brewer.pal("Dark2", n = 3)) +
   labs(x = "height", y = "relative abundance", fill = "day") +
   facet_wrap(~gene, scales = "free") +
-  theme_ipsum(base_size = 10)
+  theme_minimal(base_size = 12)
 
 # beta-lactam Location
 loc_beta %>%
@@ -169,33 +169,347 @@ loc_beta %>%
                 position = position_dodge(width = 0.6)) +
   labs(x = "height", y = "relative abundance", fill = "day") +
   facet_wrap(~gene, scales = "free") +
-  scale_fill_manual(values = brewer.pal("Dark2", n = 2)) +
-  theme_ipsum(base_size = 12)
+  scale_fill_manual(values = brewer.pal("Dark2", n = 3)) +
+  theme_minimal(base_size = 12)
 
-loc_amino
-loc_int
-loc_mdr
-loc_mlsb
-loc_mge
-loc_other
-loc_phen
-loc_sulf
-loc_tet
-loc_quin
-loc_vanc
-loc_trim
+loc_int %>% 
+  ggplot(aes(x = height, y = mean, fill = day)) +
+  geom_col(width = 0.6, position = position_dodge(width = 0.6)) +
+  geom_errorbar(aes(ymin = mean - se, ymax = mean + se), 
+                width = 0.2,
+                position = position_dodge(width = 0.6)) +
+  scale_fill_manual(values = brewer.pal("Dark2", n = 3)) +
+  labs(x = "height", y = "relative abundance", fill = "day") +
+  facet_wrap(~gene, scales = "free") +
+  theme_minimal(base_size = 12)
+
+loc_mdr %>% 
+  ggplot(aes(x = height, y = mean, fill = day)) +
+  geom_col(width = 0.6, position = position_dodge(width = 0.6)) +
+  geom_errorbar(aes(ymin = mean - se, ymax = mean + se), 
+                width = 0.2,
+                position = position_dodge(width = 0.6)) +
+  scale_fill_manual(values = brewer.pal("Dark2", n = 3)) +
+  labs(x = "height", y = "relative abundance", fill = "day") +
+  facet_wrap(~gene, scales = "free") +
+  theme_minimal(base_size = 12)
+
+loc_mlsb %>% 
+  ggplot(aes(x = height, y = mean, fill = day)) +
+  geom_col(width = 0.6, position = position_dodge(width = 0.6)) +
+  geom_errorbar(aes(ymin = mean - se, ymax = mean + se), 
+                width = 0.2,
+                position = position_dodge(width = 0.6)) +
+  scale_fill_manual(values = brewer.pal("Dark2", n = 3)) +
+  labs(x = "height", y = "relative abundance", fill = "day") +
+  facet_wrap(~gene, scales = "free") +
+  theme_minimal(base_size = 12)
+
+loc_mge %>% 
+  ggplot(aes(x = height, y = mean, fill = day)) +
+  geom_col(width = 0.6, position = position_dodge(width = 0.6)) +
+  geom_errorbar(aes(ymin = mean - se, ymax = mean + se), 
+                width = 0.2,
+                position = position_dodge(width = 0.6)) +
+  scale_fill_manual(values = brewer.pal("Dark2", n = 3)) +
+  labs(x = "height", y = "relative abundance", fill = "day") +
+  facet_wrap(~gene, scales = "free") +
+  theme_minimal(base_size = 12)
+
+loc_other %>% 
+  ggplot(aes(x = height, y = mean, fill = day)) +
+  geom_col(width = 0.6, position = position_dodge(width = 0.6)) +
+  geom_errorbar(aes(ymin = mean - se, ymax = mean + se), 
+                width = 0.2,
+                position = position_dodge(width = 0.6)) +
+  scale_fill_manual(values = brewer.pal("Dark2", n = 3)) +
+  labs(x = "height", y = "relative abundance", fill = "day") +
+  facet_wrap(~gene, scales = "free") +
+  theme_minimal(base_size = 12)
+
+loc_phen %>% 
+  ggplot(aes(x = height, y = mean, fill = day)) +
+  geom_col(width = 0.6, position = position_dodge(width = 0.6)) +
+  geom_errorbar(aes(ymin = mean - se, ymax = mean + se), 
+                width = 0.2,
+                position = position_dodge(width = 0.6)) +
+  scale_fill_manual(values = brewer.pal("Dark2", n = 3)) +
+  labs(x = "height", y = "relative abundance", fill = "day") +
+  facet_wrap(~gene, scales = "free") +
+  theme_minimal(base_size = 12)
+
+loc_sulf %>% 
+  ggplot(aes(x = height, y = mean, fill = day)) +
+  geom_col(width = 0.6, position = position_dodge(width = 0.6)) +
+  geom_errorbar(aes(ymin = mean - se, ymax = mean + se), 
+                width = 0.2,
+                position = position_dodge(width = 0.6)) +
+  scale_fill_manual(values = brewer.pal("Dark2", n = 3)) +
+  labs(x = "height", y = "relative abundance", fill = "day") +
+  facet_wrap(~gene, scales = "free") +
+  theme_minimal(base_size = 12)
+
+loc_tet %>% 
+  ggplot(aes(x = height, y = mean, fill = day)) +
+  geom_col(width = 0.6, position = position_dodge(width = 0.6)) +
+  geom_errorbar(aes(ymin = mean - se, ymax = mean + se), 
+                width = 0.2,
+                position = position_dodge(width = 0.6)) +
+  scale_fill_manual(values = brewer.pal("Dark2", n = 3)) +
+  labs(x = "height", y = "relative abundance", fill = "day") +
+  facet_wrap(~gene, scales = "free") +
+  theme_minimal(base_size = 12)
+
+loc_quin %>% 
+  ggplot(aes(x = height, y = mean, fill = day)) +
+  geom_col(width = 0.6, position = position_dodge(width = 0.6)) +
+  geom_errorbar(aes(ymin = mean - se, ymax = mean + se), 
+                width = 0.2,
+                position = position_dodge(width = 0.6)) +
+  scale_fill_manual(values = brewer.pal("Dark2", n = 3)) +
+  labs(x = "height", y = "relative abundance", fill = "day") +
+  facet_wrap(~gene, scales = "free") +
+  theme_minimal(base_size = 12)
+
+loc_vanc %>% 
+  ggplot(aes(x = height, y = mean, fill = day)) +
+  geom_col(width = 0.6, position = position_dodge(width = 0.6)) +
+  geom_errorbar(aes(ymin = mean - se, ymax = mean + se), 
+                width = 0.2,
+                position = position_dodge(width = 0.6)) +
+  scale_fill_manual(values = brewer.pal("Dark2", n = 3)) +
+  labs(x = "height", y = "relative abundance", fill = "day") +
+  facet_wrap(~gene, scales = "free") +
+  theme_minimal(base_size = 12)
+
+loc_trim %>% 
+  ggplot(aes(x = height, y = mean, fill = day)) +
+  geom_col(width = 0.6, position = position_dodge(width = 0.6)) +
+  geom_errorbar(aes(ymin = mean - se, ymax = mean + se), 
+                width = 0.2,
+                position = position_dodge(width = 0.6)) +
+  scale_fill_manual(values = brewer.pal("Dark2", n = 3)) +
+  labs(x = "height", y = "relative abundance", fill = "day") +
+  facet_wrap(~gene, scales = "free") +
+  theme_minimal(base_size = 12)
+
 
 library(RColorBrewer)
-
+darkpalette <- c("mediumblue", 
+                 "darkred", 
+                 "darkorange4", 
+                 "orange", 
+                 "darkgreen", 
+                 "green", 
+                 "darkmagenta", 
+                 "hotpink", 
+                 "darkturquoise", 
+                 "tomato")
+# with cpha
 time_beta %>%
   ggplot(aes(x = day, y = mean)) +
   geom_point(aes(color = gene)) +
   geom_errorbar(aes(x = day,
                     ymin = mean - se,
-                    ymax = mean + se),
+                    ymax = mean + se,
+                    color = gene),
                 width = .6) +
   geom_line(aes(color =  gene)) +
-  labs(x = "day", y = "abundance", color = "gene") +
+  labs(x = "day", y = "relative abundance", color = "gene") +
+  scale_color_manual(values = darkpalette) +
+  theme_minimal(base_size = 12)
+# zoomed in on bottom for no cpha
+time_beta %>%
+  ggplot(aes(x = day, y = mean)) +
+  geom_point(aes(color = gene)) +
+  geom_errorbar(aes(x = day,
+                    ymin = mean - se,
+                    ymax = mean + se,
+                    color = gene),
+                width = .6) +
+  geom_line(aes(color =  gene)) +
+  labs(x = "day", y = "relative abundance", color = "gene") +
   ylim(0, 0.00015) +
-  scale_color_manual(values = brewer.pal("Dark2", n = 10)) +
-  theme_ipsum(base_size = 12)
+  scale_color_manual(values = darkpalette) +
+  theme_minimal(base_size = 12)
+
+time_amino %>% 
+  ggplot(aes(x = day, y = mean)) +
+  geom_point(aes(color = gene)) +
+  geom_errorbar(aes(x = day,
+                    ymin = mean - se,
+                    ymax = mean + se,
+                    color = gene),
+                width = .6) +
+  geom_line(aes(color =  gene)) +
+  labs(x = "day", y = "relative abundance", color = "gene") +
+  scale_color_manual(values = darkpalette) +
+  theme_minimal(base_size = 12)
+
+time_int %>%
+  ggplot(aes(x = day, y = mean)) +
+  geom_point(aes(color = gene)) +
+  geom_errorbar(aes(x = day,
+                    ymin = mean - se,
+                    ymax = mean + se,
+                    color = gene),
+                width = .6) +
+  geom_line(aes(color =  gene)) +
+  labs(x = "day", y = "relative abundance", color = "gene") +
+  scale_color_manual(values = darkpalette) +
+  theme_minimal(base_size = 12)
+
+time_mdr %>%
+  ggplot(aes(x = day, y = mean)) +
+  geom_point(aes(color = gene)) +
+  geom_errorbar(aes(x = day,
+                    ymin = mean - se,
+                    ymax = mean + se,
+                    color = gene),
+                width = .6) +
+  geom_line(aes(color =  gene)) +
+  labs(x = "day", y = "relative abundance", color = "gene") +
+  scale_color_manual(values = darkpalette) +
+  theme_minimal(base_size = 12)
+
+time_mlsb %>%
+  ggplot(aes(x = day, y = mean)) +
+  geom_point(aes(color = gene)) +
+  geom_errorbar(aes(x = day,
+                    ymin = mean - se,
+                    ymax = mean + se,
+                    color = gene),
+                width = .6) +
+  geom_line(aes(color =  gene)) +
+  labs(x = "day", y = "relative abundance", color = "gene") +
+  scale_color_manual(values = darkpalette) +
+  theme_minimal(base_size = 12)
+
+time_mge %>%
+  ggplot(aes(x = day, y = mean)) +
+  geom_point(aes(color = gene)) +
+  geom_errorbar(aes(x = day,
+                    ymin = mean - se,
+                    ymax = mean + se,
+                    color = gene),
+                width = .6) +
+  geom_line(aes(color =  gene)) +
+  labs(x = "day", y = "relative abundance", color = "gene") +
+  scale_color_manual(values = darkpalette) +
+  theme_minimal(base_size = 12)
+
+time_other %>%
+  ggplot(aes(x = day, y = mean)) +
+  geom_point(aes(color = gene)) +
+  geom_errorbar(aes(x = day,
+                    ymin = mean - se,
+                    ymax = mean + se,
+                    color = gene),
+                width = .6) +
+  geom_line(aes(color =  gene)) +
+  labs(x = "day", y = "relative abundance", color = "gene") +
+  scale_color_manual(values = darkpalette) +
+  theme_minimal(base_size = 12)
+
+time_phen %>%
+  ggplot(aes(x = day, y = mean)) +
+  geom_point(aes(color = gene)) +
+  geom_errorbar(aes(x = day,
+                    ymin = mean - se,
+                    ymax = mean + se,
+                    color = gene),
+                width = .6) +
+  geom_line(aes(color =  gene)) +
+  labs(x = "day", y = "relative abundance", color = "gene") +
+  scale_color_manual(values = darkpalette) +
+  theme_minimal(base_size = 12)
+
+time_sulf %>%
+  ggplot(aes(x = day, y = mean)) +
+  geom_point(aes(color = gene)) +
+  geom_errorbar(aes(x = day,
+                    ymin = mean - se,
+                    ymax = mean + se,
+                    color = gene),
+                width = .6) +
+  geom_line(aes(color =  gene)) +
+  labs(x = "day", y = "relative abundance", color = "gene") +
+  scale_color_manual(values = darkpalette) +
+  theme_minimal(base_size = 12)
+
+time_tet %>%
+  ggplot(aes(x = day, y = mean)) +
+  geom_point(aes(color = gene)) +
+  geom_errorbar(aes(x = day,
+                    ymin = mean - se,
+                    ymax = mean + se,
+                    color = gene),
+                width = .6) +
+  geom_line(aes(color =  gene)) +
+  labs(x = "day", y = "relative abundance", color = "gene") +
+  scale_color_manual(values = darkpalette) +
+  theme_minimal(base_size = 12)
+
+time_quin %>%
+  ggplot(aes(x = day, y = mean)) +
+  geom_point(aes(color = gene)) +
+  geom_errorbar(aes(x = day,
+                    ymin = mean - se,
+                    ymax = mean + se,
+                    color = gene),
+                width = .6) +
+  geom_line(aes(color =  gene)) +
+  labs(x = "day", y = "relative abundance", color = "gene") +
+  scale_color_manual(values = darkpalette) +
+  theme_minimal(base_size = 12)
+
+time_vanc %>%
+  ggplot(aes(x = day, y = mean)) +
+  geom_point(aes(color = gene)) +
+  geom_errorbar(aes(x = day,
+                    ymin = mean - se,
+                    ymax = mean + se,
+                    color = gene),
+                width = .6) +
+  geom_line(aes(color =  gene)) +
+  labs(x = "day", y = "relative abundance", color = "gene") +
+  scale_color_manual(values = darkpalette) +
+  theme_minimal(base_size = 12)
+
+time_trim %>%
+  ggplot(aes(x = day, y = mean)) +
+  geom_point(aes(color = gene)) +
+  geom_errorbar(aes(x = day,
+                    ymin = mean - se,
+                    ymax = mean + se,
+                    color = gene),
+                width = .6) +
+  geom_line(aes(color =  gene)) +
+  labs(x = "day", y = "relative abundance", color = "gene") +
+  scale_color_manual(values = darkpalette) +
+  theme_minimal(base_size = 12)
+
+
+# -----
+means_loc2 <- means_loc
+
+means_loc2$std = NULL
+means_loc2$se = NULL
+means_loc2$n = NULL
+
+loc_means_wide <- pivot_wider(means_loc2, names_from = day, values_from = mean)
+colnames(loc_means_wide) <- c("gene", "height", "class", "day_1", "day_29")
+loc_means_wide <- loc_means_wide[!grepl('MGE|Other|Integrons|MDR', loc_means_wide$class),]
+
+loc_means_wide %>%
+  group_by(class) %>%
+  ggplot(aes(x = day_1, y = day_29, color = class, shape = height)) +
+  geom_point(size = 2) +
+  geom_text(aes(label = gene), check_overlap = T, vjust = 1.5) +
+  ylim(0, 0.03) +
+  xlim(0, 0.03) +
+  geom_abline(intercept = 0, slope = 1, linetype = "dashed") +
+  scale_fill_manual(values = darkpalette) +
+  labs(x = "Day 1", y = "Day 29", color = "Antibiotic Class", shape = "Height") +
+  theme_minimal()
+
