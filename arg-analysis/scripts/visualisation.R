@@ -506,8 +506,8 @@ loc_means_wide %>%
   ggplot(aes(x = day_1, y = day_29, color = class, shape = height)) +
   geom_point(size = 2) +
   geom_text(aes(label = gene), check_overlap = T, vjust = 1.5) +
-  ylim(0, 0.03) +
-  xlim(0, 0.03) +
+  ylim(0, 0.01) +
+  xlim(0, 0.01) +
   geom_abline(intercept = 0, slope = 1, linetype = "dashed") +
   scale_fill_manual(values = darkpalette) +
   labs(x = "Day 1", y = "Day 29", color = "Antibiotic Class", shape = "Height") +

@@ -560,6 +560,7 @@ loc_poly <- split_location$polyketide
 loc_quin <- split_location$quinolone
 loc_sulf <- split_location$sulfonamide
 loc_trim <- split_location$trimethoprim
+loc_tet <- split_location$tetracycline
 
 # split based on target antibiotics for time 
 split_time <- split(time_study, time_study$class)
@@ -572,6 +573,7 @@ time_poly <- split_time$polyketide
 time_quin <- split_time$quinolone
 time_sulf <- split_time$sulfonamide
 time_trim <- split_time$trimethoprim
+time_tet <- split_time$tetracycline
 
 # beta-lactam Location
 library(RColorBrewer)
@@ -583,11 +585,36 @@ loc_beta %>%
                 position = position_dodge(width = 0.6)) +
   labs(x = "height", y = "intensity", fill = "day") +
   facet_wrap(~name.x, scales = "free") +
-  scale_fill_manual(values = brewer.pal("Dark2", n = 2)) +
-  theme_ipsum(base_size = 12)
+  scale_fill_manual(values = brewer.pal("Dark2", n = 3)) +
+  theme_minimal(base_size = 12)
 
 time_beta$day = as.numeric(time_beta$day)
 time_beta %>%
+  ggplot(aes(x = day, y = mean)) +
+  geom_point(aes(color = name.x)) +
+  geom_errorbar(aes(x = day,
+                    ymin = mean - se,
+                    ymax = mean + se,
+                    color = name.x),
+                width = 1) +
+  geom_line(aes(color =  name.x)) +
+  labs(x = "day", y = "intensity", color = "compound") +
+  scale_color_manual(values = brewer.pal("Dark2", n = 7)) +
+  theme_minimal()
+
+loc_tet %>%
+  ggplot(aes(x = height, y = mean, fill = day)) +
+  geom_col(width = 0.6, position = position_dodge(width = 0.6)) +
+  geom_errorbar(aes(ymin = mean - se, ymax = mean + se), 
+                width = 0.2,
+                position = position_dodge(width = 0.6)) +
+  labs(x = "height", y = "intensity", fill = "day") +
+  facet_wrap(~name.x, scales = "free") +
+  scale_fill_manual(values = brewer.pal("Dark2", n = 3)) +
+  theme_minimal(base_size = 12)
+
+time_tet$day = as.numeric(time_beta$day)
+time_tet %>%
   ggplot(aes(x = day, y = mean)) +
   geom_point(aes(color = name.x)) +
   geom_errorbar(aes(x = day,
@@ -597,5 +624,4 @@ time_beta %>%
   geom_line(aes(color =  name.x)) +
   labs(x = "day", y = "intensity", color = "compound") +
   scale_color_manual(values = brewer.pal("Dark2", n = 7)) +
-  theme_ipsum()
-
+  theme_minimal()
