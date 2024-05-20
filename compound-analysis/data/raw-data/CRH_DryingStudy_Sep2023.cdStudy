@@ -1,0 +1,1474 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<Study>
+	<StudyDefinition Version="1" CreationDate="9/21/2023 11:19:17 AM" LastChangeDate="9/21/2023 11:58:52 AM" Name="CRH_DryingStudy_Sep2023" Description="" StudyType="General" Directory="C:\CompoundDiscovererStudies\CRH_Naburn\Drying_Sep2023\CRH_DryingStudy_Sep2023" NextFileSetNumber="62" NextSampleNumber="62">
+		<Factors>
+			<Factor Version="1" Kind="Categorical" Id="77508c67-e3cb-4e8b-8669-d949fb392727" Name="Day" Description="" AllowAddNew="False">
+				<FactorOptions>
+					<FactorOption Version="1" Kind="Categorical" Id="86eb5912-9e64-4163-a213-6c618bbed946" Value="1" />
+					<FactorOption Version="1" Kind="Categorical" Id="397fb846-c823-4ad9-b07b-af472b7cbc12" Value="4" />
+					<FactorOption Version="1" Kind="Categorical" Id="c1724709-4db5-42bb-b832-087efba43204" Value="8" />
+					<FactorOption Version="1" Kind="Categorical" Id="bb7050b8-fa34-4d18-b504-9e9eb95d26c7" Value="11" />
+					<FactorOption Version="1" Kind="Categorical" Id="53faa10b-09ad-489c-b99d-f1b22afff668" Value="16" />
+					<FactorOption Version="1" Kind="Categorical" Id="0ab448ac-9539-4043-b6fb-341f95dd9dbe" Value="19" />
+					<FactorOption Version="1" Kind="Categorical" Id="c4f3261f-5d06-4dbf-932d-af2d046d2f4c" Value="23" />
+					<FactorOption Version="1" Kind="Categorical" Id="dd777668-a1a5-4120-bbf3-08e0472ff02c" Value="26" />
+					<FactorOption Version="1" Kind="Categorical" Id="75568fc9-0d09-43d9-a1b3-3e9d32e140e6" Value="30" />
+				</FactorOptions>
+			</Factor>
+			<Factor Version="1" Kind="Categorical" Id="c0b78806-d184-4920-a4a2-a26bd984815a" Name="Height" Description="" AllowAddNew="False">
+				<FactorOptions>
+					<FactorOption Version="1" Kind="Categorical" Id="3ff29845-83c2-46b7-8dd8-f495486612f0" Value="top" />
+					<FactorOption Version="1" Kind="Categorical" Id="3b1ce1af-6c7d-4594-b124-4c1d30001352" Value="middle" />
+					<FactorOption Version="1" Kind="Categorical" Id="6e23ae3c-61da-4305-bc43-c8e0c4bd19a3" Value="bottom" />
+				</FactorOptions>
+			</Factor>
+			<Factor Version="1" Kind="Categorical" Id="b463e6fa-3bc6-4bea-8156-26cbc268e550" Name="Length" Description="" AllowAddNew="False">
+				<FactorOptions>
+					<FactorOption Version="1" Kind="Categorical" Id="e1dd9262-7996-4a03-96d6-531d90e9348d" Value="half" />
+					<FactorOption Version="1" Kind="Categorical" Id="f3ca1582-ce71-400a-8e28-bc71980681e7" Value="quarter" />
+				</FactorOptions>
+			</Factor>
+		</Factors>
+		<FileSets>
+			<FileSet Name="A0_Blank_a" Version="1" Id="ddda0e54-6ea6-44fc-acce-02aedccfdfa8" SampleFileSetNumber="1">
+				<Files>
+					<File FileName="K:\Chemistry\Fusion\Win10 Data\Data_2023_Q3\Charlie\A0_Blank_a.raw" FileTime="9/19/2023 5:45:54 PM" FileSize="283910304 [Byte]" FileUri="file:///K:/Chemistry/Fusion/Win10%20Data/Data_2023_Q3/Charlie/A0_Blank_a.raw" FractionNumber="1" />
+				</Files>
+			</FileSet>
+			<FileSet Name="A0_Blank_b" Version="1" Id="2e2a6a03-3b45-4921-b9cc-516a2f30fad7" SampleFileSetNumber="2">
+				<Files>
+					<File FileName="K:\Chemistry\Fusion\Win10 Data\Data_2023_Q3\Charlie\A0_Blank_b.raw" FileTime="9/19/2023 6:14:48 PM" FileSize="281960980 [Byte]" FileUri="file:///K:/Chemistry/Fusion/Win10%20Data/Data_2023_Q3/Charlie/A0_Blank_b.raw" FractionNumber="1" />
+				</Files>
+			</FileSet>
+			<FileSet Name="A0_blank_c" Version="1" Id="f84c6694-9ba4-4d63-bba3-9493d05e5a25" SampleFileSetNumber="3">
+				<Files>
+					<File FileName="K:\Chemistry\Fusion\Win10 Data\Data_2023_Q3\Charlie\A0_blank_c.raw" FileTime="9/19/2023 11:03:55 PM" FileSize="283071559 [Byte]" FileUri="file:///K:/Chemistry/Fusion/Win10%20Data/Data_2023_Q3/Charlie/A0_blank_c.raw" FractionNumber="1" />
+				</Files>
+			</FileSet>
+			<FileSet Name="A0_blank_d" Version="1" Id="09978dd1-f348-48e9-b4a2-fc916f99f179" SampleFileSetNumber="4">
+				<Files>
+					<File FileName="K:\Chemistry\Fusion\Win10 Data\Data_2023_Q3\Charlie\A0_blank_d.raw" FileTime="9/20/2023 3:53:01 AM" FileSize="282600479 [Byte]" FileUri="file:///K:/Chemistry/Fusion/Win10%20Data/Data_2023_Q3/Charlie/A0_blank_d.raw" FractionNumber="1" />
+				</Files>
+			</FileSet>
+			<FileSet Name="A0_blank_e" Version="1" Id="bd3cf9a1-8166-4d0b-8589-ba1bddd5594e" SampleFileSetNumber="5">
+				<Files>
+					<File FileName="K:\Chemistry\Fusion\Win10 Data\Data_2023_Q3\Charlie\A0_blank_e.raw" FileTime="9/20/2023 8:42:08 AM" FileSize="280729591 [Byte]" FileUri="file:///K:/Chemistry/Fusion/Win10%20Data/Data_2023_Q3/Charlie/A0_blank_e.raw" FractionNumber="1" />
+				</Files>
+			</FileSet>
+			<FileSet Name="A0_blank_f" Version="1" Id="a22dcf74-9aa9-47c3-95e4-e4ed6cb134cc" SampleFileSetNumber="6">
+				<Files>
+					<File FileName="K:\Chemistry\Fusion\Win10 Data\Data_2023_Q3\Charlie\A0_blank_f.raw" FileTime="9/20/2023 1:31:13 PM" FileSize="280344251 [Byte]" FileUri="file:///K:/Chemistry/Fusion/Win10%20Data/Data_2023_Q3/Charlie/A0_blank_f.raw" FractionNumber="1" />
+				</Files>
+			</FileSet>
+			<FileSet Name="A0_blank_g" Version="1" Id="e8d602d3-f935-4be5-a36a-1616ec0539a2" SampleFileSetNumber="7">
+				<Files>
+					<File FileName="K:\Chemistry\Fusion\Win10 Data\Data_2023_Q3\Charlie\A0_blank_g.raw" FileTime="9/20/2023 5:22:27 PM" FileSize="280852265 [Byte]" FileUri="file:///K:/Chemistry/Fusion/Win10%20Data/Data_2023_Q3/Charlie/A0_blank_g.raw" FractionNumber="1" />
+				</Files>
+			</FileSet>
+			<FileSet Name="A0_blank_h" Version="1" Id="70fe1e97-9300-4cd1-b7b9-6839bfced6c5" SampleFileSetNumber="8">
+				<Files>
+					<File FileName="K:\Chemistry\Fusion\Win10 Data\Data_2023_Q3\Charlie\A0_blank_h.raw" FileTime="9/20/2023 5:51:22 PM" FileSize="278708348 [Byte]" FileUri="file:///K:/Chemistry/Fusion/Win10%20Data/Data_2023_Q3/Charlie/A0_blank_h.raw" FractionNumber="1" />
+				</Files>
+			</FileSet>
+			<FileSet Name="A1_a" Version="1" Id="856b37bd-bd5f-48f0-837b-1da1914a5b8b" SampleFileSetNumber="9">
+				<Files>
+					<File FileName="K:\Chemistry\Fusion\Win10 Data\Data_2023_Q3\Charlie\A1_a.raw" FileTime="9/19/2023 6:43:41 PM" FileSize="292924640 [Byte]" FileUri="file:///K:/Chemistry/Fusion/Win10%20Data/Data_2023_Q3/Charlie/A1_a.raw" FractionNumber="1" />
+				</Files>
+			</FileSet>
+			<FileSet Name="A1_b" Version="1" Id="1abdcf54-3723-4a7a-8d70-3c714c79e2a0" SampleFileSetNumber="10">
+				<Files>
+					<File FileName="K:\Chemistry\Fusion\Win10 Data\Data_2023_Q3\Charlie\A1_b.raw" FileTime="9/20/2023 5:48:41 AM" FileSize="294385202 [Byte]" FileUri="file:///K:/Chemistry/Fusion/Win10%20Data/Data_2023_Q3/Charlie/A1_b.raw" FractionNumber="1" />
+				</Files>
+			</FileSet>
+			<FileSet Name="A2_a" Version="1" Id="6d921b49-6f65-4493-862b-5b3806d201fe" SampleFileSetNumber="11">
+				<Files>
+					<File FileName="K:\Chemistry\Fusion\Win10 Data\Data_2023_Q3\Charlie\A2_a.raw" FileTime="9/19/2023 7:12:36 PM" FileSize="293748591 [Byte]" FileUri="file:///K:/Chemistry/Fusion/Win10%20Data/Data_2023_Q3/Charlie/A2_a.raw" FractionNumber="1" />
+				</Files>
+			</FileSet>
+			<FileSet Name="A2_b" Version="1" Id="f8792380-ed52-41b9-8d70-5e6311c064fd" SampleFileSetNumber="12">
+				<Files>
+					<File FileName="K:\Chemistry\Fusion\Win10 Data\Data_2023_Q3\Charlie\A2_b.raw" FileTime="9/20/2023 9:11:02 AM" FileSize="288878284 [Byte]" FileUri="file:///K:/Chemistry/Fusion/Win10%20Data/Data_2023_Q3/Charlie/A2_b.raw" FractionNumber="1" />
+				</Files>
+			</FileSet>
+			<FileSet Name="A3_a" Version="1" Id="790030c1-4534-40b5-85a8-a01231cb4485" SampleFileSetNumber="13">
+				<Files>
+					<File FileName="K:\Chemistry\Fusion\Win10 Data\Data_2023_Q3\Charlie\A3_a.raw" FileTime="9/19/2023 7:41:31 PM" FileSize="291837285 [Byte]" FileUri="file:///K:/Chemistry/Fusion/Win10%20Data/Data_2023_Q3/Charlie/A3_a.raw" FractionNumber="1" />
+				</Files>
+			</FileSet>
+			<FileSet Name="A3_b" Version="1" Id="d887750f-d7ff-432e-883b-35b3c12815af" SampleFileSetNumber="14">
+				<Files>
+					<File FileName="K:\Chemistry\Fusion\Win10 Data\Data_2023_Q3\Charlie\A3_b.raw" FileTime="9/20/2023 11:35:36 AM" FileSize="291064488 [Byte]" FileUri="file:///K:/Chemistry/Fusion/Win10%20Data/Data_2023_Q3/Charlie/A3_b.raw" FractionNumber="1" />
+				</Files>
+			</FileSet>
+			<FileSet Name="A4_a" Version="1" Id="70bfccb9-d2cd-4290-9e03-9bc52438ecec" SampleFileSetNumber="15">
+				<Files>
+					<File FileName="K:\Chemistry\Fusion\Win10 Data\Data_2023_Q3\Charlie\A4_a.raw" FileTime="9/19/2023 8:10:27 PM" FileSize="292508278 [Byte]" FileUri="file:///K:/Chemistry/Fusion/Win10%20Data/Data_2023_Q3/Charlie/A4_a.raw" FractionNumber="1" />
+				</Files>
+			</FileSet>
+			<FileSet Name="A4_b" Version="1" Id="dc7980d8-e45b-4d9b-a3c8-300aaa4904d2" SampleFileSetNumber="16">
+				<Files>
+					<File FileName="K:\Chemistry\Fusion\Win10 Data\Data_2023_Q3\Charlie\A4_b.raw" FileTime="9/20/2023 2:57:56 PM" FileSize="287921542 [Byte]" FileUri="file:///K:/Chemistry/Fusion/Win10%20Data/Data_2023_Q3/Charlie/A4_b.raw" FractionNumber="1" />
+				</Files>
+			</FileSet>
+			<FileSet Name="A5_a" Version="1" Id="eee3779f-6e31-420f-8fc8-f5a90ed6a16e" SampleFileSetNumber="17">
+				<Files>
+					<File FileName="K:\Chemistry\Fusion\Win10 Data\Data_2023_Q3\Charlie\A5_a.raw" FileTime="9/19/2023 8:39:21 PM" FileSize="292983663 [Byte]" FileUri="file:///K:/Chemistry/Fusion/Win10%20Data/Data_2023_Q3/Charlie/A5_a.raw" FractionNumber="1" />
+				</Files>
+			</FileSet>
+			<FileSet Name="A5_b" Version="1" Id="084c852f-bfb0-40ca-951e-e6df34eeeaa0" SampleFileSetNumber="18">
+				<Files>
+					<File FileName="K:\Chemistry\Fusion\Win10 Data\Data_2023_Q3\Charlie\A5_b.raw" FileTime="9/20/2023 6:17:35 AM" FileSize="292741417 [Byte]" FileUri="file:///K:/Chemistry/Fusion/Win10%20Data/Data_2023_Q3/Charlie/A5_b.raw" FractionNumber="1" />
+				</Files>
+			</FileSet>
+			<FileSet Name="A6_a" Version="1" Id="01b553d5-0057-4b3d-ba76-e43d058cace4" SampleFileSetNumber="19">
+				<Files>
+					<File FileName="K:\Chemistry\Fusion\Win10 Data\Data_2023_Q3\Charlie\A6_a.raw" FileTime="9/19/2023 9:08:15 PM" FileSize="294509362 [Byte]" FileUri="file:///K:/Chemistry/Fusion/Win10%20Data/Data_2023_Q3/Charlie/A6_a.raw" FractionNumber="1" />
+				</Files>
+			</FileSet>
+			<FileSet Name="A6_b" Version="1" Id="141f2291-ea78-41d0-8826-2fb2fe66091e" SampleFileSetNumber="20">
+				<Files>
+					<File FileName="K:\Chemistry\Fusion\Win10 Data\Data_2023_Q3\Charlie\A6_b.raw" FileTime="9/20/2023 9:39:58 AM" FileSize="291644636 [Byte]" FileUri="file:///K:/Chemistry/Fusion/Win10%20Data/Data_2023_Q3/Charlie/A6_b.raw" FractionNumber="1" />
+				</Files>
+			</FileSet>
+			<FileSet Name="A10_a" Version="1" Id="6f327770-7308-4624-a40c-18bc689018ba" SampleFileSetNumber="21">
+				<Files>
+					<File FileName="K:\Chemistry\Fusion\Win10 Data\Data_2023_Q3\Charlie\A10_a.raw" FileTime="9/19/2023 9:37:10 PM" FileSize="296238052 [Byte]" FileUri="file:///K:/Chemistry/Fusion/Win10%20Data/Data_2023_Q3/Charlie/A10_a.raw" FractionNumber="1" />
+				</Files>
+			</FileSet>
+			<FileSet Name="A10_b" Version="1" Id="6b72d141-e0dd-4eab-9d7f-674555ea9d16" SampleFileSetNumber="22">
+				<Files>
+					<File FileName="K:\Chemistry\Fusion\Win10 Data\Data_2023_Q3\Charlie\A10_b.raw" FileTime="9/20/2023 12:04:30 PM" FileSize="291940904 [Byte]" FileUri="file:///K:/Chemistry/Fusion/Win10%20Data/Data_2023_Q3/Charlie/A10_b.raw" FractionNumber="1" />
+				</Files>
+			</FileSet>
+			<FileSet Name="A16_a" Version="1" Id="6c55c82b-cc98-42d7-a2f2-74c0c9f59f39" SampleFileSetNumber="23">
+				<Files>
+					<File FileName="K:\Chemistry\Fusion\Win10 Data\Data_2023_Q3\Charlie\A16_a.raw" FileTime="9/19/2023 10:06:05 PM" FileSize="293198729 [Byte]" FileUri="file:///K:/Chemistry/Fusion/Win10%20Data/Data_2023_Q3/Charlie/A16_a.raw" FractionNumber="1" />
+				</Files>
+			</FileSet>
+			<FileSet Name="A16_b" Version="1" Id="8714ce23-874a-49c6-a855-0dd13e6f156e" SampleFileSetNumber="24">
+				<Files>
+					<File FileName="K:\Chemistry\Fusion\Win10 Data\Data_2023_Q3\Charlie\A16_b.raw" FileTime="9/20/2023 3:26:50 PM" FileSize="290173494 [Byte]" FileUri="file:///K:/Chemistry/Fusion/Win10%20Data/Data_2023_Q3/Charlie/A16_b.raw" FractionNumber="1" />
+				</Files>
+			</FileSet>
+			<FileSet Name="A22_a" Version="1" Id="826a1d3a-9c3c-4ac0-9364-1eedac95dd94" SampleFileSetNumber="25">
+				<Files>
+					<File FileName="K:\Chemistry\Fusion\Win10 Data\Data_2023_Q3\Charlie\A22_a.raw" FileTime="9/19/2023 11:32:50 PM" FileSize="290920770 [Byte]" FileUri="file:///K:/Chemistry/Fusion/Win10%20Data/Data_2023_Q3/Charlie/A22_a.raw" FractionNumber="1" />
+				</Files>
+			</FileSet>
+			<FileSet Name="A22_b" Version="1" Id="bef1c48a-881c-4ef3-b428-e88f5f792f91" SampleFileSetNumber="26">
+				<Files>
+					<File FileName="K:\Chemistry\Fusion\Win10 Data\Data_2023_Q3\Charlie\A22_b.raw" FileTime="9/20/2023 6:46:30 AM" FileSize="290860290 [Byte]" FileUri="file:///K:/Chemistry/Fusion/Win10%20Data/Data_2023_Q3/Charlie/A22_b.raw" FractionNumber="1" />
+				</Files>
+			</FileSet>
+			<FileSet Name="A28_a" Version="1" Id="0c96c570-b8b2-46c7-b8ac-e83658a51ad9" SampleFileSetNumber="27">
+				<Files>
+					<File FileName="K:\Chemistry\Fusion\Win10 Data\Data_2023_Q3\Charlie\A28_a.raw" FileTime="9/20/2023 12:01:45 AM" FileSize="293493110 [Byte]" FileUri="file:///K:/Chemistry/Fusion/Win10%20Data/Data_2023_Q3/Charlie/A28_a.raw" FractionNumber="1" />
+				</Files>
+			</FileSet>
+			<FileSet Name="A28_b" Version="1" Id="8dc4f61d-352b-4b54-bb34-de48922c7288" SampleFileSetNumber="28">
+				<Files>
+					<File FileName="K:\Chemistry\Fusion\Win10 Data\Data_2023_Q3\Charlie\A28_b.raw" FileTime="9/20/2023 10:08:53 AM" FileSize="290354928 [Byte]" FileUri="file:///K:/Chemistry/Fusion/Win10%20Data/Data_2023_Q3/Charlie/A28_b.raw" FractionNumber="1" />
+				</Files>
+			</FileSet>
+			<FileSet Name="A34_a" Version="1" Id="b4ffbef8-e827-443a-a62f-f406a42c4c89" SampleFileSetNumber="29">
+				<Files>
+					<File FileName="K:\Chemistry\Fusion\Win10 Data\Data_2023_Q3\Charlie\A34_a.raw" FileTime="9/20/2023 12:30:39 AM" FileSize="292570634 [Byte]" FileUri="file:///K:/Chemistry/Fusion/Win10%20Data/Data_2023_Q3/Charlie/A34_a.raw" FractionNumber="1" />
+				</Files>
+			</FileSet>
+			<FileSet Name="A34_b" Version="1" Id="720e99fd-e084-4f5a-9f7f-e1a0db75d293" SampleFileSetNumber="30">
+				<Files>
+					<File FileName="K:\Chemistry\Fusion\Win10 Data\Data_2023_Q3\Charlie\A34_b.raw" FileTime="9/20/2023 12:33:24 PM" FileSize="289923247 [Byte]" FileUri="file:///K:/Chemistry/Fusion/Win10%20Data/Data_2023_Q3/Charlie/A34_b.raw" FractionNumber="1" />
+				</Files>
+			</FileSet>
+			<FileSet Name="A40_a" Version="1" Id="c945cffd-4899-4da4-913c-9d34c55966e6" SampleFileSetNumber="31">
+				<Files>
+					<File FileName="K:\Chemistry\Fusion\Win10 Data\Data_2023_Q3\Charlie\A40_a.raw" FileTime="9/20/2023 12:59:33 AM" FileSize="282871751 [Byte]" FileUri="file:///K:/Chemistry/Fusion/Win10%20Data/Data_2023_Q3/Charlie/A40_a.raw" FractionNumber="1" />
+				</Files>
+			</FileSet>
+			<FileSet Name="A40_b" Version="1" Id="e7f1dd07-ac93-4d97-b703-bb6e3d8435d6" SampleFileSetNumber="32">
+				<Files>
+					<File FileName="K:\Chemistry\Fusion\Win10 Data\Data_2023_Q3\Charlie\A40_b.raw" FileTime="9/20/2023 3:55:44 PM" FileSize="281796078 [Byte]" FileUri="file:///K:/Chemistry/Fusion/Win10%20Data/Data_2023_Q3/Charlie/A40_b.raw" FractionNumber="1" />
+				</Files>
+			</FileSet>
+			<FileSet Name="A46_a" Version="1" Id="d3335fd7-3124-45f1-a8f4-36e2019747e4" SampleFileSetNumber="33">
+				<Files>
+					<File FileName="K:\Chemistry\Fusion\Win10 Data\Data_2023_Q3\Charlie\A46_a.raw" FileTime="9/20/2023 1:28:28 AM" FileSize="291341645 [Byte]" FileUri="file:///K:/Chemistry/Fusion/Win10%20Data/Data_2023_Q3/Charlie/A46_a.raw" FractionNumber="1" />
+				</Files>
+			</FileSet>
+			<FileSet Name="A46_b" Version="1" Id="33c0e96d-419b-4999-856e-c3ca7ea26d85" SampleFileSetNumber="34">
+				<Files>
+					<File FileName="K:\Chemistry\Fusion\Win10 Data\Data_2023_Q3\Charlie\A46_b.raw" FileTime="9/20/2023 7:15:26 AM" FileSize="290546934 [Byte]" FileUri="file:///K:/Chemistry/Fusion/Win10%20Data/Data_2023_Q3/Charlie/A46_b.raw" FractionNumber="1" />
+				</Files>
+			</FileSet>
+			<FileSet Name="A49_a" Version="1" Id="d3e377cd-8695-4712-921a-b74127092809" SampleFileSetNumber="35">
+				<Files>
+					<File FileName="K:\Chemistry\Fusion\Win10 Data\Data_2023_Q3\Charlie\A49_a.raw" FileTime="9/20/2023 1:57:23 AM" FileSize="291400523 [Byte]" FileUri="file:///K:/Chemistry/Fusion/Win10%20Data/Data_2023_Q3/Charlie/A49_a.raw" FractionNumber="1" />
+				</Files>
+			</FileSet>
+			<FileSet Name="A49_b" Version="1" Id="7e6b53e8-a66a-4237-a284-fb3197fb5d88" SampleFileSetNumber="36">
+				<Files>
+					<File FileName="K:\Chemistry\Fusion\Win10 Data\Data_2023_Q3\Charlie\A49_b.raw" FileTime="9/20/2023 10:37:48 AM" FileSize="287952771 [Byte]" FileUri="file:///K:/Chemistry/Fusion/Win10%20Data/Data_2023_Q3/Charlie/A49_b.raw" FractionNumber="1" />
+				</Files>
+			</FileSet>
+			<FileSet Name="A50_a" Version="1" Id="c733929c-2081-4cec-beb1-9438b75fb6db" SampleFileSetNumber="37">
+				<Files>
+					<File FileName="K:\Chemistry\Fusion\Win10 Data\Data_2023_Q3\Charlie\A50_a.raw" FileTime="9/20/2023 2:26:17 AM" FileSize="293016083 [Byte]" FileUri="file:///K:/Chemistry/Fusion/Win10%20Data/Data_2023_Q3/Charlie/A50_a.raw" FractionNumber="1" />
+				</Files>
+			</FileSet>
+			<FileSet Name="A50_b" Version="1" Id="ec307f81-d276-4b34-8105-f385fb8444c9" SampleFileSetNumber="38">
+				<Files>
+					<File FileName="K:\Chemistry\Fusion\Win10 Data\Data_2023_Q3\Charlie\A50_b.raw" FileTime="9/20/2023 2:00:08 PM" FileSize="289107850 [Byte]" FileUri="file:///K:/Chemistry/Fusion/Win10%20Data/Data_2023_Q3/Charlie/A50_b.raw" FractionNumber="1" />
+				</Files>
+			</FileSet>
+			<FileSet Name="A51_a" Version="1" Id="323e0dde-6da5-4f5a-8f54-e32b87b476a4" SampleFileSetNumber="39">
+				<Files>
+					<File FileName="K:\Chemistry\Fusion\Win10 Data\Data_2023_Q3\Charlie\A51_a.raw" FileTime="9/20/2023 2:55:12 AM" FileSize="291817425 [Byte]" FileUri="file:///K:/Chemistry/Fusion/Win10%20Data/Data_2023_Q3/Charlie/A51_a.raw" FractionNumber="1" />
+				</Files>
+			</FileSet>
+			<FileSet Name="A51_b" Version="1" Id="16cde951-bbc9-4b00-9435-78aedf7f585e" SampleFileSetNumber="40">
+				<Files>
+					<File FileName="K:\Chemistry\Fusion\Win10 Data\Data_2023_Q3\Charlie\A51_b.raw" FileTime="9/20/2023 4:24:38 PM" FileSize="290123164 [Byte]" FileUri="file:///K:/Chemistry/Fusion/Win10%20Data/Data_2023_Q3/Charlie/A51_b.raw" FractionNumber="1" />
+				</Files>
+			</FileSet>
+			<FileSet Name="A52_a" Version="1" Id="4d7027b1-9588-456c-8166-6391fae46056" SampleFileSetNumber="41">
+				<Files>
+					<File FileName="K:\Chemistry\Fusion\Win10 Data\Data_2023_Q3\Charlie\A52_a.raw" FileTime="9/20/2023 4:21:56 AM" FileSize="290859114 [Byte]" FileUri="file:///K:/Chemistry/Fusion/Win10%20Data/Data_2023_Q3/Charlie/A52_a.raw" FractionNumber="1" />
+				</Files>
+			</FileSet>
+			<FileSet Name="A52_b" Version="1" Id="705871aa-5c0f-4f28-ba81-3690d7c476df" SampleFileSetNumber="42">
+				<Files>
+					<File FileName="K:\Chemistry\Fusion\Win10 Data\Data_2023_Q3\Charlie\A52_b.raw" FileTime="9/20/2023 7:44:21 AM" FileSize="289886114 [Byte]" FileUri="file:///K:/Chemistry/Fusion/Win10%20Data/Data_2023_Q3/Charlie/A52_b.raw" FractionNumber="1" />
+				</Files>
+			</FileSet>
+			<FileSet Name="A53_a" Version="1" Id="ef366828-9b80-4438-95ae-3b4ce5860ce7" SampleFileSetNumber="43">
+				<Files>
+					<File FileName="K:\Chemistry\Fusion\Win10 Data\Data_2023_Q3\Charlie\A53_a.raw" FileTime="9/20/2023 4:50:51 AM" FileSize="293627518 [Byte]" FileUri="file:///K:/Chemistry/Fusion/Win10%20Data/Data_2023_Q3/Charlie/A53_a.raw" FractionNumber="1" />
+				</Files>
+			</FileSet>
+			<FileSet Name="A53_b" Version="1" Id="d56b1050-0330-46bf-8dc6-c001bdbe76d5" SampleFileSetNumber="44">
+				<Files>
+					<File FileName="K:\Chemistry\Fusion\Win10 Data\Data_2023_Q3\Charlie\A53_b.raw" FileTime="9/20/2023 11:06:42 AM" FileSize="290481205 [Byte]" FileUri="file:///K:/Chemistry/Fusion/Win10%20Data/Data_2023_Q3/Charlie/A53_b.raw" FractionNumber="1" />
+				</Files>
+			</FileSet>
+			<FileSet Name="A54_a" Version="1" Id="d9f5eb29-d057-4b77-bb7b-7d7718fd1931" SampleFileSetNumber="45">
+				<Files>
+					<File FileName="K:\Chemistry\Fusion\Win10 Data\Data_2023_Q3\Charlie\A54_a.raw" FileTime="9/20/2023 5:19:46 AM" FileSize="293688261 [Byte]" FileUri="file:///K:/Chemistry/Fusion/Win10%20Data/Data_2023_Q3/Charlie/A54_a.raw" FractionNumber="1" />
+				</Files>
+			</FileSet>
+			<FileSet Name="A54_b" Version="1" Id="20bba31c-2503-4aba-88cd-f8d61287e5d1" SampleFileSetNumber="46">
+				<Files>
+					<File FileName="K:\Chemistry\Fusion\Win10 Data\Data_2023_Q3\Charlie\A54_b.raw" FileTime="9/20/2023 2:29:02 PM" FileSize="291091199 [Byte]" FileUri="file:///K:/Chemistry/Fusion/Win10%20Data/Data_2023_Q3/Charlie/A54_b.raw" FractionNumber="1" />
+				</Files>
+			</FileSet>
+			<FileSet Name="QC_a" Version="1" Id="755d514b-50ca-4110-a600-80a486260cac" SampleFileSetNumber="47">
+				<Files>
+					<File FileName="K:\Chemistry\Fusion\Win10 Data\Data_2023_Q3\Charlie\QC_a.raw" FileTime="9/19/2023 12:56:48 PM" FileSize="295075985 [Byte]" FileUri="file:///K:/Chemistry/Fusion/Win10%20Data/Data_2023_Q3/Charlie/QC_a.raw" FractionNumber="1" />
+				</Files>
+			</FileSet>
+			<FileSet Name="QC_b" Version="1" Id="7e19fd1f-8ee3-423b-9bcc-847feeedff6c" SampleFileSetNumber="48">
+				<Files>
+					<File FileName="K:\Chemistry\Fusion\Win10 Data\Data_2023_Q3\Charlie\QC_b.raw" FileTime="9/19/2023 1:25:42 PM" FileSize="295246246 [Byte]" FileUri="file:///K:/Chemistry/Fusion/Win10%20Data/Data_2023_Q3/Charlie/QC_b.raw" FractionNumber="1" />
+				</Files>
+			</FileSet>
+			<FileSet Name="QC_c" Version="1" Id="2cfe2be6-ac8d-40fa-bf88-f062f9e849b0" SampleFileSetNumber="49">
+				<Files>
+					<File FileName="K:\Chemistry\Fusion\Win10 Data\Data_2023_Q3\Charlie\QC_c.raw" FileTime="9/19/2023 1:54:36 PM" FileSize="294475819 [Byte]" FileUri="file:///K:/Chemistry/Fusion/Win10%20Data/Data_2023_Q3/Charlie/QC_c.raw" FractionNumber="1" />
+				</Files>
+			</FileSet>
+			<FileSet Name="QC_d" Version="1" Id="8a97a43e-a63d-4884-b34a-f48556c57c28" SampleFileSetNumber="50">
+				<Files>
+					<File FileName="K:\Chemistry\Fusion\Win10 Data\Data_2023_Q3\Charlie\QC_d.raw" FileTime="9/19/2023 2:23:31 PM" FileSize="293607112 [Byte]" FileUri="file:///K:/Chemistry/Fusion/Win10%20Data/Data_2023_Q3/Charlie/QC_d.raw" FractionNumber="1" />
+				</Files>
+			</FileSet>
+			<FileSet Name="QC_e" Version="1" Id="59120b25-090e-4251-8991-5d4506e31ec8" SampleFileSetNumber="51">
+				<Files>
+					<File FileName="K:\Chemistry\Fusion\Win10 Data\Data_2023_Q3\Charlie\QC_e.raw" FileTime="9/19/2023 2:52:25 PM" FileSize="293458473 [Byte]" FileUri="file:///K:/Chemistry/Fusion/Win10%20Data/Data_2023_Q3/Charlie/QC_e.raw" FractionNumber="1" />
+				</Files>
+			</FileSet>
+			<FileSet Name="QC_f" Version="1" Id="290b92b9-160e-4414-8094-9b264b936a26" SampleFileSetNumber="52">
+				<Files>
+					<File FileName="K:\Chemistry\Fusion\Win10 Data\Data_2023_Q3\Charlie\QC_f.raw" FileTime="9/19/2023 3:21:19 PM" FileSize="293013714 [Byte]" FileUri="file:///K:/Chemistry/Fusion/Win10%20Data/Data_2023_Q3/Charlie/QC_f.raw" FractionNumber="1" />
+				</Files>
+			</FileSet>
+			<FileSet Name="QC_g" Version="1" Id="80ff565f-801d-4b36-94f5-a871093fcda6" SampleFileSetNumber="53">
+				<Files>
+					<File FileName="K:\Chemistry\Fusion\Win10 Data\Data_2023_Q3\Charlie\QC_g.raw" FileTime="9/19/2023 3:50:17 PM" FileSize="292528616 [Byte]" FileUri="file:///K:/Chemistry/Fusion/Win10%20Data/Data_2023_Q3/Charlie/QC_g.raw" FractionNumber="1" />
+				</Files>
+			</FileSet>
+			<FileSet Name="QC_h" Version="1" Id="bac60703-6d41-4167-82b4-35cd76b27a38" SampleFileSetNumber="54">
+				<Files>
+					<File FileName="K:\Chemistry\Fusion\Win10 Data\Data_2023_Q3\Charlie\QC_h.raw" FileTime="9/19/2023 4:19:11 PM" FileSize="292539690 [Byte]" FileUri="file:///K:/Chemistry/Fusion/Win10%20Data/Data_2023_Q3/Charlie/QC_h.raw" FractionNumber="1" />
+				</Files>
+			</FileSet>
+			<FileSet Name="QC_i" Version="1" Id="8a41e438-ea62-473c-b80c-cd158b07004a" SampleFileSetNumber="55">
+				<Files>
+					<File FileName="K:\Chemistry\Fusion\Win10 Data\Data_2023_Q3\Charlie\QC_i.raw" FileTime="9/19/2023 4:48:05 PM" FileSize="292757650 [Byte]" FileUri="file:///K:/Chemistry/Fusion/Win10%20Data/Data_2023_Q3/Charlie/QC_i.raw" FractionNumber="1" />
+				</Files>
+			</FileSet>
+			<FileSet Name="QC_j" Version="1" Id="96c36e89-34fc-41d1-81fc-8ae1694c969f" SampleFileSetNumber="56">
+				<Files>
+					<File FileName="K:\Chemistry\Fusion\Win10 Data\Data_2023_Q3\Charlie\QC_j.raw" FileTime="9/19/2023 5:16:58 PM" FileSize="292849469 [Byte]" FileUri="file:///K:/Chemistry/Fusion/Win10%20Data/Data_2023_Q3/Charlie/QC_j.raw" FractionNumber="1" />
+				</Files>
+			</FileSet>
+			<FileSet Name="QC_k" Version="1" Id="b9e09045-8abc-4517-bbd4-fa0ce70c6bc8" SampleFileSetNumber="57">
+				<Files>
+					<File FileName="K:\Chemistry\Fusion\Win10 Data\Data_2023_Q3\Charlie\QC_k.raw" FileTime="9/19/2023 10:35:00 PM" FileSize="293783217 [Byte]" FileUri="file:///K:/Chemistry/Fusion/Win10%20Data/Data_2023_Q3/Charlie/QC_k.raw" FractionNumber="1" />
+				</Files>
+			</FileSet>
+			<FileSet Name="QC_m" Version="1" Id="d89269e4-b681-44d1-91bd-f5334b1cc8bd" SampleFileSetNumber="58">
+				<Files>
+					<File FileName="K:\Chemistry\Fusion\Win10 Data\Data_2023_Q3\Charlie\QC_m.raw" FileTime="9/20/2023 3:24:07 AM" FileSize="292993641 [Byte]" FileUri="file:///K:/Chemistry/Fusion/Win10%20Data/Data_2023_Q3/Charlie/QC_m.raw" FractionNumber="1" />
+				</Files>
+			</FileSet>
+			<FileSet Name="QC_n" Version="1" Id="d3db8e46-fe4b-4cd3-9ebb-210b1d993582" SampleFileSetNumber="59">
+				<Files>
+					<File FileName="K:\Chemistry\Fusion\Win10 Data\Data_2023_Q3\Charlie\QC_n.raw" FileTime="9/20/2023 8:13:13 AM" FileSize="290827785 [Byte]" FileUri="file:///K:/Chemistry/Fusion/Win10%20Data/Data_2023_Q3/Charlie/QC_n.raw" FractionNumber="1" />
+				</Files>
+			</FileSet>
+			<FileSet Name="QC_o" Version="1" Id="3b127fa8-39e4-4251-a117-56bba1dfdfe8" SampleFileSetNumber="60">
+				<Files>
+					<File FileName="K:\Chemistry\Fusion\Win10 Data\Data_2023_Q3\Charlie\QC_o.raw" FileTime="9/20/2023 1:02:18 PM" FileSize="290397031 [Byte]" FileUri="file:///K:/Chemistry/Fusion/Win10%20Data/Data_2023_Q3/Charlie/QC_o.raw" FractionNumber="1" />
+				</Files>
+			</FileSet>
+			<FileSet Name="QC_p" Version="1" Id="3ed617a9-d765-47a7-a0ee-50c5ce23af5b" SampleFileSetNumber="61">
+				<Files>
+					<File FileName="K:\Chemistry\Fusion\Win10 Data\Data_2023_Q3\Charlie\QC_p.raw" FileTime="9/20/2023 4:53:33 PM" FileSize="292155072 [Byte]" FileUri="file:///K:/Chemistry/Fusion/Win10%20Data/Data_2023_Q3/Charlie/QC_p.raw" FractionNumber="1" />
+				</Files>
+			</FileSet>
+		</FileSets>
+		<QuanMethods />
+		<Samples>
+			<Sample Name="A0_blank_a" SampleType="Blank" Version="1" Id="88aead03-2c17-44db-99a4-0c0f57239588" FileSetId="ddda0e54-6ea6-44fc-acce-02aedccfdfa8" SampleNumber="1">
+				<FactorValues>
+					<FactorValue FactorId="77508c67-e3cb-4e8b-8669-d949fb392727" FactorOptionId="64a78239-4e3c-4872-a6bd-6b1f4cc681ad" />
+					<FactorValue FactorId="c0b78806-d184-4920-a4a2-a26bd984815a" FactorOptionId="64a78239-4e3c-4872-a6bd-6b1f4cc681ad" />
+					<FactorValue FactorId="b463e6fa-3bc6-4bea-8156-26cbc268e550" FactorOptionId="64a78239-4e3c-4872-a6bd-6b1f4cc681ad" />
+				</FactorValues>
+			</Sample>
+			<Sample Name="A0_blank_b" SampleType="Blank" Version="1" Id="02ab2394-2941-4b73-80b3-5723ef17805a" FileSetId="2e2a6a03-3b45-4921-b9cc-516a2f30fad7" SampleNumber="2">
+				<FactorValues>
+					<FactorValue FactorId="77508c67-e3cb-4e8b-8669-d949fb392727" FactorOptionId="64a78239-4e3c-4872-a6bd-6b1f4cc681ad" />
+					<FactorValue FactorId="c0b78806-d184-4920-a4a2-a26bd984815a" FactorOptionId="64a78239-4e3c-4872-a6bd-6b1f4cc681ad" />
+					<FactorValue FactorId="b463e6fa-3bc6-4bea-8156-26cbc268e550" FactorOptionId="64a78239-4e3c-4872-a6bd-6b1f4cc681ad" />
+				</FactorValues>
+			</Sample>
+			<Sample Name="A0_blank_c" SampleType="Blank" Version="1" Id="e1a403fe-96ec-46d0-aae4-fc4a71c682fc" FileSetId="f84c6694-9ba4-4d63-bba3-9493d05e5a25" SampleNumber="3">
+				<FactorValues>
+					<FactorValue FactorId="77508c67-e3cb-4e8b-8669-d949fb392727" FactorOptionId="64a78239-4e3c-4872-a6bd-6b1f4cc681ad" />
+					<FactorValue FactorId="c0b78806-d184-4920-a4a2-a26bd984815a" FactorOptionId="64a78239-4e3c-4872-a6bd-6b1f4cc681ad" />
+					<FactorValue FactorId="b463e6fa-3bc6-4bea-8156-26cbc268e550" FactorOptionId="64a78239-4e3c-4872-a6bd-6b1f4cc681ad" />
+				</FactorValues>
+			</Sample>
+			<Sample Name="A0_blank_d" SampleType="Blank" Version="1" Id="fc12b2f3-9334-46f1-82e4-666fc668ecb9" FileSetId="09978dd1-f348-48e9-b4a2-fc916f99f179" SampleNumber="4">
+				<FactorValues>
+					<FactorValue FactorId="77508c67-e3cb-4e8b-8669-d949fb392727" FactorOptionId="64a78239-4e3c-4872-a6bd-6b1f4cc681ad" />
+					<FactorValue FactorId="c0b78806-d184-4920-a4a2-a26bd984815a" FactorOptionId="64a78239-4e3c-4872-a6bd-6b1f4cc681ad" />
+					<FactorValue FactorId="b463e6fa-3bc6-4bea-8156-26cbc268e550" FactorOptionId="64a78239-4e3c-4872-a6bd-6b1f4cc681ad" />
+				</FactorValues>
+			</Sample>
+			<Sample Name="A0_blank_e" SampleType="Blank" Version="1" Id="55c863db-4550-44a2-8e5d-cd51118175cd" FileSetId="bd3cf9a1-8166-4d0b-8589-ba1bddd5594e" SampleNumber="5">
+				<FactorValues>
+					<FactorValue FactorId="77508c67-e3cb-4e8b-8669-d949fb392727" FactorOptionId="64a78239-4e3c-4872-a6bd-6b1f4cc681ad" />
+					<FactorValue FactorId="c0b78806-d184-4920-a4a2-a26bd984815a" FactorOptionId="64a78239-4e3c-4872-a6bd-6b1f4cc681ad" />
+					<FactorValue FactorId="b463e6fa-3bc6-4bea-8156-26cbc268e550" FactorOptionId="64a78239-4e3c-4872-a6bd-6b1f4cc681ad" />
+				</FactorValues>
+			</Sample>
+			<Sample Name="A0_blank_f" SampleType="Blank" Version="1" Id="3f4e2fc7-0954-430a-8c79-045cad51f6ff" FileSetId="a22dcf74-9aa9-47c3-95e4-e4ed6cb134cc" SampleNumber="6">
+				<FactorValues>
+					<FactorValue FactorId="77508c67-e3cb-4e8b-8669-d949fb392727" FactorOptionId="64a78239-4e3c-4872-a6bd-6b1f4cc681ad" />
+					<FactorValue FactorId="c0b78806-d184-4920-a4a2-a26bd984815a" FactorOptionId="64a78239-4e3c-4872-a6bd-6b1f4cc681ad" />
+					<FactorValue FactorId="b463e6fa-3bc6-4bea-8156-26cbc268e550" FactorOptionId="64a78239-4e3c-4872-a6bd-6b1f4cc681ad" />
+				</FactorValues>
+			</Sample>
+			<Sample Name="A0_blank_g" SampleType="Blank" Version="1" Id="1c677996-e029-4a76-b1f2-29e8bf1e8488" FileSetId="e8d602d3-f935-4be5-a36a-1616ec0539a2" SampleNumber="7">
+				<FactorValues>
+					<FactorValue FactorId="77508c67-e3cb-4e8b-8669-d949fb392727" FactorOptionId="64a78239-4e3c-4872-a6bd-6b1f4cc681ad" />
+					<FactorValue FactorId="c0b78806-d184-4920-a4a2-a26bd984815a" FactorOptionId="64a78239-4e3c-4872-a6bd-6b1f4cc681ad" />
+					<FactorValue FactorId="b463e6fa-3bc6-4bea-8156-26cbc268e550" FactorOptionId="64a78239-4e3c-4872-a6bd-6b1f4cc681ad" />
+				</FactorValues>
+			</Sample>
+			<Sample Name="A0_blank_h" SampleType="Blank" Version="1" Id="003efb37-dce0-4da4-ae52-93722e180679" FileSetId="70fe1e97-9300-4cd1-b7b9-6839bfced6c5" SampleNumber="8">
+				<FactorValues>
+					<FactorValue FactorId="77508c67-e3cb-4e8b-8669-d949fb392727" FactorOptionId="64a78239-4e3c-4872-a6bd-6b1f4cc681ad" />
+					<FactorValue FactorId="c0b78806-d184-4920-a4a2-a26bd984815a" FactorOptionId="64a78239-4e3c-4872-a6bd-6b1f4cc681ad" />
+					<FactorValue FactorId="b463e6fa-3bc6-4bea-8156-26cbc268e550" FactorOptionId="64a78239-4e3c-4872-a6bd-6b1f4cc681ad" />
+				</FactorValues>
+			</Sample>
+			<Sample Name="A1_a" SampleType="Sample" Version="1" Id="da1f25fd-c2d4-4649-b0d5-303a105c6d9c" FileSetId="856b37bd-bd5f-48f0-837b-1da1914a5b8b" SampleNumber="9">
+				<FactorValues>
+					<FactorValue FactorId="77508c67-e3cb-4e8b-8669-d949fb392727" FactorOptionId="86eb5912-9e64-4163-a213-6c618bbed946" />
+					<FactorValue FactorId="c0b78806-d184-4920-a4a2-a26bd984815a" FactorOptionId="6e23ae3c-61da-4305-bc43-c8e0c4bd19a3" />
+					<FactorValue FactorId="b463e6fa-3bc6-4bea-8156-26cbc268e550" FactorOptionId="f3ca1582-ce71-400a-8e28-bc71980681e7" />
+				</FactorValues>
+			</Sample>
+			<Sample Name="A1_b" SampleType="Sample" Version="1" Id="28322900-71fd-4e66-930d-0d3381d4e963" FileSetId="1abdcf54-3723-4a7a-8d70-3c714c79e2a0" SampleNumber="10">
+				<FactorValues>
+					<FactorValue FactorId="77508c67-e3cb-4e8b-8669-d949fb392727" FactorOptionId="86eb5912-9e64-4163-a213-6c618bbed946" />
+					<FactorValue FactorId="c0b78806-d184-4920-a4a2-a26bd984815a" FactorOptionId="6e23ae3c-61da-4305-bc43-c8e0c4bd19a3" />
+					<FactorValue FactorId="b463e6fa-3bc6-4bea-8156-26cbc268e550" FactorOptionId="f3ca1582-ce71-400a-8e28-bc71980681e7" />
+				</FactorValues>
+			</Sample>
+			<Sample Name="A2_a" SampleType="Sample" Version="1" Id="995ca8ad-8e68-45b8-ab25-bfd0c77dc3bd" FileSetId="6d921b49-6f65-4493-862b-5b3806d201fe" SampleNumber="11">
+				<FactorValues>
+					<FactorValue FactorId="77508c67-e3cb-4e8b-8669-d949fb392727" FactorOptionId="86eb5912-9e64-4163-a213-6c618bbed946" />
+					<FactorValue FactorId="c0b78806-d184-4920-a4a2-a26bd984815a" FactorOptionId="3b1ce1af-6c7d-4594-b124-4c1d30001352" />
+					<FactorValue FactorId="b463e6fa-3bc6-4bea-8156-26cbc268e550" FactorOptionId="f3ca1582-ce71-400a-8e28-bc71980681e7" />
+				</FactorValues>
+			</Sample>
+			<Sample Name="A2_b" SampleType="Sample" Version="1" Id="5a85782f-7caf-4412-bef9-76c9618802d6" FileSetId="f8792380-ed52-41b9-8d70-5e6311c064fd" SampleNumber="12">
+				<FactorValues>
+					<FactorValue FactorId="77508c67-e3cb-4e8b-8669-d949fb392727" FactorOptionId="86eb5912-9e64-4163-a213-6c618bbed946" />
+					<FactorValue FactorId="c0b78806-d184-4920-a4a2-a26bd984815a" FactorOptionId="3b1ce1af-6c7d-4594-b124-4c1d30001352" />
+					<FactorValue FactorId="b463e6fa-3bc6-4bea-8156-26cbc268e550" FactorOptionId="f3ca1582-ce71-400a-8e28-bc71980681e7" />
+				</FactorValues>
+			</Sample>
+			<Sample Name="A3_a" SampleType="Sample" Version="1" Id="81a7772b-9c74-42db-92da-51700ca31b9a" FileSetId="790030c1-4534-40b5-85a8-a01231cb4485" SampleNumber="13">
+				<FactorValues>
+					<FactorValue FactorId="77508c67-e3cb-4e8b-8669-d949fb392727" FactorOptionId="86eb5912-9e64-4163-a213-6c618bbed946" />
+					<FactorValue FactorId="c0b78806-d184-4920-a4a2-a26bd984815a" FactorOptionId="3ff29845-83c2-46b7-8dd8-f495486612f0" />
+					<FactorValue FactorId="b463e6fa-3bc6-4bea-8156-26cbc268e550" FactorOptionId="f3ca1582-ce71-400a-8e28-bc71980681e7" />
+				</FactorValues>
+			</Sample>
+			<Sample Name="A3_b" SampleType="Sample" Version="1" Id="e3263ae0-943a-4fd0-b184-8bea935893ca" FileSetId="d887750f-d7ff-432e-883b-35b3c12815af" SampleNumber="14">
+				<FactorValues>
+					<FactorValue FactorId="77508c67-e3cb-4e8b-8669-d949fb392727" FactorOptionId="86eb5912-9e64-4163-a213-6c618bbed946" />
+					<FactorValue FactorId="c0b78806-d184-4920-a4a2-a26bd984815a" FactorOptionId="3ff29845-83c2-46b7-8dd8-f495486612f0" />
+					<FactorValue FactorId="b463e6fa-3bc6-4bea-8156-26cbc268e550" FactorOptionId="f3ca1582-ce71-400a-8e28-bc71980681e7" />
+				</FactorValues>
+			</Sample>
+			<Sample Name="A4_a" SampleType="Sample" Version="1" Id="7d723e95-12e0-4723-9126-4c602449ad1c" FileSetId="70bfccb9-d2cd-4290-9e03-9bc52438ecec" SampleNumber="15">
+				<FactorValues>
+					<FactorValue FactorId="77508c67-e3cb-4e8b-8669-d949fb392727" FactorOptionId="86eb5912-9e64-4163-a213-6c618bbed946" />
+					<FactorValue FactorId="c0b78806-d184-4920-a4a2-a26bd984815a" FactorOptionId="6e23ae3c-61da-4305-bc43-c8e0c4bd19a3" />
+					<FactorValue FactorId="b463e6fa-3bc6-4bea-8156-26cbc268e550" FactorOptionId="e1dd9262-7996-4a03-96d6-531d90e9348d" />
+				</FactorValues>
+			</Sample>
+			<Sample Name="A4_b" SampleType="Sample" Version="1" Id="8964ccab-d302-4758-a346-88191d840384" FileSetId="dc7980d8-e45b-4d9b-a3c8-300aaa4904d2" SampleNumber="16">
+				<FactorValues>
+					<FactorValue FactorId="77508c67-e3cb-4e8b-8669-d949fb392727" FactorOptionId="86eb5912-9e64-4163-a213-6c618bbed946" />
+					<FactorValue FactorId="c0b78806-d184-4920-a4a2-a26bd984815a" FactorOptionId="6e23ae3c-61da-4305-bc43-c8e0c4bd19a3" />
+					<FactorValue FactorId="b463e6fa-3bc6-4bea-8156-26cbc268e550" FactorOptionId="e1dd9262-7996-4a03-96d6-531d90e9348d" />
+				</FactorValues>
+			</Sample>
+			<Sample Name="A5_a" SampleType="Sample" Version="1" Id="e4f1ebb3-e48a-4582-b370-ca57955d5933" FileSetId="eee3779f-6e31-420f-8fc8-f5a90ed6a16e" SampleNumber="17">
+				<FactorValues>
+					<FactorValue FactorId="77508c67-e3cb-4e8b-8669-d949fb392727" FactorOptionId="86eb5912-9e64-4163-a213-6c618bbed946" />
+					<FactorValue FactorId="c0b78806-d184-4920-a4a2-a26bd984815a" FactorOptionId="3b1ce1af-6c7d-4594-b124-4c1d30001352" />
+					<FactorValue FactorId="b463e6fa-3bc6-4bea-8156-26cbc268e550" FactorOptionId="e1dd9262-7996-4a03-96d6-531d90e9348d" />
+				</FactorValues>
+			</Sample>
+			<Sample Name="A5_b" SampleType="Sample" Version="1" Id="6f162812-d077-493e-b84c-490795f1ac9d" FileSetId="084c852f-bfb0-40ca-951e-e6df34eeeaa0" SampleNumber="18">
+				<FactorValues>
+					<FactorValue FactorId="77508c67-e3cb-4e8b-8669-d949fb392727" FactorOptionId="86eb5912-9e64-4163-a213-6c618bbed946" />
+					<FactorValue FactorId="c0b78806-d184-4920-a4a2-a26bd984815a" FactorOptionId="3b1ce1af-6c7d-4594-b124-4c1d30001352" />
+					<FactorValue FactorId="b463e6fa-3bc6-4bea-8156-26cbc268e550" FactorOptionId="e1dd9262-7996-4a03-96d6-531d90e9348d" />
+				</FactorValues>
+			</Sample>
+			<Sample Name="A6_a" SampleType="Sample" Version="1" Id="3b8825f5-127d-45a4-a800-4365c06dffbf" FileSetId="01b553d5-0057-4b3d-ba76-e43d058cace4" SampleNumber="19">
+				<FactorValues>
+					<FactorValue FactorId="77508c67-e3cb-4e8b-8669-d949fb392727" FactorOptionId="86eb5912-9e64-4163-a213-6c618bbed946" />
+					<FactorValue FactorId="c0b78806-d184-4920-a4a2-a26bd984815a" FactorOptionId="3ff29845-83c2-46b7-8dd8-f495486612f0" />
+					<FactorValue FactorId="b463e6fa-3bc6-4bea-8156-26cbc268e550" FactorOptionId="e1dd9262-7996-4a03-96d6-531d90e9348d" />
+				</FactorValues>
+			</Sample>
+			<Sample Name="A6_b" SampleType="Sample" Version="1" Id="b73557c7-3fe4-4b4b-bfce-be6cd513a2c0" FileSetId="141f2291-ea78-41d0-8826-2fb2fe66091e" SampleNumber="20">
+				<FactorValues>
+					<FactorValue FactorId="77508c67-e3cb-4e8b-8669-d949fb392727" FactorOptionId="86eb5912-9e64-4163-a213-6c618bbed946" />
+					<FactorValue FactorId="c0b78806-d184-4920-a4a2-a26bd984815a" FactorOptionId="3ff29845-83c2-46b7-8dd8-f495486612f0" />
+					<FactorValue FactorId="b463e6fa-3bc6-4bea-8156-26cbc268e550" FactorOptionId="e1dd9262-7996-4a03-96d6-531d90e9348d" />
+				</FactorValues>
+			</Sample>
+			<Sample Name="A10_a" SampleType="Sample" Version="1" Id="35440781-b7f2-4833-80e0-63de513e15e4" FileSetId="6f327770-7308-4624-a40c-18bc689018ba" SampleNumber="21">
+				<FactorValues>
+					<FactorValue FactorId="77508c67-e3cb-4e8b-8669-d949fb392727" FactorOptionId="397fb846-c823-4ad9-b07b-af472b7cbc12" />
+					<FactorValue FactorId="c0b78806-d184-4920-a4a2-a26bd984815a" FactorOptionId="6e23ae3c-61da-4305-bc43-c8e0c4bd19a3" />
+					<FactorValue FactorId="b463e6fa-3bc6-4bea-8156-26cbc268e550" FactorOptionId="e1dd9262-7996-4a03-96d6-531d90e9348d" />
+				</FactorValues>
+			</Sample>
+			<Sample Name="A10_b" SampleType="Sample" Version="1" Id="2cc0191d-def8-4967-94ac-d1eeea334de1" FileSetId="6b72d141-e0dd-4eab-9d7f-674555ea9d16" SampleNumber="22">
+				<FactorValues>
+					<FactorValue FactorId="77508c67-e3cb-4e8b-8669-d949fb392727" FactorOptionId="397fb846-c823-4ad9-b07b-af472b7cbc12" />
+					<FactorValue FactorId="c0b78806-d184-4920-a4a2-a26bd984815a" FactorOptionId="6e23ae3c-61da-4305-bc43-c8e0c4bd19a3" />
+					<FactorValue FactorId="b463e6fa-3bc6-4bea-8156-26cbc268e550" FactorOptionId="e1dd9262-7996-4a03-96d6-531d90e9348d" />
+				</FactorValues>
+			</Sample>
+			<Sample Name="A16_a" SampleType="Sample" Version="1" Id="1f4788f1-58b6-4c8f-8567-394d70fd51b1" FileSetId="6c55c82b-cc98-42d7-a2f2-74c0c9f59f39" SampleNumber="23">
+				<FactorValues>
+					<FactorValue FactorId="77508c67-e3cb-4e8b-8669-d949fb392727" FactorOptionId="c1724709-4db5-42bb-b832-087efba43204" />
+					<FactorValue FactorId="c0b78806-d184-4920-a4a2-a26bd984815a" FactorOptionId="6e23ae3c-61da-4305-bc43-c8e0c4bd19a3" />
+					<FactorValue FactorId="b463e6fa-3bc6-4bea-8156-26cbc268e550" FactorOptionId="e1dd9262-7996-4a03-96d6-531d90e9348d" />
+				</FactorValues>
+			</Sample>
+			<Sample Name="A16_b" SampleType="Sample" Version="1" Id="9af5bc84-b0c3-4e55-ba7b-b3edff658d59" FileSetId="8714ce23-874a-49c6-a855-0dd13e6f156e" SampleNumber="24">
+				<FactorValues>
+					<FactorValue FactorId="77508c67-e3cb-4e8b-8669-d949fb392727" FactorOptionId="c1724709-4db5-42bb-b832-087efba43204" />
+					<FactorValue FactorId="c0b78806-d184-4920-a4a2-a26bd984815a" FactorOptionId="6e23ae3c-61da-4305-bc43-c8e0c4bd19a3" />
+					<FactorValue FactorId="b463e6fa-3bc6-4bea-8156-26cbc268e550" FactorOptionId="e1dd9262-7996-4a03-96d6-531d90e9348d" />
+				</FactorValues>
+			</Sample>
+			<Sample Name="A22_a" SampleType="Sample" Version="1" Id="4523e836-429d-46ad-9cdb-0b6739790321" FileSetId="826a1d3a-9c3c-4ac0-9364-1eedac95dd94" SampleNumber="25">
+				<FactorValues>
+					<FactorValue FactorId="77508c67-e3cb-4e8b-8669-d949fb392727" FactorOptionId="bb7050b8-fa34-4d18-b504-9e9eb95d26c7" />
+					<FactorValue FactorId="c0b78806-d184-4920-a4a2-a26bd984815a" FactorOptionId="6e23ae3c-61da-4305-bc43-c8e0c4bd19a3" />
+					<FactorValue FactorId="b463e6fa-3bc6-4bea-8156-26cbc268e550" FactorOptionId="e1dd9262-7996-4a03-96d6-531d90e9348d" />
+				</FactorValues>
+			</Sample>
+			<Sample Name="A22_b" SampleType="Sample" Version="1" Id="6ebc1143-86bd-474a-acd7-5f71c9aa1cf3" FileSetId="bef1c48a-881c-4ef3-b428-e88f5f792f91" SampleNumber="26">
+				<FactorValues>
+					<FactorValue FactorId="77508c67-e3cb-4e8b-8669-d949fb392727" FactorOptionId="bb7050b8-fa34-4d18-b504-9e9eb95d26c7" />
+					<FactorValue FactorId="c0b78806-d184-4920-a4a2-a26bd984815a" FactorOptionId="6e23ae3c-61da-4305-bc43-c8e0c4bd19a3" />
+					<FactorValue FactorId="b463e6fa-3bc6-4bea-8156-26cbc268e550" FactorOptionId="e1dd9262-7996-4a03-96d6-531d90e9348d" />
+				</FactorValues>
+			</Sample>
+			<Sample Name="A28_a" SampleType="Sample" Version="1" Id="0e447109-ebf2-436f-aa5d-20f6b00e7367" FileSetId="0c96c570-b8b2-46c7-b8ac-e83658a51ad9" SampleNumber="27">
+				<FactorValues>
+					<FactorValue FactorId="77508c67-e3cb-4e8b-8669-d949fb392727" FactorOptionId="53faa10b-09ad-489c-b99d-f1b22afff668" />
+					<FactorValue FactorId="c0b78806-d184-4920-a4a2-a26bd984815a" FactorOptionId="6e23ae3c-61da-4305-bc43-c8e0c4bd19a3" />
+					<FactorValue FactorId="b463e6fa-3bc6-4bea-8156-26cbc268e550" FactorOptionId="e1dd9262-7996-4a03-96d6-531d90e9348d" />
+				</FactorValues>
+			</Sample>
+			<Sample Name="A28_b" SampleType="Sample" Version="1" Id="a430189b-ac92-4dee-b8ef-6cae807c2540" FileSetId="8dc4f61d-352b-4b54-bb34-de48922c7288" SampleNumber="28">
+				<FactorValues>
+					<FactorValue FactorId="77508c67-e3cb-4e8b-8669-d949fb392727" FactorOptionId="53faa10b-09ad-489c-b99d-f1b22afff668" />
+					<FactorValue FactorId="c0b78806-d184-4920-a4a2-a26bd984815a" FactorOptionId="6e23ae3c-61da-4305-bc43-c8e0c4bd19a3" />
+					<FactorValue FactorId="b463e6fa-3bc6-4bea-8156-26cbc268e550" FactorOptionId="e1dd9262-7996-4a03-96d6-531d90e9348d" />
+				</FactorValues>
+			</Sample>
+			<Sample Name="A34_a" SampleType="Sample" Version="1" Id="c67af9e1-a83f-4d5c-ad0c-ac572a5984d8" FileSetId="b4ffbef8-e827-443a-a62f-f406a42c4c89" SampleNumber="29">
+				<FactorValues>
+					<FactorValue FactorId="77508c67-e3cb-4e8b-8669-d949fb392727" FactorOptionId="0ab448ac-9539-4043-b6fb-341f95dd9dbe" />
+					<FactorValue FactorId="c0b78806-d184-4920-a4a2-a26bd984815a" FactorOptionId="6e23ae3c-61da-4305-bc43-c8e0c4bd19a3" />
+					<FactorValue FactorId="b463e6fa-3bc6-4bea-8156-26cbc268e550" FactorOptionId="e1dd9262-7996-4a03-96d6-531d90e9348d" />
+				</FactorValues>
+			</Sample>
+			<Sample Name="A34_b" SampleType="Sample" Version="1" Id="be3741ee-06d7-4193-a66a-3d15d594b4fb" FileSetId="720e99fd-e084-4f5a-9f7f-e1a0db75d293" SampleNumber="30">
+				<FactorValues>
+					<FactorValue FactorId="77508c67-e3cb-4e8b-8669-d949fb392727" FactorOptionId="0ab448ac-9539-4043-b6fb-341f95dd9dbe" />
+					<FactorValue FactorId="c0b78806-d184-4920-a4a2-a26bd984815a" FactorOptionId="6e23ae3c-61da-4305-bc43-c8e0c4bd19a3" />
+					<FactorValue FactorId="b463e6fa-3bc6-4bea-8156-26cbc268e550" FactorOptionId="e1dd9262-7996-4a03-96d6-531d90e9348d" />
+				</FactorValues>
+			</Sample>
+			<Sample Name="A40_a" SampleType="Sample" Version="1" Id="442a1578-abdf-4cd3-806d-7288345629d8" FileSetId="c945cffd-4899-4da4-913c-9d34c55966e6" SampleNumber="31">
+				<FactorValues>
+					<FactorValue FactorId="77508c67-e3cb-4e8b-8669-d949fb392727" FactorOptionId="c4f3261f-5d06-4dbf-932d-af2d046d2f4c" />
+					<FactorValue FactorId="c0b78806-d184-4920-a4a2-a26bd984815a" FactorOptionId="6e23ae3c-61da-4305-bc43-c8e0c4bd19a3" />
+					<FactorValue FactorId="b463e6fa-3bc6-4bea-8156-26cbc268e550" FactorOptionId="e1dd9262-7996-4a03-96d6-531d90e9348d" />
+				</FactorValues>
+			</Sample>
+			<Sample Name="A40_b" SampleType="Sample" Version="1" Id="daf7fd1e-e9fc-41b3-ac15-7c3f0f76fb8f" FileSetId="e7f1dd07-ac93-4d97-b703-bb6e3d8435d6" SampleNumber="32">
+				<FactorValues>
+					<FactorValue FactorId="77508c67-e3cb-4e8b-8669-d949fb392727" FactorOptionId="c4f3261f-5d06-4dbf-932d-af2d046d2f4c" />
+					<FactorValue FactorId="c0b78806-d184-4920-a4a2-a26bd984815a" FactorOptionId="6e23ae3c-61da-4305-bc43-c8e0c4bd19a3" />
+					<FactorValue FactorId="b463e6fa-3bc6-4bea-8156-26cbc268e550" FactorOptionId="e1dd9262-7996-4a03-96d6-531d90e9348d" />
+				</FactorValues>
+			</Sample>
+			<Sample Name="A46_a" SampleType="Sample" Version="1" Id="c304fc69-2b72-4827-a188-ad6d9ee40aa1" FileSetId="d3335fd7-3124-45f1-a8f4-36e2019747e4" SampleNumber="33">
+				<FactorValues>
+					<FactorValue FactorId="77508c67-e3cb-4e8b-8669-d949fb392727" FactorOptionId="dd777668-a1a5-4120-bbf3-08e0472ff02c" />
+					<FactorValue FactorId="c0b78806-d184-4920-a4a2-a26bd984815a" FactorOptionId="6e23ae3c-61da-4305-bc43-c8e0c4bd19a3" />
+					<FactorValue FactorId="b463e6fa-3bc6-4bea-8156-26cbc268e550" FactorOptionId="e1dd9262-7996-4a03-96d6-531d90e9348d" />
+				</FactorValues>
+			</Sample>
+			<Sample Name="A46_b" SampleType="Sample" Version="1" Id="dab1c326-448f-420e-8e4f-3e55b08cfba6" FileSetId="33c0e96d-419b-4999-856e-c3ca7ea26d85" SampleNumber="34">
+				<FactorValues>
+					<FactorValue FactorId="77508c67-e3cb-4e8b-8669-d949fb392727" FactorOptionId="dd777668-a1a5-4120-bbf3-08e0472ff02c" />
+					<FactorValue FactorId="c0b78806-d184-4920-a4a2-a26bd984815a" FactorOptionId="6e23ae3c-61da-4305-bc43-c8e0c4bd19a3" />
+					<FactorValue FactorId="b463e6fa-3bc6-4bea-8156-26cbc268e550" FactorOptionId="e1dd9262-7996-4a03-96d6-531d90e9348d" />
+				</FactorValues>
+			</Sample>
+			<Sample Name="A49_a" SampleType="Sample" Version="1" Id="1eba8736-1bc0-47ba-9aa8-015a5a5007ea" FileSetId="d3e377cd-8695-4712-921a-b74127092809" SampleNumber="35">
+				<FactorValues>
+					<FactorValue FactorId="77508c67-e3cb-4e8b-8669-d949fb392727" FactorOptionId="75568fc9-0d09-43d9-a1b3-3e9d32e140e6" />
+					<FactorValue FactorId="c0b78806-d184-4920-a4a2-a26bd984815a" FactorOptionId="6e23ae3c-61da-4305-bc43-c8e0c4bd19a3" />
+					<FactorValue FactorId="b463e6fa-3bc6-4bea-8156-26cbc268e550" FactorOptionId="f3ca1582-ce71-400a-8e28-bc71980681e7" />
+				</FactorValues>
+			</Sample>
+			<Sample Name="A49_b" SampleType="Sample" Version="1" Id="696b75dd-5539-455f-a1cb-22d81827eee0" FileSetId="7e6b53e8-a66a-4237-a284-fb3197fb5d88" SampleNumber="36">
+				<FactorValues>
+					<FactorValue FactorId="77508c67-e3cb-4e8b-8669-d949fb392727" FactorOptionId="75568fc9-0d09-43d9-a1b3-3e9d32e140e6" />
+					<FactorValue FactorId="c0b78806-d184-4920-a4a2-a26bd984815a" FactorOptionId="6e23ae3c-61da-4305-bc43-c8e0c4bd19a3" />
+					<FactorValue FactorId="b463e6fa-3bc6-4bea-8156-26cbc268e550" FactorOptionId="f3ca1582-ce71-400a-8e28-bc71980681e7" />
+				</FactorValues>
+			</Sample>
+			<Sample Name="A50_a" SampleType="Sample" Version="1" Id="a3e041db-a609-4b2e-ac6a-9a069521644d" FileSetId="c733929c-2081-4cec-beb1-9438b75fb6db" SampleNumber="37">
+				<FactorValues>
+					<FactorValue FactorId="77508c67-e3cb-4e8b-8669-d949fb392727" FactorOptionId="75568fc9-0d09-43d9-a1b3-3e9d32e140e6" />
+					<FactorValue FactorId="c0b78806-d184-4920-a4a2-a26bd984815a" FactorOptionId="3b1ce1af-6c7d-4594-b124-4c1d30001352" />
+					<FactorValue FactorId="b463e6fa-3bc6-4bea-8156-26cbc268e550" FactorOptionId="f3ca1582-ce71-400a-8e28-bc71980681e7" />
+				</FactorValues>
+			</Sample>
+			<Sample Name="A50_b" SampleType="Sample" Version="1" Id="79cdcc88-ab3c-4489-8789-84d8a5b14f64" FileSetId="ec307f81-d276-4b34-8105-f385fb8444c9" SampleNumber="38">
+				<FactorValues>
+					<FactorValue FactorId="77508c67-e3cb-4e8b-8669-d949fb392727" FactorOptionId="75568fc9-0d09-43d9-a1b3-3e9d32e140e6" />
+					<FactorValue FactorId="c0b78806-d184-4920-a4a2-a26bd984815a" FactorOptionId="3b1ce1af-6c7d-4594-b124-4c1d30001352" />
+					<FactorValue FactorId="b463e6fa-3bc6-4bea-8156-26cbc268e550" FactorOptionId="f3ca1582-ce71-400a-8e28-bc71980681e7" />
+				</FactorValues>
+			</Sample>
+			<Sample Name="A51_a" SampleType="Sample" Version="1" Id="601957ad-82d7-419d-865b-08e6c0003e6a" FileSetId="323e0dde-6da5-4f5a-8f54-e32b87b476a4" SampleNumber="39">
+				<FactorValues>
+					<FactorValue FactorId="77508c67-e3cb-4e8b-8669-d949fb392727" FactorOptionId="75568fc9-0d09-43d9-a1b3-3e9d32e140e6" />
+					<FactorValue FactorId="c0b78806-d184-4920-a4a2-a26bd984815a" FactorOptionId="3ff29845-83c2-46b7-8dd8-f495486612f0" />
+					<FactorValue FactorId="b463e6fa-3bc6-4bea-8156-26cbc268e550" FactorOptionId="f3ca1582-ce71-400a-8e28-bc71980681e7" />
+				</FactorValues>
+			</Sample>
+			<Sample Name="A51_b" SampleType="Sample" Version="1" Id="702fad1d-274e-4858-9e02-121760b9c74d" FileSetId="16cde951-bbc9-4b00-9435-78aedf7f585e" SampleNumber="40">
+				<FactorValues>
+					<FactorValue FactorId="77508c67-e3cb-4e8b-8669-d949fb392727" FactorOptionId="75568fc9-0d09-43d9-a1b3-3e9d32e140e6" />
+					<FactorValue FactorId="c0b78806-d184-4920-a4a2-a26bd984815a" FactorOptionId="3ff29845-83c2-46b7-8dd8-f495486612f0" />
+					<FactorValue FactorId="b463e6fa-3bc6-4bea-8156-26cbc268e550" FactorOptionId="f3ca1582-ce71-400a-8e28-bc71980681e7" />
+				</FactorValues>
+			</Sample>
+			<Sample Name="A52_a" SampleType="Sample" Version="1" Id="3a885b2f-62cb-4ced-aa9d-a7bbb52f8c68" FileSetId="4d7027b1-9588-456c-8166-6391fae46056" SampleNumber="41">
+				<FactorValues>
+					<FactorValue FactorId="77508c67-e3cb-4e8b-8669-d949fb392727" FactorOptionId="75568fc9-0d09-43d9-a1b3-3e9d32e140e6" />
+					<FactorValue FactorId="c0b78806-d184-4920-a4a2-a26bd984815a" FactorOptionId="6e23ae3c-61da-4305-bc43-c8e0c4bd19a3" />
+					<FactorValue FactorId="b463e6fa-3bc6-4bea-8156-26cbc268e550" FactorOptionId="e1dd9262-7996-4a03-96d6-531d90e9348d" />
+				</FactorValues>
+			</Sample>
+			<Sample Name="A52_b" SampleType="Sample" Version="1" Id="e29af76a-dd0c-44fc-af7c-5ee5ed4e1e2a" FileSetId="705871aa-5c0f-4f28-ba81-3690d7c476df" SampleNumber="42">
+				<FactorValues>
+					<FactorValue FactorId="77508c67-e3cb-4e8b-8669-d949fb392727" FactorOptionId="75568fc9-0d09-43d9-a1b3-3e9d32e140e6" />
+					<FactorValue FactorId="c0b78806-d184-4920-a4a2-a26bd984815a" FactorOptionId="6e23ae3c-61da-4305-bc43-c8e0c4bd19a3" />
+					<FactorValue FactorId="b463e6fa-3bc6-4bea-8156-26cbc268e550" FactorOptionId="e1dd9262-7996-4a03-96d6-531d90e9348d" />
+				</FactorValues>
+			</Sample>
+			<Sample Name="A53_a" SampleType="Sample" Version="1" Id="819febc1-d444-4221-a16a-19a694100795" FileSetId="ef366828-9b80-4438-95ae-3b4ce5860ce7" SampleNumber="43">
+				<FactorValues>
+					<FactorValue FactorId="77508c67-e3cb-4e8b-8669-d949fb392727" FactorOptionId="75568fc9-0d09-43d9-a1b3-3e9d32e140e6" />
+					<FactorValue FactorId="c0b78806-d184-4920-a4a2-a26bd984815a" FactorOptionId="3b1ce1af-6c7d-4594-b124-4c1d30001352" />
+					<FactorValue FactorId="b463e6fa-3bc6-4bea-8156-26cbc268e550" FactorOptionId="e1dd9262-7996-4a03-96d6-531d90e9348d" />
+				</FactorValues>
+			</Sample>
+			<Sample Name="A53_b" SampleType="Sample" Version="1" Id="3b058b27-be1d-4a83-94cc-d5d7abf7d7c4" FileSetId="d56b1050-0330-46bf-8dc6-c001bdbe76d5" SampleNumber="44">
+				<FactorValues>
+					<FactorValue FactorId="77508c67-e3cb-4e8b-8669-d949fb392727" FactorOptionId="75568fc9-0d09-43d9-a1b3-3e9d32e140e6" />
+					<FactorValue FactorId="c0b78806-d184-4920-a4a2-a26bd984815a" FactorOptionId="3b1ce1af-6c7d-4594-b124-4c1d30001352" />
+					<FactorValue FactorId="b463e6fa-3bc6-4bea-8156-26cbc268e550" FactorOptionId="e1dd9262-7996-4a03-96d6-531d90e9348d" />
+				</FactorValues>
+			</Sample>
+			<Sample Name="A54_a" SampleType="Sample" Version="1" Id="977c32ab-2675-406b-8290-d62031034637" FileSetId="d9f5eb29-d057-4b77-bb7b-7d7718fd1931" SampleNumber="45">
+				<FactorValues>
+					<FactorValue FactorId="77508c67-e3cb-4e8b-8669-d949fb392727" FactorOptionId="75568fc9-0d09-43d9-a1b3-3e9d32e140e6" />
+					<FactorValue FactorId="c0b78806-d184-4920-a4a2-a26bd984815a" FactorOptionId="3ff29845-83c2-46b7-8dd8-f495486612f0" />
+					<FactorValue FactorId="b463e6fa-3bc6-4bea-8156-26cbc268e550" FactorOptionId="e1dd9262-7996-4a03-96d6-531d90e9348d" />
+				</FactorValues>
+			</Sample>
+			<Sample Name="A54_b" SampleType="Sample" Version="1" Id="02440bb2-d7a6-4208-ad42-d8ab5f6e779c" FileSetId="20bba31c-2503-4aba-88cd-f8d61287e5d1" SampleNumber="46">
+				<FactorValues>
+					<FactorValue FactorId="77508c67-e3cb-4e8b-8669-d949fb392727" FactorOptionId="75568fc9-0d09-43d9-a1b3-3e9d32e140e6" />
+					<FactorValue FactorId="c0b78806-d184-4920-a4a2-a26bd984815a" FactorOptionId="3ff29845-83c2-46b7-8dd8-f495486612f0" />
+					<FactorValue FactorId="b463e6fa-3bc6-4bea-8156-26cbc268e550" FactorOptionId="e1dd9262-7996-4a03-96d6-531d90e9348d" />
+				</FactorValues>
+			</Sample>
+			<Sample Name="QC_a" SampleType="QualityControl" Version="1" Id="f5ab0513-02cc-4966-aaf5-9699a4af75da" FileSetId="755d514b-50ca-4110-a600-80a486260cac" SampleNumber="47">
+				<FactorValues>
+					<FactorValue FactorId="77508c67-e3cb-4e8b-8669-d949fb392727" FactorOptionId="64a78239-4e3c-4872-a6bd-6b1f4cc681ad" />
+					<FactorValue FactorId="c0b78806-d184-4920-a4a2-a26bd984815a" FactorOptionId="64a78239-4e3c-4872-a6bd-6b1f4cc681ad" />
+					<FactorValue FactorId="b463e6fa-3bc6-4bea-8156-26cbc268e550" FactorOptionId="64a78239-4e3c-4872-a6bd-6b1f4cc681ad" />
+				</FactorValues>
+			</Sample>
+			<Sample Name="QC_b" SampleType="QualityControl" Version="1" Id="cb5a5c50-07a3-4013-b333-d231f41e7c34" FileSetId="7e19fd1f-8ee3-423b-9bcc-847feeedff6c" SampleNumber="48">
+				<FactorValues>
+					<FactorValue FactorId="77508c67-e3cb-4e8b-8669-d949fb392727" FactorOptionId="64a78239-4e3c-4872-a6bd-6b1f4cc681ad" />
+					<FactorValue FactorId="c0b78806-d184-4920-a4a2-a26bd984815a" FactorOptionId="64a78239-4e3c-4872-a6bd-6b1f4cc681ad" />
+					<FactorValue FactorId="b463e6fa-3bc6-4bea-8156-26cbc268e550" FactorOptionId="64a78239-4e3c-4872-a6bd-6b1f4cc681ad" />
+				</FactorValues>
+			</Sample>
+			<Sample Name="QC_c" SampleType="QualityControl" Version="1" Id="ef976dda-9536-446a-a7dc-9670c15f6ead" FileSetId="2cfe2be6-ac8d-40fa-bf88-f062f9e849b0" SampleNumber="49">
+				<FactorValues>
+					<FactorValue FactorId="77508c67-e3cb-4e8b-8669-d949fb392727" FactorOptionId="64a78239-4e3c-4872-a6bd-6b1f4cc681ad" />
+					<FactorValue FactorId="c0b78806-d184-4920-a4a2-a26bd984815a" FactorOptionId="64a78239-4e3c-4872-a6bd-6b1f4cc681ad" />
+					<FactorValue FactorId="b463e6fa-3bc6-4bea-8156-26cbc268e550" FactorOptionId="64a78239-4e3c-4872-a6bd-6b1f4cc681ad" />
+				</FactorValues>
+			</Sample>
+			<Sample Name="QC_d" SampleType="QualityControl" Version="1" Id="e587c439-86f1-4082-a849-8a4a5dc6923b" FileSetId="8a97a43e-a63d-4884-b34a-f48556c57c28" SampleNumber="50">
+				<FactorValues>
+					<FactorValue FactorId="77508c67-e3cb-4e8b-8669-d949fb392727" FactorOptionId="64a78239-4e3c-4872-a6bd-6b1f4cc681ad" />
+					<FactorValue FactorId="c0b78806-d184-4920-a4a2-a26bd984815a" FactorOptionId="64a78239-4e3c-4872-a6bd-6b1f4cc681ad" />
+					<FactorValue FactorId="b463e6fa-3bc6-4bea-8156-26cbc268e550" FactorOptionId="64a78239-4e3c-4872-a6bd-6b1f4cc681ad" />
+				</FactorValues>
+			</Sample>
+			<Sample Name="QC_e" SampleType="QualityControl" Version="1" Id="216a0f7e-6320-4411-b849-9104a95d08ef" FileSetId="59120b25-090e-4251-8991-5d4506e31ec8" SampleNumber="51">
+				<FactorValues>
+					<FactorValue FactorId="77508c67-e3cb-4e8b-8669-d949fb392727" FactorOptionId="64a78239-4e3c-4872-a6bd-6b1f4cc681ad" />
+					<FactorValue FactorId="c0b78806-d184-4920-a4a2-a26bd984815a" FactorOptionId="64a78239-4e3c-4872-a6bd-6b1f4cc681ad" />
+					<FactorValue FactorId="b463e6fa-3bc6-4bea-8156-26cbc268e550" FactorOptionId="64a78239-4e3c-4872-a6bd-6b1f4cc681ad" />
+				</FactorValues>
+			</Sample>
+			<Sample Name="QC_f" SampleType="QualityControl" Version="1" Id="eaab66ef-74e6-4b2b-bd30-5802a579a2cf" FileSetId="290b92b9-160e-4414-8094-9b264b936a26" SampleNumber="52">
+				<FactorValues>
+					<FactorValue FactorId="77508c67-e3cb-4e8b-8669-d949fb392727" FactorOptionId="64a78239-4e3c-4872-a6bd-6b1f4cc681ad" />
+					<FactorValue FactorId="c0b78806-d184-4920-a4a2-a26bd984815a" FactorOptionId="64a78239-4e3c-4872-a6bd-6b1f4cc681ad" />
+					<FactorValue FactorId="b463e6fa-3bc6-4bea-8156-26cbc268e550" FactorOptionId="64a78239-4e3c-4872-a6bd-6b1f4cc681ad" />
+				</FactorValues>
+			</Sample>
+			<Sample Name="QC_g" SampleType="QualityControl" Version="1" Id="f3c220fc-a69b-4b08-a95b-20c0c6b14e0d" FileSetId="80ff565f-801d-4b36-94f5-a871093fcda6" SampleNumber="53">
+				<FactorValues>
+					<FactorValue FactorId="77508c67-e3cb-4e8b-8669-d949fb392727" FactorOptionId="64a78239-4e3c-4872-a6bd-6b1f4cc681ad" />
+					<FactorValue FactorId="c0b78806-d184-4920-a4a2-a26bd984815a" FactorOptionId="64a78239-4e3c-4872-a6bd-6b1f4cc681ad" />
+					<FactorValue FactorId="b463e6fa-3bc6-4bea-8156-26cbc268e550" FactorOptionId="64a78239-4e3c-4872-a6bd-6b1f4cc681ad" />
+				</FactorValues>
+			</Sample>
+			<Sample Name="QC_h" SampleType="QualityControl" Version="1" Id="47311ded-9c60-40ac-a535-20a8429590b9" FileSetId="bac60703-6d41-4167-82b4-35cd76b27a38" SampleNumber="54">
+				<FactorValues>
+					<FactorValue FactorId="77508c67-e3cb-4e8b-8669-d949fb392727" FactorOptionId="64a78239-4e3c-4872-a6bd-6b1f4cc681ad" />
+					<FactorValue FactorId="c0b78806-d184-4920-a4a2-a26bd984815a" FactorOptionId="64a78239-4e3c-4872-a6bd-6b1f4cc681ad" />
+					<FactorValue FactorId="b463e6fa-3bc6-4bea-8156-26cbc268e550" FactorOptionId="64a78239-4e3c-4872-a6bd-6b1f4cc681ad" />
+				</FactorValues>
+			</Sample>
+			<Sample Name="QC_i" SampleType="QualityControl" Version="1" Id="d199ee35-ce86-41f4-95cc-ddbf827c5d3d" FileSetId="8a41e438-ea62-473c-b80c-cd158b07004a" SampleNumber="55">
+				<FactorValues>
+					<FactorValue FactorId="77508c67-e3cb-4e8b-8669-d949fb392727" FactorOptionId="64a78239-4e3c-4872-a6bd-6b1f4cc681ad" />
+					<FactorValue FactorId="c0b78806-d184-4920-a4a2-a26bd984815a" FactorOptionId="64a78239-4e3c-4872-a6bd-6b1f4cc681ad" />
+					<FactorValue FactorId="b463e6fa-3bc6-4bea-8156-26cbc268e550" FactorOptionId="64a78239-4e3c-4872-a6bd-6b1f4cc681ad" />
+				</FactorValues>
+			</Sample>
+			<Sample Name="QC_j" SampleType="QualityControl" Version="1" Id="1a947d8b-2cbb-43eb-abc2-19263fd6f04f" FileSetId="96c36e89-34fc-41d1-81fc-8ae1694c969f" SampleNumber="56">
+				<FactorValues>
+					<FactorValue FactorId="77508c67-e3cb-4e8b-8669-d949fb392727" FactorOptionId="64a78239-4e3c-4872-a6bd-6b1f4cc681ad" />
+					<FactorValue FactorId="c0b78806-d184-4920-a4a2-a26bd984815a" FactorOptionId="64a78239-4e3c-4872-a6bd-6b1f4cc681ad" />
+					<FactorValue FactorId="b463e6fa-3bc6-4bea-8156-26cbc268e550" FactorOptionId="64a78239-4e3c-4872-a6bd-6b1f4cc681ad" />
+				</FactorValues>
+			</Sample>
+			<Sample Name="QC_k" SampleType="QualityControl" Version="1" Id="34127f76-4927-4a6a-a9b3-4d742dc0ffa0" FileSetId="b9e09045-8abc-4517-bbd4-fa0ce70c6bc8" SampleNumber="57">
+				<FactorValues>
+					<FactorValue FactorId="77508c67-e3cb-4e8b-8669-d949fb392727" FactorOptionId="64a78239-4e3c-4872-a6bd-6b1f4cc681ad" />
+					<FactorValue FactorId="c0b78806-d184-4920-a4a2-a26bd984815a" FactorOptionId="64a78239-4e3c-4872-a6bd-6b1f4cc681ad" />
+					<FactorValue FactorId="b463e6fa-3bc6-4bea-8156-26cbc268e550" FactorOptionId="64a78239-4e3c-4872-a6bd-6b1f4cc681ad" />
+				</FactorValues>
+			</Sample>
+			<Sample Name="QC_m" SampleType="QualityControl" Version="1" Id="f7f61496-ed50-4a55-8aa9-b366b100863d" FileSetId="d89269e4-b681-44d1-91bd-f5334b1cc8bd" SampleNumber="58">
+				<FactorValues>
+					<FactorValue FactorId="77508c67-e3cb-4e8b-8669-d949fb392727" FactorOptionId="64a78239-4e3c-4872-a6bd-6b1f4cc681ad" />
+					<FactorValue FactorId="c0b78806-d184-4920-a4a2-a26bd984815a" FactorOptionId="64a78239-4e3c-4872-a6bd-6b1f4cc681ad" />
+					<FactorValue FactorId="b463e6fa-3bc6-4bea-8156-26cbc268e550" FactorOptionId="64a78239-4e3c-4872-a6bd-6b1f4cc681ad" />
+				</FactorValues>
+			</Sample>
+			<Sample Name="QC_n" SampleType="QualityControl" Version="1" Id="df3d3043-3f9e-43ef-ab93-b70e591e2b18" FileSetId="d3db8e46-fe4b-4cd3-9ebb-210b1d993582" SampleNumber="59">
+				<FactorValues>
+					<FactorValue FactorId="77508c67-e3cb-4e8b-8669-d949fb392727" FactorOptionId="64a78239-4e3c-4872-a6bd-6b1f4cc681ad" />
+					<FactorValue FactorId="c0b78806-d184-4920-a4a2-a26bd984815a" FactorOptionId="64a78239-4e3c-4872-a6bd-6b1f4cc681ad" />
+					<FactorValue FactorId="b463e6fa-3bc6-4bea-8156-26cbc268e550" FactorOptionId="64a78239-4e3c-4872-a6bd-6b1f4cc681ad" />
+				</FactorValues>
+			</Sample>
+			<Sample Name="QC_o" SampleType="QualityControl" Version="1" Id="c552dc30-6019-4c21-b30f-239b3e1153b5" FileSetId="3b127fa8-39e4-4251-a117-56bba1dfdfe8" SampleNumber="60">
+				<FactorValues>
+					<FactorValue FactorId="77508c67-e3cb-4e8b-8669-d949fb392727" FactorOptionId="64a78239-4e3c-4872-a6bd-6b1f4cc681ad" />
+					<FactorValue FactorId="c0b78806-d184-4920-a4a2-a26bd984815a" FactorOptionId="64a78239-4e3c-4872-a6bd-6b1f4cc681ad" />
+					<FactorValue FactorId="b463e6fa-3bc6-4bea-8156-26cbc268e550" FactorOptionId="64a78239-4e3c-4872-a6bd-6b1f4cc681ad" />
+				</FactorValues>
+			</Sample>
+			<Sample Name="QC_p" SampleType="QualityControl" Version="1" Id="a69149de-c1c6-4f64-b439-c6fb0304d952" FileSetId="3ed617a9-d765-47a7-a0ee-50c5ce23af5b" SampleNumber="61">
+				<FactorValues>
+					<FactorValue FactorId="77508c67-e3cb-4e8b-8669-d949fb392727" FactorOptionId="64a78239-4e3c-4872-a6bd-6b1f4cc681ad" />
+					<FactorValue FactorId="c0b78806-d184-4920-a4a2-a26bd984815a" FactorOptionId="64a78239-4e3c-4872-a6bd-6b1f4cc681ad" />
+					<FactorValue FactorId="b463e6fa-3bc6-4bea-8156-26cbc268e550" FactorOptionId="64a78239-4e3c-4872-a6bd-6b1f4cc681ad" />
+				</FactorValues>
+			</Sample>
+		</Samples>
+		<StudyDefinitionExtensions />
+	</StudyDefinition>
+	<AnalysisResults NextResultNumber="1">
+		<AnalysisResult ResultNumber="1">
+			<Analysis Version="1" CreationDate="9/21/2023 11:58:52 AM" Description="Untargeted environmental research ID workflow without statistics: Detect and identify unknown compounds.&#xA;- Performs retention time alignment, unknown compound detection, and compound grouping across all samples. Predicts elemental compositions for all compounds, and hides chemical background (using Blank samples).  Identifies compounds using mzCloud (ddMS2 and/or DIA), ChemSpider (exact mass or formula) and local database searches against Mass Lists (exact mass with or without RT).  Performs spectral similarity search against mzCloud for compounds with ddMS2. Applies mzLogic to rank order structure candidates from ChemSpider and mass list matches. Applies spectral distance scoring to mass list and ChemSpider matches. Generates mass defect values in the Compounds table based on selected mass defect type (Kendrick for identifying polymers).&#xA;&#xA;">
+				<AnalysisSequence>
+					<SequenceStep>
+						<Id>0</Id>
+						<StepType>InitialStep</StepType>
+						<FileName>C:\CompoundDiscovererStudies\CRH_Naburn\Drying_Sep2023\CRH_DryingStudy_Sep2023\Charlie_September_2023.cdResult</FileName>
+						<WorkflowID>14</WorkflowID>
+						<WorkflowExecutionState>Running</WorkflowExecutionState>
+						<WorkflowGuid>f18c7229-9520-49c6-b778-c7426db60931</WorkflowGuid>
+						<WorkflowInfo>
+							<WorkflowType>Processing</WorkflowType>
+							<WorkflowName>Environmental_Pharmaceuticals_Kgato_Charlie</WorkflowName>
+							<WorkflowDescription>Untargeted environmental research ID workflow without statistics: Detect and identify unknown compounds.
+- Performs retention time alignment, unknown compound detection, and compound grouping across all samples. Predicts elemental compositions for all compounds, and hides chemical background (using Blank samples).  Identifies compounds using mzCloud (ddMS2 and/or DIA), ChemSpider (exact mass or formula) and local database searches against Mass Lists (exact mass with or without RT).  Performs spectral similarity search against mzCloud for compounds with ddMS2. Applies mzLogic to rank order structure candidates from ChemSpider and mass list matches. Applies spectral distance scoring to mass list and ChemSpider matches. Generates mass defect values in the Compounds table based on selected mass defect type (Kendrick for identifying polymers).
+
+</WorkflowDescription>
+							<WorkflowDefinition>
+								<Workflow Name="Environmental_Pharmaceuticals_Kgato_Charlie" Description="Untargeted environmental research ID workflow without statistics: Detect and identify unknown compounds.&#xA;- Performs retention time alignment, unknown compound detection, and compound grouping across all samples. Predicts elemental compositions for all compounds, and hides chemical background (using Blank samples).  Identifies compounds using mzCloud (ddMS2 and/or DIA), ChemSpider (exact mass or formula) and local database searches against Mass Lists (exact mass with or without RT).  Performs spectral similarity search against mzCloud for compounds with ddMS2. Applies mzLogic to rank order structure candidates from ChemSpider and mass list matches. Applies spectral distance scoring to mass list and ChemSpider matches. Generates mass defect values in the Compounds table based on selected mass defect type (Kendrick for identifying polymers).&#xA;&#xA;" CreationDate="1/1/0001 12:00:00 AM" CreatedFromUser="" WaitForEarlierJobs="False" ContinueJob="False" Version="10" WorkflowType="Processing" TemplateName="Environmental_Pharmaceuticals_Kgato_Charlie">
+									<WorkflowTree>
+										<WorkflowNode ProcessingNodeNumber="0" ProcessingNodeName="SpectrumFilesNode" FriendlyName="Input Files" Description="Selects the spectrum file(s) to be processed." MainVersion="1" MinorVersion="4" Guid="848160ba-2f76-46ca-a281-f7bf66990a5b" Category="1. Input / Output" ParentProcessingNodeNumber="-1" Comment="" UsageConstraint="OnlyOncePerWorkflow" Publisher="Thermo Scientific" NodeState="Created">
+											<ProcessingNodeInterfaces>
+												<ProcessingNodeInterface Kind="Functional" Name="IProcessingNode" />
+												<ProcessingNodeInterface Kind="Functional" Name="IStartProcessing" />
+											</ProcessingNodeInterfaces>
+											<ConnectionPoints>
+												<ConnectionPoint Direction="Outgoing" Multiplicity="Multiple" ConnectionRequirement="Optional" Mode="Manual" DisplayName="" ConnectionDataHandlingType="InMemoryAndFileBased" ParentNodeConstraint="None">
+													<DataContracts>
+														<DataContract DataType="http://thermo.magellan.com/owl/DataTypes/SpectrumFiles">
+															<DataTypeAttributes />
+														</DataContract>
+													</DataContracts>
+												</ConnectionPoint>
+											</ConnectionPoints>
+											<ProcessingNodeParameters>
+												<ProcessingNodeParameter Name="SpectrumFileNames" FriendlyName="File Name(s)" Category="Input Data" IsAdvanced="False" IntendedPurpose="SpectrumContainer" PurposeDetails="" IsValueSet="False" IsHidden="True" IsConfig="False" DisplayValue=""></ProcessingNodeParameter>
+											</ProcessingNodeParameters>
+											<ProcessingNodePosition X="353.276031494141" Y="55" />
+										</WorkflowNode>
+										<WorkflowNode ProcessingNodeNumber="38" ProcessingNodeName="SpectrumSelectorNode" FriendlyName="Select Spectra" Description="Selects and retrieves the spectra for further processing." MainVersion="1" MinorVersion="27" Guid="238d2f70-3dd9-4e2b-a77d-f24933797cf6" Category="2. Spectrum Processing" ParentProcessingNodeNumber="0" Comment="" Publisher="Thermo Scientific" NodeState="Created">
+											<ProcessingNodeInterfaces>
+												<ProcessingNodeInterface Kind="Functional" Name="IProcessingNode" />
+											</ProcessingNodeInterfaces>
+											<ConnectionPoints>
+												<ConnectionPoint Direction="Incoming" Multiplicity="Multiple" ConnectionRequirement="RequiredAtDesignTime" Mode="AutomaticToAllPossibleParents" DisplayName="Data Input" ConnectionDataHandlingType="InMemory" ParentNodeConstraint="None">
+													<DataContracts>
+														<DataContract DataType="http://thermo.magellan.com/owl/DataTypes/SpectrumFiles">
+															<DataTypeAttributes />
+														</DataContract>
+													</DataContracts>
+												</ConnectionPoint>
+												<ConnectionPoint Direction="Outgoing" Multiplicity="Multiple" ConnectionRequirement="Optional" Mode="Manual" DisplayName="" ConnectionDataHandlingType="InMemory" ParentNodeConstraint="None">
+													<DataContracts>
+														<DataContract DataType="http://thermo.magellan.com/owl/DataTypes/MSnSpectra">
+															<DataTypeAttributes>
+																<DataTypeAttribute>http://thermo.magellan.com/owl/DataTypes/CentroidData</DataTypeAttribute>
+																<DataTypeAttribute>http://thermo.magellan.com/owl/DataTypes/ProfileData</DataTypeAttribute>
+															</DataTypeAttributes>
+														</DataContract>
+													</DataContracts>
+												</ConnectionPoint>
+											</ConnectionPoints>
+											<NodeGroupConstraints>
+												<NodeGroupConstraint Name="Spectrum Extraction" Constraint="NotTogetherWithGroup" />
+											</NodeGroupConstraints>
+											<ProcessingNodeParameters>
+												<ProcessingNodeParameter Name="PrecursorSelectionStrategy" FriendlyName="Precursor Selection" Category="5. General Settings" IsAdvanced="True" IntendedPurpose="PrecursorSelectionStrategy" PurposeDetails="" IsValueSet="True" IsHidden="False" IsConfig="False" DisplayValue="Use MS(n - 1) Precursor">Use MS(n - 1) Precursor</ProcessingNodeParameter>
+												<ProcessingNodeParameter Name="SelectedPeakPickingAlgorithm" FriendlyName="Peak Picking Algorithm" Category="5. General Settings" IsAdvanced="True" IntendedPurpose="Unknown" PurposeDetails="" IsValueSet="True" IsHidden="True" IsConfig="False" DisplayValue="PD">PD</ProcessingNodeParameter>
+												<ProcessingNodeParameter Name="UseCaching" FriendlyName="Use Caching" Category="5. General Settings" IsAdvanced="True" IntendedPurpose="Unknown" PurposeDetails="" IsValueSet="True" IsHidden="True" IsConfig="False" DisplayValue="True">True</ProcessingNodeParameter>
+												<ProcessingNodeParameter Name="UseIsotopePatternInPrecursorPeakReevaluation" FriendlyName="Use Isotope Pattern in Precursor Reevaluation" Category="5. General Settings" IsAdvanced="True" IntendedPurpose="Unknown" PurposeDetails="" IsValueSet="True" IsHidden="False" IsConfig="False" DisplayValue="True">True</ProcessingNodeParameter>
+												<ProcessingNodeParameter Name="ProvideProfilePoints" FriendlyName="Provide Profile Spectra" Category="5. General Settings" IsAdvanced="True" IntendedPurpose="Unknown" PurposeDetails="" IsValueSet="True" IsHidden="False" IsConfig="False" DisplayValue="Automatic">Automatic</ProcessingNodeParameter>
+												<ProcessingNodeParameter Name="StoreChromatograms" FriendlyName="Store Chromatograms" Category="5. General Settings" IsAdvanced="True" IntendedPurpose="Unknown" PurposeDetails="" IsValueSet="True" IsHidden="False" IsConfig="False" DisplayValue="False">False</ProcessingNodeParameter>
+												<ProcessingNodeParameter Name="SimulationAlgorithm" FriendlyName="Simulation Algorithm" Category="5. General Settings" IsAdvanced="True" IntendedPurpose="Unknown" PurposeDetails="" IsValueSet="True" IsHidden="True" IsConfig="False" DisplayValue="Averagine">Averagine</ProcessingNodeParameter>
+												<ProcessingNodeParameter Name="UsePatternCache" FriendlyName="Use Pattern Cache" Category="5. General Settings" IsAdvanced="True" IntendedPurpose="Unknown" PurposeDetails="" IsValueSet="True" IsHidden="True" IsConfig="False" DisplayValue="True">True</ProcessingNodeParameter>
+												<ProcessingNodeParameter Name="LowerRetentionTimeLimit" FriendlyName="Lower RT Limit" Category="1. Spectrum Properties Filter" IsAdvanced="False" IntendedPurpose="LowestRetentionTimeToProcess" PurposeDetails="" IsValueSet="True" IsHidden="False" IsConfig="False" DisplayValue="0">0</ProcessingNodeParameter>
+												<ProcessingNodeParameter Name="UpperRetentionTimeLimit" FriendlyName="Upper RT Limit" Category="1. Spectrum Properties Filter" IsAdvanced="False" IntendedPurpose="HighestRetentionTimeToProcess" PurposeDetails="" IsValueSet="True" IsHidden="False" IsConfig="False" DisplayValue="0">0</ProcessingNodeParameter>
+												<ProcessingNodeParameter Name="FirstScan" FriendlyName="First Scan" Category="1. Spectrum Properties Filter" IsAdvanced="True" IntendedPurpose="FirstScanToProcess" PurposeDetails="" IsValueSet="True" IsHidden="False" IsConfig="False" DisplayValue="0">0</ProcessingNodeParameter>
+												<ProcessingNodeParameter Name="LastScan" FriendlyName="Last Scan" Category="1. Spectrum Properties Filter" IsAdvanced="True" IntendedPurpose="LastScanToProcess" PurposeDetails="" IsValueSet="True" IsHidden="False" IsConfig="False" DisplayValue="0">0</ProcessingNodeParameter>
+												<ProcessingNodeParameter Name="RemoveSpecifiedScans" FriendlyName="Ignore Specified Scans" Category="1. Spectrum Properties Filter" IsAdvanced="True" IntendedPurpose="Unknown" PurposeDetails="" IsValueSet="False" IsHidden="False" IsConfig="False" DisplayValue=""></ProcessingNodeParameter>
+												<ProcessingNodeParameter Name="LowestChargeState" FriendlyName="Lowest Charge State" Category="1. Spectrum Properties Filter" IsAdvanced="True" IntendedPurpose="MinimumPrecursorCharge" PurposeDetails="" IsValueSet="True" IsHidden="False" IsConfig="False" DisplayValue="0">0</ProcessingNodeParameter>
+												<ProcessingNodeParameter Name="HighestChargeState" FriendlyName="Highest Charge State" Category="1. Spectrum Properties Filter" IsAdvanced="True" IntendedPurpose="MaximumPrecursorCharge" PurposeDetails="" IsValueSet="True" IsHidden="False" IsConfig="False" DisplayValue="0">0</ProcessingNodeParameter>
+												<ProcessingNodeParameter Name="MinimumPrecursorMass" FriendlyName="Min. Precursor Mass" Category="1. Spectrum Properties Filter" IsAdvanced="True" IntendedPurpose="MinimumPrecursorMassToProcess" PurposeDetails="" IsValueSet="True" IsHidden="False" IsConfig="False" DisplayValue="100 Da">100 Da</ProcessingNodeParameter>
+												<ProcessingNodeParameter Name="MaximumPrecursorMass" FriendlyName="Max. Precursor Mass" Category="1. Spectrum Properties Filter" IsAdvanced="True" IntendedPurpose="MaximumPrecursorMassToProcess" PurposeDetails="" IsValueSet="True" IsHidden="False" IsConfig="False" DisplayValue="5000 Da">5000 Da</ProcessingNodeParameter>
+												<ProcessingNodeParameter Name="TotalIntensityThreshold" FriendlyName="Total Intensity Threshold" Category="1. Spectrum Properties Filter" IsAdvanced="True" IntendedPurpose="Unknown" PurposeDetails="" IsValueSet="True" IsHidden="False" IsConfig="False" DisplayValue="0">0</ProcessingNodeParameter>
+												<ProcessingNodeParameter Name="MinimumPeakCount" FriendlyName="Minimum Peak Count" Category="1. Spectrum Properties Filter" IsAdvanced="True" IntendedPurpose="Unknown" PurposeDetails="" IsValueSet="True" IsHidden="False" IsConfig="False" DisplayValue="1">1</ProcessingNodeParameter>
+												<ProcessingNodeParameter Name="MassAnalyzerFilter" FriendlyName="Mass Analyzer" Category="2. Scan Event Filters" IsAdvanced="True" IntendedPurpose="Unknown" PurposeDetails="" IsValueSet="False" IsHidden="False" IsConfig="False" DisplayValue="Any">Any</ProcessingNodeParameter>
+												<ProcessingNodeParameter Name="MSOrderFilter" FriendlyName="MS Order" Category="2. Scan Event Filters" IsAdvanced="True" IntendedPurpose="Unknown" PurposeDetails="" IsValueSet="True" IsHidden="False" IsConfig="False" DisplayValue="Any">Any</ProcessingNodeParameter>
+												<ProcessingNodeParameter Name="ActivationTypeFilter" FriendlyName="Activation Type" Category="2. Scan Event Filters" IsAdvanced="True" IntendedPurpose="Unknown" PurposeDetails="" IsValueSet="False" IsHidden="False" IsConfig="False" DisplayValue="Any">Any</ProcessingNodeParameter>
+												<ProcessingNodeParameter Name="MinimumCollisionEnergy" FriendlyName="Min. Collision Energy" Category="2. Scan Event Filters" IsAdvanced="True" IntendedPurpose="Unknown" PurposeDetails="" IsValueSet="True" IsHidden="False" IsConfig="False" DisplayValue="0">0</ProcessingNodeParameter>
+												<ProcessingNodeParameter Name="MaximumCollisionEnergy" FriendlyName="Max. Collision Energy" Category="2. Scan Event Filters" IsAdvanced="True" IntendedPurpose="Unknown" PurposeDetails="" IsValueSet="True" IsHidden="False" IsConfig="False" DisplayValue="1000">1000</ProcessingNodeParameter>
+												<ProcessingNodeParameter Name="ScanTypeFilter" FriendlyName="Scan Type" Category="2. Scan Event Filters" IsAdvanced="True" IntendedPurpose="Unknown" PurposeDetails="" IsValueSet="True" IsHidden="False" IsConfig="False" DisplayValue="Any">Any</ProcessingNodeParameter>
+												<ProcessingNodeParameter Name="PolarityFilter" FriendlyName="Polarity Mode" Category="2. Scan Event Filters" IsAdvanced="False" IntendedPurpose="Unknown" PurposeDetails="" IsValueSet="True" IsHidden="False" IsConfig="False" DisplayValue="Is +">Is +</ProcessingNodeParameter>
+												<ProcessingNodeParameter Name="MassRangeFilter" FriendlyName="MS1 Mass Range" Category="2. Scan Event Filters" IsAdvanced="True" IntendedPurpose="Unknown" PurposeDetails="" IsValueSet="False" IsHidden="False" IsConfig="False" DisplayValue=""></ProcessingNodeParameter>
+												<ProcessingNodeParameter Name="CompensationVoltageFilter" FriendlyName="FAIMS CV" Category="2. Scan Event Filters" IsAdvanced="True" IntendedPurpose="Unknown" PurposeDetails="" IsValueSet="False" IsHidden="False" IsConfig="False" DisplayValue=""></ProcessingNodeParameter>
+												<ProcessingNodeParameter Name="SignalToNoiseThreshold" FriendlyName="S/N Threshold (FT-only)" Category="3. Peak Filters" IsAdvanced="True" IntendedPurpose="SignalToNoiseThreshold" PurposeDetails="" IsValueSet="True" IsHidden="False" IsConfig="False" DisplayValue="1.5">1.5</ProcessingNodeParameter>
+												<ProcessingNodeParameter Name="UnrecognizedChargeReplacements" FriendlyName="Unrecognized Charge Replacements" Category="4. Replacements for Unrecognized Properties" IsAdvanced="True" IntendedPurpose="Unknown" PurposeDetails="" IsValueSet="True" IsHidden="False" IsConfig="False" DisplayValue="1">1</ProcessingNodeParameter>
+												<ProcessingNodeParameter Name="UnrecognizedMassAnalyzerReplacement" FriendlyName="Unrecognized Mass Analyzer Replacements" Category="4. Replacements for Unrecognized Properties" IsAdvanced="True" IntendedPurpose="Unknown" PurposeDetails="" IsValueSet="True" IsHidden="False" IsConfig="False" DisplayValue="ITMS">ITMS</ProcessingNodeParameter>
+												<ProcessingNodeParameter Name="UnrecognizedMsOrderReplacement" FriendlyName="Unrecognized MS Order Replacements" Category="4. Replacements for Unrecognized Properties" IsAdvanced="True" IntendedPurpose="Unknown" PurposeDetails="" IsValueSet="True" IsHidden="False" IsConfig="False" DisplayValue="MS2">MS2</ProcessingNodeParameter>
+												<ProcessingNodeParameter Name="UnrecognizedActivationTypeReplacement" FriendlyName="Unrecognized Activation Type Replacements" Category="4. Replacements for Unrecognized Properties" IsAdvanced="True" IntendedPurpose="Unknown" PurposeDetails="" IsValueSet="True" IsHidden="False" IsConfig="False" DisplayValue="CID">CID</ProcessingNodeParameter>
+												<ProcessingNodeParameter Name="UnrecognizedPolarityTypeReplacement" FriendlyName="Unrecognized Polarity Replacements" Category="4. Replacements for Unrecognized Properties" IsAdvanced="True" IntendedPurpose="Unknown" PurposeDetails="" IsValueSet="True" IsHidden="False" IsConfig="False" DisplayValue="+">+</ProcessingNodeParameter>
+												<ProcessingNodeParameter Name="UnrecognizedMSResolutionReplacement" FriendlyName="Unrecognized MS Resolution@200 Replacements" Category="4. Replacements for Unrecognized Properties" IsAdvanced="True" IntendedPurpose="Unknown" PurposeDetails="" IsValueSet="True" IsHidden="False" IsConfig="False" DisplayValue="60000">60000</ProcessingNodeParameter>
+												<ProcessingNodeParameter Name="UnrecognizedMSnResolutionReplacement" FriendlyName="Unrecognized MSn Resolution@200 Replacements" Category="4. Replacements for Unrecognized Properties" IsAdvanced="True" IntendedPurpose="Unknown" PurposeDetails="" IsValueSet="True" IsHidden="False" IsConfig="False" DisplayValue="30000">30000</ProcessingNodeParameter>
+												<ProcessingNodeParameter Name="PrecursorClippingRangeBefore" FriendlyName="Precursor Clipping Range Before" Category="5. Precursor Pattern Extraction" IsAdvanced="True" IntendedPurpose="Unknown" PurposeDetails="" IsValueSet="True" IsHidden="True" IsConfig="False" DisplayValue="2.5 Da">2.5 Da</ProcessingNodeParameter>
+												<ProcessingNodeParameter Name="PrecursorClippingRangeAfter" FriendlyName="Precursor Clipping Range After" Category="5. Precursor Pattern Extraction" IsAdvanced="True" IntendedPurpose="Unknown" PurposeDetails="" IsValueSet="True" IsHidden="True" IsConfig="False" DisplayValue="5.5 Da">5.5 Da</ProcessingNodeParameter>
+											</ProcessingNodeParameters>
+											<ProcessingNodePosition X="353.276031494141" Y="153.521575927734" />
+										</WorkflowNode>
+										<WorkflowNode ProcessingNodeNumber="50" ProcessingNodeName="ChromAlignNode" FriendlyName="Align Retention Times (ChromAlign)" Description="Align retention times of multiple raw files using the ChromAlign algorithm." MainVersion="0" MinorVersion="1" Guid="6c1b187a-a44b-4cf8-b327-184678b32d4b" Category="2. Spectrum Processing" ParentProcessingNodeNumber="38" Comment="" UsageConstraint="OnlyOncePerWorkflow" Publisher="Thermo Scientific" NodeState="Created">
+											<ProcessingNodeInterfaces>
+												<ProcessingNodeInterface Kind="Functional" Name="IProcessingNode" />
+											</ProcessingNodeInterfaces>
+											<ConnectionPoints>
+												<ConnectionPoint Direction="Incoming" Multiplicity="Single" ConnectionRequirement="RequiredAtDesignTime" Mode="Manual" DisplayName="Incoming Spectra" ConnectionDataHandlingType="InMemory" ParentNodeConstraint="None">
+													<DataContracts>
+														<DataContract DataType="http://thermo.magellan.com/owl/DataTypes/MSnSpectra">
+															<DataTypeAttributes />
+														</DataContract>
+													</DataContracts>
+												</ConnectionPoint>
+												<ConnectionPoint Direction="Outgoing" Multiplicity="Multiple" ConnectionRequirement="Optional" Mode="Manual" DisplayName="" ConnectionDataHandlingType="InMemory" ParentNodeConstraint="None">
+													<DataContracts>
+														<DataContract DataType="http://thermo.magellan.com/owl/DataTypes/MSnSpectra">
+															<DataTypeAttributes />
+														</DataContract>
+													</DataContracts>
+												</ConnectionPoint>
+											</ConnectionPoints>
+											<ProcessingNodeParameters>
+												<ProcessingNodeParameter Name="ReferenceFileName" FriendlyName="Reference File" Category="1. General Settings" IsAdvanced="False" IntendedPurpose="Unknown" PurposeDetails="" IsValueSet="True" IsHidden="False" IsConfig="False" DisplayValue="QC_i">QC_i</ProcessingNodeParameter>
+											</ProcessingNodeParameters>
+											<ProcessingNodePosition X="353.276031494141" Y="252.04313659668" />
+										</WorkflowNode>
+										<WorkflowNode ProcessingNodeNumber="51" ProcessingNodeName="UnknownDetectorNodePycoPrism" FriendlyName="Detect Compounds" Description="Detects unknown compounds." MainVersion="1" MinorVersion="0" Guid="05d9a859-1a59-4c0e-b0c9-76988ed893bb" Category="5. Compound Detection" ParentProcessingNodeNumber="50" Comment="" UsageConstraint="OnlyOncePerWorkflow" Publisher="Thermo Scientific" NodeState="Created">
+											<ProcessingNodeInterfaces>
+												<ProcessingNodeInterface Kind="Functional" Name="IProcessingNode" />
+											</ProcessingNodeInterfaces>
+											<ConnectionPoints>
+												<ConnectionPoint Direction="Incoming" Multiplicity="Single" ConnectionRequirement="RequiredAtDesignTime" Mode="Manual" DisplayName="Incoming Spectra" ConnectionDataHandlingType="InMemory" ParentNodeConstraint="None">
+													<DataContracts>
+														<DataContract DataType="http://thermo.magellan.com/owl/DataTypes/MSnSpectra">
+															<DataTypeAttributes />
+														</DataContract>
+													</DataContracts>
+												</ConnectionPoint>
+												<ConnectionPoint Direction="Outgoing" Multiplicity="Multiple" ConnectionRequirement="Optional" Mode="Manual" DisplayName="" ConnectionDataHandlingType="FileBased" ParentNodeConstraint="None">
+													<DataContracts>
+														<DataContract DataType="http://thermo.magellan.com/owl/DataTypes/UnknownCompoundInstances">
+															<DataTypeAttributes />
+														</DataContract>
+														<DataContract DataType="http://thermo.magellan.com/owl/DataTypes/UnknownCompoundIonInstances">
+															<DataTypeAttributes />
+														</DataContract>
+														<DataContract DataType="http://thermo.magellan.com/owl/DataTypes/ChromatogramPeaks">
+															<DataTypeAttributes />
+														</DataContract>
+													</DataContracts>
+												</ConnectionPoint>
+												<ConnectionPoint Direction="Outgoing" Multiplicity="Multiple" ConnectionRequirement="Optional" Mode="Manual" DisplayName="" ConnectionDataHandlingType="FileBased" ParentNodeConstraint="None">
+													<DataContracts>
+														<DataContract DataType="http://thermo.magellan.com/owl/DataTypes/PeakConsolidationProvider">
+															<DataTypeAttributes />
+														</DataContract>
+													</DataContracts>
+												</ConnectionPoint>
+											</ConnectionPoints>
+											<NodeGroupConstraints>
+												<NodeGroupConstraint Name="PPD Nodes" Constraint="NotTogetherWithGroup" />
+												<NodeGroupConstraint Name="Pyco Nodes" Constraint="None" />
+												<NodeGroupConstraint Name="Unknown Detector Nodes" Constraint="NotTogetherWithGroup" />
+												<NodeGroupConstraint Name="Unknown Detector Nodes" Constraint="None" />
+											</NodeGroupConstraints>
+											<ProcessingNodeParameters>
+												<ProcessingNodeParameter Name="PycoSnThreshold" FriendlyName="Chromatographic S/N Threshold" Category="3. Peak Detection" IsAdvanced="False" IntendedPurpose="Unknown" PurposeDetails="PycoPeakDetectorParameterDetails/SNThreshold" IsValueSet="True" IsHidden="False" IsConfig="False" DisplayValue="3">3</ProcessingNodeParameter>
+												<ProcessingNodeParameter Name="PycoRemoveBaseline" FriendlyName="Remove Baseline" Category="3. Peak Detection" IsAdvanced="False" IntendedPurpose="Unknown" PurposeDetails="PycoPeakDetectorParameterDetails/RemoveBaseline" IsValueSet="True" IsHidden="False" IsConfig="False" DisplayValue="True">True</ProcessingNodeParameter>
+												<ProcessingNodeParameter Name="PycoGapRatioThreshold" FriendlyName="Gap Ratio Threshold" Category="3. Peak Detection" IsAdvanced="True" IntendedPurpose="Unknown" PurposeDetails="PycoPeakDetectorParameterDetails/GapRatioThreshold" IsValueSet="True" IsHidden="False" IsConfig="False" DisplayValue="0.35">0.35</ProcessingNodeParameter>
+												<ProcessingNodeParameter Name="PycoWidthThreshold" FriendlyName="Max. Peak Width [min]" Category="3. Peak Detection" IsAdvanced="True" IntendedPurpose="Unknown" PurposeDetails="PycoPeakDetectorParameterDetails/WidthThreshold" IsValueSet="True" IsHidden="False" IsConfig="False" DisplayValue="1">1</ProcessingNodeParameter>
+												<ProcessingNodeParameter Name="PycoMinRelativeValleyDepthForResolutionThreshold" FriendlyName="Min. Relative Valley Depth" Category="3. Peak Detection" IsAdvanced="True" IntendedPurpose="Unknown" PurposeDetails="PycoPeakDetectorParameterDetails/MinRelativeValleyDepthThreshold" IsValueSet="True" IsHidden="False" IsConfig="False" DisplayValue="0.1">0.1</ProcessingNodeParameter>
+												<ProcessingNodeParameter Name="ElementsWithIsotopesInUse" FriendlyName="Group Isotopes for" Category="4. Isotope Pattern Detection" IsAdvanced="False" IntendedPurpose="Unknown" PurposeDetails="" IsValueSet="True" IsHidden="False" IsConfig="False" DisplayValue="Br; Cl">Br; Cl</ProcessingNodeParameter>
+												<ProcessingNodeParameter Name="UsePqfsForIsotopeGrouping" FriendlyName="Use Peak Quality for Isotope Grouping" Category="4. Isotope Pattern Detection" IsAdvanced="True" IntendedPurpose="Unknown" PurposeDetails="" IsValueSet="True" IsHidden="False" IsConfig="False" DisplayValue="True">True</ProcessingNodeParameter>
+												<ProcessingNodeParameter Name="RemoveFeaturesWithOnlyBadQualityPeaks" FriendlyName="Filter out Features with Bad Peaks Only" Category="4. Isotope Pattern Detection" IsAdvanced="True" IntendedPurpose="Unknown" PurposeDetails="" IsValueSet="True" IsHidden="False" IsConfig="False" DisplayValue="True">True</ProcessingNodeParameter>
+												<ProcessingNodeParameter Name="PeakQualityZigZagIndexThreshold" FriendlyName="Zig-Zag Index Threshold" Category="4. Isotope Pattern Detection" IsAdvanced="True" IntendedPurpose="Unknown" PurposeDetails="MCEConfigurationParameterDetails/PeakQualityZigZagIndexThreshold" IsValueSet="True" IsHidden="False" IsConfig="False" DisplayValue="0.2">0.2</ProcessingNodeParameter>
+												<ProcessingNodeParameter Name="PeakQualityJaggednessThreshold" FriendlyName="Jaggedness Threshold" Category="4. Isotope Pattern Detection" IsAdvanced="True" IntendedPurpose="Unknown" PurposeDetails="MCEConfigurationParameterDetails/PeakQualityJaggednessThreshold" IsValueSet="True" IsHidden="False" IsConfig="False" DisplayValue="0.4">0.4</ProcessingNodeParameter>
+												<ProcessingNodeParameter Name="PeakQualityModalityThreshold" FriendlyName="Modality Threshold" Category="4. Isotope Pattern Detection" IsAdvanced="True" IntendedPurpose="Unknown" PurposeDetails="MCEConfigurationParameterDetails/PeakQualityModalityThreshold" IsValueSet="True" IsHidden="False" IsConfig="False" DisplayValue="0.9">0.9</ProcessingNodeParameter>
+												<ProcessingNodeParameter Name="RemoveFalsePositiveIsotopes" FriendlyName="Remove Potentially False Positive Isotopes" Category="4. Isotope Pattern Detection" IsAdvanced="True" IntendedPurpose="Unknown" PurposeDetails="" IsValueSet="True" IsHidden="False" IsConfig="False" DisplayValue="False">False</ProcessingNodeParameter>
+												<ProcessingNodeParameter Name="AbstractIons" FriendlyName="Ions" Category="5. Compound Detection" IsAdvanced="False" IntendedPurpose="Unknown" PurposeDetails="" IsValueSet="True" IsHidden="False" IsConfig="False" DisplayValue="[2M+H]+1; [2M+K]+1; [2M+Na]+1; [2M+NH4]+1; [M+H]+1; [M+K]+1; [M+Na]+1; [M+NH4]+1">&lt;AbstractIons Version=&quot;1&quot;&gt;
+  &lt;AbstractIon ID=&quot;7&quot; ComponentsString=&quot;2M+H&quot; /&gt;
+  &lt;AbstractIon ID=&quot;12&quot; ComponentsString=&quot;2M+K&quot; /&gt;
+  &lt;AbstractIon ID=&quot;13&quot; ComponentsString=&quot;2M+Na&quot; /&gt;
+  &lt;AbstractIon ID=&quot;14&quot; ComponentsString=&quot;2M+NH4&quot; /&gt;
+  &lt;AbstractIon ID=&quot;1&quot; ComponentsString=&quot;M+H&quot; /&gt;
+  &lt;AbstractIon ID=&quot;4&quot; ComponentsString=&quot;M+K&quot; /&gt;
+  &lt;AbstractIon ID=&quot;2&quot; ComponentsString=&quot;M+Na&quot; /&gt;
+  &lt;AbstractIon ID=&quot;5&quot; ComponentsString=&quot;M+NH4&quot; /&gt;
+&lt;/AbstractIons&gt;</ProcessingNodeParameter>
+												<ProcessingNodeParameter Name="BaseAbstractIons" FriendlyName="Base Ions" Category="5. Compound Detection" IsAdvanced="True" IntendedPurpose="Unknown" PurposeDetails="" IsValueSet="True" IsHidden="False" IsConfig="False" DisplayValue="[M+H]+1; [M+NH4]+1; [M-H]-1">&lt;AbstractIons Version=&quot;1&quot;&gt;
+  &lt;AbstractIon ID=&quot;1&quot; ComponentsString=&quot;M+H&quot; /&gt;
+  &lt;AbstractIon ID=&quot;5&quot; ComponentsString=&quot;M+NH4&quot; /&gt;
+  &lt;AbstractIon ID=&quot;23&quot; ComponentsString=&quot;M-H&quot; /&gt;
+&lt;/AbstractIons&gt;</ProcessingNodeParameter>
+												<ProcessingNodeParameter Name="RemoveSinglets" FriendlyName="Remove Singlets" Category="5. Compound Detection" IsAdvanced="True" IntendedPurpose="Unknown" PurposeDetails="" IsValueSet="True" IsHidden="False" IsConfig="False" DisplayValue="False">False</ProcessingNodeParameter>
+												<ProcessingNodeParameter Name="MassTolerance" FriendlyName="Mass Tolerance [ppm]" Category="1. General Settings" IsAdvanced="False" IntendedPurpose="MassTolerance" PurposeDetails="" IsValueSet="True" IsHidden="False" IsConfig="False" DisplayValue="5 ppm">5 ppm</ProcessingNodeParameter>
+												<ProcessingNodeParameter Name="MinPeakIntensity" FriendlyName="Min. Peak Intensity" Category="1. General Settings" IsAdvanced="False" IntendedPurpose="MinPeakIntensity" PurposeDetails="" IsValueSet="True" IsHidden="False" IsConfig="False" DisplayValue="10000">10000</ProcessingNodeParameter>
+												<ProcessingNodeParameter Name="MinimumNumberOfScansPerPeak" FriendlyName="Min. # Scans per Peak" Category="1. General Settings" IsAdvanced="True" IntendedPurpose="Unknown" PurposeDetails="PycoPeakDetectorParameterDetails/NumberPointsThreshold" IsValueSet="True" IsHidden="False" IsConfig="False" DisplayValue="5">5</ProcessingNodeParameter>
+												<ProcessingNodeParameter Name="UseReferenceIsotopeOnly" FriendlyName="Use Most Intense Isotope Only" Category="1. General Settings" IsAdvanced="False" IntendedPurpose="Unknown" PurposeDetails="" IsValueSet="True" IsHidden="False" IsConfig="False" DisplayValue="True">True</ProcessingNodeParameter>
+												<ProcessingNodeParameter Name="NumberOfGapsAllowedToInterpolate" FriendlyName="Max. Number of Gaps to Correct" Category="2. Trace Detection" IsAdvanced="True" IntendedPurpose="Unknown" PurposeDetails="" IsValueSet="True" IsHidden="False" IsConfig="False" DisplayValue="2">2</ProcessingNodeParameter>
+												<ProcessingNodeParameter Name="NumberOfRequiredAdjacentValuesToInterpolate" FriendlyName="Min. Number of Adjacent Non-Zeros" Category="2. Trace Detection" IsAdvanced="True" IntendedPurpose="Unknown" PurposeDetails="" IsValueSet="True" IsHidden="False" IsConfig="False" DisplayValue="2">2</ProcessingNodeParameter>
+												<ProcessingNodeParameter Name="DetectPersistentIons" FriendlyName="Detect Persistent Background Ions" Category="6. AcquireX Settings" IsAdvanced="True" IntendedPurpose="Unknown" PurposeDetails="" IsValueSet="True" IsHidden="False" IsConfig="False" DisplayValue="False">False</ProcessingNodeParameter>
+											</ProcessingNodeParameters>
+											<ProcessingNodePosition X="353.276031494141" Y="350.564575195313" />
+										</WorkflowNode>
+										<WorkflowNode ProcessingNodeNumber="14" ProcessingNodeName="PeakConsolidatorNode" FriendlyName="Merge Features" Description="Merges all detected features and provides the links for available explanations." MainVersion="1" MinorVersion="3" Guid="12a9343f-1503-407a-ada0-26d40b28e05d" Category="4. Expected Compounds" ParentProcessingNodeNumber="51" Comment="" UsageConstraint="OnlyOncePerWorkflow" Publisher="Thermo Scientific" NodeState="Created">
+											<ProcessingNodeInterfaces>
+												<ProcessingNodeInterface Kind="Functional" Name="IProcessingNode" />
+											</ProcessingNodeInterfaces>
+											<ConnectionPoints>
+												<ConnectionPoint Direction="Outgoing" Multiplicity="Multiple" ConnectionRequirement="Optional" Mode="Manual" DisplayName="" ConnectionDataHandlingType="FileBased" ParentNodeConstraint="None">
+													<DataContracts>
+														<DataContract DataType="http://thermo.magellan.com/owl/DataTypes/ConsolidatedComponents">
+															<DataTypeAttributes />
+														</DataContract>
+													</DataContracts>
+												</ConnectionPoint>
+												<ConnectionPoint Direction="Incoming" Multiplicity="Multiple" ConnectionRequirement="Optional" Mode="OnlyImplicitConnectionToAllPossibleParents" DisplayName="Data Processing" ConnectionDataHandlingType="FileBased" ParentNodeConstraint="None">
+													<DataContracts>
+														<DataContract DataType="http://thermo.magellan.com/owl/DataTypes/ConsolidatedCompounds">
+															<DataTypeAttributes />
+														</DataContract>
+													</DataContracts>
+												</ConnectionPoint>
+												<ConnectionPoint Direction="Incoming" Multiplicity="Multiple" ConnectionRequirement="RequiredAtDesignTime" Mode="AutomaticToAllPossibleParents" DisplayName="Data Processing" ConnectionDataHandlingType="FileBased" ParentNodeConstraint="OnlyToGeneratorsOfRequestedData">
+													<DataContracts>
+														<DataContract DataType="http://thermo.magellan.com/owl/DataTypes/PeakConsolidationProvider">
+															<DataTypeAttributes />
+														</DataContract>
+													</DataContracts>
+												</ConnectionPoint>
+											</ConnectionPoints>
+											<ProcessingNodeParameters>
+												<ProcessingNodeParameter Name="MassTolerance" FriendlyName="Mass Tolerance" Category="1. Peak Consolidation" IsAdvanced="False" IntendedPurpose="Unknown" PurposeDetails="" IsValueSet="True" IsHidden="False" IsConfig="False" DisplayValue="5 ppm">5 ppm</ProcessingNodeParameter>
+												<ProcessingNodeParameter Name="RTTolerance" FriendlyName="RT Tolerance [min]" Category="1. Peak Consolidation" IsAdvanced="False" IntendedPurpose="Unknown" PurposeDetails="" IsValueSet="True" IsHidden="False" IsConfig="False" DisplayValue="0.5">0.5</ProcessingNodeParameter>
+											</ProcessingNodeParameters>
+											<ProcessingNodePosition X="768.276000976563" Y="444.086181640625" />
+										</WorkflowNode>
+										<WorkflowNode ProcessingNodeNumber="25" ProcessingNodeName="UnknownCompoundConsolidatorNode" FriendlyName="Group Compounds" Description="Groups all detected compounds by molecular weight and retention time across all files." MainVersion="1" MinorVersion="6" Guid="81b7fcba-4d94-4687-b1b2-829be48081e0" Category="5. Compound Detection" ParentProcessingNodeNumber="51" Comment="" UsageConstraint="OnlyOncePerWorkflow" Publisher="Thermo Scientific" NodeState="Created">
+											<ProcessingNodeInterfaces>
+												<ProcessingNodeInterface Kind="Functional" Name="IProcessingNode" />
+											</ProcessingNodeInterfaces>
+											<ConnectionPoints>
+												<ConnectionPoint Direction="Incoming" Multiplicity="Multiple" ConnectionRequirement="RequiredAtProcessingTime" Mode="OnlyImplicitConnectionToNearestParents" DisplayName="Incoming Spectra" ConnectionDataHandlingType="InMemory" ParentNodeConstraint="None">
+													<DataContracts>
+														<DataContract DataType="http://thermo.magellan.com/owl/DataTypes/MSnSpectra">
+															<DataTypeAttributes />
+														</DataContract>
+													</DataContracts>
+												</ConnectionPoint>
+												<ConnectionPoint Direction="Incoming" Multiplicity="Multiple" ConnectionRequirement="RequiredAtDesignTime" Mode="AutomaticToAllPossibleParents" DisplayName="Incoming Compounds" ConnectionDataHandlingType="FileBased" ParentNodeConstraint="OnlyToGeneratorsOfRequestedData">
+													<DataContracts>
+														<DataContract DataType="http://thermo.magellan.com/owl/DataTypes/UnknownCompoundIonInstances">
+															<DataTypeAttributes />
+														</DataContract>
+														<DataContract DataType="http://thermo.magellan.com/owl/DataTypes/UnknownCompoundInstances">
+															<DataTypeAttributes />
+														</DataContract>
+													</DataContracts>
+												</ConnectionPoint>
+												<ConnectionPoint Direction="Outgoing" Multiplicity="Single" ConnectionRequirement="Optional" Mode="Manual" DisplayName="" ConnectionDataHandlingType="FileBased" ParentNodeConstraint="None">
+													<DataContracts>
+														<DataContract DataType="http://thermo.magellan.com/owl/DataTypes/ConsolidatedCompoundAreas">
+															<DataTypeAttributes>
+																<DataTypeAttribute>http://thermo.magellan.com/owl/DataTypes/UnknownCompounds</DataTypeAttribute>
+															</DataTypeAttributes>
+														</DataContract>
+													</DataContracts>
+												</ConnectionPoint>
+												<ConnectionPoint Direction="Outgoing" Multiplicity="Multiple" ConnectionRequirement="Optional" Mode="Manual" DisplayName="" ConnectionDataHandlingType="FileBased" ParentNodeConstraint="None">
+													<DataContracts>
+														<DataContract DataType="http://thermo.magellan.com/owl/DataTypes/ConsolidatedUnknownCompounds">
+															<DataTypeAttributes />
+														</DataContract>
+													</DataContracts>
+												</ConnectionPoint>
+												<ConnectionPoint Direction="Outgoing" Multiplicity="Multiple" ConnectionRequirement="Optional" Mode="Manual" DisplayName="" ConnectionDataHandlingType="FileBased" ParentNodeConstraint="None">
+													<DataContracts>
+														<DataContract DataType="http://thermo.magellan.com/owl/DataTypes/ConsolidatedCompounds">
+															<DataTypeAttributes>
+																<DataTypeAttribute>http://thermo.magellan.com/owl/DataTypes/UnknownCompounds</DataTypeAttribute>
+															</DataTypeAttributes>
+														</DataContract>
+													</DataContracts>
+												</ConnectionPoint>
+											</ConnectionPoints>
+											<ProcessingNodeParameters>
+												<ProcessingNodeParameter Name="MassTolerance" FriendlyName="Mass Tolerance" Category="1. General Settings" IsAdvanced="False" IntendedPurpose="MassTolerance" PurposeDetails="" IsValueSet="True" IsHidden="False" IsConfig="False" DisplayValue="5 ppm">5 ppm</ProcessingNodeParameter>
+												<ProcessingNodeParameter Name="RTTolerance" FriendlyName="RT Tolerance [min]" Category="1. General Settings" IsAdvanced="False" IntendedPurpose="RetentionTimeTolerance" PurposeDetails="" IsValueSet="True" IsHidden="False" IsConfig="False" DisplayValue="0.5">0.5</ProcessingNodeParameter>
+												<ProcessingNodeParameter Name="UseTraceAlignment" FriendlyName="Align Peaks" Category="1. General Settings" IsAdvanced="False" IntendedPurpose="Unknown" PurposeDetails="" IsValueSet="True" IsHidden="False" IsConfig="False" DisplayValue="False">False</ProcessingNodeParameter>
+												<ProcessingNodeParameter Name="BestHitMS2Ions" FriendlyName="Preferred Ions" Category="1. General Settings" IsAdvanced="False" IntendedPurpose="Unknown" PurposeDetails="" IsValueSet="True" IsHidden="False" IsConfig="False" DisplayValue="[2M+H]+1; [2M+K]+1; [2M+Na]+1; [2M+NH4]+1; [M+H]+1; [M+K]+1; [M+Na]+1; [M+NH4]+1">&lt;AbstractIons Version=&quot;1&quot;&gt;
+  &lt;AbstractIon ID=&quot;7&quot; ComponentsString=&quot;2M+H&quot; /&gt;
+  &lt;AbstractIon ID=&quot;12&quot; ComponentsString=&quot;2M+K&quot; /&gt;
+  &lt;AbstractIon ID=&quot;13&quot; ComponentsString=&quot;2M+Na&quot; /&gt;
+  &lt;AbstractIon ID=&quot;14&quot; ComponentsString=&quot;2M+NH4&quot; /&gt;
+  &lt;AbstractIon ID=&quot;1&quot; ComponentsString=&quot;M+H&quot; /&gt;
+  &lt;AbstractIon ID=&quot;4&quot; ComponentsString=&quot;M+K&quot; /&gt;
+  &lt;AbstractIon ID=&quot;2&quot; ComponentsString=&quot;M+Na&quot; /&gt;
+  &lt;AbstractIon ID=&quot;5&quot; ComponentsString=&quot;M+NH4&quot; /&gt;
+&lt;/AbstractIons&gt;</ProcessingNodeParameter>
+												<ProcessingNodeParameter Name="AreaIntegration" FriendlyName="Area Integration" Category="1. General Settings" IsAdvanced="False" IntendedPurpose="Unknown" PurposeDetails="AreaIntegrationParameterDetails/AreaIntegrationModel" IsValueSet="True" IsHidden="False" IsConfig="False" DisplayValue="Most Common Ion">Most Common Ion</ProcessingNodeParameter>
+												<ProcessingNodeParameter Name="AreaContribution" FriendlyName="Area Contribution" Category="2. Peak Rating Contributions" IsAdvanced="False" IntendedPurpose="Unknown" PurposeDetails="" IsValueSet="True" IsHidden="False" IsConfig="False" DisplayValue="3">3</ProcessingNodeParameter>
+												<ProcessingNodeParameter Name="CvContribution" FriendlyName="CV Contribution" Category="2. Peak Rating Contributions" IsAdvanced="False" IntendedPurpose="Unknown" PurposeDetails="" IsValueSet="True" IsHidden="False" IsConfig="False" DisplayValue="10">10</ProcessingNodeParameter>
+												<ProcessingNodeParameter Name="PqfFwhmContribution" FriendlyName="FWHM to Base Contribution" Category="2. Peak Rating Contributions" IsAdvanced="False" IntendedPurpose="Unknown" PurposeDetails="" IsValueSet="True" IsHidden="False" IsConfig="False" DisplayValue="5">5</ProcessingNodeParameter>
+												<ProcessingNodeParameter Name="PqfJaggednessContribution" FriendlyName="Jaggedness Contribution" Category="2. Peak Rating Contributions" IsAdvanced="False" IntendedPurpose="Unknown" PurposeDetails="" IsValueSet="True" IsHidden="False" IsConfig="False" DisplayValue="5">5</ProcessingNodeParameter>
+												<ProcessingNodeParameter Name="PqfModalityContribution" FriendlyName="Modality Contribution" Category="2. Peak Rating Contributions" IsAdvanced="False" IntendedPurpose="Unknown" PurposeDetails="" IsValueSet="True" IsHidden="False" IsConfig="False" DisplayValue="5">5</ProcessingNodeParameter>
+												<ProcessingNodeParameter Name="PqfZigZagIndexContribution" FriendlyName="Zig-Zag Index Contribution" Category="2. Peak Rating Contributions" IsAdvanced="False" IntendedPurpose="Unknown" PurposeDetails="" IsValueSet="True" IsHidden="False" IsConfig="False" DisplayValue="5">5</ProcessingNodeParameter>
+												<ProcessingNodeParameter Name="PeakRatingThreshold" FriendlyName="Peak Rating Threshold" Category="3. Peak Rating Filter" IsAdvanced="False" IntendedPurpose="Unknown" PurposeDetails="" IsValueSet="True" IsHidden="False" IsConfig="False" DisplayValue="5">5</ProcessingNodeParameter>
+												<ProcessingNodeParameter Name="NumberOfFiles" FriendlyName="Number of Files" Category="3. Peak Rating Filter" IsAdvanced="False" IntendedPurpose="Unknown" PurposeDetails="" IsValueSet="True" IsHidden="False" IsConfig="False" DisplayValue="2">2</ProcessingNodeParameter>
+											</ProcessingNodeParameters>
+											<ProcessingNodePosition X="354.052001953125" Y="450.086181640625" />
+										</WorkflowNode>
+										<WorkflowNode ProcessingNodeNumber="43" ProcessingNodeName="BackgroundAnnotationNode" FriendlyName="Mark Background Compounds" Description="Annotates and filters background compounds." MainVersion="1" MinorVersion="1" Guid="05a24e14-95db-490b-90c6-020d6d3e07f4" Category="6. Peak Area Refinement" ParentProcessingNodeNumber="25" Comment="" Publisher="Thermo Scientific" NodeState="Created">
+											<ProcessingNodeInterfaces>
+												<ProcessingNodeInterface Kind="Functional" Name="IProcessingNode" />
+											</ProcessingNodeInterfaces>
+											<ConnectionPoints>
+												<ConnectionPoint Direction="Incoming" Multiplicity="Single" ConnectionRequirement="RequiredAtDesignTime" Mode="Manual" DisplayName="Incoming Compound Areas" ConnectionDataHandlingType="FileBased" ParentNodeConstraint="None">
+													<DataContracts>
+														<DataContract DataType="http://thermo.magellan.com/owl/DataTypes/ConsolidatedCompoundAreas">
+															<DataTypeAttributes />
+														</DataContract>
+													</DataContracts>
+												</ConnectionPoint>
+												<ConnectionPoint Direction="Outgoing" Multiplicity="Single" ConnectionRequirement="Optional" Mode="Manual" DisplayName="Outgoing Compound Areas" ConnectionDataHandlingType="FileBased" ParentNodeConstraint="None">
+													<DataContracts>
+														<DataContract DataType="http://thermo.magellan.com/owl/DataTypes/ConsolidatedCompoundAreas">
+															<DataTypeAttributes>
+																<DataTypeAttribute>http://thermo.magellan.com/owl/DataTypes/BackgroundAnnotated</DataTypeAttribute>
+															</DataTypeAttributes>
+														</DataContract>
+													</DataContracts>
+												</ConnectionPoint>
+											</ConnectionPoints>
+											<ProcessingNodeParameters>
+												<ProcessingNodeParameter Name="MaxSampleToBlankRatio" FriendlyName="Max. Sample/Blank" Category="1. General Settings" IsAdvanced="False" IntendedPurpose="Unknown" PurposeDetails="" IsValueSet="True" IsHidden="False" IsConfig="False" DisplayValue="2">2</ProcessingNodeParameter>
+												<ProcessingNodeParameter Name="MaxBlankToSampleRatio" FriendlyName="Max. Blank/Sample" Category="1. General Settings" IsAdvanced="False" IntendedPurpose="Unknown" PurposeDetails="" IsValueSet="True" IsHidden="False" IsConfig="False" DisplayValue="1">1</ProcessingNodeParameter>
+												<ProcessingNodeParameter Name="HideBackground" FriendlyName="Hide Background" Category="1. General Settings" IsAdvanced="False" IntendedPurpose="Unknown" PurposeDetails="" IsValueSet="True" IsHidden="False" IsConfig="False" DisplayValue="True">True</ProcessingNodeParameter>
+											</ProcessingNodeParameters>
+											<ProcessingNodePosition X="353.276031494141" Y="547.607666015625" />
+										</WorkflowNode>
+										<WorkflowNode ProcessingNodeNumber="40" ProcessingNodeName="UnknownCompoundAnnotationAssignmentNode" FriendlyName="Assign Compound Annotations" Description="Assigns compound annotations found by annotation nodes." MainVersion="1" MinorVersion="4" Guid="e1d2d731-d012-4783-a858-57077cef45ab" Category="7. Compound Identification" ParentProcessingNodeNumber="25" Comment="" UsageConstraint="OnlyOncePerWorkflow" Publisher="Thermo Scientific" NodeState="Created">
+											<ProcessingNodeInterfaces>
+												<ProcessingNodeInterface Kind="Functional" Name="IProcessingNode" />
+											</ProcessingNodeInterfaces>
+											<ConnectionPoints>
+												<ConnectionPoint Direction="Outgoing" Multiplicity="Multiple" ConnectionRequirement="Optional" Mode="Manual" DisplayName="" ConnectionDataHandlingType="FileBased" ParentNodeConstraint="None">
+													<DataContracts>
+														<DataContract DataType="http://thermo.magellan.com/owl/DataTypes/ConsolidatedCompounds">
+															<DataTypeAttributes>
+																<DataTypeAttribute>http://thermo.magellan.com/owl/DataTypes/AnnotationsAssigned</DataTypeAttribute>
+																<DataTypeAttribute>http://thermo.magellan.com/owl/DataTypes/UnknownCompounds</DataTypeAttribute>
+															</DataTypeAttributes>
+														</DataContract>
+													</DataContracts>
+												</ConnectionPoint>
+												<ConnectionPoint Direction="Incoming" Multiplicity="Multiple" ConnectionRequirement="RequiredAtDesignTime" Mode="AutomaticToAllPossibleParents" DisplayName="Incoming unknown Compounds" ConnectionDataHandlingType="FileBased" ParentNodeConstraint="OnlyToGeneratorsOfRequestedData">
+													<DataContracts>
+														<DataContract DataType="http://thermo.magellan.com/owl/DataTypes/ConsolidatedUnknownCompounds">
+															<DataTypeAttributes />
+														</DataContract>
+													</DataContracts>
+												</ConnectionPoint>
+												<ConnectionPoint Direction="Incoming" Multiplicity="Multiple" ConnectionRequirement="RequiredAtDesignTime" Mode="AutomaticToAllPossibleParents" DisplayName="Incoming Compounds" ConnectionDataHandlingType="FileBased" ParentNodeConstraint="OnlyToGeneratorsOfRequestedData">
+													<DataContracts>
+														<DataContract DataType="http://thermo.magellan.com/owl/DataTypes/ConsolidatedCompounds">
+															<DataTypeAttributes>
+																<DataTypeAttribute>http://thermo.magellan.com/owl/DataTypes/UnknownCompounds</DataTypeAttribute>
+															</DataTypeAttributes>
+														</DataContract>
+													</DataContracts>
+												</ConnectionPoint>
+												<ConnectionPoint Direction="Incoming" Multiplicity="Multiple" ConnectionRequirement="Optional" Mode="OnlyImplicitConnectionToAllParentsInSameBranch" DisplayName="Incoming Annotation Proposal Scores" ConnectionDataHandlingType="FileBased" ParentNodeConstraint="None">
+													<DataContracts>
+														<DataContract DataType="http://thermo.magellan.com/owl/DataTypes/CompoundAnnotationProposalScores">
+															<DataTypeAttributes />
+														</DataContract>
+													</DataContracts>
+												</ConnectionPoint>
+												<ConnectionPoint Direction="Outgoing" Multiplicity="Multiple" ConnectionRequirement="Optional" Mode="Manual" DisplayName="Outgoing Annotations" ConnectionDataHandlingType="FileBased" ParentNodeConstraint="None">
+													<DataContracts>
+														<DataContract DataType="http://thermo.magellan.com/owl/DataTypes/ConsolidatedUnknownCompounds">
+															<DataTypeAttributes>
+																<DataTypeAttribute>http://thermo.magellan.com/owl/DataTypes/AnnotationsAssigned</DataTypeAttribute>
+															</DataTypeAttributes>
+														</DataContract>
+													</DataContracts>
+												</ConnectionPoint>
+												<ConnectionPoint Direction="Incoming" Multiplicity="Multiple" ConnectionRequirement="Optional" Mode="OnlyImplicitConnectionToAllParentsInSameBranch" DisplayName="Incoming Annotation Proposals" ConnectionDataHandlingType="FileBased" ParentNodeConstraint="None">
+													<DataContracts>
+														<DataContract DataType="http://thermo.magellan.com/owl/DataTypes/CompoundAnnotationProposals">
+															<DataTypeAttributes />
+														</DataContract>
+													</DataContracts>
+												</ConnectionPoint>
+											</ConnectionPoints>
+											<ProcessingNodeParameters>
+												<ProcessingNodeParameter Name="MassTolerance" FriendlyName="Mass Tolerance" Category="1. General Settings" IsAdvanced="False" IntendedPurpose="MassTolerance" PurposeDetails="" IsValueSet="True" IsHidden="False" IsConfig="False" DisplayValue="5 ppm">5 ppm</ProcessingNodeParameter>
+												<ProcessingNodeParameter Name="DataSource1" FriendlyName="Data Source #1" Category="2. Data Sources" IsAdvanced="False" IntendedPurpose="Unknown" PurposeDetails="" IsValueSet="True" IsHidden="False" IsConfig="False" DisplayValue="MassList Search">MassList Search</ProcessingNodeParameter>
+												<ProcessingNodeParameter Name="DataSource2" FriendlyName="Data Source #2" Category="2. Data Sources" IsAdvanced="False" IntendedPurpose="Unknown" PurposeDetails="" IsValueSet="True" IsHidden="False" IsConfig="False" DisplayValue="mzCloud Search">mzCloud Search</ProcessingNodeParameter>
+												<ProcessingNodeParameter Name="DataSource3" FriendlyName="Data Source #3" Category="2. Data Sources" IsAdvanced="False" IntendedPurpose="Unknown" PurposeDetails="" IsValueSet="True" IsHidden="False" IsConfig="False" DisplayValue="Predicted Compositions">Predicted Compositions</ProcessingNodeParameter>
+												<ProcessingNodeParameter Name="DataSource4" FriendlyName="Data Source #4" Category="2. Data Sources" IsAdvanced="False" IntendedPurpose="Unknown" PurposeDetails="" IsValueSet="False" IsHidden="False" IsConfig="False" DisplayValue=""></ProcessingNodeParameter>
+												<ProcessingNodeParameter Name="DataSource5" FriendlyName="Data Source #5" Category="2. Data Sources" IsAdvanced="False" IntendedPurpose="Unknown" PurposeDetails="" IsValueSet="False" IsHidden="False" IsConfig="False" DisplayValue=""></ProcessingNodeParameter>
+												<ProcessingNodeParameter Name="DataSource6" FriendlyName="Data Source #6" Category="2. Data Sources" IsAdvanced="False" IntendedPurpose="Unknown" PurposeDetails="" IsValueSet="False" IsHidden="False" IsConfig="False" DisplayValue=""></ProcessingNodeParameter>
+												<ProcessingNodeParameter Name="DataSource7" FriendlyName="Data Source #7" Category="2. Data Sources" IsAdvanced="False" IntendedPurpose="Unknown" PurposeDetails="" IsValueSet="False" IsHidden="False" IsConfig="False" DisplayValue=""></ProcessingNodeParameter>
+												<ProcessingNodeParameter Name="UseMzLogicScore" FriendlyName="Use mzLogic" Category="3. Scoring Rules" IsAdvanced="False" IntendedPurpose="Unknown" PurposeDetails="" IsValueSet="True" IsHidden="False" IsConfig="False" DisplayValue="True">True</ProcessingNodeParameter>
+												<ProcessingNodeParameter Name="UseSpectralDistance" FriendlyName="Use Spectral Distance" Category="3. Scoring Rules" IsAdvanced="False" IntendedPurpose="Unknown" PurposeDetails="" IsValueSet="True" IsHidden="False" IsConfig="False" DisplayValue="True">True</ProcessingNodeParameter>
+												<ProcessingNodeParameter Name="SFitMinValue" FriendlyName="SFit Threshold" Category="3. Scoring Rules" IsAdvanced="False" IntendedPurpose="Unknown" PurposeDetails="" IsValueSet="True" IsHidden="False" IsConfig="False" DisplayValue="20">20</ProcessingNodeParameter>
+												<ProcessingNodeParameter Name="SFitMaxDifference" FriendlyName="SFit Range" Category="3. Scoring Rules" IsAdvanced="False" IntendedPurpose="Unknown" PurposeDetails="" IsValueSet="True" IsHidden="False" IsConfig="False" DisplayValue="20">20</ProcessingNodeParameter>
+												<ProcessingNodeParameter Name="ClearNameColumn" FriendlyName="Clear Names" Category="4. Reprocessing" IsAdvanced="False" IntendedPurpose="Unknown" PurposeDetails="" IsValueSet="True" IsHidden="False" IsConfig="False" DisplayValue="False">False</ProcessingNodeParameter>
+											</ProcessingNodeParameters>
+											<ProcessingNodePosition X="1042.60412597656" Y="547.607666015625" />
+										</WorkflowNode>
+										<WorkflowNode ProcessingNodeNumber="37" ProcessingNodeName="CompositionPredictorNode" FriendlyName="Predict Compositions" Description="Predicts elemental compositions for detected compounds." MainVersion="2" MinorVersion="3" Guid="e0842717-bf0b-4d1e-9791-dd221ecb6cfa" Category="7. Compound Identification" ParentProcessingNodeNumber="25" Comment="" UsageConstraint="OnlyOncePerWorkflow" Publisher="Thermo Scientific" NodeState="Created">
+											<ProcessingNodeInterfaces>
+												<ProcessingNodeInterface Kind="Functional" Name="IProcessingNode" />
+											</ProcessingNodeInterfaces>
+											<ConnectionPoints>
+												<ConnectionPoint Direction="Outgoing" Multiplicity="Multiple" ConnectionRequirement="Optional" Mode="Manual" DisplayName="" ConnectionDataHandlingType="FileBased" ParentNodeConstraint="None">
+													<DataContracts>
+														<DataContract DataType="http://thermo.magellan.com/owl/DataTypes/PredictedCompositions">
+															<DataTypeAttributes />
+														</DataContract>
+													</DataContracts>
+												</ConnectionPoint>
+												<ConnectionPoint Direction="Incoming" Multiplicity="Multiple" ConnectionRequirement="RequiredAtDesignTime" Mode="AutomaticToAllPossibleParents" DisplayName="Incoming Compounds" ConnectionDataHandlingType="FileBased" ParentNodeConstraint="OnlyToGeneratorsOfRequestedData">
+													<DataContracts>
+														<DataContract DataType="http://thermo.magellan.com/owl/DataTypes/ConsolidatedCompounds">
+															<DataTypeAttributes />
+														</DataContract>
+													</DataContracts>
+												</ConnectionPoint>
+												<ConnectionPoint Direction="Outgoing" Multiplicity="Multiple" ConnectionRequirement="Optional" Mode="Manual" DisplayName="" ConnectionDataHandlingType="FileBased" ParentNodeConstraint="None">
+													<DataContracts>
+														<DataContract DataType="http://thermo.magellan.com/owl/DataTypes/CompoundAnnotationProposals">
+															<DataTypeAttributes>
+																<DataTypeAttribute>http://thermo.magellan.com/owl/DataTypes/IdentificationProposal</DataTypeAttribute>
+															</DataTypeAttributes>
+														</DataContract>
+													</DataContracts>
+												</ConnectionPoint>
+											</ConnectionPoints>
+											<NodeGroupConstraints>
+												<NodeGroupConstraint Name="GC EI workflow" Constraint="NotTogetherWithGroup" />
+											</NodeGroupConstraints>
+											<ProcessingNodeParameters>
+												<ProcessingNodeParameter Name="MassTolerance" FriendlyName="Mass Tolerance" Category="1. Prediction Settings" IsAdvanced="False" IntendedPurpose="MassTolerance" PurposeDetails="" IsValueSet="True" IsHidden="False" IsConfig="False" DisplayValue="5 ppm">5 ppm</ProcessingNodeParameter>
+												<ProcessingNodeParameter Name="MinElementCounts" FriendlyName="Min. Element Counts" Category="1. Prediction Settings" IsAdvanced="False" IntendedPurpose="Unknown" PurposeDetails="" IsValueSet="True" IsHidden="False" IsConfig="False" DisplayValue="C H">C H</ProcessingNodeParameter>
+												<ProcessingNodeParameter Name="MaxElementCounts" FriendlyName="Max. Element Counts" Category="1. Prediction Settings" IsAdvanced="False" IntendedPurpose="Unknown" PurposeDetails="" IsValueSet="True" IsHidden="False" IsConfig="False" DisplayValue="C90 H190 Br3 Cl8 F18 N10 O18 P3 S5">C90 H190 Br3 Cl8 F18 N10 O18 P3 S5</ProcessingNodeParameter>
+												<ProcessingNodeParameter Name="MinRDBE" FriendlyName="Min. RDBE" Category="1. Prediction Settings" IsAdvanced="False" IntendedPurpose="Unknown" PurposeDetails="" IsValueSet="True" IsHidden="False" IsConfig="False" DisplayValue="0">0</ProcessingNodeParameter>
+												<ProcessingNodeParameter Name="MaxRDBE" FriendlyName="Max. RDBE" Category="1. Prediction Settings" IsAdvanced="False" IntendedPurpose="Unknown" PurposeDetails="" IsValueSet="True" IsHidden="False" IsConfig="False" DisplayValue="40">40</ProcessingNodeParameter>
+												<ProcessingNodeParameter Name="MinHC" FriendlyName="Min. H/C" Category="1. Prediction Settings" IsAdvanced="False" IntendedPurpose="Unknown" PurposeDetails="" IsValueSet="True" IsHidden="False" IsConfig="False" DisplayValue="0.1">0.1</ProcessingNodeParameter>
+												<ProcessingNodeParameter Name="MaxHC" FriendlyName="Max. H/C" Category="1. Prediction Settings" IsAdvanced="False" IntendedPurpose="Unknown" PurposeDetails="" IsValueSet="True" IsHidden="False" IsConfig="False" DisplayValue="3.5">3.5</ProcessingNodeParameter>
+												<ProcessingNodeParameter Name="MaxNumberOfCandidates" FriendlyName="Max. # Candidates" Category="1. Prediction Settings" IsAdvanced="False" IntendedPurpose="Unknown" PurposeDetails="" IsValueSet="True" IsHidden="False" IsConfig="False" DisplayValue="10">10</ProcessingNodeParameter>
+												<ProcessingNodeParameter Name="MaxNumberOfInternalCandidates" FriendlyName="Max. # Internal Candidates" Category="1. Prediction Settings" IsAdvanced="True" IntendedPurpose="Unknown" PurposeDetails="" IsValueSet="True" IsHidden="False" IsConfig="False" DisplayValue="500">500</ProcessingNodeParameter>
+												<ProcessingNodeParameter Name="IntensityTolerance" FriendlyName="Intensity Tolerance [%]" Category="2. Pattern Matching" IsAdvanced="False" IntendedPurpose="IntensityTolerance" PurposeDetails="" IsValueSet="True" IsHidden="False" IsConfig="False" DisplayValue="30">30</ProcessingNodeParameter>
+												<ProcessingNodeParameter Name="IntensityThreshold" FriendlyName="Intensity Threshold [%]" Category="2. Pattern Matching" IsAdvanced="False" IntendedPurpose="RelativeIntensityThreshold" PurposeDetails="" IsValueSet="True" IsHidden="False" IsConfig="False" DisplayValue="0.1">0.1</ProcessingNodeParameter>
+												<ProcessingNodeParameter Name="SNThreshold" FriendlyName="S/N Threshold" Category="2. Pattern Matching" IsAdvanced="False" IntendedPurpose="SignalToNoiseThreshold" PurposeDetails="" IsValueSet="True" IsHidden="False" IsConfig="False" DisplayValue="3">3</ProcessingNodeParameter>
+												<ProcessingNodeParameter Name="MinSpectralFit" FriendlyName="Min. Spectral Fit [%]" Category="2. Pattern Matching" IsAdvanced="True" IntendedPurpose="Unknown" PurposeDetails="" IsValueSet="True" IsHidden="False" IsConfig="False" DisplayValue="30">30</ProcessingNodeParameter>
+												<ProcessingNodeParameter Name="MinPatternCoverage" FriendlyName="Min. Pattern Cov. [%]" Category="2. Pattern Matching" IsAdvanced="True" IntendedPurpose="Unknown" PurposeDetails="" IsValueSet="True" IsHidden="False" IsConfig="False" DisplayValue="80">80</ProcessingNodeParameter>
+												<ProcessingNodeParameter Name="UseDynamicRecalibration" FriendlyName="Use Dynamic Recalibration" Category="2. Pattern Matching" IsAdvanced="False" IntendedPurpose="DynamicRecalibration" PurposeDetails="" IsValueSet="True" IsHidden="False" IsConfig="False" DisplayValue="True">True</ProcessingNodeParameter>
+												<ProcessingNodeParameter Name="UseFragmentsMatching" FriendlyName="Use Fragments Matching" Category="3. Fragments Matching" IsAdvanced="False" IntendedPurpose="Unknown" PurposeDetails="" IsValueSet="True" IsHidden="False" IsConfig="False" DisplayValue="True">True</ProcessingNodeParameter>
+												<ProcessingNodeParameter Name="MassToleranceForMSMS" FriendlyName="Mass Tolerance" Category="3. Fragments Matching" IsAdvanced="False" IntendedPurpose="Unknown" PurposeDetails="" IsValueSet="True" IsHidden="False" IsConfig="False" DisplayValue="5 ppm">5 ppm</ProcessingNodeParameter>
+												<ProcessingNodeParameter Name="SNThresholdForMSMS" FriendlyName="S/N Threshold" Category="3. Fragments Matching" IsAdvanced="False" IntendedPurpose="Unknown" PurposeDetails="" IsValueSet="True" IsHidden="False" IsConfig="False" DisplayValue="3">3</ProcessingNodeParameter>
+											</ProcessingNodeParameters>
+											<ProcessingNodePosition X="812.828125" Y="547.607666015625" />
+										</WorkflowNode>
+										<WorkflowNode ProcessingNodeNumber="39" ProcessingNodeName="MassListSearchNode" FriendlyName="Search Mass Lists" Description="Provides a search against a list of known compounds." MainVersion="1" MinorVersion="1" Guid="5ec3050d-9451-402b-b9a6-0db5d3f022c4" Category="7. Compound Identification" ParentProcessingNodeNumber="25" Comment="" UsageConstraint="OnlyOncePerWorkflow" Publisher="Thermo Scientific" NodeState="Created">
+											<ProcessingNodeInterfaces>
+												<ProcessingNodeInterface Kind="Functional" Name="IProcessingNode" />
+											</ProcessingNodeInterfaces>
+											<ConnectionPoints>
+												<ConnectionPoint Direction="Outgoing" Multiplicity="Multiple" ConnectionRequirement="Optional" Mode="Manual" DisplayName="" ConnectionDataHandlingType="FileBased" ParentNodeConstraint="None">
+													<DataContracts>
+														<DataContract DataType="http://thermo.magellan.com/owl/DataTypes/CompoundAnnotationProposals">
+															<DataTypeAttributes>
+																<DataTypeAttribute>http://thermo.magellan.com/owl/DataTypes/IdentificationProposal</DataTypeAttribute>
+																<DataTypeAttribute>http://thermo.magellan.com/owl/DataTypes/UnscoredStructureProposal</DataTypeAttribute>
+															</DataTypeAttributes>
+														</DataContract>
+													</DataContracts>
+												</ConnectionPoint>
+												<ConnectionPoint Direction="Incoming" Multiplicity="Multiple" ConnectionRequirement="RequiredAtDesignTime" Mode="AutomaticToAllPossibleParents" DisplayName="Incoming Compounds" ConnectionDataHandlingType="FileBased" ParentNodeConstraint="OnlyToGeneratorsOfRequestedData">
+													<DataContracts>
+														<DataContract DataType="http://thermo.magellan.com/owl/DataTypes/ConsolidatedCompounds">
+															<DataTypeAttributes />
+														</DataContract>
+													</DataContracts>
+												</ConnectionPoint>
+												<ConnectionPoint Direction="Outgoing" Multiplicity="Multiple" ConnectionRequirement="Optional" Mode="Manual" DisplayName="" ConnectionDataHandlingType="FileBased" ParentNodeConstraint="None">
+													<DataContracts>
+														<DataContract DataType="http://thermo.magellan.com/owl/DataTypes/MassListSearchResult">
+															<DataTypeAttributes />
+														</DataContract>
+													</DataContracts>
+												</ConnectionPoint>
+											</ConnectionPoints>
+											<ProcessingNodeParameters>
+												<ProcessingNodeParameter Name="FilePath" FriendlyName="Mass Lists" Category="1. Search Settings" IsAdvanced="False" IntendedPurpose="Unknown" PurposeDetails="" IsValueSet="True" IsHidden="False" IsConfig="False" DisplayValue="Antibiotics_ITN_MSCA_ANSWER_160616_wDTXSIDs.massList|ITNANTIBIOTIC_CYP_Metabolites.massList|KPS_Pharmaceuticals.massList|KPS_Psychoactive_substances_v2.massList">&lt;Items&gt;
+  &lt;Item SHA512=&quot;EE-CF-10-2B-CC-0A-2A-C4-18-44-F9-2D-B4-BF-9A-D9-18-4E-9B-7C-31-85-E5-6B-97-4D-D8-B8-F4-70-F1-CB&quot; Type=&quot;MassListFile&quot; FileName=&quot;Antibiotics_ITN_MSCA_ANSWER_160616_wDTXSIDs.massList&quot; /&gt;
+  &lt;Item SHA512=&quot;18-50-4C-7C-C3-6D-CE-72-33-2E-DC-01-83-5C-88-AE-AC-B7-6D-FA-6A-E1-7D-C2-4B-8E-75-E0-AC-AF-2C-B1&quot; Type=&quot;MassListFile&quot; FileName=&quot;ITNANTIBIOTIC_CYP_Metabolites.massList&quot; /&gt;
+  &lt;Item SHA512=&quot;BC-44-EA-9C-E8-22-40-C8-0D-68-14-7E-B1-B8-5D-22-A7-1C-E9-1E-F7-DD-5A-1E-CC-CF-C9-54-4D-43-E4-7A&quot; Type=&quot;MassListFile&quot; FileName=&quot;KPS_Pharmaceuticals.massList&quot; /&gt;
+  &lt;Item SHA512=&quot;D5-CF-CC-70-2E-E5-5A-D3-2F-AA-AD-98-0C-6F-62-AE-3D-65-85-3F-88-63-E4-6C-F7-BC-BE-F0-F9-E6-C8-63&quot; Type=&quot;MassListFile&quot; FileName=&quot;KPS_Psychoactive_substances_v2.massList&quot; /&gt;
+&lt;/Items&gt;</ProcessingNodeParameter>
+												<ProcessingNodeParameter Name="MassTolerance" FriendlyName="Mass Tolerance" Category="1. Search Settings" IsAdvanced="False" IntendedPurpose="MassTolerance" PurposeDetails="" IsValueSet="True" IsHidden="False" IsConfig="False" DisplayValue="5 ppm">5 ppm</ProcessingNodeParameter>
+												<ProcessingNodeParameter Name="UseRetentionTimeForSearch" FriendlyName="Use Retention Time" Category="1. Search Settings" IsAdvanced="False" IntendedPurpose="Unknown" PurposeDetails="" IsValueSet="True" IsHidden="False" IsConfig="False" DisplayValue="False">False</ProcessingNodeParameter>
+												<ProcessingNodeParameter Name="RTTolerance" FriendlyName="RT Tolerance [min]" Category="1. Search Settings" IsAdvanced="False" IntendedPurpose="Unknown" PurposeDetails="" IsValueSet="True" IsHidden="False" IsConfig="False" DisplayValue="0.5">0.5</ProcessingNodeParameter>
+											</ProcessingNodeParameters>
+											<ProcessingNodePosition X="583.052001953125" Y="547.607666015625" />
+										</WorkflowNode>
+										<WorkflowNode ProcessingNodeNumber="52" ProcessingNodeName="MzCloudSearchNode" FriendlyName="Search mzCloud" Description="Provides mzCloud search results for detected compounds." MainVersion="1" MinorVersion="1" Guid="c09c6145-8cfb-4da8-85d8-bfb564b180be" Category="7. Compound Identification" ParentProcessingNodeNumber="25" Comment="" UsageConstraint="OnlyOncePerWorkflow" Publisher="Thermo Scientific" NodeState="Created">
+											<ProcessingNodeInterfaces>
+												<ProcessingNodeInterface Kind="Functional" Name="IProcessingNode" />
+											</ProcessingNodeInterfaces>
+											<ConnectionPoints>
+												<ConnectionPoint Direction="Outgoing" Multiplicity="Multiple" ConnectionRequirement="Optional" Mode="Manual" DisplayName="" ConnectionDataHandlingType="FileBased" ParentNodeConstraint="None">
+													<DataContracts>
+														<DataContract DataType="http://thermo.magellan.com/owl/DataTypes/CompoundAnnotationProposals">
+															<DataTypeAttributes>
+																<DataTypeAttribute>http://thermo.magellan.com/owl/DataTypes/IdentificationProposal</DataTypeAttribute>
+															</DataTypeAttributes>
+														</DataContract>
+													</DataContracts>
+												</ConnectionPoint>
+												<ConnectionPoint Direction="Incoming" Multiplicity="Multiple" ConnectionRequirement="RequiredAtDesignTime" Mode="AutomaticToAllPossibleParents" DisplayName="Incoming Compounds" ConnectionDataHandlingType="FileBased" ParentNodeConstraint="OnlyToGeneratorsOfRequestedData">
+													<DataContracts>
+														<DataContract DataType="http://thermo.magellan.com/owl/DataTypes/ConsolidatedCompounds">
+															<DataTypeAttributes />
+														</DataContract>
+													</DataContracts>
+												</ConnectionPoint>
+												<ConnectionPoint Direction="Outgoing" Multiplicity="Multiple" ConnectionRequirement="Optional" Mode="Manual" DisplayName="" ConnectionDataHandlingType="FileBased" ParentNodeConstraint="None">
+													<DataContracts>
+														<DataContract DataType="http://thermo.magellan.com/owl/DataTypes/MzCloudSearchResult">
+															<DataTypeAttributes />
+														</DataContract>
+													</DataContracts>
+												</ConnectionPoint>
+											</ConnectionPoints>
+											<NodeGroupConstraints>
+												<NodeGroupConstraint Name="GC EI workflow" Constraint="NotTogetherWithGroup" />
+											</NodeGroupConstraints>
+											<ProcessingNodeParameters>
+												<ProcessingNodeParameter Name="CompoundClasses" FriendlyName="Compound Classes" Category="1. General Settings" IsAdvanced="False" IntendedPurpose="Unknown" PurposeDetails="" IsValueSet="True" IsHidden="False" IsConfig="False" DisplayValue="All">All</ProcessingNodeParameter>
+												<ProcessingNodeParameter Name="PrecursorMassTolerance" FriendlyName="Precursor Mass Tolerance" Category="1. General Settings" IsAdvanced="True" IntendedPurpose="PrecursorMassTolerance" PurposeDetails="" IsValueSet="True" IsHidden="False" IsConfig="False" DisplayValue="10 ppm">10 ppm</ProcessingNodeParameter>
+												<ProcessingNodeParameter Name="FTFragmentMassTolerance" FriendlyName="FT Fragment Mass Tolerance" Category="1. General Settings" IsAdvanced="True" IntendedPurpose="FragmentMassTolerance" PurposeDetails="MassToleranceParameterDetails/HighResolutionMassTolerance" IsValueSet="True" IsHidden="False" IsConfig="False" DisplayValue="10 ppm">10 ppm</ProcessingNodeParameter>
+												<ProcessingNodeParameter Name="ITFragmentMassTolerance" FriendlyName="IT Fragment Mass Tolerance" Category="1. General Settings" IsAdvanced="True" IntendedPurpose="FragmentMassTolerance" PurposeDetails="MassToleranceParameterDetails/LowResolutionMassTolerance" IsValueSet="True" IsHidden="False" IsConfig="False" DisplayValue="0.4 Da">0.4 Da</ProcessingNodeParameter>
+												<ProcessingNodeParameter Name="Library" FriendlyName="Library" Category="1. General Settings" IsAdvanced="False" IntendedPurpose="Unknown" PurposeDetails="" IsValueSet="True" IsHidden="False" IsConfig="False" DisplayValue="Autoprocessed; Reference">Autoprocessed; Reference</ProcessingNodeParameter>
+												<ProcessingNodeParameter Name="PostProcessing" FriendlyName="Post Processing" Category="1. General Settings" IsAdvanced="True" IntendedPurpose="Unknown" PurposeDetails="" IsValueSet="True" IsHidden="False" IsConfig="False" DisplayValue="Recalibrated">Recalibrated</ProcessingNodeParameter>
+												<ProcessingNodeParameter Name="NumberOfResults" FriendlyName="Max. # Results" Category="1. General Settings" IsAdvanced="True" IntendedPurpose="Unknown" PurposeDetails="" IsValueSet="True" IsHidden="False" IsConfig="False" DisplayValue="10">10</ProcessingNodeParameter>
+												<ProcessingNodeParameter Name="RetrieveMatchingFragments" FriendlyName="Annotate Matching Fragments" Category="1. General Settings" IsAdvanced="True" IntendedPurpose="Unknown" PurposeDetails="" IsValueSet="True" IsHidden="False" IsConfig="False" DisplayValue="False">False</ProcessingNodeParameter>
+												<ProcessingNodeParameter Name="DoFullTreeSearch" FriendlyName="Search MSn Tree" Category="1. General Settings" IsAdvanced="False" IntendedPurpose="Unknown" PurposeDetails="" IsValueSet="True" IsHidden="False" IsConfig="False" DisplayValue="False">False</ProcessingNodeParameter>
+												<ProcessingNodeParameter Name="DDA_SearchAlgorithm" FriendlyName="Identity Search" Category="2. DDA Search" IsAdvanced="False" IntendedPurpose="Unknown" PurposeDetails="" IsValueSet="True" IsHidden="False" IsConfig="False" DisplayValue="Cosine">Cosine</ProcessingNodeParameter>
+												<ProcessingNodeParameter Name="DDA_MatchActivationType" FriendlyName="Match Activation Type" Category="2. DDA Search" IsAdvanced="False" IntendedPurpose="Unknown" PurposeDetails="" IsValueSet="True" IsHidden="False" IsConfig="False" DisplayValue="True">True</ProcessingNodeParameter>
+												<ProcessingNodeParameter Name="DDA_MatchActivationEnergy" FriendlyName="Match Activation Energy" Category="2. DDA Search" IsAdvanced="False" IntendedPurpose="Unknown" PurposeDetails="" IsValueSet="True" IsHidden="False" IsConfig="False" DisplayValue="Match with Tolerance">Match with Tolerance</ProcessingNodeParameter>
+												<ProcessingNodeParameter Name="DDA_ActivationEnergyTolerance" FriendlyName="Activation Energy Tolerance" Category="2. DDA Search" IsAdvanced="False" IntendedPurpose="Unknown" PurposeDetails="" IsValueSet="True" IsHidden="False" IsConfig="False" DisplayValue="20">20</ProcessingNodeParameter>
+												<ProcessingNodeParameter Name="DDA_ApplyIntensityThreshold" FriendlyName="Apply Intensity Threshold" Category="2. DDA Search" IsAdvanced="False" IntendedPurpose="Unknown" PurposeDetails="" IsValueSet="True" IsHidden="False" IsConfig="False" DisplayValue="True">True</ProcessingNodeParameter>
+												<ProcessingNodeParameter Name="DDA_SimilaritySearchAlgorithm" FriendlyName="Similarity Search" Category="2. DDA Search" IsAdvanced="False" IntendedPurpose="Unknown" PurposeDetails="" IsValueSet="True" IsHidden="False" IsConfig="False" DisplayValue="None">None</ProcessingNodeParameter>
+												<ProcessingNodeParameter Name="DDA_MatchFactorThreshold" FriendlyName="Match Factor Threshold" Category="2. DDA Search" IsAdvanced="False" IntendedPurpose="Unknown" PurposeDetails="" IsValueSet="True" IsHidden="False" IsConfig="False" DisplayValue="60">60</ProcessingNodeParameter>
+												<ProcessingNodeParameter Name="UseDataIndependentScans" FriendlyName="Use DIA Scans for Search" Category="3. DIA Search" IsAdvanced="False" IntendedPurpose="Unknown" PurposeDetails="" IsValueSet="True" IsHidden="False" IsConfig="False" DisplayValue="False">False</ProcessingNodeParameter>
+												<ProcessingNodeParameter Name="DIA_MaxIsolationWidth" FriendlyName="Max. Isolation Width [Da]" Category="3. DIA Search" IsAdvanced="False" IntendedPurpose="Unknown" PurposeDetails="" IsValueSet="True" IsHidden="False" IsConfig="False" DisplayValue="500">500</ProcessingNodeParameter>
+												<ProcessingNodeParameter Name="DIA_MatchActivationType" FriendlyName="Match Activation Type" Category="3. DIA Search" IsAdvanced="False" IntendedPurpose="Unknown" PurposeDetails="" IsValueSet="True" IsHidden="False" IsConfig="False" DisplayValue="False">False</ProcessingNodeParameter>
+												<ProcessingNodeParameter Name="DIA_MatchActivationEnergy" FriendlyName="Match Activation Energy" Category="3. DIA Search" IsAdvanced="False" IntendedPurpose="Unknown" PurposeDetails="" IsValueSet="True" IsHidden="False" IsConfig="False" DisplayValue="Any">Any</ProcessingNodeParameter>
+												<ProcessingNodeParameter Name="DIA_ActivationEnergyTolerance" FriendlyName="Activation Energy Tolerance" Category="3. DIA Search" IsAdvanced="False" IntendedPurpose="Unknown" PurposeDetails="" IsValueSet="True" IsHidden="False" IsConfig="False" DisplayValue="100">100</ProcessingNodeParameter>
+												<ProcessingNodeParameter Name="DIA_ApplyIntensityThreshold" FriendlyName="Apply Intensity Threshold" Category="3. DIA Search" IsAdvanced="False" IntendedPurpose="Unknown" PurposeDetails="" IsValueSet="True" IsHidden="False" IsConfig="False" DisplayValue="False">False</ProcessingNodeParameter>
+												<ProcessingNodeParameter Name="DIA_MatchFactorThreshold" FriendlyName="Match Factor Threshold" Category="3. DIA Search" IsAdvanced="False" IntendedPurpose="Unknown" PurposeDetails="" IsValueSet="True" IsHidden="False" IsConfig="False" DisplayValue="20">20</ProcessingNodeParameter>
+												<ProcessingNodeParameter Name="DIA_SearchAlgorithm" FriendlyName="Identity Search" Category="3. DIA Search" IsAdvanced="True" IntendedPurpose="Unknown" PurposeDetails="" IsValueSet="True" IsHidden="True" IsConfig="False" DisplayValue="Cosine">Cosine</ProcessingNodeParameter>
+											</ProcessingNodeParameters>
+											<ProcessingNodePosition X="147" Y="553" />
+										</WorkflowNode>
+										<WorkflowNode ProcessingNodeNumber="53" ProcessingNodeName="DifferentialAnalysisNode" FriendlyName="Differential Analysis" Description="Provides simple differential statistics for detected compounds." MainVersion="1" MinorVersion="3" Guid="3985f355-0c58-4fa5-bdb8-d3a689b7467d" Category="10. Post-Processing" ParentProcessingNodeNumber="-1" Comment="" UsageConstraint="OnlyOncePerWorkflow" Publisher="Thermo Scientific" NodeState="Created">
+											<ProcessingNodeInterfaces>
+												<ProcessingNodeInterface Kind="Functional" Name="IProcessingNode" />
+												<ProcessingNodeInterface Kind="Functional" Name="IPostProcessing" />
+											</ProcessingNodeInterfaces>
+											<ConnectionPoints>
+												<ConnectionPoint Direction="Outgoing" Multiplicity="Single" ConnectionRequirement="Optional" Mode="Manual" DisplayName="Post-Processing" ConnectionDataHandlingType="FileBased" ParentNodeConstraint="None">
+													<DataContracts>
+														<DataContract DataType="Statistics">
+															<DataTypeAttributes />
+														</DataContract>
+													</DataContracts>
+												</ConnectionPoint>
+											</ConnectionPoints>
+											<ProcessingNodeParameters>
+												<ProcessingNodeParameter Name="LogTransformValues" FriendlyName="Log10 Transform Values" Category="1. General Settings" IsAdvanced="False" IntendedPurpose="Unknown" PurposeDetails="" IsValueSet="True" IsHidden="False" IsConfig="False" DisplayValue="True">True</ProcessingNodeParameter>
+												<ProcessingNodeParameter Name="RecalculatePeakRating" FriendlyName="Update Peak Rating" Category="2. Peak Rating Contributions" IsAdvanced="False" IntendedPurpose="Unknown" PurposeDetails="" IsValueSet="True" IsHidden="False" IsConfig="False" DisplayValue="True">True</ProcessingNodeParameter>
+												<ProcessingNodeParameter Name="AreaContribution" FriendlyName="Area Contribution" Category="2. Peak Rating Contributions" IsAdvanced="False" IntendedPurpose="Unknown" PurposeDetails="" IsValueSet="True" IsHidden="False" IsConfig="False" DisplayValue="3">3</ProcessingNodeParameter>
+												<ProcessingNodeParameter Name="CvContribution" FriendlyName="CV Contribution" Category="2. Peak Rating Contributions" IsAdvanced="False" IntendedPurpose="Unknown" PurposeDetails="" IsValueSet="True" IsHidden="False" IsConfig="False" DisplayValue="10">10</ProcessingNodeParameter>
+												<ProcessingNodeParameter Name="PqfFwhmContribution" FriendlyName="FWHM to Base Contribution" Category="2. Peak Rating Contributions" IsAdvanced="False" IntendedPurpose="Unknown" PurposeDetails="" IsValueSet="True" IsHidden="False" IsConfig="False" DisplayValue="5">5</ProcessingNodeParameter>
+												<ProcessingNodeParameter Name="PqfJaggednessContribution" FriendlyName="Jaggedness Contribution" Category="2. Peak Rating Contributions" IsAdvanced="False" IntendedPurpose="Unknown" PurposeDetails="" IsValueSet="True" IsHidden="False" IsConfig="False" DisplayValue="5">5</ProcessingNodeParameter>
+												<ProcessingNodeParameter Name="PqfModalityContribution" FriendlyName="Modality Contribution" Category="2. Peak Rating Contributions" IsAdvanced="False" IntendedPurpose="Unknown" PurposeDetails="" IsValueSet="True" IsHidden="False" IsConfig="False" DisplayValue="5">5</ProcessingNodeParameter>
+												<ProcessingNodeParameter Name="PqfZigZagIndexContribution" FriendlyName="Zig-Zag Index Contribution" Category="2. Peak Rating Contributions" IsAdvanced="False" IntendedPurpose="Unknown" PurposeDetails="" IsValueSet="True" IsHidden="False" IsConfig="False" DisplayValue="5">5</ProcessingNodeParameter>
+											</ProcessingNodeParameters>
+											<ProcessingNodePosition X="108" Y="149" />
+										</WorkflowNode>
+										<WorkflowNode ProcessingNodeNumber="54" ProcessingNodeName="DescriptiveStatisticsNode" FriendlyName="Descriptive Statistics" Description="Provides simple descriptive statistics for detected compounds." MainVersion="1" MinorVersion="1" Guid="ecb81501-ed4e-432d-9744-344dbef3f0db" Category="10. Post-Processing" ParentProcessingNodeNumber="-1" Comment="" UsageConstraint="OnlyOncePerWorkflow" Publisher="Thermo Scientific" NodeState="Created">
+											<ProcessingNodeInterfaces>
+												<ProcessingNodeInterface Kind="Functional" Name="IProcessingNode" />
+												<ProcessingNodeInterface Kind="Functional" Name="IPostProcessing" />
+											</ProcessingNodeInterfaces>
+											<ConnectionPoints>
+												<ConnectionPoint Direction="Outgoing" Multiplicity="Single" ConnectionRequirement="Optional" Mode="Manual" DisplayName="Post-Processing" ConnectionDataHandlingType="FileBased" ParentNodeConstraint="None">
+													<DataContracts>
+														<DataContract DataType="Statistics">
+															<DataTypeAttributes />
+														</DataContract>
+													</DataContracts>
+												</ConnectionPoint>
+											</ConnectionPoints>
+											<ProcessingNodeParameters />
+											<ProcessingNodePosition X="306" Y="150" />
+										</WorkflowNode>
+									</WorkflowTree>
+								</Workflow>
+							</WorkflowDefinition>
+						</WorkflowInfo>
+					</SequenceStep>
+				</AnalysisSequence>
+				<AnalysisDefinitionExtensionSettings ExtensionGuid="843A8FF2-10F3-4F64-9837-67B421B2AB1B">
+					<GroupingAndQuantificationExtension Version="1">
+						<StudyVariablesForGrouping />
+						<StudyVariablesForSorting />
+						<QuanRatios />
+					</GroupingAndQuantificationExtension>
+				</AnalysisDefinitionExtensionSettings>
+			</Analysis>
+			<AnalysisFileSets>
+				<SequenceStep Id="0">
+					<InputFileSets>
+						<InputFileSet FileSetId="ddda0e54-6ea6-44fc-acce-02aedccfdfa8" />
+						<InputFileSet FileSetId="2e2a6a03-3b45-4921-b9cc-516a2f30fad7" />
+						<InputFileSet FileSetId="f84c6694-9ba4-4d63-bba3-9493d05e5a25" />
+						<InputFileSet FileSetId="09978dd1-f348-48e9-b4a2-fc916f99f179" />
+						<InputFileSet FileSetId="bd3cf9a1-8166-4d0b-8589-ba1bddd5594e" />
+						<InputFileSet FileSetId="a22dcf74-9aa9-47c3-95e4-e4ed6cb134cc" />
+						<InputFileSet FileSetId="e8d602d3-f935-4be5-a36a-1616ec0539a2" />
+						<InputFileSet FileSetId="70fe1e97-9300-4cd1-b7b9-6839bfced6c5" />
+						<InputFileSet FileSetId="856b37bd-bd5f-48f0-837b-1da1914a5b8b" />
+						<InputFileSet FileSetId="1abdcf54-3723-4a7a-8d70-3c714c79e2a0" />
+						<InputFileSet FileSetId="6d921b49-6f65-4493-862b-5b3806d201fe" />
+						<InputFileSet FileSetId="f8792380-ed52-41b9-8d70-5e6311c064fd" />
+						<InputFileSet FileSetId="790030c1-4534-40b5-85a8-a01231cb4485" />
+						<InputFileSet FileSetId="d887750f-d7ff-432e-883b-35b3c12815af" />
+						<InputFileSet FileSetId="70bfccb9-d2cd-4290-9e03-9bc52438ecec" />
+						<InputFileSet FileSetId="dc7980d8-e45b-4d9b-a3c8-300aaa4904d2" />
+						<InputFileSet FileSetId="eee3779f-6e31-420f-8fc8-f5a90ed6a16e" />
+						<InputFileSet FileSetId="084c852f-bfb0-40ca-951e-e6df34eeeaa0" />
+						<InputFileSet FileSetId="01b553d5-0057-4b3d-ba76-e43d058cace4" />
+						<InputFileSet FileSetId="141f2291-ea78-41d0-8826-2fb2fe66091e" />
+						<InputFileSet FileSetId="6f327770-7308-4624-a40c-18bc689018ba" />
+						<InputFileSet FileSetId="6b72d141-e0dd-4eab-9d7f-674555ea9d16" />
+						<InputFileSet FileSetId="6c55c82b-cc98-42d7-a2f2-74c0c9f59f39" />
+						<InputFileSet FileSetId="8714ce23-874a-49c6-a855-0dd13e6f156e" />
+						<InputFileSet FileSetId="826a1d3a-9c3c-4ac0-9364-1eedac95dd94" />
+						<InputFileSet FileSetId="bef1c48a-881c-4ef3-b428-e88f5f792f91" />
+						<InputFileSet FileSetId="0c96c570-b8b2-46c7-b8ac-e83658a51ad9" />
+						<InputFileSet FileSetId="8dc4f61d-352b-4b54-bb34-de48922c7288" />
+						<InputFileSet FileSetId="b4ffbef8-e827-443a-a62f-f406a42c4c89" />
+						<InputFileSet FileSetId="720e99fd-e084-4f5a-9f7f-e1a0db75d293" />
+						<InputFileSet FileSetId="c945cffd-4899-4da4-913c-9d34c55966e6" />
+						<InputFileSet FileSetId="e7f1dd07-ac93-4d97-b703-bb6e3d8435d6" />
+						<InputFileSet FileSetId="d3335fd7-3124-45f1-a8f4-36e2019747e4" />
+						<InputFileSet FileSetId="33c0e96d-419b-4999-856e-c3ca7ea26d85" />
+						<InputFileSet FileSetId="d3e377cd-8695-4712-921a-b74127092809" />
+						<InputFileSet FileSetId="7e6b53e8-a66a-4237-a284-fb3197fb5d88" />
+						<InputFileSet FileSetId="c733929c-2081-4cec-beb1-9438b75fb6db" />
+						<InputFileSet FileSetId="ec307f81-d276-4b34-8105-f385fb8444c9" />
+						<InputFileSet FileSetId="323e0dde-6da5-4f5a-8f54-e32b87b476a4" />
+						<InputFileSet FileSetId="16cde951-bbc9-4b00-9435-78aedf7f585e" />
+						<InputFileSet FileSetId="4d7027b1-9588-456c-8166-6391fae46056" />
+						<InputFileSet FileSetId="705871aa-5c0f-4f28-ba81-3690d7c476df" />
+						<InputFileSet FileSetId="ef366828-9b80-4438-95ae-3b4ce5860ce7" />
+						<InputFileSet FileSetId="d56b1050-0330-46bf-8dc6-c001bdbe76d5" />
+						<InputFileSet FileSetId="d9f5eb29-d057-4b77-bb7b-7d7718fd1931" />
+						<InputFileSet FileSetId="20bba31c-2503-4aba-88cd-f8d61287e5d1" />
+						<InputFileSet FileSetId="755d514b-50ca-4110-a600-80a486260cac" />
+						<InputFileSet FileSetId="7e19fd1f-8ee3-423b-9bcc-847feeedff6c" />
+						<InputFileSet FileSetId="2cfe2be6-ac8d-40fa-bf88-f062f9e849b0" />
+						<InputFileSet FileSetId="8a97a43e-a63d-4884-b34a-f48556c57c28" />
+						<InputFileSet FileSetId="59120b25-090e-4251-8991-5d4506e31ec8" />
+						<InputFileSet FileSetId="290b92b9-160e-4414-8094-9b264b936a26" />
+						<InputFileSet FileSetId="80ff565f-801d-4b36-94f5-a871093fcda6" />
+						<InputFileSet FileSetId="bac60703-6d41-4167-82b4-35cd76b27a38" />
+						<InputFileSet FileSetId="8a41e438-ea62-473c-b80c-cd158b07004a" />
+						<InputFileSet FileSetId="96c36e89-34fc-41d1-81fc-8ae1694c969f" />
+						<InputFileSet FileSetId="b9e09045-8abc-4517-bbd4-fa0ce70c6bc8" />
+						<InputFileSet FileSetId="d89269e4-b681-44d1-91bd-f5334b1cc8bd" />
+						<InputFileSet FileSetId="d3db8e46-fe4b-4cd3-9ebb-210b1d993582" />
+						<InputFileSet FileSetId="3b127fa8-39e4-4251-a117-56bba1dfdfe8" />
+						<InputFileSet FileSetId="3ed617a9-d765-47a7-a0ee-50c5ce23af5b" />
+					</InputFileSets>
+				</SequenceStep>
+			</AnalysisFileSets>
+		</AnalysisResult>
+	</AnalysisResults>
+	<AnalysisResultsLoadingErrors />
+</Study>
