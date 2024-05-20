@@ -2,8 +2,6 @@
 library(tidyverse)
 library(fuzzyjoin)
 library(stringi)
-library(hrbrthemes)
-library(viridis)
 library(ggforce)
 
 # IMPORT YOUR CD DATA

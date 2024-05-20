@@ -6,8 +6,6 @@ library(plyr)
 if (!exists("flag", mode = "function"))
   source("arg-analysis/scripts/functions.R")
 library(tidyverse)
-library(viridis)
-library(hrbrthemes)
 
 # IMPORT ------------------------------------------------------------------
 # import raw data
