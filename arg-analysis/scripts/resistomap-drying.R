@@ -323,6 +323,9 @@ location_study <- location_study %>%
 time_study <- time_study %>%
   mutate_at(vars(height:length), as.factor)
 
+time_study <- transform(time_study, 
+                        day = as.numeric(day))
+
 # stats test for location and time
 # basic stats
 means_loc <- location_study %>%

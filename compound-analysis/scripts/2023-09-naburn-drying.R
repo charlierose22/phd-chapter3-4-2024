@@ -5,7 +5,7 @@ library(stringi)
 library(ggforce)
 
 # IMPORT YOUR CD DATA
-drying_study <- readr::read_delim(
+drying_compounds <- readr::read_delim(
   "compound-analysis/data/raw-data/2023-09-naburn-drying.csv",
   delim = "\t",
   trim_ws = TRUE
@@ -13,7 +13,7 @@ drying_study <- readr::read_delim(
   janitor::clean_names()
 
 # RENAME DATAFRAME FOR CODE TO WORK WITH MINIMAL CHANGES
-basedata <- drying_study
+basedata <- drying_compounds
 
 # DROP THESE COLUMNS UNLESS THEY HAVE BEEN USED IN YOUR CD WORKFLOW
 basedata$tags = NULL
@@ -163,13 +163,15 @@ filteredmzcloud <- mzcloud[!grepl('Invalid Mass',
 # FIRST FIND MASS LIST NAMES (APPEARING IN CONSOLE)
 unique(filteredmasslist$mass_list_name)
 # THEN SPLIT BY MASS LIST
-splitmasslist <-
-  split(filteredmasslist, filteredmasslist$mass_list_name)
-antibiotics <-
-  splitmasslist$"antibiotics_itn_msca_answer_160616_w_dtxsi_ds"
+splitmasslist <- split(filteredmasslist, filteredmasslist$mass_list_name)
+antibiotics <- splitmasslist$"antibiotics_itn_msca_answer_160616_w_dtxsi_ds"
 metabolites <- splitmasslist$"itnantibiotic_cyp_metabolites"
 psychoactive <- splitmasslist$"kps_psychoactive_substances_v2"
 pharmaceuticals <- splitmasslist$"kps_pharmaceuticals"
+
+# clean compound names in antibiotics dataset.
+antibiotics$name <- antibiotics$name %>%
+  fedmatch::clean_strings()
 
 # wide view for samples and fully annotated view
 antibiotics_means <- antibiotics %>%
@@ -181,21 +183,47 @@ antibiotics_means <- antibiotics %>%
     se = std / sqrt(n)
   )
 
-# clean compound names in antibiotics dataset.
-antibiotics_means$name <- antibiotics_means$name %>%
-  fedmatch::clean_strings()
-
 # add antibiotic classes for common antibiotics
 class_info <-
   read.csv("compound-analysis/data/antimicrobial_classes.csv")
-location_classes <- antibiotics_means %>%
+
+location_classes_means <- antibiotics_means %>%
+  fuzzy_left_join(class_info,
+                  by = c("name" = "name"),
+                  match_fun = str_detect)
+
+location_classes_box <- antibiotics %>%
   fuzzy_left_join(class_info,
                   by = c("name" = "name"),
                   match_fun = str_detect)
 
 # replace NA with 'unknown'
-location_classes$class <- location_classes$class %>%
+location_classes_means$class <- location_classes_means$class %>%
   replace_na('unknown')
+location_classes_box$class <- location_classes_box$class %>%
+  replace_na('unknown')
+
+# create separate data sets for location study and time series.
+chem_location_study <- location_classes_means[grepl('\\<01\\>|\\<29\\>', 
+                                                    location_classes_means$day), ]
+chem_time_study <- location_classes_means[grepl('bottom',
+                                                location_classes_means$height), ]
+box_chem_location_study <- location_classes_box[grepl('\\<01\\>|\\<29\\>', 
+                                                      location_classes_box$day), ]
+box_chem_time_study <- location_classes_box[grepl('bottom',
+                                                  location_classes_box$height), ]
+
+chem_time_study$day = as.numeric(chem_time_study$day)
+box_chem_time_study$day = as.numeric(box_chem_time_study$day)
+
+chem_mean_time_total <- box_chem_time_study %>% 
+  group_by(day, class) %>% 
+  summarise(
+    mean = mean(group_area),
+    std = sd(group_area),
+    n = length(group_area),
+    se = std / sqrt(n)
+  )
 
 # PRODUCE A CSV OF RESULTS
 write.csv(
@@ -223,403 +251,499 @@ write.csv(
   "compound-analysis/data/processed-data/2023-naburn-drying/pharmaceuticals.csv",
   row.names = FALSE
 )
-write.csv(
-  antibiotics_wide,
-  "compound-analysis/data/processed-data/2023-naburn-drying/antibiotics_wide.csv"
-)
 
 # CHANGE HEIGHT AND WIDTH AND MIDPOINT AS NEEDED
-antibiotics_annotated %>%
-  ggplot(aes(y = name,
-             x = sample_name,
-             fill = mean)) +
-  geom_tile() +
-  scale_y_discrete(limits = rev) +
-  scale_fill_gradient2(
-    low = "turquoise3",
-    high = "orange",
-    mid = "yellow",
-    midpoint = 2e+08
-  ) +
-  labs(x = "Sample", y = "Compound Name", colour = "Intensity") +
-  theme_bw(base_size = 10) +
-  theme(
-    panel.grid.major = element_line(colour = "gray80"),
-    panel.grid.minor = element_line(colour = "gray80"),
-    axis.text.x = element_text(angle = 90),
-    legend.text = element_text(family = "serif",
-                               size = 10),
-    axis.text = element_text(family = "serif",
-                             size = 10),
-    axis.title = element_text(
-      family = "serif",
-      size = 10,
-      face = "bold",
-      colour = "gray20"
-    ),
-    legend.title = element_text(size = 10,
-                                family = "serif"),
-    plot.background = element_rect(colour = NA,
-                                   linetype = "solid"),
-    legend.key = element_rect(fill = NA)
-  ) + labs(fill = "Intensity")
-ggsave(
-  "compound-analysis/figures/2023-naburn-drying/antibiotics.pdf",
-  width = 15,
-  height = 10
-)
-
-# for classes as a whole.
-location_classes %>%
-  group_by(location, day) %>%
-  ggplot(aes(x = height, y = mean, fill = class)) +
-  geom_bar(position = "stack", stat = "identity") +
-  labs(x = "height", y = "intensity") +
-  facet_grid(location ~ day) +
-  theme_ipsum(base_size = 10)
-ggsave(
-  "compound-analysis/figures/2023-naburn-drying/bar-classes.png",
-  width = 4,
-  height = 2
-)
-
-# split the data into location and time studies
-location_study <-
-  location_classes[grepl('01|29', location_classes$day),]
-time_study <-
-  location_classes[grepl('bottom', location_classes$height),]
-
-# location study plots
-# Create a list of target antibiotics.
-antibiotic_classes <- unique(location_classes$class)
-
-# Create a loop for each target antibiotic.
-for (class in antibiotic_classes) {
-  # Create a subset of the data for the current target antibiotic.
-  data <- location_study[location_study$class == class, ]
-  
-  # Create a heatmap of the data.
-  ggplot(data, aes(x = day, y = name.x, fill = mean)) +
-    geom_tile() +
-    scale_y_discrete(limits = rev) +
-    scale_fill_viridis(discrete = F) +
-    labs(x = "day", y = "compound", fill = "intensity") +
-    facet_grid(location ~ height) +
-    theme_ipsum(base_size = 10)
-  
-  # Save the linegraph to a file.
-  ggsave(
-    paste0(
-      "compound-analysis/figures/2023-naburn-drying/heatmaps/location-heatmap-",
-      class,
-      ".png"
-    ),
-    width = 7,
-    height = 7
-  )
-}
-
-# Create a loop for each target antibiotic.
-for (class in antibiotic_classes) {
-  # Create a subset of the data for the current target antibiotic.
-  data2 <- location_study[location_study$class == class, ]
-  
-  # Create bar graphs of the data.
-  data2 %>%
-    group_by(location, height) %>%
-    ggplot(aes(x = day, y = mean, fill = name.x)) +
-    geom_bar(position = "stack", stat = "identity") +
-    geom_errorbar(aes(ymin = mean - se, ymax = mean + se, colour = name.x), width = 0.2) +
-    scale_fill_viridis(discrete = T) +
-    scale_color_viridis(discrete = T) +
-    labs(x = "day", y = "intensity", fill = "compound") +
-    facet_grid(location ~ height) +
-    theme_ipsum(base_size = 10)
-  
-  # Save the linegraph to a file.
-  ggsave(
-    paste0(
-      "compound-analysis/figures/2023-naburn-drying/bargraph/location-bargraph-",
-      class,
-      ".png"
-    ),
-    width = 7,
-    height = 7
-  )
-}
-
-# time series plots
-
-# Create a loop for each target antibiotic.
-for (class in antibiotic_classes) {
-  # Create a subset of the data for the current target antibiotic.
-  data3 <- time_study[time_study$class == class, ]
-  
-  # Create a heatmap of the data.
-  ggplot(data3, aes(x = day, y = name.x, fill = mean)) +
-    geom_tile() +
-    scale_y_discrete(limits = rev) +
-    scale_fill_viridis(discrete = F) +
-    labs(x = "day", y = "compound", fill = "intensity") +
-    theme_ipsum(base_size = 10)
-  
-  # Save the heatmap to a file.
-  ggsave(
-    paste0(
-      "compound-analysis/figures/2023-naburn-drying/heatmaps/time-heatmap-",
-      class,
-      ".png"
-    ),
-    width = 7,
-    height = 7
-  )
-}
-
-# Create a loop for each target antibiotic.
-for (class in antibiotic_classes) {
-  # Create a subset of the data for the current target antibiotic.
-  data4 <- time_study[time_study$class == class, ]
-  
-  # Create line graphs of the data.
-  data4 %>% 
-    group_by(class) %>%
-  ggplot() +
-    geom_point(aes(x = day, y = mean, color = name.x)) +
-    geom_errorbar(aes(x = day, ymin = mean - se, ymax = mean + se), width = .2) +
-    geom_line(aes(x = day, y = mean, color =  name.x)) +
-    labs(x = "day", y = "intensity", color = "compound") +
-    scale_color_viridis(discrete = TRUE) +
-    theme_ipsum(base_size = 10)
-  
-  # Save the linegraph to a file.
-  ggsave(
-    paste0(
-      "compound-analysis/figures/2023-naburn-drying/linegraph/time-error-linegraph-",
-      class,
-      ".png"
-    ),
-    width = 7,
-    height = 7
-  )
-}
-# create new data for unknown categories
-unknown_time <- time_study[grepl('unknown', time_study$class),]
-unknown_location <-
-  location_study[grepl('unknown', location_study$class),]
-
-unknown_antibiotics <-
-  location_classes[grepl('unknown', location_classes$class),]
-write.csv(
-  unknown_antibiotics,
-  "compound-analysis/data/processed-data/2023-naburn-drying/unknown_class_antibiotics.csv",
-  row.names = FALSE
-)
-
-# graphs as above
-# Create a heatmap of the data.
-ggplot(unknown_location, aes(x = day, y = name.x, fill = mean)) +
-  geom_tile() +
-  scale_y_discrete(limits = rev, labels = scales::label_wrap(40)) +
-  scale_fill_viridis(discrete = F) +
-  labs(x = "day", y = "compound", fill = "intensity") +
-  facet_wrap_paginate(~ height,
-                      nrow = 1,
-                      ncol = 3,
-                      page = 1) +
-  theme_ipsum(base_size = 10)
-# Save the linegraph to a file.
-ggsave(
-  paste0(
-    "compound-analysis/figures/2023-naburn-drying/heatmaps/location-heatmap-unknown-location-1.png"
-  ),
-  width = 10,
-  height = 10
-)
-ggplot(unknown_location, aes(x = day, y = name.x, fill = mean)) +
-  geom_tile() +
-  scale_y_discrete(limits = rev, labels = scales::label_wrap(40)) +
-  scale_fill_viridis(discrete = F) +
-  labs(x = "day", y = "compound", fill = "intensity") +
-  facet_wrap_paginate(~ height,
-                      nrow = 1,
-                      ncol = 3,
-                      page = 2) +
-  theme_ipsum(base_size = 10)
-# Save the linegraph to a file.
-ggsave(
-  paste0(
-    "compound-analysis/figures/2023-naburn-drying/heatmaps/location-heatmap-unknown-location-2.png"
-  ),
-  width = 10,
-  height = 10
-)
-ggplot(unknown_location, aes(x = day, y = mean, fill = name.x)) +
-  geom_bar(position = "stack", stat = "identity") +
-  scale_fill_viridis(discrete = T) +
-  labs(x = "day", y = "intensity", fill = "compound") +
-  facet_wrap_paginate(~ height,
-                      nrow = 1,
-                      ncol = 3,
-                      page = 1) +
-  theme_ipsum(base_size = 10)
-# Save the linegraph to a file.
-ggsave(
-  paste0(
-    "compound-analysis/figures/2023-naburn-drying/bargraph/location-heatmap-unknown-location-1.png"
-  ),
-  width = 10,
-  height = 10
-)
-ggplot(unknown_location, aes(x = day, y = mean, fill = name.x)) +
-  geom_bar(position = "stack", stat = "identity") +
-  scale_fill_viridis(discrete = T) +
-  labs(x = "day", y = "intensity", fill = "compound") +
-  facet_wrap_paginate(~ height,
-                      nrow = 1,
-                      ncol = 3,
-                      page = 2) +
-  theme_ipsum(base_size = 10)
-# Save the linegraph to a file.
-ggsave(
-  paste0(
-    "compound-analysis/figures/2023-naburn-drying/bargraph/location-heatmap-unknown-location-.png"
-  ),
-  width = 10,
-  height = 10
-)
-# Create a heatmap of the data.
-ggplot(unknown_time, aes(x = day, y = name.x, fill = mean)) +
-  geom_tile() +
-  scale_y_discrete(limits = rev, labels = scales::label_wrap(40)) +
-  scale_fill_viridis(discrete = F) +
-  labs(x = "day", y = "compound", fill = "intensity") +
-  theme_ipsum(base_size = 10)
-# Save the heatmap to a file.
-ggsave(
-  paste0(
-    "compound-analysis/figures/2023-naburn-drying/heatmaps/time-heatmap-unknown.png"
-  ),
-  width = 15,
-  height = 15
-)
-ggplot(unknown_time, aes(x = day,
-                         y = mean,
-                         colour = name.x)) +
-  geom_point() +
-  geom_errorbar(aes(
-    x = day,
-    ymin = mean - se,
-    ymax = mean + se
-  ),
-  width = .6) +
-  geom_line(aes(x = day,
-                y = mean,
-                colour =  name.x)) +
-  labs(x = "day", y = "intensity", colour = "compound") +
-  scale_color_viridis(discrete = T) +
-  theme_ipsum(base_size = 10)
-# Save the linegraph to a file.
-ggsave(
-  paste0(
-    "compound-analysis/figures/2023-naburn-drying/linegraph/time-error-linegraph-unknown.png"
-  ),
-  width = 15,
-  height = 15
-)
-
-# Create a subset of the data for the current target antibiotic.
-trimethoprim <-
-  time_study[grepl('trimethoprim', time_study$class),]
-# Create a heatmap of the data.
-ggplot(trimethoprim, aes(x = day, y = name.x, fill = mean)) +
-  geom_tile() +
-  scale_y_discrete(limits = rev) +
-  scale_fill_viridis(discrete = F) +
-  labs(x = "day", y = "compound", fill = "intensity") +
-  theme_ipsum(base_size = 10)
-# Save the heatmap to a file.
-ggsave(
-  paste0(
-    "compound-analysis/figures/2023-naburn-drying/heatmaps/time-heatmap-trimethoprim.png"
-  ),
-  width = 7,
-  height = 7
-)
+library(RColorBrewer)
+darkpalette <- c("firebrick4",
+                 "orangered1",
+                 "darkgoldenrod2",
+                 "yellow3",
+                 "darkolivegreen4", 
+                 "green3",
+                 "turquoise3", 
+                 "dodgerblue3", 
+                 "darkslateblue", 
+                 "darkorchid2",
+                 "violetred2",
+                 "maroon")
 
 # Individual Plots
 # split based on target antibiotics for location 
-split_location <- split(location_study, location_study$class)
-loc_amino <- split_location$aminoglycoside
-loc_fung <- split_location$antifungal
-loc_beta <- split_location$'beta-lactam'
-loc_mlsb <- split_location$mlsb
-loc_other <- split_location$other
-loc_poly <- split_location$polyketide
-loc_quin <- split_location$quinolone
-loc_sulf <- split_location$sulfonamide
-loc_trim <- split_location$trimethoprim
-loc_tet <- split_location$tetracycline
+# Create a list of target antibiotics.
+class_info2 <- unique(class_info$class)
 
-# split based on target antibiotics for time 
-split_time <- split(time_study, time_study$class)
-time_amino <- split_time$aminoglycoside
-time_fung <- split_time$antifungal
-time_beta <- split_time$'beta-lactam'
-time_mlsb <- split_time$mlsb
-time_other <- split_time$other
-time_poly <- split_time$polyketide
-time_quin <- split_time$quinolone
-time_sulf <- split_time$sulfonamide
-time_trim <- split_time$trimethoprim
-time_tet <- split_time$tetracycline
+# split based on target antibiotics for location 
+split_location_compound <- split(chem_location_study, chem_location_study$class)
+chem_loc_amino <- split_location_compound$aminoglycoside
+chem_loc_fung <- split_location_compound$antifungal
+chem_loc_beta <- split_location_compound$`beta-lactam`
+chem_loc_glyc <- split_location_compound$glycopeptide_metronidazole
+chem_loc_mac <- split_location_compound$macrolide_lincosamide
+chem_loc_other <- split_location_compound$other
+chem_loc_phen <- split_location_compound$phenicol
+chem_loc_quin <- split_location_compound$quinolone
+chem_loc_sulf <- split_location_compound$sulfonamide_trimethoprim
+chem_loc_tet <- split_location_compound$tetracycline
+chem_loc_unknown <- split_location_compound$unknown
 
-# beta-lactam Location
-library(RColorBrewer)
-loc_beta %>%
-  ggplot(aes(x = height, y = mean, fill = day)) +
-  geom_col(width = 0.6, position = position_dodge(width = 0.6)) +
-  geom_errorbar(aes(ymin = mean - se, ymax = mean + se), 
-                width = 0.2,
-                position = position_dodge(width = 0.6)) +
-  labs(x = "height", y = "intensity", fill = "day") +
-  facet_wrap(~name.x, scales = "free") +
-  scale_fill_manual(values = brewer.pal("Dark2", n = 3)) +
+split_time_compound <- split(chem_time_study, chem_time_study$class)
+chem_time_amino <- split_time_compound$aminoglycoside
+chem_time_fung <- split_time_compound$antifungal
+chem_time_beta <- split_time_compound$`beta-lactam`
+chem_time_glyc <- split_time_compound$glycopeptide_metronidazole
+chem_time_mac <- split_time_compound$macrolide_lincosamide
+chem_time_other <- split_time_compound$other
+chem_time_phen <- split_time_compound$phenicol
+chem_time_quin <- split_time_compound$quinolone
+chem_time_sulf <- split_time_compound$sulfonamide_trimethoprim
+chem_time_tet <- split_time_compound$tetracycline
+chem_time_unknown <- split_time_compound$unknown
+
+box_split_location_compound <- split(box_chem_location_study, box_chem_location_study$class)
+box_chem_loc_amino <- box_split_location_compound$aminoglycoside
+box_chem_loc_fung <- box_split_location_compound$antifungal
+box_chem_loc_beta <- box_split_location_compound$`beta-lactam`
+box_chem_loc_glyc <- box_split_location_compound$glycopeptide_metronidazole
+box_chem_loc_mac <- box_split_location_compound$macrolide_lincosamide
+box_chem_loc_other <- box_split_location_compound$other
+box_chem_loc_phen <- box_split_location_compound$phenicol
+box_chem_loc_quin <- box_split_location_compound$quinolone
+box_chem_loc_sulf <- box_split_location_compound$sulfonamide_trimethoprim
+box_chem_loc_tet <- box_split_location_compound$tetracycline
+box_chem_loc_unknown <- box_split_location_compound$unknown
+
+box_split_time_compound <- split(box_chem_time_study, box_chem_time_study$class)
+box_chem_time_amino <- box_split_time_compound$aminoglycoside
+box_chem_time_fung <- box_split_time_compound$antifungal
+box_chem_time_beta <- box_split_time_compound$`beta-lactam`
+box_chem_time_glyc <-box_split_time_compound$glycopeptide_metronidazole
+box_chem_time_mac <- box_split_time_compound$macrolide_lincosamide
+box_chem_time_other <- box_split_time_compound$other
+box_chem_time_phen <- box_split_time_compound$phenicol
+box_chem_time_quin <- box_split_time_compound$quinolone
+box_chem_time_sulf <- box_split_time_compound$sulfonamide_trimethoprim
+box_chem_time_tet <- box_split_time_compound$tetracycline
+box_chem_time_unknown <- box_split_time_compound$unknown
+
+# count number of genes per class
+chem_count_loc <- chem_location_study %>%
+  group_by(class, day, height) %>% 
+  summarise(count = n_distinct(name.x))
+
+chem_count_time <- chem_time_study %>%
+  group_by(class, day) %>% 
+  summarise(count = n_distinct(name.x))
+
+chem_count_loc %>% 
+  ggplot(aes(fill = class, y = count, x = day)) + 
+  geom_bar(position = "stack", stat = "identity") +
+  scale_fill_manual(values = brewer.pal("Spectral", n = 10),
+                    labels = c("aminoglycoside",
+                               "antifungal",
+                               "beta-lactam",
+                               "macrolide lincosamide",
+                               "other",
+                               "phenicol",
+                               "quinolone",
+                               "sulfonamide and\ntrimethoprim",
+                               "tetracycline",
+                               "unknown")) +
+  labs(y = "number of compounds detected", 
+       fill = "antibiotic class") +
+  facet_wrap(~height) +
   theme_minimal(base_size = 12)
 
-time_beta$day = as.numeric(time_beta$day)
-time_beta %>%
-  ggplot(aes(x = day, y = mean)) +
-  geom_point(aes(color = name.x)) +
-  geom_errorbar(aes(x = day,
-                    ymin = mean - se,
-                    ymax = mean + se,
-                    color = name.x),
-                width = 1) +
-  geom_line(aes(color =  name.x)) +
-  labs(x = "day", y = "intensity", color = "compound") +
-  scale_color_manual(values = brewer.pal("Dark2", n = 7)) +
-  theme_minimal()
-
-loc_tet %>%
-  ggplot(aes(x = height, y = mean, fill = day)) +
-  geom_col(width = 0.6, position = position_dodge(width = 0.6)) +
-  geom_errorbar(aes(ymin = mean - se, ymax = mean + se), 
-                width = 0.2,
-                position = position_dodge(width = 0.6)) +
-  labs(x = "height", y = "intensity", fill = "day") +
-  facet_wrap(~name.x, scales = "free") +
-  scale_fill_manual(values = brewer.pal("Dark2", n = 3)) +
+box_chem_location_study %>%
+  ggplot(aes(x = day, y = group_area, fill = class)) +
+  geom_boxplot() +
+  scale_y_continuous(trans='log10') +
+  scale_fill_manual(values = brewer.pal("Spectral", n = 10),
+                    labels = c("aminoglycoside",
+                               "antifungal",
+                               "beta-lactam",
+                               "macrolide lincosamide",
+                               "other",
+                               "phenicol",
+                               "quinolone",
+                               "sulfonamide and\ntrimethoprim",
+                               "tetracycline",
+                               "unknown")) +
+  labs(x = "day", y = "intensity", fill = "antibiotic class") +
+  facet_grid(rows = vars(height)) +
   theme_minimal(base_size = 12)
 
-time_tet$day = as.numeric(time_beta$day)
-time_tet %>%
-  ggplot(aes(x = day, y = mean)) +
-  geom_point(aes(color = name.x)) +
+# aminoglycoside location
+box_chem_loc_amino %>%
+  ggplot(aes(x = height, y = group_area, fill = height)) +
+  geom_boxplot() +
+  geom_jitter(position=position_jitter(0.2), color = "antiquewhite4", shape = 4) +
+  scale_y_continuous(trans='log10') +
+  scale_fill_manual(values = brewer.pal("Accent", n = 3)) +
+  labs(x = "height", y = "compound intensity", fill = "height") +
+  facet_wrap(~day) +
+  theme_minimal(base_size = 12)
+
+# per gene
+box_chem_loc_amino %>%
+  ggplot(aes(x = day, y = group_area, fill = height)) +
+  geom_boxplot() +
+  scale_y_continuous(trans='log10') +
+  scale_fill_manual(values = brewer.pal("Accent", n = 3)) +
+  labs(x = "day", y = "relative abundance", fill = "height") +
+  facet_wrap(~name.x) +
+  theme_minimal(base_size = 12)
+
+# beta-lac location
+box_chem_loc_beta %>%
+  ggplot(aes(x = height, y = group_area, fill = height)) +
+  geom_boxplot() +
+  geom_jitter(position=position_jitter(0.2), color = "antiquewhite4", shape = 4) +
+  scale_y_continuous(trans='log10') +
+  scale_fill_manual(values = brewer.pal("Accent", n = 3)) +
+  labs(x = "height", y = "compound intensity", fill = "height") +
+  facet_wrap(~day) +
+  theme_minimal(base_size = 12)
+
+# per gene
+box_chem_loc_beta %>%
+  ggplot(aes(x = day, y = group_area, fill = height)) +
+  geom_boxplot() +
+  scale_y_continuous(trans='log10') +
+  scale_fill_manual(values = brewer.pal("Accent", n = 3)) +
+  labs(x = "day", y = "relative abundance", fill = "height") +
+  facet_wrap(~name.x) +
+  theme_minimal(base_size = 12)
+
+# antifungal location
+box_chem_loc_fung %>%
+  ggplot(aes(x = height, y = group_area, fill = height)) +
+  geom_boxplot() +
+  geom_jitter(position=position_jitter(0.2), color = "antiquewhite4", shape = 4) +
+  scale_y_continuous(trans='log10') +
+  scale_fill_manual(values = brewer.pal("Accent", n = 3)) +
+  labs(x = "height", y = "compound intensity", fill = "height") +
+  facet_wrap(~day) +
+  theme_minimal(base_size = 12)
+
+# per gene
+box_chem_loc_fung %>%
+  ggplot(aes(x = day, y = group_area, fill = height)) +
+  geom_boxplot() +
+  scale_y_continuous(trans='log10') +
+  scale_fill_manual(values = brewer.pal("Accent", n = 3)) +
+  labs(x = "day", y = "relative abundance", fill = "height") +
+  facet_wrap(~name.x) +
+  theme_minimal(base_size = 12)
+
+# mac location
+box_chem_loc_mac %>%
+  ggplot(aes(x = height, y = group_area, fill = height)) +
+  geom_boxplot() +
+  geom_jitter(position=position_jitter(0.2), color = "antiquewhite4", shape = 4) +
+  scale_y_continuous(trans='log10') +
+  scale_fill_manual(values = brewer.pal("Accent", n = 3)) +
+  labs(x = "height", y = "compound intensity", fill = "height") +
+  facet_wrap(~day) +
+  theme_minimal(base_size = 12)
+
+# per gene
+box_chem_loc_mac %>%
+  ggplot(aes(x = day, y = group_area, fill = height)) +
+  geom_boxplot() +
+  scale_y_continuous(trans='log10') +
+  scale_fill_manual(values = brewer.pal("Accent", n = 3)) +
+  labs(x = "day", y = "relative abundance", fill = "height") +
+  facet_wrap(~name.x) +
+  theme_minimal(base_size = 12)
+
+# other location
+box_chem_loc_other %>%
+  ggplot(aes(x = height, y = group_area, fill = height)) +
+  geom_boxplot() +
+  geom_jitter(position=position_jitter(0.2), color = "antiquewhite4", shape = 4) +
+  scale_y_continuous(trans='log10') +
+  scale_fill_manual(values = brewer.pal("Accent", n = 3)) +
+  labs(x = "height", y = "compound intensity", fill = "height") +
+  facet_wrap(~day) +
+  theme_minimal(base_size = 12)
+
+# per gene
+box_chem_loc_other %>%
+  ggplot(aes(x = day, y = group_area, fill = height)) +
+  geom_boxplot() +
+  scale_y_continuous(trans='log10') +
+  scale_fill_manual(values = brewer.pal("Accent", n = 3)) +
+  labs(x = "day", y = "relative abundance", fill = "height") +
+  facet_wrap(~name.x) +
+  theme_minimal(base_size = 12)
+
+# phenicol location
+box_chem_loc_phen %>%
+  ggplot(aes(x = height, y = group_area, fill = height)) +
+  geom_boxplot() +
+  geom_jitter(position=position_jitter(0.2), color = "antiquewhite4", shape = 4) +
+  scale_y_continuous(trans='log10') +
+  scale_fill_manual(values = brewer.pal("Accent", n = 3)) +
+  labs(x = "height", y = "compound intensity", fill = "height") +
+  facet_wrap(~day) +
+  theme_minimal(base_size = 12)
+
+# per gene
+box_chem_loc_phen %>%
+  ggplot(aes(x = day, y = group_area, fill = height)) +
+  geom_boxplot() +
+  scale_y_continuous(trans='log10') +
+  scale_fill_manual(values = brewer.pal("Accent", n = 3)) +
+  labs(x = "day", y = "relative abundance", fill = "height") +
+  facet_wrap(~name.x) +
+  theme_minimal(base_size = 12)
+
+# quinolone location
+box_chem_loc_quin %>%
+  ggplot(aes(x = height, y = group_area, fill = height)) +
+  geom_boxplot() +
+  geom_jitter(position=position_jitter(0.2), color = "antiquewhite4", shape = 4) +
+  scale_y_continuous(trans='log10') +
+  scale_fill_manual(values = brewer.pal("Accent", n = 3)) +
+  labs(x = "height", y = "compound intensity", fill = "height") +
+  facet_wrap(~day) +
+  theme_minimal(base_size = 12)
+
+# per gene
+box_chem_loc_quin %>%
+  ggplot(aes(x = day, y = group_area, fill = height)) +
+  geom_boxplot() +
+  scale_y_continuous(trans='log10') +
+  scale_fill_manual(values = brewer.pal("Accent", n = 3)) +
+  labs(x = "day", y = "relative abundance", fill = "height") +
+  facet_wrap(~name.x) +
+  theme_minimal(base_size = 12)
+
+# sulf location
+box_chem_loc_sulf %>%
+  ggplot(aes(x = height, y = group_area, fill = height)) +
+  geom_boxplot() +
+  geom_jitter(position=position_jitter(0.2), color = "antiquewhite4", shape = 4) +
+  scale_y_continuous(trans='log10') +
+  scale_fill_manual(values = brewer.pal("Accent", n = 3)) +
+  labs(x = "height", y = "compound intensity", fill = "height") +
+  facet_wrap(~day) +
+  theme_minimal(base_size = 12)
+
+# per gene
+box_chem_loc_sulf %>%
+  ggplot(aes(x = day, y = group_area, fill = height)) +
+  geom_boxplot() +
+  scale_y_continuous(trans='log10') +
+  scale_fill_manual(values = brewer.pal("Accent", n = 3)) +
+  labs(x = "day", y = "relative abundance", fill = "height") +
+  facet_wrap(~name.x, ncol = 3) +
+  theme_minimal(base_size = 12)
+
+# tet location
+box_chem_loc_tet %>%
+  ggplot(aes(x = height, y = group_area, fill = height)) +
+  geom_boxplot() +
+  geom_jitter(position=position_jitter(0.2), color = "antiquewhite4", shape = 4) +
+  scale_y_continuous(trans='log10') +
+  scale_fill_manual(values = brewer.pal("Accent", n = 3)) +
+  labs(x = "height", y = "compound intensity", fill = "height") +
+  facet_wrap(~day) +
+  theme_minimal(base_size = 12)
+
+# per gene
+box_chem_loc_tet %>%
+  ggplot(aes(x = day, y = group_area, fill = height)) +
+  geom_boxplot() +
+  scale_y_continuous(trans='log10') +
+  scale_fill_manual(values = brewer.pal("Accent", n = 3)) +
+  labs(x = "day", y = "relative abundance", fill = "height") +
+  facet_wrap(~name.x) +
+  theme_minimal(base_size = 12)
+
+# unknown location
+box_chem_loc_unknown %>%
+  ggplot(aes(x = height, y = group_area, fill = height)) +
+  geom_boxplot() +
+  geom_jitter(position=position_jitter(0.2), color = "antiquewhite4", shape = 4) +
+  scale_y_continuous(trans='log10') +
+  scale_fill_manual(values = brewer.pal("Accent", n = 3)) +
+  labs(x = "height", y = "compound intensity", fill = "height") +
+  facet_wrap(~day) +
+  theme_minimal(base_size = 12)
+
+# per gene
+box_chem_loc_unknown %>%
+  ggplot(aes(x = day, y = group_area, fill = height)) +
+  geom_boxplot() +
+  scale_y_continuous(trans='log10') +
+  scale_fill_manual(values = brewer.pal("Accent", n = 3)) +
+  labs(x = "day", y = "relative abundance", fill = "height") +
+  facet_wrap(~name.x) +
+  theme_minimal(base_size = 12)
+
+# TIME ------------
+chem_mean_time_total %>%
+  ggplot(aes(x = day, y = mean, colour = class)) +
+  geom_point(shape = 15) +
   geom_errorbar(aes(x = day,
                     ymin = mean - se,
                     ymax = mean + se),
-                width = 1) +
-  geom_line(aes(color =  name.x)) +
-  labs(x = "day", y = "intensity", color = "compound") +
-  scale_color_manual(values = brewer.pal("Dark2", n = 7)) +
-  theme_minimal()
+                width = .6) +
+  geom_line() +
+  labs(x = "day", y = "compound intensity", color = "antibiotic class") +
+  scale_y_continuous(trans='log10') +
+  scale_color_manual(values = darkpalette,
+                     labels = c("aminoglycoside",
+                                "antifungal",
+                                "beta-lactam",
+                                "macrolide lincosamide",
+                                "other",
+                                "phenicol",
+                                "quinolone",
+                                "sulfonamide and\ntrimethoprim",
+                                "tetracycline",
+                                "unknown")) +
+  theme_minimal(base_size = 12) +
+  theme(legend.position="bottom")
+
+# aminolgycoside over time
+chem_time_amino %>%
+  ggplot(aes(x = day, y = mean, colour = name.x)) +
+  geom_point(shape = 15) +
+  geom_errorbar(aes(x = day,
+                    ymin = mean - se,
+                    ymax = mean + se),
+                width = .6) +
+  geom_line() +
+  labs(x = "day", y = "intensity", color = "compound name") +
+  scale_y_continuous(trans='log10') +
+  scale_color_manual(values = darkpalette) +
+  theme_minimal(base_size = 12)
+
+# beta over time
+chem_time_beta %>%
+  ggplot(aes(x = day, y = mean, colour = name.x)) +
+  geom_point(shape = 15) +
+  geom_errorbar(aes(x = day,
+                    ymin = mean - se,
+                    ymax = mean + se),
+                width = .6) +
+  geom_line() +
+  labs(x = "day", y = "intensity", color = "compound name") +
+  scale_y_continuous(trans='log10') +
+  scale_color_manual(values = darkpalette) +
+  theme_minimal(base_size = 12)
+
+# antifungal over time
+chem_time_fung %>%
+  ggplot(aes(x = day, y = mean, colour = name.x)) +
+  geom_point(shape = 15) +
+  geom_errorbar(aes(x = day,
+                    ymin = mean - se,
+                    ymax = mean + se),
+                width = .6) +
+  geom_line() +
+  labs(x = "day", y = "intensity", color = "compound name") +
+  scale_y_continuous(trans='log10') +
+  scale_color_manual(values = darkpalette) +
+  theme_minimal(base_size = 12)
+
+# mac over time
+chem_time_mac %>%
+  ggplot(aes(x = day, y = mean, colour = name.x)) +
+  geom_point(shape = 15) +
+  geom_errorbar(aes(x = day,
+                    ymin = mean - se,
+                    ymax = mean + se),
+                width = .6) +
+  geom_line() +
+  labs(x = "day", y = "intensity", color = "compound name") +
+  scale_y_continuous(trans='log10') +
+  scale_color_manual(values = darkpalette) +
+  theme_minimal(base_size = 12)
+
+# other over time
+chem_time_other %>%
+  ggplot(aes(x = day, y = mean, colour = name.x)) +
+  geom_point(shape = 15) +
+  geom_errorbar(aes(x = day,
+                    ymin = mean - se,
+                    ymax = mean + se),
+                width = .6) +
+  geom_line() +
+  labs(x = "day", y = "intensity", color = "compound name") +
+  scale_y_continuous(trans='log10') +
+  scale_color_manual(values = darkpalette) +
+  theme_minimal(base_size = 12)
+
+# phen over time
+chem_time_phen %>%
+  ggplot(aes(x = day, y = mean, colour = name.x)) +
+  geom_point(shape = 15) +
+  geom_errorbar(aes(x = day,
+                    ymin = mean - se,
+                    ymax = mean + se),
+                width = .6) +
+  geom_line() +
+  labs(x = "day", y = "intensity", color = "compound name") +
+  scale_y_continuous(trans='log10') +
+  scale_color_manual(values = darkpalette) +
+  theme_minimal(base_size = 12)
+
+# quin over time
+chem_time_quin %>%
+  ggplot(aes(x = day, y = mean, colour = name.x)) +
+  geom_point(shape = 15) +
+  geom_errorbar(aes(x = day,
+                    ymin = mean - se,
+                    ymax = mean + se),
+                width = .6) +
+  geom_line() +
+  labs(x = "day", y = "intensity", color = "compound name") +
+  scale_y_continuous(trans='log10') +
+  scale_color_manual(values = darkpalette) +
+  theme_minimal(base_size = 12)
+
+# sulf over time
+chem_time_sulf %>%
+  ggplot(aes(x = day, y = mean, colour = name.x)) +
+  geom_point(shape = 15) +
+  geom_errorbar(aes(x = day,
+                    ymin = mean - se,
+                    ymax = mean + se),
+                width = .6) +
+  geom_line() +
+  labs(x = "day", y = "intensity", color = "compound name") +
+  scale_y_continuous(trans='log10') +
+  scale_color_manual(values = darkpalette) +
+  theme_minimal(base_size = 12) +
+  theme(legend.position="bottom")
+
+# tet over time
+chem_time_tet %>%
+  ggplot(aes(x = day, y = mean, colour = name.x)) +
+  geom_point(shape = 15) +
+  geom_errorbar(aes(x = day,
+                    ymin = mean - se,
+                    ymax = mean + se),
+                width = .6) +
+  geom_line() +
+  labs(x = "day", y = "intensity", color = "compound name") +
+  scale_y_continuous(trans='log10') +
+  scale_color_manual(values = darkpalette) +
+  theme_minimal(base_size = 12)
+
+# unknown over time
+chem_time_unknown %>%
+  ggplot(aes(x = day, y = mean, colour = name.x)) +
+  geom_point(shape = 15) +
+  geom_errorbar(aes(x = day,
+                    ymin = mean - se,
+                    ymax = mean + se),
+                width = .6) +
+  geom_line() +
+  labs(x = "day", y = "intensity", color = "compound name") +
+  scale_y_continuous(trans='log10') +
+  theme_minimal(base_size = 12) +
+  theme(legend.position="bottom")

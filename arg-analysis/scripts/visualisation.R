@@ -1,14 +1,16 @@
 library(RColorBrewer)
-darkpalette <- c("mediumblue", 
-                 "darkred", 
-                 "darkorange4", 
-                 "orange", 
-                 "darkgreen", 
-                 "green", 
-                 "darkmagenta", 
-                 "hotpink", 
-                 "darkturquoise", 
-                 "tomato")
+darkpalette <- c("firebrick4",
+                 "orangered1",
+                 "darkgoldenrod2",
+                 "yellow3",
+                 "darkolivegreen4", 
+                 "green3",
+                 "turquoise3", 
+                 "dodgerblue3", 
+                 "darkslateblue", 
+                 "darkorchid2",
+                 "violetred2",
+                 "maroon")
 # LOCATION ----------------------------------------------------------------
 
 # Create a list of target antibiotics.
@@ -136,48 +138,397 @@ moisture_stats %>%
 loc_box_amino %>%
   ggplot(aes(x = height, y = delta_ct, fill = height)) +
   geom_boxplot() +
-  geom_jitter(position=position_jitter(0.2), color = "antiquewhite4") +
+  geom_jitter(position=position_jitter(0.2), color = "antiquewhite4", shape = 4) +
   scale_y_continuous(trans='log10') +
   scale_fill_manual(values = brewer.pal("Accent", n = 3)) +
   labs(x = "height", y = "relative abundance", fill = "height") +
   facet_wrap(~day) +
   theme_minimal(base_size = 12)
 
+# per gene
 loc_box_amino %>%
   ggplot(aes(x = day, y = delta_ct, fill = height)) +
   geom_boxplot() +
   scale_y_continuous(trans='log10') +
-  scale_fill_manual(values = brewer.pal("Pastel2", n = 3)) +
-  labs(x = "height", y = "relative abundance", fill = "height") +
+  scale_fill_manual(values = brewer.pal("Accent", n = 3)) +
+  labs(x = "day", y = "relative abundance", fill = "height") +
   facet_wrap(~gene) +
   theme_minimal(base_size = 12)
 
+# beta-lactam total location
+loc_box_beta %>%
+  ggplot(aes(x = height, y = delta_ct, fill = height)) +
+  geom_boxplot() +
+  geom_jitter(position=position_jitter(0.2), color = "antiquewhite4", shape = 4) +
+  scale_y_continuous(trans='log10') +
+  scale_fill_manual(values = brewer.pal("Accent", n = 3)) +
+  labs(x = "height", y = "relative abundance", fill = "height") +
+  facet_wrap(~day) +
+  theme_minimal(base_size = 12)
 
+# per gene
+loc_box_beta %>%
+  ggplot(aes(x = day, y = delta_ct, fill = height)) +
+  geom_boxplot() +
+  scale_y_continuous(trans='log10') +
+  scale_fill_manual(values = brewer.pal("Accent", n = 3)) +
+  labs(x = "day", y = "relative abundance", fill = "height") +
+  facet_wrap(~gene) +
+  theme_minimal(base_size = 12)
 
-# with cpha
-time_beta %>%
-  ggplot(aes(x = day, y = mean)) +
-  geom_point(aes(color = gene)) +
+# glycopeptide total location
+loc_box_glyc %>%
+  ggplot(aes(x = height, y = delta_ct, fill = height)) +
+  geom_boxplot() +
+  geom_jitter(position=position_jitter(0.2), color = "antiquewhite4", shape = 4) +
+  scale_y_continuous(trans='log10') +
+  scale_fill_manual(values = brewer.pal("Accent", n = 3)) +
+  labs(x = "height", y = "relative abundance", fill = "height") +
+  facet_wrap(~day) +
+  theme_minimal(base_size = 12)
+
+# per gene
+loc_box_glyc %>%
+  ggplot(aes(x = day, y = delta_ct, fill = height)) +
+  geom_boxplot() +
+  scale_y_continuous(trans='log10') +
+  scale_fill_manual(values = brewer.pal("Accent", n = 3)) +
+  labs(x = "day", y = "relative abundance", fill = "height") +
+  facet_wrap(~gene) +
+  theme_minimal(base_size = 12)
+
+# macrolide total location
+loc_box_mac %>%
+  ggplot(aes(x = height, y = delta_ct, fill = height)) +
+  geom_boxplot() +
+  geom_jitter(position=position_jitter(0.2), color = "antiquewhite4", shape = 4) +
+  scale_y_continuous(trans='log10') +
+  scale_fill_manual(values = brewer.pal("Accent", n = 3)) +
+  labs(x = "height", y = "relative abundance", fill = "height") +
+  facet_wrap(~day) +
+  theme_minimal(base_size = 12)
+
+# per gene
+loc_box_mac %>%
+  ggplot(aes(x = day, y = delta_ct, fill = height)) +
+  geom_boxplot() +
+  scale_y_continuous(trans='log10') +
+  scale_fill_manual(values = brewer.pal("Accent", n = 3)) +
+  labs(x = "day", y = "relative abundance", fill = "height") +
+  facet_wrap(~gene) +
+  theme_minimal(base_size = 12)
+
+# mdr total location
+loc_box_mdr %>%
+  ggplot(aes(x = height, y = delta_ct, fill = height)) +
+  geom_boxplot() +
+  geom_jitter(position=position_jitter(0.2), color = "antiquewhite4", shape = 4) +
+  scale_y_continuous(trans='log10') +
+  scale_fill_manual(values = brewer.pal("Accent", n = 3)) +
+  labs(x = "height", y = "relative abundance", fill = "height") +
+  facet_wrap(~day) +
+  theme_minimal(base_size = 12)
+
+# per gene
+loc_box_mdr %>%
+  ggplot(aes(x = day, y = delta_ct, fill = height)) +
+  geom_boxplot() +
+  scale_y_continuous(trans='log10') +
+  scale_fill_manual(values = brewer.pal("Accent", n = 3)) +
+  labs(x = "day", y = "relative abundance", fill = "height") +
+  facet_wrap(~gene) +
+  theme_minimal(base_size = 12)
+
+# mge total location
+loc_box_mge %>%
+  ggplot(aes(x = height, y = delta_ct, fill = height)) +
+  geom_boxplot() +
+  geom_jitter(position=position_jitter(0.2), color = "antiquewhite4", shape = 4) +
+  scale_y_continuous(trans='log10') +
+  scale_fill_manual(values = brewer.pal("Accent", n = 3)) +
+  labs(x = "height", y = "relative abundance", fill = "height") +
+  facet_wrap(~day) +
+  theme_minimal(base_size = 12)
+
+# per gene
+loc_box_mge %>%
+  ggplot(aes(x = day, y = delta_ct, fill = height)) +
+  geom_boxplot() +
+  scale_y_continuous(trans='log10') +
+  scale_fill_manual(values = brewer.pal("Accent", n = 3)) +
+  labs(x = "day", y = "relative abundance", fill = "height") +
+  facet_wrap(~gene) +
+  theme_minimal(base_size = 12)
+
+# other total location
+loc_box_other %>%
+  ggplot(aes(x = height, y = delta_ct, fill = height)) +
+  geom_boxplot() +
+  geom_jitter(position=position_jitter(0.2), color = "antiquewhite4", shape = 4) +
+  scale_y_continuous(trans='log10') +
+  scale_fill_manual(values = brewer.pal("Accent", n = 3)) +
+  labs(x = "height", y = "relative abundance", fill = "height") +
+  facet_wrap(~day) +
+  theme_minimal(base_size = 12)
+
+# per gene
+loc_box_other %>%
+  ggplot(aes(x = day, y = delta_ct, fill = height)) +
+  geom_boxplot() +
+  scale_y_continuous(trans='log10') +
+  scale_fill_manual(values = brewer.pal("Accent", n = 3)) +
+  labs(x = "day", y = "relative abundance", fill = "height") +
+  facet_wrap(~gene) +
+  theme_minimal(base_size = 12)
+
+# phenicol total location
+loc_box_phen %>%
+  ggplot(aes(x = height, y = delta_ct, fill = height)) +
+  geom_boxplot() +
+  geom_jitter(position=position_jitter(0.2), color = "antiquewhite4", shape = 4) +
+  scale_y_continuous(trans='log10') +
+  scale_fill_manual(values = brewer.pal("Accent", n = 3)) +
+  labs(x = "height", y = "relative abundance", fill = "height") +
+  facet_wrap(~day) +
+  theme_minimal(base_size = 12)
+
+# per gene
+loc_box_phen %>%
+  ggplot(aes(x = day, y = delta_ct, fill = height)) +
+  geom_boxplot() +
+  scale_y_continuous(trans='log10') +
+  scale_fill_manual(values = brewer.pal("Accent", n = 3)) +
+  labs(x = "day", y = "relative abundance", fill = "height") +
+  facet_wrap(~gene) +
+  theme_minimal(base_size = 12)
+
+# quinolone total location
+loc_box_quin %>%
+  ggplot(aes(x = height, y = delta_ct, fill = height)) +
+  geom_boxplot() +
+  geom_jitter(position=position_jitter(0.2), color = "antiquewhite4", shape = 4) +
+  scale_y_continuous(trans='log10') +
+  scale_fill_manual(values = brewer.pal("Accent", n = 3)) +
+  labs(x = "height", y = "relative abundance", fill = "height") +
+  facet_wrap(~day) +
+  theme_minimal(base_size = 12)
+
+# per gene
+loc_box_quin %>%
+  ggplot(aes(x = day, y = delta_ct, fill = height)) +
+  geom_boxplot() +
+  scale_y_continuous(trans='log10') +
+  scale_fill_manual(values = brewer.pal("Accent", n = 3)) +
+  labs(x = "day", y = "relative abundance", fill = "height") +
+  facet_wrap(~gene) +
+  theme_minimal(base_size = 12)
+
+# sulf total location
+loc_box_sulf %>%
+  ggplot(aes(x = height, y = delta_ct, fill = height)) +
+  geom_boxplot() +
+  geom_jitter(position=position_jitter(0.2), color = "antiquewhite4", shape = 4) +
+  scale_y_continuous(trans='log10') +
+  scale_fill_manual(values = brewer.pal("Accent", n = 3)) +
+  labs(x = "height", y = "relative abundance", fill = "height") +
+  facet_wrap(~day) +
+  theme_minimal(base_size = 12)
+
+# per gene
+loc_box_sulf %>%
+  ggplot(aes(x = day, y = delta_ct, fill = height)) +
+  geom_boxplot() +
+  scale_y_continuous(trans='log10') +
+  scale_fill_manual(values = brewer.pal("Accent", n = 3)) +
+  labs(x = "day", y = "relative abundance", fill = "height") +
+  facet_wrap(~gene) +
+  theme_minimal(base_size = 12)
+
+# tet total location
+loc_box_tet %>%
+  ggplot(aes(x = height, y = delta_ct, fill = height)) +
+  geom_boxplot() +
+  geom_jitter(position=position_jitter(0.2), color = "antiquewhite4", shape = 4) +
+  scale_y_continuous(trans='log10') +
+  scale_fill_manual(values = brewer.pal("Accent", n = 3)) +
+  labs(x = "height", y = "relative abundance", fill = "height") +
+  facet_wrap(~day) +
+  theme_minimal(base_size = 12)
+
+# per gene
+loc_box_tet %>%
+  ggplot(aes(x = day, y = delta_ct, fill = height)) +
+  geom_boxplot() +
+  scale_y_continuous(trans='log10') +
+  scale_fill_manual(values = brewer.pal("Accent", n = 3)) +
+  labs(x = "day", y = "relative abundance", fill = "height") +
+  facet_wrap(~gene) +
+  theme_minimal(base_size = 12)
+
+# TIME -------------------------------------
+mean_time_total %>%
+  ggplot(aes(x = day, y = mean, colour = class)) +
+  geom_point(shape = 15) +
   geom_errorbar(aes(x = day,
                     ymin = mean - se,
-                    ymax = mean + se,
-                    color = gene),
+                    ymax = mean + se),
                 width = .6) +
-  geom_line(aes(color =  gene)) +
+  geom_line() +
+  labs(x = "day", y = "relative abundance", color = "target antibiotic class") +
+  scale_color_manual(values = darkpalette,
+                    labels = c("aminoglycoside",
+                               "beta-lactam",
+                               "glycopeptide and\nmetronidazole",
+                               "macrolide lincosamide",
+                               "multi-drug resistance",
+                               "mobile genetic element\nand integrons",
+                               "other",
+                               "phenicol",
+                               "quinolone",
+                               "sulfonamide and\ntrimethoprim",
+                               "tetracycline")) +
+  theme_minimal(base_size = 12) +
+  theme(legend.position="bottom")
+
+# aminolgycoside over time
+time_amino %>%
+  ggplot(aes(x = day, y = mean, colour = gene)) +
+  geom_point(shape = 15) +
+  geom_errorbar(aes(x = day,
+                    ymin = mean - se,
+                    ymax = mean + se),
+                width = .6) +
+  geom_line() +
   labs(x = "day", y = "relative abundance", color = "gene") +
   scale_color_manual(values = darkpalette) +
   theme_minimal(base_size = 12)
-# zoomed in on bottom for no cpha
+
+# beta-lactam over time
 time_beta %>%
-  ggplot(aes(x = day, y = mean)) +
-  geom_point(aes(color = gene)) +
+  ggplot(aes(x = day, y = mean, colour = gene)) +
+  geom_point(shape = 15) +
   geom_errorbar(aes(x = day,
                     ymin = mean - se,
-                    ymax = mean + se,
-                    color = gene),
+                    ymax = mean + se),
                 width = .6) +
-  geom_line(aes(color =  gene)) +
+  geom_line() +
   labs(x = "day", y = "relative abundance", color = "gene") +
-  ylim(0, 0.00015) +
+  scale_color_manual(values = darkpalette) +
+  theme_minimal(base_size = 12)
+
+# glyc over time
+time_glyc %>%
+  ggplot(aes(x = day, y = mean, colour = gene)) +
+  geom_point(shape = 15) +
+  geom_errorbar(aes(x = day,
+                    ymin = mean - se,
+                    ymax = mean + se),
+                width = .6) +
+  geom_line() +
+  labs(x = "day", y = "relative abundance", color = "gene") +
+  scale_color_manual(values = darkpalette) +
+  theme_minimal(base_size = 12)
+
+# macrolide over time
+time_mac %>%
+  ggplot(aes(x = day, y = mean, colour = gene)) +
+  geom_point(shape = 15) +
+  geom_errorbar(aes(x = day,
+                    ymin = mean - se,
+                    ymax = mean + se),
+                width = .6) +
+  geom_line() +
+  labs(x = "day", y = "relative abundance", color = "gene") +
+  scale_color_manual(values = darkpalette) +
+  theme_minimal(base_size = 12)
+
+# mdr over time
+time_mdr %>%
+  ggplot(aes(x = day, y = mean, colour = gene)) +
+  geom_point(shape = 15) +
+  geom_errorbar(aes(x = day,
+                    ymin = mean - se,
+                    ymax = mean + se),
+                width = .6) +
+  geom_line() +
+  labs(x = "day", y = "relative abundance", color = "gene") +
+  scale_color_manual(values = darkpalette) +
+  theme_minimal(base_size = 12)
+
+# mge over time
+time_mge %>%
+  ggplot(aes(x = day, y = mean, colour = gene)) +
+  geom_point(shape = 15) +
+  geom_errorbar(aes(x = day,
+                    ymin = mean - se,
+                    ymax = mean + se),
+                width = .6) +
+  geom_line() +
+  labs(x = "day", y = "relative abundance", color = "gene") +
+  scale_color_manual(values = darkpalette) +
+  theme_minimal(base_size = 12)
+
+# other over time
+time_other %>%
+  ggplot(aes(x = day, y = mean, colour = gene)) +
+  geom_point(shape = 15) +
+  geom_errorbar(aes(x = day,
+                    ymin = mean - se,
+                    ymax = mean + se),
+                width = .6) +
+  geom_line() +
+  labs(x = "day", y = "relative abundance", color = "gene") +
+  scale_color_manual(values = darkpalette) +
+  theme_minimal(base_size = 12)
+
+# phen over time
+time_phen %>%
+  ggplot(aes(x = day, y = mean, colour = gene)) +
+  geom_point(shape = 15) +
+  geom_errorbar(aes(x = day,
+                    ymin = mean - se,
+                    ymax = mean + se),
+                width = .6) +
+  geom_line() +
+  labs(x = "day", y = "relative abundance", color = "gene") +
+  scale_color_manual(values = darkpalette) +
+  theme_minimal(base_size = 12)
+
+# quin over time
+time_quin %>%
+  ggplot(aes(x = day, y = mean, colour = gene)) +
+  geom_point(shape = 15) +
+  geom_errorbar(aes(x = day,
+                    ymin = mean - se,
+                    ymax = mean + se),
+                width = .6) +
+  geom_line() +
+  labs(x = "day", y = "relative abundance", color = "gene") +
+  scale_color_manual(values = darkpalette) +
+  theme_minimal(base_size = 12)
+
+# sulf over time
+time_sulf %>%
+  ggplot(aes(x = day, y = mean, colour = gene)) +
+  geom_point(shape = 15) +
+  geom_errorbar(aes(x = day,
+                    ymin = mean - se,
+                    ymax = mean + se),
+                width = .6) +
+  geom_line() +
+  labs(x = "day", y = "relative abundance", color = "gene") +
+  scale_color_manual(values = darkpalette) +
+  theme_minimal(base_size = 12)
+
+# tet over time
+time_tet %>%
+  ggplot(aes(x = day, y = mean, colour = gene)) +
+  geom_point(shape = 15) +
+  geom_errorbar(aes(x = day,
+                    ymin = mean - se,
+                    ymax = mean + se),
+                width = .6) +
+  geom_line() +
+  labs(x = "day", y = "relative abundance", color = "gene") +
   scale_color_manual(values = darkpalette) +
   theme_minimal(base_size = 12)
