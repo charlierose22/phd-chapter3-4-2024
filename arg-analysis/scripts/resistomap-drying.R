@@ -33,31 +33,16 @@ assayinformation <-
   janitor::clean_names()
 
 # import moisture content
-moisture_content <- read_csv("arg-analysis/data/raw-data/moisture_content.csv",
-                             col_types = cols(
-                               Date = col_date(format = "%d-%m-%Y"),
-                               Boat_Weight_g = col_skip(),
-                               Start_Weight_g = col_skip(),
-                               End_Weight_g = col_skip(),
-                               Net_Start_Weight_g = col_double(),
-                               Net_End_Weight_g = col_double()
-                             )
-) %>%
+moisture_content <- read_csv("arg-analysis/data/raw-data/moisture_content.csv", 
+                             col_types = cols(day = col_character())) %>%
   janitor::clean_names()
 
 # import sample information
-samples <- read_csv("arg-analysis/data/raw-data/samples.csv") %>%
+samples <- read_csv("arg-analysis/data/raw-data/samples.csv", 
+                    col_types = cols(day = col_character())) %>%
   janitor::clean_names()
 
-
 # TIDY ----------------------------------------------------------------
-
-# remove % from moisture_content_pc
-moisture_content$moisture_content_pc = substr(
-  moisture_content$moisture_content_pc,
-  1,
-  nchar(moisture_content$moisture_content_pc) - 1
-)
 
 assayinformation$forward_primer = NULL
 assayinformation$reverse_primer = NULL
@@ -260,13 +245,12 @@ colnames(transposed_ct) <- as.character(assay_names[1, ])
 # Calculate delta ct and make sure the output is as a data frame.
 df_transposed_ct <- as.data.frame(transposed_ct)
 delta_ct <- df_transposed_ct[, 2:70] - df_transposed_ct[, "AY1"]
-power_delta_ct <- 2 ^ -(delta_ct)
 
 # create delta ct csv
 write.csv(delta_ct, "arg-analysis/data/processed-data/delta_ct_nostats.csv", row.names = TRUE)
 
 # Turn the rownames into the first column to preserve them.
-delta_ct_rownames <- rownames_to_column(power_delta_ct, "sample")
+delta_ct_rownames <- rownames_to_column(delta_ct, "sample")
 
 # pivot longer
 delta_ct_long <- delta_ct_rownames %>%
@@ -340,17 +324,27 @@ time_study <- time_study %>%
   mutate_at(vars(height:length), as.factor)
 
 # stats test for location and time
-# calculate means
+# basic stats
 means_loc <- location_study %>%
-  group_by(pick(gene, day, height, target_antibiotics_major)) %>%
+  group_by(pick(gene, day, height, class)) %>%
   summarise(
     mean = mean(delta_ct),
     std = sd(delta_ct),
     n = length(delta_ct),
     se = std / sqrt(n)
   )
+
+mean_loc_total <- location_study %>% 
+  group_by(day, height, class) %>% 
+  summarise(
+    mean = mean(delta_ct),
+    std = sd(delta_ct),
+    n = length(delta_ct),
+    se = std / sqrt(n)
+  )
+
 means_time <- time_study %>%
-  group_by(pick(gene, day, target_antibiotics_major)) %>%
+  group_by(pick(gene, day, class)) %>%
   summarise(
     mean = mean(delta_ct),
     std = sd(delta_ct),
@@ -358,174 +352,36 @@ means_time <- time_study %>%
     se = std / sqrt(n)
   )
 
-# checking assumptions
-location_study %>% 
-  group_by(height) %>%
-  ggplot() +
-  geom_violin(aes(x = day, y = delta_ct, 
-                  fill = target_antibiotics_major, 
-                  color = target_antibiotics_major)) +
-  scale_y_log10() +
-  facet_grid(rows = vars(fct_rev(height))) +
-  labs(x = "day",
-       y = "relative abundance",
-       fill = "antibiotic class") +
-  guides(color = FALSE) +
-  theme_minimal()
-
-time_study %>% 
-  ggplot() +
-  geom_violin(aes(x = day, y = delta_ct, 
-                  fill = target_antibiotics_major, 
-                  color = target_antibiotics_major)) +
-  scale_y_log10() +
-  labs(x = "day",
-       y = "relative abundance",
-       fill = "antibiotic class") +
-  guides(color = FALSE) +
-  theme_minimal()
-
-library(tidymodels)
-
-# create models
-mod_loc <- location_study %>%
-  nest(data = -target_antibiotics_major) %>%
-  mutate(model = map(data, ~lm(delta_ct ~ height, data = .)), 
-         tidied = map(model, tidy)) %>%
-  unnest(tidied)
-summary(mod_loc)
-
-mod_time <- time_study %>%
-  nest(data = -target_antibiotics_major) %>%
-  mutate(model = map(data, ~lm(delta_ct ~ day, data = .)), 
-         tidied = map(model, tidy)) %>%
-  unnest(tidied)
-summary(mod_time)
-
-# checking assumptions
-plot(mod_time, which = 1)
-# not normally distributed - kruskal wallis
-
-# kruskal-wallis h test
-kruskal.test(data = time_study, delta_ct ~ day)
-# not significant
-
-# checking assumptions
-plot(mod_loc, which = 1)
-
-# 16S ---------------------------------------------------------------------
-
-# calculate total abundance of 16S rRNA and plot for each sample.
-total_16S <- mutated_wide_2[1,]
-long_16S <- total_16S %>%
-  pivot_longer(cols = !1,
-               names_to = "sample",
-               values_to = "ct")
-long_16S$replicate = NA
-long_16S$id = NA
-
-mutate_long_16S <- mutate(long_16S,
-                          replicate = case_when(
-                            str_detect(sample, "rep1") ~ "1",
-                            str_detect(sample, "rep2") ~ "2",
-                            str_detect(sample, "rep3") ~ "3"
-                          ))
-
-mutate_long_16S <- mutate(
-  mutate_long_16S,
-  id = case_when(
-    str_starts(sample, "A") ~ "A",
-    str_starts(sample, "B") ~ "B",
-    str_starts(sample, "C") ~ "C" ,
-    str_starts(sample, "D") ~ "D",
-    str_starts(sample, "E") ~ "E",
-    str_starts(sample, "F") ~ "F",
-    str_starts(sample, "G") ~ "G",
-    str_starts(sample, "H") ~ "H",
-    str_starts(sample, "I") ~ "I",
-    str_starts(sample, "J") ~ "J",
-    str_starts(sample, "K") ~ "K",
-    str_starts(sample, "L") ~ "L",
-    str_starts(sample, "M") ~ "M",
-    str_starts(sample, "N") ~ "N",
-    str_starts(sample, "O") ~ "O",
-    str_starts(sample, "P") ~ "P",
-    str_starts(sample, "Q") ~ "Q",
-    str_starts(sample, "R") ~ "R",
-    str_starts(sample, "S") ~ "S",
-    str_starts(sample, "T") ~ "T",
-    str_starts(sample, "U") ~ "U"
-  )
-)
-
-nona_16S <- mutate_long_16S %>% drop_na()
-annotated_16S <- nona_16S %>% left_join(samples, by = "id")
-
-community_renamed <- mutate(annotated_16S, height = case_when(
-  str_detect(height, "control") ~ "c",
-  str_detect(height, "bottom") ~ "b",
-  str_detect(height, "middle") ~ "m",
-  str_detect(height, "top") ~ "t"))
-
-community_plot <- community_renamed[!grepl("control", community_renamed$height),]
-# create separate data sets for location study and time series.
-location_16S <- community_plot[grepl('\\<1\\>|\\<29\\>', community_plot$day), ]
-time_16S <- community_plot[grepl('bottom', community_plot$height), ]
-time_16S <- time_16S[grepl('half', time_16S$length), ]
-
-# means total for 16S
-means_16S <- community_renamed %>%
-  group_by(day, height) %>%
+mean_time_total <- time_study %>% 
+  group_by(day, class) %>% 
   summarise(
-    mean = mean(ct),
-    sd = sd(ct),
-    n = length(ct),
-    se = sd / sqrt(n)
+    mean = mean(delta_ct),
+    std = sd(delta_ct),
+    n = length(delta_ct),
+    se = std / sqrt(n)
   )
-fit2 = aov(data = means_16S,
-          mean ~ height)
-tukey2 <- TukeyHSD(fit2)
-TukeyHSD(fit2)
-#Tukey test representation:
-plot(tukey2, las = 1 , col = "blue")
-summary(fit2)
-means_16S %>% 
-  kruskal.test(mean ~ height)
 
-# means location for 16S
-means_16S_location <- location_16S %>%
-  group_by(day, height) %>%
-  summarise(
-    mean = mean(ct),
-    sd = sd(ct),
-    n = length(ct),
-    se = sd / sqrt(n)
-  )
-fit3 = aov(data = means_16S_location,
-           mean ~ height)
-tukey3 <- TukeyHSD(fit3)
-TukeyHSD(fit3)
-#Tukey test representation:
-plot(tukey3, las = 1 , col = "blue")
-summary(fit3)
-means_16S_location %>% 
-  kruskal.test(mean ~ height)
+# count number of genes per class
+count_loc <- location_study %>%
+  group_by(class, day, height) %>% 
+  summarise(count = n_distinct(gene))
 
-# means time for 16S
-means_16S_time <- time_16S %>%
-  group_by(day) %>%
-  summarise(
-    mean = mean(ct),
-    sd = sd(ct),
-    n = length(ct),
-    se = sd / sqrt(n)
-  )
-fit4 = aov(data = means_16S_time,
-           mean ~ day)
-tukey4 <- TukeyHSD(fit4)
-TukeyHSD(fit4)
-#Tukey test representation:
-plot(tukey4, las = 1 , col = "blue")
-summary(fit4)
-means_16S_time %>% 
-  kruskal.test(mean ~ height)
+count_time <- time_study %>%
+  group_by(class, day) %>% 
+  summarise(count = n_distinct(gene))
+
+# moisture content
+# remove % from moisture_content_pc
+moisture_content$moisture_pc = substr(moisture_content$moisture_pc, 
+                                      1,
+                                      nchar(moisture_content$moisture_pc) 
+                                      - 1)
+moisture_content <- transform(moisture_content, 
+                              moisture_pc = as.numeric(moisture_pc))
+moisture_content <- transform(moisture_content, 
+                              day = as.numeric(day))
+
+moisture_stats <- moisture_content %>% 
+  group_by(day, height) %>% 
+  summarise(mean = mean(moisture_pc),
+            sd = sd(moisture_pc))

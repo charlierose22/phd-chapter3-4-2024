@@ -1,299 +1,3 @@
-
-# LOCATION ----------------------------------------------------------------
-
-# Create a list of target antibiotics.
-target_antibiotics <- unique(assay_samples$target_antibiotics_major)
-
-# split based on target antibiotics for location 
-split_location <- split(means_loc, means_loc$target_antibiotics_major)
-loc_amino <- split_location$Aminoglycoside
-loc_beta <- split_location$`Beta Lactam`
-loc_int <- split_location$Integron
-loc_mdr <- split_location$MDR
-loc_mlsb <- split_location$MLSB
-loc_mge <- split_location$MGE
-loc_other <- split_location$Other
-loc_phen <- split_location$Phenicol
-loc_sulf <- split_location$Sulfonamide
-loc_tet <- split_location$Tetracycline
-loc_quin <- split_location$Quinolone
-loc_vanc <- split_location$Vancomycin
-loc_trim <- split_location$Trimethoprim
-
-# split based on target antibiotics for time 
-split_time <- split(means_time, means_time$target_antibiotics_major)
-time_amino <- split_time$Aminoglycoside
-time_beta <- split_time$`Beta Lactam`
-time_int <- split_time$Integron
-time_mdr <- split_time$MDR
-time_mlsb <- split_time$MLSB
-time_mge <- split_time$MGE
-time_other <- split_time$Other
-time_phen <- split_time$Phenicol
-time_sulf <- split_time$Sulfonamide
-time_tet <- split_time$Tetracycline
-time_quin <- split_time$Quinolone
-time_vanc <- split_time$Vancomycin
-time_trim <- split_time$Trimethoprim
-
-# Create a loop for each target antibiotic.
-for (target_antibiotic in target_antibiotics) {
-  
-  # Create a subset of the data for the current target antibiotic.
-  data <- location_study[location_study$target_antibiotics_major == 
-                           target_antibiotic, ]
-  
-  # Create a heatmap of the data.
-  ggplot(data, aes(x = day, y = gene, fill = mean)) +
-    geom_tile() +
-    scale_y_discrete(limits = rev) +
-    scale_fill_viridis(discrete = F) +
-    labs(x = "day", y = "gene", colour = "abundance") +
-    facet_grid(length ~ height) +
-    theme_ipsum(base_size = 10)
-  
-  # Save the linegraph to a file.
-  ggsave(paste0("arg-analysis/figures/heatmaps/location-heatmap-", 
-                target_antibiotic, ".png"), width = 7, height = 7)
-}
-
-# Create a loop for each target antibiotic.
-for (target_antibiotic in target_antibiotics) {
-  
-  # Create a subset of the data for the current target antibiotic.
-  data2 <- location_study[location_study$target_antibiotics_major == 
-                            target_antibiotic, ]
-  
-  # Create bar graphs of the data.
-  data2 %>% 
-    group_by(length, height) %>% 
-    ggplot(aes(x = day, y = mean, fill = gene)) +
-    geom_bar(position = "stack", stat = "identity") +
-    geom_errorbar(aes(ymin = mean - se, ymax = mean + se, color = gene), width = 0.2) +
-    scale_fill_viridis(discrete = T) +
-    scale_color_viridis(discrete = T) +
-    labs(x = "day", y = "abundance", fill = "gene") +
-    facet_grid(length ~ height) +
-    theme_ipsum(base_size = 10)
-  
-  # Save the linegraph to a file.
-  ggsave(paste0("arg-analysis/figures/bargraph/location-bargraph-", 
-                target_antibiotic, ".png"), width = 7, height = 7)
-}
-
-# TIME --------------------------------------------------------------------
-
-# Create a loop for each target antibiotic.
-for (target_antibiotic in target_antibiotics) {
-  
-  # Create a subset of the data for the current target antibiotic.
-  data3 <- time_study[time_study$target_antibiotics_major == 
-                        target_antibiotic, ]
-  
-  # Create a heatmap of the data.
-  ggplot(data3, aes(x = day, y = gene, fill = mean)) +
-    geom_tile() +
-    scale_y_discrete(limits = rev) +
-    scale_fill_viridis(discrete = F) +
-    labs(x = "day", y = "gene", colour = "abundance") +
-    theme_ipsum(base_size = 10)
-  
-  # Save the heatmap to a file.
-  ggsave(paste0("arg-analysis/figures/heatmaps/time-heatmap-", 
-                target_antibiotic, ".png"), width = 6, height = 5)
-}
-
-# Create a loop for each target antibiotic.
-for (target_antibiotic in target_antibiotics) {
-  
-  # Create a subset of the data for the current target antibiotic.
-  data4 <- time_study[time_study$target_antibiotics_major == 
-                        target_antibiotic, ]
-  
-  # Create line graphs of the data.
-  ggplot(data4, aes(x = day, 
-                    y = mean, 
-                    color = gene)) +
-    geom_point() +
-    geom_errorbar(aes(x = day,
-                      ymin = mean - se,
-                      ymax = mean + se),
-                  width = .6) +
-    geom_line(aes(color =  gene)) +
-    labs(x = "day", y = "abundance", color = "gene") +
-    scale_color_viridis(discrete = T) +
-    theme_ipsum(base_size = 10)
-  
-  # Save the linegraph to a file.
-  ggsave(paste0("arg-analysis/figures/linegraph/time-error-linegraph-", 
-                target_antibiotic, ".png"), width = 6, height = 5)
-}
-
-# 16S ---------------------------------------------------------------------
-
-# create a graph for total abundance of 16S data across samples.
-ggplot(means_16S, aes(x = day, y = mean, fill = height)) +
-  geom_col(position = 'dodge') +
-  geom_errorbar(aes(x = day,
-                    y = mean,
-                    ymin = mean - sd, 
-                    ymax = mean + sd), 
-                width = 1) +
-  labs(x = "day", y = "ct", fill = "location") +
-  scale_color_viridis(discrete = F) +
-  theme_ipsum(base_size = 10)
-ggsave(paste0("arg-analysis/figures/16S-november.png"), width = 8, height = 5)
-
-
-# INDIVIDUAL --------------------------------------------------------------
-library(wesanderson)
-library(RColorBrewer)
-# aminoglycoside Location
-loc_amino %>%
-  ggplot(aes(x = height, y = mean, fill = day)) +
-  geom_col(width = 0.6, position = position_dodge(width = 0.6)) +
-  geom_errorbar(aes(ymin = mean - se, ymax = mean + se), 
-                width = 0.2,
-                position = position_dodge(width = 0.6)) +
-  scale_fill_manual(values = brewer.pal("Dark2", n = 3)) +
-  labs(x = "height", y = "relative abundance", fill = "day") +
-  facet_wrap(~gene, scales = "free") +
-  theme_minimal(base_size = 12)
-
-# beta-lactam Location
-loc_beta %>%
-  ggplot(aes(x = height, y = mean, fill = day)) +
-  geom_col(width = 0.6, position = position_dodge(width = 0.6)) +
-  geom_errorbar(aes(ymin = mean - se, ymax = mean + se), 
-                width = 0.2,
-                position = position_dodge(width = 0.6)) +
-  labs(x = "height", y = "relative abundance", fill = "day") +
-  facet_wrap(~gene, scales = "free") +
-  scale_fill_manual(values = brewer.pal("Dark2", n = 3)) +
-  theme_minimal(base_size = 12)
-
-loc_int %>% 
-  ggplot(aes(x = height, y = mean, fill = day)) +
-  geom_col(width = 0.6, position = position_dodge(width = 0.6)) +
-  geom_errorbar(aes(ymin = mean - se, ymax = mean + se), 
-                width = 0.2,
-                position = position_dodge(width = 0.6)) +
-  scale_fill_manual(values = brewer.pal("Dark2", n = 3)) +
-  labs(x = "height", y = "relative abundance", fill = "day") +
-  facet_wrap(~gene, scales = "free") +
-  theme_minimal(base_size = 12)
-
-loc_mdr %>% 
-  ggplot(aes(x = height, y = mean, fill = day)) +
-  geom_col(width = 0.6, position = position_dodge(width = 0.6)) +
-  geom_errorbar(aes(ymin = mean - se, ymax = mean + se), 
-                width = 0.2,
-                position = position_dodge(width = 0.6)) +
-  scale_fill_manual(values = brewer.pal("Dark2", n = 3)) +
-  labs(x = "height", y = "relative abundance", fill = "day") +
-  facet_wrap(~gene, scales = "free") +
-  theme_minimal(base_size = 12)
-
-loc_mlsb %>% 
-  ggplot(aes(x = height, y = mean, fill = day)) +
-  geom_col(width = 0.6, position = position_dodge(width = 0.6)) +
-  geom_errorbar(aes(ymin = mean - se, ymax = mean + se), 
-                width = 0.2,
-                position = position_dodge(width = 0.6)) +
-  scale_fill_manual(values = brewer.pal("Dark2", n = 3)) +
-  labs(x = "height", y = "relative abundance", fill = "day") +
-  facet_wrap(~gene, scales = "free") +
-  theme_minimal(base_size = 12)
-
-loc_mge %>% 
-  ggplot(aes(x = height, y = mean, fill = day)) +
-  geom_col(width = 0.6, position = position_dodge(width = 0.6)) +
-  geom_errorbar(aes(ymin = mean - se, ymax = mean + se), 
-                width = 0.2,
-                position = position_dodge(width = 0.6)) +
-  scale_fill_manual(values = brewer.pal("Dark2", n = 3)) +
-  labs(x = "height", y = "relative abundance", fill = "day") +
-  facet_wrap(~gene, scales = "free") +
-  theme_minimal(base_size = 12)
-
-loc_other %>% 
-  ggplot(aes(x = height, y = mean, fill = day)) +
-  geom_col(width = 0.6, position = position_dodge(width = 0.6)) +
-  geom_errorbar(aes(ymin = mean - se, ymax = mean + se), 
-                width = 0.2,
-                position = position_dodge(width = 0.6)) +
-  scale_fill_manual(values = brewer.pal("Dark2", n = 3)) +
-  labs(x = "height", y = "relative abundance", fill = "day") +
-  facet_wrap(~gene, scales = "free") +
-  theme_minimal(base_size = 12)
-
-loc_phen %>% 
-  ggplot(aes(x = height, y = mean, fill = day)) +
-  geom_col(width = 0.6, position = position_dodge(width = 0.6)) +
-  geom_errorbar(aes(ymin = mean - se, ymax = mean + se), 
-                width = 0.2,
-                position = position_dodge(width = 0.6)) +
-  scale_fill_manual(values = brewer.pal("Dark2", n = 3)) +
-  labs(x = "height", y = "relative abundance", fill = "day") +
-  facet_wrap(~gene, scales = "free") +
-  theme_minimal(base_size = 12)
-
-loc_sulf %>% 
-  ggplot(aes(x = height, y = mean, fill = day)) +
-  geom_col(width = 0.6, position = position_dodge(width = 0.6)) +
-  geom_errorbar(aes(ymin = mean - se, ymax = mean + se), 
-                width = 0.2,
-                position = position_dodge(width = 0.6)) +
-  scale_fill_manual(values = brewer.pal("Dark2", n = 3)) +
-  labs(x = "height", y = "relative abundance", fill = "day") +
-  facet_wrap(~gene, scales = "free") +
-  theme_minimal(base_size = 12)
-
-loc_tet %>% 
-  ggplot(aes(x = height, y = mean, fill = day)) +
-  geom_col(width = 0.6, position = position_dodge(width = 0.6)) +
-  geom_errorbar(aes(ymin = mean - se, ymax = mean + se), 
-                width = 0.2,
-                position = position_dodge(width = 0.6)) +
-  scale_fill_manual(values = brewer.pal("Dark2", n = 3)) +
-  labs(x = "height", y = "relative abundance", fill = "day") +
-  facet_wrap(~gene, scales = "free") +
-  theme_minimal(base_size = 12)
-
-loc_quin %>% 
-  ggplot(aes(x = height, y = mean, fill = day)) +
-  geom_col(width = 0.6, position = position_dodge(width = 0.6)) +
-  geom_errorbar(aes(ymin = mean - se, ymax = mean + se), 
-                width = 0.2,
-                position = position_dodge(width = 0.6)) +
-  scale_fill_manual(values = brewer.pal("Dark2", n = 3)) +
-  labs(x = "height", y = "relative abundance", fill = "day") +
-  facet_wrap(~gene, scales = "free") +
-  theme_minimal(base_size = 12)
-
-loc_vanc %>% 
-  ggplot(aes(x = height, y = mean, fill = day)) +
-  geom_col(width = 0.6, position = position_dodge(width = 0.6)) +
-  geom_errorbar(aes(ymin = mean - se, ymax = mean + se), 
-                width = 0.2,
-                position = position_dodge(width = 0.6)) +
-  scale_fill_manual(values = brewer.pal("Dark2", n = 3)) +
-  labs(x = "height", y = "relative abundance", fill = "day") +
-  facet_wrap(~gene, scales = "free") +
-  theme_minimal(base_size = 12)
-
-loc_trim %>% 
-  ggplot(aes(x = height, y = mean, fill = day)) +
-  geom_col(width = 0.6, position = position_dodge(width = 0.6)) +
-  geom_errorbar(aes(ymin = mean - se, ymax = mean + se), 
-                width = 0.2,
-                position = position_dodge(width = 0.6)) +
-  scale_fill_manual(values = brewer.pal("Dark2", n = 3)) +
-  labs(x = "height", y = "relative abundance", fill = "day") +
-  facet_wrap(~gene, scales = "free") +
-  theme_minimal(base_size = 12)
-
-
 library(RColorBrewer)
 darkpalette <- c("mediumblue", 
                  "darkred", 
@@ -305,6 +9,151 @@ darkpalette <- c("mediumblue",
                  "hotpink", 
                  "darkturquoise", 
                  "tomato")
+# LOCATION ----------------------------------------------------------------
+
+# Create a list of target antibiotics.
+class <- unique(assay_samples$class)
+
+# split based on target antibiotics for location 
+split_location <- split(means_loc, means_loc$class)
+loc_amino <- split_location$aminoglycoside
+loc_beta <- split_location$`beta-lactam`
+loc_glyc <- split_location$glycopeptide_metronidazole
+loc_mac <- split_location$macrolide_lincosamide
+loc_mdr <- split_location$mdr
+loc_mge <- split_location$mge_integrons
+loc_other <- split_location$other
+loc_phen <- split_location$phenicol
+loc_quin <- split_location$quinolone
+loc_sulf <- split_location$sulfonamide_trimethoprim
+loc_tet <- split_location$tetracycline
+
+# split based on target antibiotics for location 
+split_loc_box <- split(location_study, location_study$class)
+loc_box_amino <- split_loc_box$aminoglycoside
+loc_box_beta <- split_loc_box$`beta-lactam`
+loc_box_glyc <- split_loc_box$glycopeptide_metronidazole
+loc_box_mac <- split_loc_box$macrolide_lincosamide
+loc_box_mdr <- split_loc_box$mdr
+loc_box_mge <- split_loc_box$mge_integrons
+loc_box_other <- split_loc_box$other
+loc_box_phen <- split_loc_box$phenicol
+loc_box_quin <- split_loc_box$quinolone
+loc_box_sulf <- split_loc_box$sulfonamide_trimethoprim
+loc_box_tet <- split_loc_box$tetracycline
+
+# split based on target antibiotics for time 
+split_time <- split(means_time, means_time$class)
+time_amino <- split_time$aminoglycoside
+time_beta <- split_time$`beta-lactam`
+time_glyc <- split_time$glycopeptide_metronidazole
+time_mac <- split_time$macrolide_lincosamide
+time_mdr <- split_time$mdr
+time_mge <- split_time$mge_integrons
+time_other <- split_time$other
+time_phen <- split_time$phenicol
+time_quin <- split_time$quinolone
+time_sulf <- split_time$sulfonamide_trimethoprim
+time_tet <- split_time$tetracycline
+
+split_time_box <- split(time_study, time_study$class)
+time_box_amino <- split_time_box$aminoglycoside
+time_box_beta <- split_time_box$`beta-lactam`
+time_box_glyc <- split_time_box$glycopeptide_metronidazole
+time_box_mac <- split_time_box$macrolide_lincosamide
+time_box_mdr <- split_time_box$mdr
+time_box_mge <- split_time_box$mge_integrons
+time_box_other <- split_time_box$other
+time_box_phen <- split_time_box$phenicol
+time_box_quin <- split_time_box$quinolone
+time_box_sulf <- split_time_box$sulfonamide_trimethoprim
+time_box_tet <- split_time_box$tetracycline
+
+# count
+count_loc %>% 
+  ggplot(aes(fill = class, y = count, x = day)) + 
+  geom_bar(position = "stack", stat = "identity") +
+  scale_fill_manual(values = brewer.pal("Spectral", n = 11),
+                    labels = c("aminoglycoside",
+                               "beta-lactam",
+                               "glycopeptide and\nmetronidazole",
+                               "macrolide lincosamide",
+                               "multi-drug resistance",
+                               "mobile genetic elements\nand integrons",
+                               "other",
+                               "phenicol",
+                               "quinolone",
+                               "sulfonamide and\ntrimethoprim",
+                               "tetracycline")) +
+  labs(y = "number of genes detected", 
+       fill = "target antibiotic class") +
+  facet_wrap(~height) +
+  theme_minimal(base_size = 12)
+
+location_study %>%
+  ggplot(aes(x = day, y = delta_ct, fill = class)) +
+  geom_boxplot() +
+  scale_y_continuous(trans='log10') +
+  scale_fill_manual(values = brewer.pal("Spectral", n = 11),
+                    labels = c("aminoglycoside",
+                               "beta-lactam",
+                               "glycopeptide and\nmetronidazole",
+                               "macrolide lincosamide",
+                               "multi-drug resistance",
+                               "mobile genetic elements\nand integrons",
+                               "other",
+                               "phenicol",
+                               "quinolone",
+                               "sulfonamide and\ntrimethoprim",
+                               "tetracycline")) +
+  labs(x = "day", y = "relative abundance", fill = "target antibiotic class") +
+  facet_grid(rows = vars(height)) +
+  theme_minimal(base_size = 12)
+
+# moisture
+moisture_stats %>%
+  ggplot() +
+  geom_point(aes(x = day,
+                 y = mean,
+                 colour = height)) +
+  geom_line(aes(x = day,
+                y = mean,
+                colour = height)) +
+  geom_errorbar(aes(x = day,
+                    y = mean,
+                    ymin = mean - sd, 
+                    ymax = mean + sd,
+                    colour = height), 
+                width = 1) +
+  scale_y_continuous(labels = function(x) paste0(x, "%")) +
+  labs(x = "day",
+       y = "% moisture content",
+       colour = "height") +
+  scale_color_manual(values = brewer.pal("Dark2", n = 4)) +
+  theme_minimal(base_size = 12)
+
+# aminoglycoside total location
+loc_box_amino %>%
+  ggplot(aes(x = height, y = delta_ct, fill = height)) +
+  geom_boxplot() +
+  geom_jitter(position=position_jitter(0.2), color = "antiquewhite4") +
+  scale_y_continuous(trans='log10') +
+  scale_fill_manual(values = brewer.pal("Accent", n = 3)) +
+  labs(x = "height", y = "relative abundance", fill = "height") +
+  facet_wrap(~day) +
+  theme_minimal(base_size = 12)
+
+loc_box_amino %>%
+  ggplot(aes(x = day, y = delta_ct, fill = height)) +
+  geom_boxplot() +
+  scale_y_continuous(trans='log10') +
+  scale_fill_manual(values = brewer.pal("Pastel2", n = 3)) +
+  labs(x = "height", y = "relative abundance", fill = "height") +
+  facet_wrap(~gene) +
+  theme_minimal(base_size = 12)
+
+
+
 # with cpha
 time_beta %>%
   ggplot(aes(x = day, y = mean)) +
@@ -332,184 +181,3 @@ time_beta %>%
   ylim(0, 0.00015) +
   scale_color_manual(values = darkpalette) +
   theme_minimal(base_size = 12)
-
-time_amino %>% 
-  ggplot(aes(x = day, y = mean)) +
-  geom_point(aes(color = gene)) +
-  geom_errorbar(aes(x = day,
-                    ymin = mean - se,
-                    ymax = mean + se,
-                    color = gene),
-                width = .6) +
-  geom_line(aes(color =  gene)) +
-  labs(x = "day", y = "relative abundance", color = "gene") +
-  scale_color_manual(values = darkpalette) +
-  theme_minimal(base_size = 12)
-
-time_int %>%
-  ggplot(aes(x = day, y = mean)) +
-  geom_point(aes(color = gene)) +
-  geom_errorbar(aes(x = day,
-                    ymin = mean - se,
-                    ymax = mean + se,
-                    color = gene),
-                width = .6) +
-  geom_line(aes(color =  gene)) +
-  labs(x = "day", y = "relative abundance", color = "gene") +
-  scale_color_manual(values = darkpalette) +
-  theme_minimal(base_size = 12)
-
-time_mdr %>%
-  ggplot(aes(x = day, y = mean)) +
-  geom_point(aes(color = gene)) +
-  geom_errorbar(aes(x = day,
-                    ymin = mean - se,
-                    ymax = mean + se,
-                    color = gene),
-                width = .6) +
-  geom_line(aes(color =  gene)) +
-  labs(x = "day", y = "relative abundance", color = "gene") +
-  scale_color_manual(values = darkpalette) +
-  theme_minimal(base_size = 12)
-
-time_mlsb %>%
-  ggplot(aes(x = day, y = mean)) +
-  geom_point(aes(color = gene)) +
-  geom_errorbar(aes(x = day,
-                    ymin = mean - se,
-                    ymax = mean + se,
-                    color = gene),
-                width = .6) +
-  geom_line(aes(color =  gene)) +
-  labs(x = "day", y = "relative abundance", color = "gene") +
-  scale_color_manual(values = darkpalette) +
-  theme_minimal(base_size = 12)
-
-time_mge %>%
-  ggplot(aes(x = day, y = mean)) +
-  geom_point(aes(color = gene)) +
-  geom_errorbar(aes(x = day,
-                    ymin = mean - se,
-                    ymax = mean + se,
-                    color = gene),
-                width = .6) +
-  geom_line(aes(color =  gene)) +
-  labs(x = "day", y = "relative abundance", color = "gene") +
-  scale_color_manual(values = darkpalette) +
-  theme_minimal(base_size = 12)
-
-time_other %>%
-  ggplot(aes(x = day, y = mean)) +
-  geom_point(aes(color = gene)) +
-  geom_errorbar(aes(x = day,
-                    ymin = mean - se,
-                    ymax = mean + se,
-                    color = gene),
-                width = .6) +
-  geom_line(aes(color =  gene)) +
-  labs(x = "day", y = "relative abundance", color = "gene") +
-  scale_color_manual(values = darkpalette) +
-  theme_minimal(base_size = 12)
-
-time_phen %>%
-  ggplot(aes(x = day, y = mean)) +
-  geom_point(aes(color = gene)) +
-  geom_errorbar(aes(x = day,
-                    ymin = mean - se,
-                    ymax = mean + se,
-                    color = gene),
-                width = .6) +
-  geom_line(aes(color =  gene)) +
-  labs(x = "day", y = "relative abundance", color = "gene") +
-  scale_color_manual(values = darkpalette) +
-  theme_minimal(base_size = 12)
-
-time_sulf %>%
-  ggplot(aes(x = day, y = mean)) +
-  geom_point(aes(color = gene)) +
-  geom_errorbar(aes(x = day,
-                    ymin = mean - se,
-                    ymax = mean + se,
-                    color = gene),
-                width = .6) +
-  geom_line(aes(color =  gene)) +
-  labs(x = "day", y = "relative abundance", color = "gene") +
-  scale_color_manual(values = darkpalette) +
-  theme_minimal(base_size = 12)
-
-time_tet %>%
-  ggplot(aes(x = day, y = mean)) +
-  geom_point(aes(color = gene)) +
-  geom_errorbar(aes(x = day,
-                    ymin = mean - se,
-                    ymax = mean + se,
-                    color = gene),
-                width = .6) +
-  geom_line(aes(color =  gene)) +
-  labs(x = "day", y = "relative abundance", color = "gene") +
-  scale_color_manual(values = darkpalette) +
-  theme_minimal(base_size = 12)
-
-time_quin %>%
-  ggplot(aes(x = day, y = mean)) +
-  geom_point(aes(color = gene)) +
-  geom_errorbar(aes(x = day,
-                    ymin = mean - se,
-                    ymax = mean + se,
-                    color = gene),
-                width = .6) +
-  geom_line(aes(color =  gene)) +
-  labs(x = "day", y = "relative abundance", color = "gene") +
-  scale_color_manual(values = darkpalette) +
-  theme_minimal(base_size = 12)
-
-time_vanc %>%
-  ggplot(aes(x = day, y = mean)) +
-  geom_point(aes(color = gene)) +
-  geom_errorbar(aes(x = day,
-                    ymin = mean - se,
-                    ymax = mean + se,
-                    color = gene),
-                width = .6) +
-  geom_line(aes(color =  gene)) +
-  labs(x = "day", y = "relative abundance", color = "gene") +
-  scale_color_manual(values = darkpalette) +
-  theme_minimal(base_size = 12)
-
-time_trim %>%
-  ggplot(aes(x = day, y = mean)) +
-  geom_point(aes(color = gene)) +
-  geom_errorbar(aes(x = day,
-                    ymin = mean - se,
-                    ymax = mean + se,
-                    color = gene),
-                width = .6) +
-  geom_line(aes(color =  gene)) +
-  labs(x = "day", y = "relative abundance", color = "gene") +
-  scale_color_manual(values = darkpalette) +
-  theme_minimal(base_size = 12)
-
-
-# -----
-means_loc2 <- means_loc
-
-means_loc2$std = NULL
-means_loc2$se = NULL
-means_loc2$n = NULL
-
-loc_means_wide <- pivot_wider(means_loc2, names_from = day, values_from = mean)
-colnames(loc_means_wide) <- c("gene", "height", "class", "day_1", "day_29")
-loc_means_wide <- loc_means_wide[!grepl('MGE|Other|Integrons|MDR', loc_means_wide$class),]
-
-loc_means_wide %>%
-  group_by(class) %>%
-  ggplot(aes(x = day_1, y = day_29, color = class, shape = height)) +
-  geom_point(size = 2) +
-  geom_text(aes(label = gene), check_overlap = T, vjust = 1.5) +
-  ylim(0, 0.01) +
-  xlim(0, 0.01) +
-  geom_abline(intercept = 0, slope = 1, linetype = "dashed") +
-  scale_fill_manual(values = darkpalette) +
-  labs(x = "Day 1", y = "Day 29", color = "Antibiotic Class", shape = "Height") +
-  theme_minimal()
-
