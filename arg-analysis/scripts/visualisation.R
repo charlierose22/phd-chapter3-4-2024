@@ -1,4 +1,7 @@
 library(RColorBrewer)
+library(ggstatsplot)
+library(ggrepel)
+library(ggtext)
 darkpalette <- c("firebrick4",
                  "orangered1",
                  "darkgoldenrod2",
@@ -92,6 +95,7 @@ count_loc %>%
   facet_wrap(~height) +
   theme_minimal(base_size = 12)
 
+# total location
 location_study %>%
   ggplot(aes(x = day, y = delta_ct, fill = class)) +
   geom_boxplot() +
@@ -108,9 +112,32 @@ location_study %>%
                                "quinolone",
                                "sulfonamide and\ntrimethoprim",
                                "tetracycline")) +
-  labs(x = "day", y = "relative abundance", fill = "target antibiotic class") +
+  labs(x = "day", y = "relative gene abundance", fill = "target antibiotic class") +
   facet_grid(rows = vars(height)) +
   theme_minimal(base_size = 12)
+
+# location by mechanism
+location_study %>%
+  ggplot(aes(x = day, y = delta_ct, fill = mechanism)) +
+  geom_boxplot() +
+  scale_fill_manual(values = brewer.pal("Spectral", n = 9)) +
+  labs(x = "day", y = "relative abundance", fill = "resistance mechanism") +
+  facet_grid(rows = vars(height)) +
+  theme_minimal(base_size = 12)
+
+# ggstatsplot
+location_study %>%
+  grouped_ggbetweenstats(
+    ## arguments relevant for ggbetweenstats
+    x = day,
+    y = delta_ct,
+    grouping.var = class,
+    ylab = "relative gene abundance",
+    pairwise.display = "significant", ## display only significant pairwise comparisons
+    p.adjust.method = "fdr", ## adjust p-values for multiple tests using this method
+    ## arguments relevant for combine_plots
+    plotgrid.args = list(nrow = 4)
+  )
 
 # moisture
 moisture_stats %>%
@@ -366,6 +393,18 @@ loc_box_tet %>%
   theme_minimal(base_size = 12)
 
 # TIME -------------------------------------
+labels <- c("aminoglycoside",
+           "beta-lactam",
+           "glycopeptide and\nmetronidazole",
+           "macrolide lincosamide",
+           "multi-drug resistance",
+           "mobile genetic elements\nand integrons",
+           "other",
+           "phenicol",
+           "quinolone",
+           "sulfonamide and\ntrimethoprim",
+           "tetracycline")
+
 mean_time_total %>%
   ggplot(aes(x = day, y = mean, colour = class)) +
   geom_point(shape = 15) +
@@ -374,21 +413,59 @@ mean_time_total %>%
                     ymax = mean + se),
                 width = .6) +
   geom_line() +
-  labs(x = "day", y = "relative abundance", color = "target antibiotic class") +
-  scale_color_manual(values = darkpalette,
-                    labels = c("aminoglycoside",
-                               "beta-lactam",
-                               "glycopeptide and\nmetronidazole",
-                               "macrolide lincosamide",
-                               "multi-drug resistance",
-                               "mobile genetic element\nand integrons",
-                               "other",
-                               "phenicol",
-                               "quinolone",
-                               "sulfonamide and\ntrimethoprim",
-                               "tetracycline")) +
+  labs(x = "day", y = "relative gene abundance") +
+  scale_color_manual(values = darkpalette) +
+  geom_text_repel(
+    data = mean_time_total %>% filter(day == 29),
+    aes(color = class, label = class),
+    direction = "y",
+    xlim = c(40, NA),
+    hjust = 0,
+    segment.size = .7,
+    segment.alpha = .5,
+    segment.linetype = "dotted",
+    box.padding = .4,
+    segment.curvature = -0.1,
+    segment.ncp = 3,
+    segment.angle = 20) +
+  scale_y_continuous(trans='log10') +
+  scale_x_continuous(
+    expand = c(0, 0),
+    limits = c(0, 40), 
+    breaks = seq(0, 30, by = 5)) +
   theme_minimal(base_size = 12) +
-  theme(legend.position="bottom")
+  theme(legend.position = "none")
+
+mechanism_time_total %>%
+  ggplot(aes(x = day, y = mean, colour = mechanism)) +
+  geom_point(shape = 15) +
+  geom_errorbar(aes(x = day,
+                    ymin = mean - se,
+                    ymax = mean + se),
+                width = .6) +
+  geom_line() +
+  labs(x = "day", y = "relative gene abundance") +
+  scale_color_manual(values = darkpalette) +
+  geom_text_repel(
+    data = mechanism_time_total %>% filter(day == 29),
+    aes(color = mechanism, label = mechanism),
+    direction = "y",
+    xlim = c(40, NA),
+    hjust = 0,
+    segment.size = .7,
+    segment.alpha = .5,
+    segment.linetype = "dotted",
+    box.padding = .4,
+    segment.curvature = -0.1,
+    segment.ncp = 3,
+    segment.angle = 20) +
+  scale_y_continuous(trans='log10') +
+  scale_x_continuous(
+    expand = c(0, 0),
+    limits = c(0, 40), 
+    breaks = seq(0, 30, by = 5)) +
+  theme_minimal(base_size = 12) +
+  theme(legend.position = "none")
 
 # aminolgycoside over time
 time_amino %>%

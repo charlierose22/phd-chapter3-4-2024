@@ -232,11 +232,6 @@ write.csv(
   row.names = FALSE
 )
 write.csv(
-  location_classes,
-  "compound-analysis/data/processed-data/2023-naburn-drying/antibiotics_class_organised.csv",
-  row.names = FALSE
-)
-write.csv(
   metabolites,
   "compound-analysis/data/processed-data/2023-naburn-drying/itn_metabolites.csv",
   row.names = FALSE
@@ -368,7 +363,7 @@ box_chem_location_study %>%
                                "sulfonamide and\ntrimethoprim",
                                "tetracycline",
                                "unknown")) +
-  labs(x = "day", y = "intensity", fill = "antibiotic class") +
+  labs(x = "day", y = "compound intensity", fill = "antibiotic class") +
   facet_grid(rows = vars(height)) +
   theme_minimal(base_size = 12)
 
@@ -591,21 +586,28 @@ chem_mean_time_total %>%
                     ymax = mean + se),
                 width = .6) +
   geom_line() +
-  labs(x = "day", y = "compound intensity", color = "antibiotic class") +
+  labs(x = "day", y = "compound intensity") +
+  scale_color_manual(values = darkpalette) +
+  geom_text_repel(
+    data = chem_mean_time_total %>% filter(day == 29),
+    aes(color = class, label = class),
+    direction = "y",
+    xlim = c(40, NA),
+    hjust = 0,
+    segment.size = .7,
+    segment.alpha = .5,
+    segment.linetype = "dotted",
+    box.padding = .4,
+    segment.curvature = -0.1,
+    segment.ncp = 3,
+    segment.angle = 20) +
   scale_y_continuous(trans='log10') +
-  scale_color_manual(values = darkpalette,
-                     labels = c("aminoglycoside",
-                                "antifungal",
-                                "beta-lactam",
-                                "macrolide lincosamide",
-                                "other",
-                                "phenicol",
-                                "quinolone",
-                                "sulfonamide and\ntrimethoprim",
-                                "tetracycline",
-                                "unknown")) +
+  scale_x_continuous(
+    expand = c(0, 0),
+    limits = c(0, 40), 
+    breaks = seq(0, 30, by = 5)) +
   theme_minimal(base_size = 12) +
-  theme(legend.position="bottom")
+  theme(legend.position = "none")
 
 # aminolgycoside over time
 chem_time_amino %>%

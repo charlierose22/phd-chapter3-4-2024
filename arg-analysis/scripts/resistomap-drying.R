@@ -364,6 +364,43 @@ mean_time_total <- time_study %>%
     se = std / sqrt(n)
   )
 
+# by mechanism
+mechanism_loc <- location_study %>%
+  group_by(pick(gene, day, height, mechanism)) %>%
+  summarise(
+    mean = mean(delta_ct),
+    std = sd(delta_ct),
+    n = length(delta_ct),
+    se = std / sqrt(n)
+  )
+
+mechanism_loc_total <- location_study %>% 
+  group_by(day, height, mechanism) %>% 
+  summarise(
+    mean = mean(delta_ct),
+    std = sd(delta_ct),
+    n = length(delta_ct),
+    se = std / sqrt(n)
+  )
+
+mechanism_time <- time_study %>%
+  group_by(pick(gene, day, mechanism)) %>%
+  summarise(
+    mean = mean(delta_ct),
+    std = sd(delta_ct),
+    n = length(delta_ct),
+    se = std / sqrt(n)
+  )
+
+mechanism_time_total <- time_study %>% 
+  group_by(day, mechanism) %>% 
+  summarise(
+    mean = mean(delta_ct),
+    std = sd(delta_ct),
+    n = length(delta_ct),
+    se = std / sqrt(n)
+  )
+
 # count number of genes per class
 count_loc <- location_study %>%
   group_by(class, day, height) %>% 
