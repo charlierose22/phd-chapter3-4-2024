@@ -1,4 +1,12 @@
+# For manipulating data
 library(tidyverse)
+library(magrittr)
+library(lubridate)
+
+# For descriptive statistics and graphing
+library(skimr)
+library(scales)
+library(gridExtra)
 library(RColorBrewer)
 
 # import moisture data from folder
@@ -24,55 +32,32 @@ moisture_day <- mutate(moisture_data,
                           str_detect(date, "05-17") ~ "29"))
 moisture_number <- transform(moisture_day, day = as.double(day))
 
-# rename height and length to lowercase.
-moisture_renamed <- mutate(moisture_number,
-                            pile_length = case_when(
-                              str_detect(pile_length, "Quarter") ~ "quarter",
-                              str_detect(pile_length, "Half") ~ "half"))
-
-moisture_renamed <- mutate(moisture_renamed, pile_height = case_when(
-                             str_detect(pile_height, "Bottom") ~ "bottom",
-                             str_detect(pile_height, "Middle") ~ "middle",
-                             str_detect(pile_height, "Top") ~ "top"))
-
-moisture_stats <- moisture_renamed %>% 
+moisture_stats_height <- moisture_number %>% 
   group_by(day, pile_height) %>% 
   summarise(mean = mean(moisture_content_pc),
             sd = sd(moisture_content_pc))
 
-fit = aov(data = moisture_stats,
-          mean ~ pile_height)
+moisture_stats <- moisture_number %>% 
+  group_by(day) %>% 
+  summarise(mean = mean(moisture_content_pc),
+            sd = sd(moisture_content_pc))
 
-tukey <- TukeyHSD(fit)
-
-#Tukey test representation:
-plot(tukey, las = 1 , col = "forestgreen")
-
-summary(fit)
-
-moisture_stats %>% 
-  kruskal.test(mean ~ pile_height)
+moisture_stats %>% skim()
+moisture_stats_height %>% skim()
 
 # simple graph
 moisture_stats %>%
 ggplot() +
   geom_point(aes(x = day,
-                 y = mean,
-                 colour = pile_height)) +
+                 y = mean)) +
   geom_line(aes(x = day,
-                y = mean,
-                colour = pile_height)) +
+                y = mean)) +
   geom_errorbar(aes(x = day,
                     y = mean,
                     ymin = mean - sd, 
-                    ymax = mean + sd,
-                    colour = pile_height), 
+                    ymax = mean + sd), 
                 width = 1) +
   scale_y_continuous(labels = function(x) paste0(x*100, "%")) +
-  labs(x = "day",
-       y = "% moisture content",
-       colour = "height") +
-  scale_color_manual(values = brewer.pal("Dark2", n = 4)) +
+  labs(x = "Day",
+       y = "% Moisture Content") +
   theme_minimal(base_size = 12)
-
-RColorBrewer::display.brewer.all()
