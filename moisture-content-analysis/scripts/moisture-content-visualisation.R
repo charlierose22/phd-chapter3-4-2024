@@ -2,6 +2,7 @@
 library(tidyverse)
 library(magrittr)
 library(lubridate)
+library(Hmisc)
 
 # For descriptive statistics and graphing
 library(skimr)
@@ -61,3 +62,13 @@ ggplot() +
   labs(x = "Day",
        y = "% Moisture Content") +
   theme_minimal(base_size = 12)
+
+# correlation coefficient.
+coefficient <- cor.test(moisture_number$moisture_content_pc,
+                        moisture_number$day)
+coefficient$estimate
+
+# box plot find 
+moisture_number %>%
+  ggplot(aes(moisture_content_pc, day)) +
+  geom_boxplot()
