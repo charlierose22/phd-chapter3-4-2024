@@ -37,11 +37,13 @@ moisture_stats_height <- moisture_number %>%
   group_by(day, pile_height) %>% 
   summarise(mean = mean(moisture_content_pc),
             sd = sd(moisture_content_pc))
+moisture_stats_height$mean <- moisture_stats_height$mean * 100
 
 moisture_stats <- moisture_number %>% 
   group_by(day) %>% 
   summarise(mean = mean(moisture_content_pc),
             sd = sd(moisture_content_pc))
+moisture_stats$mean <- moisture_stats$mean * 100
 
 moisture_stats %>% skim()
 moisture_stats_height %>% skim()
@@ -58,17 +60,30 @@ ggplot() +
                     ymin = mean - sd, 
                     ymax = mean + sd), 
                 width = 1) +
-  scale_y_continuous(labels = function(x) paste0(x*100, "%")) +
+  scale_y_continuous(labels = function(x) paste0(x, "%"),
+                     limits = c(0,100)) +
   labs(x = "Day",
        y = "% Moisture Content") +
   theme_minimal(base_size = 12)
 
-# correlation coefficient.
-coefficient <- cor.test(moisture_number$moisture_content_pc,
-                        moisture_number$day)
-coefficient$estimate
-
-# box plot find 
-moisture_number %>%
-  ggplot(aes(moisture_content_pc, day)) +
-  geom_boxplot()
+# simple graph
+moisture_stats_height %>%
+  ggplot() +
+  geom_point(aes(x = day,
+                 y = mean,
+                 colour = pile_height)) +
+  geom_line(aes(x = day,
+                y = mean,
+                colour = pile_height)) +
+  geom_errorbar(aes(x = day,
+                    y = mean,
+                    ymin = mean - sd, 
+                    ymax = mean + sd,
+                    colour = pile_height), 
+                width = 1) +
+  scale_y_continuous(labels = function(x) paste0(x, "%"),
+                     limits = c(0,100)) +
+  labs(x = "Day",
+       y = "% Moisture Content",
+       colour = "Height") +
+  theme_minimal(base_size = 12)
