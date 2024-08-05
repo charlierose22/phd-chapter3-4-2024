@@ -1,7 +1,8 @@
 library(RColorBrewer)
-library(ggstatsplot)
+library(grafify)
 library(ggrepel)
 library(ggtext)
+library(dygraphs)
 darkpalette <- c("firebrick4",
                  "orangered1",
                  "darkgoldenrod2",
@@ -74,323 +75,340 @@ time_box_quin <- split_time_box$quinolone
 time_box_sulf <- split_time_box$sulfonamide_trimethoprim
 time_box_tet <- split_time_box$tetracycline
 
+class_names <- c("Aminoglycosides",
+                 "Beta-lactams",
+                 "Glycopeptides and metronidazole",
+                 "MLSB",
+                 "Multi-drug resistance",
+                 "MGEs and integrons",
+                 "Other",
+                 "Chloramphenicol",
+                 "Quinolones",
+                 "Sulfonamides and trimethoprim",
+                 "Tetracyclines")
+
 # count
 count_loc %>% 
-  ggplot(aes(fill = class, y = count, x = day)) + 
+  ggplot(aes(fill = class, y = count, x = height, label = count)) + 
   geom_bar(position = "stack", stat = "identity") +
+  geom_text(size = 3, position = position_stack(vjust = 0.5), colour = "grey10") +
   scale_fill_manual(values = brewer.pal("Spectral", n = 11),
-                    labels = c("aminoglycoside",
-                               "beta-lactam",
-                               "glycopeptide and\nmetronidazole",
-                               "macrolide lincosamide",
-                               "multi-drug resistance",
-                               "mobile genetic elements\nand integrons",
-                               "other",
-                               "phenicol",
-                               "quinolone",
-                               "sulfonamide and\ntrimethoprim",
-                               "tetracycline")) +
-  labs(y = "number of genes detected", 
-       fill = "target antibiotic class") +
-  facet_wrap(~height) +
-  theme_minimal(base_size = 12)
+                    labels = c("Aminoglycosides",
+                               "Beta-lactams",
+                               "Glycopeptides and\nmetronidazole",
+                               "MLSB",
+                               "Multi-drug resistance",
+                               "MGEs and integrons",
+                               "Other",
+                               "Chloramphenicol",
+                               "Quinolones",
+                               "Sulfonamides and\ntrimethoprim",
+                               "Tetracyclines")) +
+  scale_x_discrete(labels = c("~20 cm from\n ground", "~1m from\n ground", "~20 cm from\n surface")) +
+  labs(y = "Number of different genes detected", x = "Pile height",
+       fill = "Target antibiotic class") +
+  theme_bw(base_size = 12)
 
 # total location
 location_study %>%
-  ggplot(aes(x = day, y = delta_ct, fill = class)) +
+  ggplot(aes(x = height, y = delta_ct, fill = height)) +
   geom_boxplot() +
-  scale_y_continuous(trans='log10') +
-  scale_fill_manual(values = brewer.pal("Spectral", n = 11),
-                    labels = c("aminoglycoside",
-                               "beta-lactam",
-                               "glycopeptide and\nmetronidazole",
-                               "macrolide lincosamide",
-                               "multi-drug resistance",
-                               "mobile genetic elements\nand integrons",
-                               "other",
-                               "phenicol",
-                               "quinolone",
-                               "sulfonamide and\ntrimethoprim",
-                               "tetracycline")) +
-  labs(x = "day", y = "relative gene abundance", fill = "target antibiotic class") +
-  facet_grid(rows = vars(height)) +
-  theme_minimal(base_size = 12)
+  scale_y_continuous(trans = 'log10') +
+  scale_fill_grafify(palette = "vibrant",
+                     labels = c("~20 cm from\n ground", "~1m from\n ground", "~20 cm from\n surface")) +
+  scale_x_discrete(labels = c("~20 cm from\n ground", "~1m from\n ground", "~20 cm from\n surface")) +
+  labs(y = "Relative gene abundance", x = "Pile height",
+       fill = "Pile height") +
+  facet_wrap(~class, ncol = 3) +
+  theme_bw(base_size = 12)
 
 # location by mechanism
 location_study %>%
-  ggplot(aes(x = day, y = delta_ct, fill = mechanism)) +
+  ggplot(aes(x = height, y = delta_ct, fill = height)) +
   geom_boxplot() +
-  scale_fill_manual(values = brewer.pal("Spectral", n = 9)) +
-  labs(x = "day", y = "relative abundance", fill = "resistance mechanism") +
-  facet_grid(rows = vars(height)) +
-  theme_minimal(base_size = 12)
-
-# ggstatsplot
-location_study %>%
-  grouped_ggbetweenstats(
-    ## arguments relevant for ggbetweenstats
-    x = day,
-    y = delta_ct,
-    grouping.var = class,
-    ylab = "relative gene abundance",
-    pairwise.display = "significant", ## display only significant pairwise comparisons
-    p.adjust.method = "fdr", ## adjust p-values for multiple tests using this method
-    ## arguments relevant for combine_plots
-    plotgrid.args = list(nrow = 4)
-  )
-
-# moisture
-moisture_stats %>%
-  ggplot() +
-  geom_point(aes(x = day,
-                 y = mean,
-                 colour = height)) +
-  geom_line(aes(x = day,
-                y = mean,
-                colour = height)) +
-  geom_errorbar(aes(x = day,
-                    y = mean,
-                    ymin = mean - sd, 
-                    ymax = mean + sd,
-                    colour = height), 
-                width = 1) +
-  scale_y_continuous(labels = function(x) paste0(x, "%")) +
-  labs(x = "day",
-       y = "% moisture content",
-       colour = "height") +
-  scale_color_manual(values = brewer.pal("Dark2", n = 4)) +
-  theme_minimal(base_size = 12)
+  scale_y_continuous(trans = 'log10') +
+  scale_fill_grafify(palette = "vibrant",
+                     labels = c("~20 cm from\n ground", "~1m from\n ground", "~20 cm from\n surface")) +
+  scale_x_discrete(labels = c("~20 cm from\n ground", "~1m from\n ground", "~20 cm from\n surface")) +
+  labs(y = "Relative gene abundance", x = "Pile height",
+       fill = "Pile height") +
+  facet_wrap(~mechanism, ncol = 3) +
+  theme_bw(base_size = 12)
 
 # aminoglycoside total location
 loc_box_amino %>%
   ggplot(aes(x = height, y = delta_ct, fill = height)) +
   geom_boxplot() +
-  geom_jitter(position=position_jitter(0.2), color = "antiquewhite4", shape = 4) +
+  geom_jitter(position=position_jitter(0.2), color = "grey35", shape = 4) +
   scale_y_continuous(trans='log10') +
-  scale_fill_manual(values = brewer.pal("Accent", n = 3)) +
-  labs(x = "height", y = "relative abundance", fill = "height") +
-  facet_wrap(~day) +
-  theme_minimal(base_size = 12)
+  scale_fill_grafify(palette = "okabe_ito",
+                     labels = c("~20 cm from\n ground", "~1m from\n ground", "~20 cm from\n surface")) +
+  scale_x_discrete(labels = c("~20 cm from\n ground", "~1m from\n ground", "~20 cm from\n surface")) +
+  labs(x = "Pile height", y = "Relative gene abundance", fill = "Pile height") +
+  theme_bw(base_size = 12)
 
 # per gene
 loc_box_amino %>%
-  ggplot(aes(x = day, y = delta_ct, fill = height)) +
+  ggplot(aes(x = height, y = delta_ct, fill = height)) +
   geom_boxplot() +
+  geom_jitter(position=position_jitter(0.2), color = "grey35", shape = 4) +
   scale_y_continuous(trans='log10') +
-  scale_fill_manual(values = brewer.pal("Accent", n = 3)) +
-  labs(x = "day", y = "relative abundance", fill = "height") +
+  scale_fill_grafify(palette = "okabe_ito",
+                     labels = c("~20 cm from\n ground", "~1m from\n ground", "~20 cm from\n surface")) +
+  scale_x_discrete(labels = c("~20 cm from\n ground", "~1m from\n ground", "~20 cm from\n surface")) +
+  labs(x = "Pile height", y = "Relative gene abundance", fill = "Pile height") +
   facet_wrap(~gene) +
-  theme_minimal(base_size = 12)
+  theme_bw(base_size = 12)
 
 # beta-lactam total location
 loc_box_beta %>%
   ggplot(aes(x = height, y = delta_ct, fill = height)) +
   geom_boxplot() +
-  geom_jitter(position=position_jitter(0.2), color = "antiquewhite4", shape = 4) +
+  geom_jitter(position=position_jitter(0.2), color = "grey35", shape = 4) +
   scale_y_continuous(trans='log10') +
-  scale_fill_manual(values = brewer.pal("Accent", n = 3)) +
-  labs(x = "height", y = "relative abundance", fill = "height") +
-  facet_wrap(~day) +
-  theme_minimal(base_size = 12)
+  scale_fill_grafify(palette = "okabe_ito",
+                     labels = c("~20 cm from\n ground", "~1m from\n ground", "~20 cm from\n surface")) +
+  scale_x_discrete(labels = c("~20 cm from\n ground", "~1m from\n ground", "~20 cm from\n surface")) +
+  labs(x = "Pile height", y = "Relative gene abundance", fill = "Pile height") +
+  theme_bw(base_size = 12)
 
 # per gene
 loc_box_beta %>%
-  ggplot(aes(x = day, y = delta_ct, fill = height)) +
+  ggplot(aes(x = height, y = delta_ct, fill = height)) +
   geom_boxplot() +
+  geom_jitter(position=position_jitter(0.2), color = "grey35", shape = 4) +
   scale_y_continuous(trans='log10') +
-  scale_fill_manual(values = brewer.pal("Accent", n = 3)) +
-  labs(x = "day", y = "relative abundance", fill = "height") +
+  scale_fill_grafify(palette = "okabe_ito",
+                     labels = c("~20 cm from\n ground", "~1m from\n ground", "~20 cm from\n surface")) +
+  scale_x_discrete(labels = c("~20 cm from\n ground", "~1m from\n ground", "~20 cm from\n surface")) +
+  labs(x = "Pile height", y = "Relative gene abundance", fill = "Pile height") +
   facet_wrap(~gene) +
-  theme_minimal(base_size = 12)
+  theme_bw(base_size = 12)
 
 # glycopeptide total location
 loc_box_glyc %>%
   ggplot(aes(x = height, y = delta_ct, fill = height)) +
   geom_boxplot() +
-  geom_jitter(position=position_jitter(0.2), color = "antiquewhite4", shape = 4) +
+  geom_jitter(position=position_jitter(0.2), color = "grey35", shape = 4) +
   scale_y_continuous(trans='log10') +
-  scale_fill_manual(values = brewer.pal("Accent", n = 3)) +
-  labs(x = "height", y = "relative abundance", fill = "height") +
-  facet_wrap(~day) +
-  theme_minimal(base_size = 12)
+  scale_fill_grafify(palette = "okabe_ito",
+                     labels = c("~20 cm from\n ground", "~1m from\n ground", "~20 cm from\n surface")) +
+  scale_x_discrete(labels = c("~20 cm from\n ground", "~1m from\n ground", "~20 cm from\n surface")) +
+  labs(x = "Pile height", y = "Relative gene abundance", fill = "Pile height") +
+  theme_bw(base_size = 12)
 
 # per gene
 loc_box_glyc %>%
-  ggplot(aes(x = day, y = delta_ct, fill = height)) +
+  ggplot(aes(x = height, y = delta_ct, fill = height)) +
   geom_boxplot() +
+  geom_jitter(position=position_jitter(0.2), color = "grey35", shape = 4) +
   scale_y_continuous(trans='log10') +
-  scale_fill_manual(values = brewer.pal("Accent", n = 3)) +
-  labs(x = "day", y = "relative abundance", fill = "height") +
+  scale_fill_grafify(palette = "okabe_ito",
+                     labels = c("~20 cm from\n ground", "~1m from\n ground", "~20 cm from\n surface")) +
+  scale_x_discrete(labels = c("~20 cm from\n ground", "~1m from\n ground", "~20 cm from\n surface")) +
+  labs(x = "Pile height", y = "Relative gene abundance", fill = "Pile height") +
   facet_wrap(~gene) +
-  theme_minimal(base_size = 12)
+  theme_bw(base_size = 12)
 
 # macrolide total location
 loc_box_mac %>%
   ggplot(aes(x = height, y = delta_ct, fill = height)) +
   geom_boxplot() +
-  geom_jitter(position=position_jitter(0.2), color = "antiquewhite4", shape = 4) +
+  geom_jitter(position=position_jitter(0.2), color = "grey35", shape = 4) +
   scale_y_continuous(trans='log10') +
-  scale_fill_manual(values = brewer.pal("Accent", n = 3)) +
-  labs(x = "height", y = "relative abundance", fill = "height") +
-  facet_wrap(~day) +
-  theme_minimal(base_size = 12)
+  scale_fill_grafify(palette = "okabe_ito",
+                     labels = c("~20 cm from\n ground", "~1m from\n ground", "~20 cm from\n surface")) +
+  scale_x_discrete(labels = c("~20 cm from\n ground", "~1m from\n ground", "~20 cm from\n surface")) +
+  labs(x = "Pile height", y = "Relative gene abundance", fill = "Pile height") +
+  theme_bw(base_size = 12)
 
 # per gene
 loc_box_mac %>%
-  ggplot(aes(x = day, y = delta_ct, fill = height)) +
+  ggplot(aes(x = height, y = delta_ct, fill = height)) +
   geom_boxplot() +
+  geom_jitter(position=position_jitter(0.2), color = "grey35", shape = 4) +
   scale_y_continuous(trans='log10') +
-  scale_fill_manual(values = brewer.pal("Accent", n = 3)) +
-  labs(x = "day", y = "relative abundance", fill = "height") +
+  scale_fill_grafify(palette = "okabe_ito",
+                     labels = c("~20 cm from\n ground", "~1m from\n ground", "~20 cm from\n surface")) +
+  scale_x_discrete(labels = c("~20 cm from\n ground", "~1m from\n ground", "~20 cm from\n surface")) +
+  labs(x = "Pile height", y = "Relative gene abundance", fill = "Pile height") +
   facet_wrap(~gene) +
-  theme_minimal(base_size = 12)
+  theme_bw(base_size = 12)
 
 # mdr total location
 loc_box_mdr %>%
   ggplot(aes(x = height, y = delta_ct, fill = height)) +
   geom_boxplot() +
-  geom_jitter(position=position_jitter(0.2), color = "antiquewhite4", shape = 4) +
+  geom_jitter(position=position_jitter(0.2), color = "grey35", shape = 4) +
   scale_y_continuous(trans='log10') +
-  scale_fill_manual(values = brewer.pal("Accent", n = 3)) +
-  labs(x = "height", y = "relative abundance", fill = "height") +
-  facet_wrap(~day) +
-  theme_minimal(base_size = 12)
+  scale_fill_grafify(palette = "okabe_ito",
+                     labels = c("~20 cm from\n ground", "~1m from\n ground", "~20 cm from\n surface")) +
+  scale_x_discrete(labels = c("~20 cm from\n ground", "~1m from\n ground", "~20 cm from\n surface")) +
+  labs(x = "Pile height", y = "Relative gene abundance", fill = "Pile height") +
+  theme_bw(base_size = 12)
 
 # per gene
 loc_box_mdr %>%
-  ggplot(aes(x = day, y = delta_ct, fill = height)) +
+  ggplot(aes(x = height, y = delta_ct, fill = height)) +
   geom_boxplot() +
+  geom_jitter(position=position_jitter(0.2), color = "grey35", shape = 4) +
   scale_y_continuous(trans='log10') +
-  scale_fill_manual(values = brewer.pal("Accent", n = 3)) +
-  labs(x = "day", y = "relative abundance", fill = "height") +
+  scale_fill_grafify(palette = "okabe_ito",
+                     labels = c("~20 cm from\n ground", "~1m from\n ground", "~20 cm from\n surface")) +
+  scale_x_discrete(labels = c("~20 cm from\n ground", "~1m from\n ground", "~20 cm from\n surface")) +
+  labs(x = "Pile height", y = "Relative gene abundance", fill = "Pile height") +
   facet_wrap(~gene) +
-  theme_minimal(base_size = 12)
+  theme_bw(base_size = 12)
 
 # mge total location
 loc_box_mge %>%
   ggplot(aes(x = height, y = delta_ct, fill = height)) +
   geom_boxplot() +
-  geom_jitter(position=position_jitter(0.2), color = "antiquewhite4", shape = 4) +
+  geom_jitter(position=position_jitter(0.2), color = "grey35", shape = 4) +
   scale_y_continuous(trans='log10') +
-  scale_fill_manual(values = brewer.pal("Accent", n = 3)) +
-  labs(x = "height", y = "relative abundance", fill = "height") +
-  facet_wrap(~day) +
-  theme_minimal(base_size = 12)
+  scale_fill_grafify(palette = "okabe_ito",
+                     labels = c("~20 cm from\n ground", "~1m from\n ground", "~20 cm from\n surface")) +
+  scale_x_discrete(labels = c("~20 cm from\n ground", "~1m from\n ground", "~20 cm from\n surface")) +
+  labs(x = "Pile height", y = "Relative gene abundance", fill = "Pile height") +
+  theme_bw(base_size = 12)
 
 # per gene
 loc_box_mge %>%
-  ggplot(aes(x = day, y = delta_ct, fill = height)) +
+  ggplot(aes(x = height, y = delta_ct, fill = height)) +
   geom_boxplot() +
+  geom_jitter(position=position_jitter(0.2), color = "grey35", shape = 4) +
   scale_y_continuous(trans='log10') +
-  scale_fill_manual(values = brewer.pal("Accent", n = 3)) +
-  labs(x = "day", y = "relative abundance", fill = "height") +
+  scale_fill_grafify(palette = "okabe_ito",
+                     labels = c("~20 cm from\n ground", "~1m from\n ground", "~20 cm from\n surface")) +
+  scale_x_discrete(labels = c("~20 cm from\n ground", "~1m from\n ground", "~20 cm from\n surface")) +
+  labs(x = "Pile height", y = "Relative gene abundance", fill = "Pile height") +
   facet_wrap(~gene) +
-  theme_minimal(base_size = 12)
+  theme_bw(base_size = 12)
 
 # other total location
 loc_box_other %>%
   ggplot(aes(x = height, y = delta_ct, fill = height)) +
   geom_boxplot() +
-  geom_jitter(position=position_jitter(0.2), color = "antiquewhite4", shape = 4) +
+  geom_jitter(position=position_jitter(0.2), color = "grey35", shape = 4) +
   scale_y_continuous(trans='log10') +
-  scale_fill_manual(values = brewer.pal("Accent", n = 3)) +
-  labs(x = "height", y = "relative abundance", fill = "height") +
-  facet_wrap(~day) +
-  theme_minimal(base_size = 12)
+  scale_fill_grafify(palette = "okabe_ito",
+                     labels = c("~20 cm from\n ground", "~1m from\n ground", "~20 cm from\n surface")) +
+  scale_x_discrete(labels = c("~20 cm from\n ground", "~1m from\n ground", "~20 cm from\n surface")) +
+  labs(x = "Pile height", y = "Relative gene abundance", fill = "Pile height") +
+  theme_bw(base_size = 12)
 
 # per gene
 loc_box_other %>%
-  ggplot(aes(x = day, y = delta_ct, fill = height)) +
+  ggplot(aes(x = height, y = delta_ct, fill = height)) +
   geom_boxplot() +
+  geom_jitter(position=position_jitter(0.2), color = "grey35", shape = 4) +
   scale_y_continuous(trans='log10') +
-  scale_fill_manual(values = brewer.pal("Accent", n = 3)) +
-  labs(x = "day", y = "relative abundance", fill = "height") +
+  scale_fill_grafify(palette = "okabe_ito",
+                     labels = c("~20 cm from\n ground", "~1m from\n ground", "~20 cm from\n surface")) +
+  scale_x_discrete(labels = c("~20 cm from\n ground", "~1m from\n ground", "~20 cm from\n surface")) +
+  labs(x = "Pile height", y = "Relative gene abundance", fill = "Pile height") +
   facet_wrap(~gene) +
-  theme_minimal(base_size = 12)
+  theme_bw(base_size = 12)
 
 # phenicol total location
 loc_box_phen %>%
   ggplot(aes(x = height, y = delta_ct, fill = height)) +
   geom_boxplot() +
-  geom_jitter(position=position_jitter(0.2), color = "antiquewhite4", shape = 4) +
+  geom_jitter(position=position_jitter(0.2), color = "grey35", shape = 4) +
   scale_y_continuous(trans='log10') +
-  scale_fill_manual(values = brewer.pal("Accent", n = 3)) +
-  labs(x = "height", y = "relative abundance", fill = "height") +
-  facet_wrap(~day) +
-  theme_minimal(base_size = 12)
+  scale_fill_grafify(palette = "okabe_ito",
+                     labels = c("~20 cm from\n ground", "~1m from\n ground", "~20 cm from\n surface")) +
+  scale_x_discrete(labels = c("~20 cm from\n ground", "~1m from\n ground", "~20 cm from\n surface")) +
+  labs(x = "Pile height", y = "Relative gene abundance", fill = "Pile height") +
+  theme_bw(base_size = 12)
 
 # per gene
 loc_box_phen %>%
-  ggplot(aes(x = day, y = delta_ct, fill = height)) +
+  ggplot(aes(x = height, y = delta_ct, fill = height)) +
   geom_boxplot() +
+  geom_jitter(position=position_jitter(0.2), color = "grey35", shape = 4) +
   scale_y_continuous(trans='log10') +
-  scale_fill_manual(values = brewer.pal("Accent", n = 3)) +
-  labs(x = "day", y = "relative abundance", fill = "height") +
+  scale_fill_grafify(palette = "okabe_ito",
+                     labels = c("~20 cm from\n ground", "~1m from\n ground", "~20 cm from\n surface")) +
+  scale_x_discrete(labels = c("~20 cm from\n ground", "~1m from\n ground", "~20 cm from\n surface")) +
+  labs(x = "Pile height", y = "Relative gene abundance", fill = "Pile height") +
   facet_wrap(~gene) +
-  theme_minimal(base_size = 12)
+  theme_bw(base_size = 12)
 
 # quinolone total location
 loc_box_quin %>%
   ggplot(aes(x = height, y = delta_ct, fill = height)) +
   geom_boxplot() +
-  geom_jitter(position=position_jitter(0.2), color = "antiquewhite4", shape = 4) +
+  geom_jitter(position=position_jitter(0.2), color = "grey35", shape = 4) +
   scale_y_continuous(trans='log10') +
-  scale_fill_manual(values = brewer.pal("Accent", n = 3)) +
-  labs(x = "height", y = "relative abundance", fill = "height") +
-  facet_wrap(~day) +
-  theme_minimal(base_size = 12)
+  scale_fill_grafify(palette = "okabe_ito",
+                     labels = c("~20 cm from\n ground", "~1m from\n ground", "~20 cm from\n surface")) +
+  scale_x_discrete(labels = c("~20 cm from\n ground", "~1m from\n ground", "~20 cm from\n surface")) +
+  labs(x = "Pile height", y = "Relative gene abundance", fill = "Pile height") +
+  theme_bw(base_size = 12)
 
 # per gene
 loc_box_quin %>%
-  ggplot(aes(x = day, y = delta_ct, fill = height)) +
+  ggplot(aes(x = height, y = delta_ct, fill = height)) +
   geom_boxplot() +
+  geom_jitter(position=position_jitter(0.2), color = "grey35", shape = 4) +
   scale_y_continuous(trans='log10') +
-  scale_fill_manual(values = brewer.pal("Accent", n = 3)) +
-  labs(x = "day", y = "relative abundance", fill = "height") +
+  scale_fill_grafify(palette = "okabe_ito",
+                     labels = c("~20 cm from\n ground", "~1m from\n ground", "~20 cm from\n surface")) +
+  scale_x_discrete(labels = c("~20 cm from\n ground", "~1m from\n ground", "~20 cm from\n surface")) +
+  labs(x = "Pile height", y = "Relative gene abundance", fill = "Pile height") +
   facet_wrap(~gene) +
-  theme_minimal(base_size = 12)
+  theme_bw(base_size = 12)
 
 # sulf total location
 loc_box_sulf %>%
   ggplot(aes(x = height, y = delta_ct, fill = height)) +
   geom_boxplot() +
-  geom_jitter(position=position_jitter(0.2), color = "antiquewhite4", shape = 4) +
+  geom_jitter(position=position_jitter(0.2), color = "grey35", shape = 4) +
   scale_y_continuous(trans='log10') +
-  scale_fill_manual(values = brewer.pal("Accent", n = 3)) +
-  labs(x = "height", y = "relative abundance", fill = "height") +
-  facet_wrap(~day) +
-  theme_minimal(base_size = 12)
+  scale_fill_grafify(palette = "okabe_ito",
+                     labels = c("~20 cm from\n ground", "~1m from\n ground", "~20 cm from\n surface")) +
+  scale_x_discrete(labels = c("~20 cm from\n ground", "~1m from\n ground", "~20 cm from\n surface")) +
+  labs(x = "Pile height", y = "Relative gene abundance", fill = "Pile height") +
+  theme_bw(base_size = 12)
 
 # per gene
 loc_box_sulf %>%
-  ggplot(aes(x = day, y = delta_ct, fill = height)) +
+  ggplot(aes(x = height, y = delta_ct, fill = height)) +
   geom_boxplot() +
+  geom_jitter(position=position_jitter(0.2), color = "grey35", shape = 4) +
   scale_y_continuous(trans='log10') +
-  scale_fill_manual(values = brewer.pal("Accent", n = 3)) +
-  labs(x = "day", y = "relative abundance", fill = "height") +
+  scale_fill_grafify(palette = "okabe_ito",
+                     labels = c("~20 cm from\n ground", "~1m from\n ground", "~20 cm from\n surface")) +
+  scale_x_discrete(labels = c("~20 cm from\n ground", "~1m from\n ground", "~20 cm from\n surface")) +
+  labs(x = "Pile height", y = "Relative gene abundance", fill = "Pile height") +
   facet_wrap(~gene) +
-  theme_minimal(base_size = 12)
+  theme_bw(base_size = 12)
 
 # tet total location
 loc_box_tet %>%
   ggplot(aes(x = height, y = delta_ct, fill = height)) +
   geom_boxplot() +
-  geom_jitter(position=position_jitter(0.2), color = "antiquewhite4", shape = 4) +
+  geom_jitter(position=position_jitter(0.2), color = "grey35", shape = 4) +
   scale_y_continuous(trans='log10') +
-  scale_fill_manual(values = brewer.pal("Accent", n = 3)) +
-  labs(x = "height", y = "relative abundance", fill = "height") +
-  facet_wrap(~day) +
-  theme_minimal(base_size = 12)
+  scale_fill_grafify(palette = "okabe_ito",
+                     labels = c("~20 cm from\n ground", "~1m from\n ground", "~20 cm from\n surface")) +
+  scale_x_discrete(labels = c("~20 cm from\n ground", "~1m from\n ground", "~20 cm from\n surface")) +
+  labs(x = "Pile height", y = "Relative gene abundance", fill = "Pile height") +
+  theme_bw(base_size = 12)
 
 # per gene
 loc_box_tet %>%
-  ggplot(aes(x = day, y = delta_ct, fill = height)) +
+  ggplot(aes(x = height, y = delta_ct, fill = height)) +
   geom_boxplot() +
+  geom_jitter(position=position_jitter(0.2), color = "grey35", shape = 4) +
   scale_y_continuous(trans='log10') +
-  scale_fill_manual(values = brewer.pal("Accent", n = 3)) +
-  labs(x = "day", y = "relative abundance", fill = "height") +
+  scale_fill_grafify(palette = "okabe_ito",
+                     labels = c("~20 cm from\n ground", "~1m from\n ground", "~20 cm from\n surface")) +
+  scale_x_discrete(labels = c("~20 cm from\n ground", "~1m from\n ground", "~20 cm from\n surface")) +
+  labs(x = "Pile height", y = "Relative gene abundance", fill = "Pile height") +
   facet_wrap(~gene) +
-  theme_minimal(base_size = 12)
+  theme_bw(base_size = 12)
 
 # TIME -------------------------------------
 labels <- c("aminoglycoside",
@@ -405,67 +423,42 @@ labels <- c("aminoglycoside",
            "sulfonamide and\ntrimethoprim",
            "tetracycline")
 
-mean_time_total %>%
-  ggplot(aes(x = day, y = mean, colour = class)) +
-  geom_point(shape = 15) +
-  geom_errorbar(aes(x = day,
-                    ymin = mean - se,
-                    ymax = mean + se),
-                width = .6) +
-  geom_line() +
-  labs(x = "day", y = "relative gene abundance") +
-  scale_color_manual(values = darkpalette) +
-  geom_text_repel(
-    data = mean_time_total %>% filter(day == 29),
-    aes(color = class, label = class),
-    direction = "y",
-    xlim = c(40, NA),
-    hjust = 0,
-    segment.size = .7,
-    segment.alpha = .5,
-    segment.linetype = "dotted",
-    box.padding = .4,
-    segment.curvature = -0.1,
-    segment.ncp = 3,
-    segment.angle = 20) +
-  scale_y_continuous(trans='log10') +
-  scale_x_continuous(
-    expand = c(0, 0),
-    limits = c(0, 40), 
-    breaks = seq(0, 30, by = 5)) +
-  theme_minimal(base_size = 12) +
-  theme(legend.position = "none")
+# stacked area plot
+stacked_time_gene <- time_study %>% 
+  group_by(day, class) %>%
+  summarise(n = sum(delta_ct)) %>%
+  mutate(percentage = n / sum(n))
 
-mechanism_time_total %>%
-  ggplot(aes(x = day, y = mean, colour = mechanism)) +
-  geom_point(shape = 15) +
-  geom_errorbar(aes(x = day,
-                    ymin = mean - se,
-                    ymax = mean + se),
-                width = .6) +
-  geom_line() +
-  labs(x = "day", y = "relative gene abundance") +
-  scale_color_manual(values = darkpalette) +
-  geom_text_repel(
-    data = mechanism_time_total %>% filter(day == 29),
-    aes(color = mechanism, label = mechanism),
-    direction = "y",
-    xlim = c(40, NA),
-    hjust = 0,
-    segment.size = .7,
-    segment.alpha = .5,
-    segment.linetype = "dotted",
-    box.padding = .4,
-    segment.curvature = -0.1,
-    segment.ncp = 3,
-    segment.angle = 20) +
-  scale_y_continuous(trans='log10') +
-  scale_x_continuous(
-    expand = c(0, 0),
-    limits = c(0, 40), 
-    breaks = seq(0, 30, by = 5)) +
-  theme_minimal(base_size = 12) +
-  theme(legend.position = "none")
+# time_gene
+ggplot(stacked_time_gene, aes(x=day, y=percentage, fill=class)) + 
+  geom_area(alpha=0.6 , size=0.5, colour="black") +
+  scale_fill_manual(values = brewer.pal("Spectral", n = 11),
+                    labels = c("Aminoglycosides",
+                               "Beta-lactams",
+                               "Glycopeptides and\nmetronidazole",
+                               "MLSB",
+                               "Multi-drug resistance",
+                               "MGEs and integrons",
+                               "Other",
+                               "Chloramphenicol",
+                               "Quinolones",
+                               "Sulfonamides and\ntrimethoprim",
+                               "Tetracyclines")) +
+  labs(x = "Day", y = "Proportion of gene abundance", fill = "Target antibiotic class") +
+  theme_bw(base_size = 12)
+
+# stacked area plot
+stacked_time_mechanism <- time_study %>% 
+  group_by(day, mechanism) %>% 
+  summarise(n = sum(delta_ct)) %>%
+  mutate(percentage = n / sum(n))
+
+# time_gene
+ggplot(stacked_time_mechanism, aes(x=day, y=percentage, fill=mechanism)) + 
+  geom_area(alpha=0.6 , size=0.5, colour="black") +
+  scale_fill_grafify(palette = "kelly") +
+  labs(x = "Day", y = "Proportion of gene abundance", fill = "Type of resistance\nmechanism") +
+  theme_bw(base_size = 12)
 
 # aminolgycoside over time
 time_amino %>%
@@ -478,7 +471,8 @@ time_amino %>%
   geom_line() +
   labs(x = "day", y = "relative abundance", color = "gene") +
   scale_color_manual(values = darkpalette) +
-  theme_minimal(base_size = 12)
+  facet_wrap(~gene) +
+  theme_bw(base_size = 12)
 
 # beta-lactam over time
 time_beta %>%

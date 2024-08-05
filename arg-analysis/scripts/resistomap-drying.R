@@ -329,7 +329,7 @@ time_study <- transform(time_study,
 # stats test for location and time
 # basic stats
 means_loc <- location_study %>%
-  group_by(pick(gene, day, height, class)) %>%
+  group_by(pick(gene, height, class)) %>%
   summarise(
     mean = mean(delta_ct),
     std = sd(delta_ct),
@@ -338,7 +338,7 @@ means_loc <- location_study %>%
   )
 
 mean_loc_total <- location_study %>% 
-  group_by(day, height, class) %>% 
+  group_by(height, class) %>% 
   summarise(
     mean = mean(delta_ct),
     std = sd(delta_ct),
@@ -366,7 +366,7 @@ mean_time_total <- time_study %>%
 
 # by mechanism
 mechanism_loc <- location_study %>%
-  group_by(pick(gene, day, height, mechanism)) %>%
+  group_by(pick(gene, height, mechanism)) %>%
   summarise(
     mean = mean(delta_ct),
     std = sd(delta_ct),
@@ -375,7 +375,7 @@ mechanism_loc <- location_study %>%
   )
 
 mechanism_loc_total <- location_study %>% 
-  group_by(day, height, mechanism) %>% 
+  group_by(height, mechanism) %>% 
   summarise(
     mean = mean(delta_ct),
     std = sd(delta_ct),
@@ -403,7 +403,7 @@ mechanism_time_total <- time_study %>%
 
 # count number of genes per class
 count_loc <- location_study %>%
-  group_by(class, day, height) %>% 
+  group_by(class, height) %>% 
   summarise(count = n_distinct(gene))
 
 count_time <- time_study %>%
