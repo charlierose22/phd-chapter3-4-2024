@@ -197,21 +197,28 @@ location_classes_box <- antibiotics %>%
                   by = c("name" = "name"),
                   match_fun = str_detect)
 
-# replace NA with 'unknown'
+
+
+# drop_na
 location_classes_means$class <- location_classes_means$class %>%
   replace_na('unknown')
 location_classes_box$class <- location_classes_box$class %>%
   replace_na('unknown')
 
+location_classes_means_drop <- location_classes_means[grepl('unknown|antifungal', 
+                                                            location_classes_means$class), ]
+location_classes_box_drop <- location_classes_box[grepl('unknown|antifungal', 
+                                                            location_classes_box$class), ]
+
 # create separate data sets for location study and time series.
-chem_location_study <- location_classes_means[grepl('\\<01\\>|\\<29\\>', 
-                                                    location_classes_means$day), ]
-chem_time_study <- location_classes_means[grepl('bottom',
-                                                location_classes_means$height), ]
-box_chem_location_study <- location_classes_box[grepl('\\<01\\>|\\<29\\>', 
-                                                      location_classes_box$day), ]
-box_chem_time_study <- location_classes_box[grepl('bottom',
-                                                  location_classes_box$height), ]
+chem_location_study <- location_classes_means_drop[grepl('\\<01\\>|\\<29\\>', 
+                                                    location_classes_means_drop$day), ]
+chem_time_study <- location_classes_means_drop[grepl('bottom',
+                                                location_classes_means_drop$height), ]
+box_chem_location_study <- location_classes_box_drop[grepl('\\<01\\>|\\<29\\>', 
+                                                      location_classes_box_drop$day), ]
+box_chem_time_study <- location_classes_box_drop[grepl('bottom',
+                                                  location_classes_box_drop$height), ]
 
 chem_time_study$day = as.numeric(chem_time_study$day)
 box_chem_time_study$day = as.numeric(box_chem_time_study$day)
@@ -270,7 +277,6 @@ class_info2 <- unique(class_info$class)
 # split based on target antibiotics for location 
 split_location_compound <- split(chem_location_study, chem_location_study$class)
 chem_loc_amino <- split_location_compound$aminoglycoside
-chem_loc_fung <- split_location_compound$antifungal
 chem_loc_beta <- split_location_compound$`beta-lactam`
 chem_loc_glyc <- split_location_compound$glycopeptide_metronidazole
 chem_loc_mac <- split_location_compound$macrolide_lincosamide
@@ -279,7 +285,6 @@ chem_loc_phen <- split_location_compound$phenicol
 chem_loc_quin <- split_location_compound$quinolone
 chem_loc_sulf <- split_location_compound$sulfonamide_trimethoprim
 chem_loc_tet <- split_location_compound$tetracycline
-chem_loc_unknown <- split_location_compound$unknown
 
 split_time_compound <- split(chem_time_study, chem_time_study$class)
 chem_time_amino <- split_time_compound$aminoglycoside
@@ -292,11 +297,9 @@ chem_time_phen <- split_time_compound$phenicol
 chem_time_quin <- split_time_compound$quinolone
 chem_time_sulf <- split_time_compound$sulfonamide_trimethoprim
 chem_time_tet <- split_time_compound$tetracycline
-chem_time_unknown <- split_time_compound$unknown
 
 box_split_location_compound <- split(box_chem_location_study, box_chem_location_study$class)
 box_chem_loc_amino <- box_split_location_compound$aminoglycoside
-box_chem_loc_fung <- box_split_location_compound$antifungal
 box_chem_loc_beta <- box_split_location_compound$`beta-lactam`
 box_chem_loc_glyc <- box_split_location_compound$glycopeptide_metronidazole
 box_chem_loc_mac <- box_split_location_compound$macrolide_lincosamide
@@ -305,11 +308,9 @@ box_chem_loc_phen <- box_split_location_compound$phenicol
 box_chem_loc_quin <- box_split_location_compound$quinolone
 box_chem_loc_sulf <- box_split_location_compound$sulfonamide_trimethoprim
 box_chem_loc_tet <- box_split_location_compound$tetracycline
-box_chem_loc_unknown <- box_split_location_compound$unknown
 
 box_split_time_compound <- split(box_chem_time_study, box_chem_time_study$class)
 box_chem_time_amino <- box_split_time_compound$aminoglycoside
-box_chem_time_fung <- box_split_time_compound$antifungal
 box_chem_time_beta <- box_split_time_compound$`beta-lactam`
 box_chem_time_glyc <-box_split_time_compound$glycopeptide_metronidazole
 box_chem_time_mac <- box_split_time_compound$macrolide_lincosamide
@@ -318,11 +319,10 @@ box_chem_time_phen <- box_split_time_compound$phenicol
 box_chem_time_quin <- box_split_time_compound$quinolone
 box_chem_time_sulf <- box_split_time_compound$sulfonamide_trimethoprim
 box_chem_time_tet <- box_split_time_compound$tetracycline
-box_chem_time_unknown <- box_split_time_compound$unknown
 
 # count number of genes per class
 chem_count_loc <- chem_location_study %>%
-  group_by(class, day, height) %>% 
+  group_by(class, height) %>% 
   summarise(count = n_distinct(name.x))
 
 chem_count_time <- chem_time_study %>%
@@ -330,23 +330,22 @@ chem_count_time <- chem_time_study %>%
   summarise(count = n_distinct(name.x))
 
 chem_count_loc %>% 
-  ggplot(aes(fill = class, y = count, x = day)) + 
+  ggplot(aes(fill = class, y = count, x = height, label = count)) + 
   geom_bar(position = "stack", stat = "identity") +
-  scale_fill_manual(values = brewer.pal("Spectral", n = 10),
-                    labels = c("aminoglycoside",
-                               "antifungal",
-                               "beta-lactam",
-                               "macrolide lincosamide",
-                               "other",
-                               "phenicol",
-                               "quinolone",
-                               "sulfonamide and\ntrimethoprim",
-                               "tetracycline",
-                               "unknown")) +
-  labs(y = "number of compounds detected", 
-       fill = "antibiotic class") +
-  facet_wrap(~height) +
-  theme_minimal(base_size = 12)
+  geom_text(size = 2, position = position_stack(vjust = 0.5), colour = "grey10") +
+  scale_fill_manual(values = brewer.pal("Spectral", n = 11),
+                    labels = c("Aminoglycosides",
+                               "Beta-lactams",
+                               "Macrolides and\nlincosamides",
+                               "Other",
+                               "Chloramphenicol",
+                               "Quinolones",
+                               "Sulfonamides and\ntrimethoprim",
+                               "Tetracyclines")) +
+  scale_x_discrete(labels = c("~20 cm from\n ground", "~1m from\n ground", "~20 cm from\n surface")) +
+  labs(y = "Number of different compounds detected", x = "Pile height",
+       fill = "Target antibiotic class") +
+  theme_bw(base_size = 12)
 
 box_chem_location_study %>%
   ggplot(aes(x = day, y = group_area, fill = class)) +

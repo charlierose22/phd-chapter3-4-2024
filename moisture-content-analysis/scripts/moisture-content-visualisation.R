@@ -9,6 +9,7 @@ library(skimr)
 library(scales)
 library(gridExtra)
 library(RColorBrewer)
+library(grafify)
 
 # import moisture data from folder
 moisture_data <- readxl::read_excel("moisture-content-analysis/data/raw-data/Moisture Content Analysis.xlsx",
@@ -62,9 +63,11 @@ ggplot() +
                 width = 1) +
   scale_y_continuous(labels = function(x) paste0(x, "%"),
                      limits = c(0,100)) +
-  labs(x = "Day",
-       y = "% Moisture Content") +
-  theme_minimal(base_size = 12)
+  scale_x_continuous(limits = c(0, 30), 
+                     breaks = c(0, 5, 10, 15, 20, 25, 30)) +
+  labs(x = "Day of Drying Period",
+       y = "% Moisture Content of the Biosolid Pile") +
+  theme_bw(base_size = 12)
 
 # simple graph
 moisture_stats_height %>%
@@ -83,7 +86,11 @@ moisture_stats_height %>%
                 width = 1) +
   scale_y_continuous(labels = function(x) paste0(x, "%"),
                      limits = c(0,100)) +
-  labs(x = "Day",
-       y = "% Moisture Content",
-       colour = "Height") +
-  theme_minimal(base_size = 12)
+  scale_x_continuous(limits = c(0, 30), 
+                     breaks = c(0, 5, 10, 15, 20, 25, 30)) +
+  scale_colour_grafify(palette = "vibrant",
+                     labels = c("~20 cm from\nthe ground", "~1m from\nthe ground", "~20 cm from\nthe surface")) +
+  labs(x = "Day of Drying Period",
+       y = "% Moisture Content of the Biosolid Pile",
+       colour = "Height in the\nBiosolid Pile") +
+  theme_bw(base_size = 12)
