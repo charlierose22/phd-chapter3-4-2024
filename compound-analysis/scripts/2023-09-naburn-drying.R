@@ -3,6 +3,11 @@ library(tidyverse)
 library(fuzzyjoin)
 library(stringi)
 library(ggforce)
+library(RColorBrewer)
+library(grafify)
+library(ggrepel)
+library(ggtext)
+library(dygraphs)
 
 # IMPORT YOUR CD DATA
 drying_compounds <- readr::read_delim(
@@ -205,9 +210,9 @@ location_classes_means$class <- location_classes_means$class %>%
 location_classes_box$class <- location_classes_box$class %>%
   replace_na('unknown')
 
-location_classes_means_drop <- location_classes_means[grepl('unknown|antifungal', 
+location_classes_means_drop <- location_classes_means[!grepl('unknown|antifungal', 
                                                             location_classes_means$class), ]
-location_classes_box_drop <- location_classes_box[grepl('unknown|antifungal', 
+location_classes_box_drop <- location_classes_box[!grepl('unknown|antifungal', 
                                                             location_classes_box$class), ]
 
 # create separate data sets for location study and time series.
@@ -288,7 +293,6 @@ chem_loc_tet <- split_location_compound$tetracycline
 
 split_time_compound <- split(chem_time_study, chem_time_study$class)
 chem_time_amino <- split_time_compound$aminoglycoside
-chem_time_fung <- split_time_compound$antifungal
 chem_time_beta <- split_time_compound$`beta-lactam`
 chem_time_glyc <- split_time_compound$glycopeptide_metronidazole
 chem_time_mac <- split_time_compound$macrolide_lincosamide
@@ -332,7 +336,7 @@ chem_count_time <- chem_time_study %>%
 chem_count_loc %>% 
   ggplot(aes(fill = class, y = count, x = height, label = count)) + 
   geom_bar(position = "stack", stat = "identity") +
-  geom_text(size = 2, position = position_stack(vjust = 0.5), colour = "grey10") +
+  geom_text(size = 3, position = position_stack(vjust = 0.5), colour = "grey10") +
   scale_fill_manual(values = brewer.pal("Spectral", n = 11),
                     labels = c("Aminoglycosides",
                                "Beta-lactams",
@@ -344,7 +348,7 @@ chem_count_loc %>%
                                "Tetracyclines")) +
   scale_x_discrete(labels = c("~20 cm from\n ground", "~1m from\n ground", "~20 cm from\n surface")) +
   labs(y = "Number of different compounds detected", x = "Pile height",
-       fill = "Target antibiotic class") +
+       fill = "Antibiotic compound class") +
   theme_bw(base_size = 12)
 
 box_chem_location_study %>%
@@ -353,15 +357,13 @@ box_chem_location_study %>%
   scale_y_continuous(trans='log10') +
   scale_fill_manual(values = brewer.pal("Spectral", n = 10),
                     labels = c("aminoglycoside",
-                               "antifungal",
                                "beta-lactam",
                                "macrolide lincosamide",
                                "other",
                                "phenicol",
                                "quinolone",
                                "sulfonamide and\ntrimethoprim",
-                               "tetracycline",
-                               "unknown")) +
+                               "tetracycline")) +
   labs(x = "day", y = "compound intensity", fill = "antibiotic class") +
   facet_grid(rows = vars(height)) +
   theme_minimal(base_size = 12)
@@ -400,27 +402,6 @@ box_chem_loc_beta %>%
 
 # per gene
 box_chem_loc_beta %>%
-  ggplot(aes(x = day, y = group_area, fill = height)) +
-  geom_boxplot() +
-  scale_y_continuous(trans='log10') +
-  scale_fill_manual(values = brewer.pal("Accent", n = 3)) +
-  labs(x = "day", y = "relative abundance", fill = "height") +
-  facet_wrap(~name.x) +
-  theme_minimal(base_size = 12)
-
-# antifungal location
-box_chem_loc_fung %>%
-  ggplot(aes(x = height, y = group_area, fill = height)) +
-  geom_boxplot() +
-  geom_jitter(position=position_jitter(0.2), color = "antiquewhite4", shape = 4) +
-  scale_y_continuous(trans='log10') +
-  scale_fill_manual(values = brewer.pal("Accent", n = 3)) +
-  labs(x = "height", y = "compound intensity", fill = "height") +
-  facet_wrap(~day) +
-  theme_minimal(base_size = 12)
-
-# per gene
-box_chem_loc_fung %>%
   ggplot(aes(x = day, y = group_area, fill = height)) +
   geom_boxplot() +
   scale_y_continuous(trans='log10') +
@@ -555,27 +536,6 @@ box_chem_loc_tet %>%
   facet_wrap(~name.x) +
   theme_minimal(base_size = 12)
 
-# unknown location
-box_chem_loc_unknown %>%
-  ggplot(aes(x = height, y = group_area, fill = height)) +
-  geom_boxplot() +
-  geom_jitter(position=position_jitter(0.2), color = "antiquewhite4", shape = 4) +
-  scale_y_continuous(trans='log10') +
-  scale_fill_manual(values = brewer.pal("Accent", n = 3)) +
-  labs(x = "height", y = "compound intensity", fill = "height") +
-  facet_wrap(~day) +
-  theme_minimal(base_size = 12)
-
-# per gene
-box_chem_loc_unknown %>%
-  ggplot(aes(x = day, y = group_area, fill = height)) +
-  geom_boxplot() +
-  scale_y_continuous(trans='log10') +
-  scale_fill_manual(values = brewer.pal("Accent", n = 3)) +
-  labs(x = "day", y = "relative abundance", fill = "height") +
-  facet_wrap(~name.x) +
-  theme_minimal(base_size = 12)
-
 # TIME ------------
 chem_mean_time_total %>%
   ggplot(aes(x = day, y = mean, colour = class)) +
@@ -624,20 +584,6 @@ chem_time_amino %>%
 
 # beta over time
 chem_time_beta %>%
-  ggplot(aes(x = day, y = mean, colour = name.x)) +
-  geom_point(shape = 15) +
-  geom_errorbar(aes(x = day,
-                    ymin = mean - se,
-                    ymax = mean + se),
-                width = .6) +
-  geom_line() +
-  labs(x = "day", y = "intensity", color = "compound name") +
-  scale_y_continuous(trans='log10') +
-  scale_color_manual(values = darkpalette) +
-  theme_minimal(base_size = 12)
-
-# antifungal over time
-chem_time_fung %>%
   ggplot(aes(x = day, y = mean, colour = name.x)) +
   geom_point(shape = 15) +
   geom_errorbar(aes(x = day,
@@ -734,17 +680,3 @@ chem_time_tet %>%
   scale_y_continuous(trans='log10') +
   scale_color_manual(values = darkpalette) +
   theme_minimal(base_size = 12)
-
-# unknown over time
-chem_time_unknown %>%
-  ggplot(aes(x = day, y = mean, colour = name.x)) +
-  geom_point(shape = 15) +
-  geom_errorbar(aes(x = day,
-                    ymin = mean - se,
-                    ymax = mean + se),
-                width = .6) +
-  geom_line() +
-  labs(x = "day", y = "intensity", color = "compound name") +
-  scale_y_continuous(trans='log10') +
-  theme_minimal(base_size = 12) +
-  theme(legend.position="bottom")
