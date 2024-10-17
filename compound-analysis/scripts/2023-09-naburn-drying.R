@@ -337,18 +337,18 @@ chem_count_loc %>%
   ggplot(aes(fill = class, y = count, x = height, label = count)) + 
   geom_bar(position = "stack", stat = "identity") +
   geom_text(size = 3, position = position_stack(vjust = 0.5), colour = "grey10") +
-  scale_fill_manual(values = brewer.pal("Spectral", n = 11),
+  scale_fill_manual(values = brewer.pal("Spectral", n = 8),
                     labels = c("Aminoglycosides",
                                "Beta-lactams",
-                               "Macrolides and\nlincosamides",
+                               "Macrolides and\nLincosamides",
                                "Other",
                                "Chloramphenicol",
                                "Quinolones",
-                               "Sulfonamides and\ntrimethoprim",
+                               "Sulfonamides and\nTrimethoprim",
                                "Tetracyclines")) +
-  scale_x_discrete(labels = c("~20 cm from\n ground", "~1m from\n ground", "~20 cm from\n surface")) +
-  labs(y = "Number of different compounds detected", x = "Pile height",
-       fill = "Antibiotic compound class") +
+  scale_x_discrete(labels = c("~20 cm from\nthe ground", "~1m from\nthe ground", "~20 cm from\nthe surface")) +
+  labs(y = "Number of Different Compounds Detected", x = "Height in the Biosolid Pile",
+       fill = "Antibiotic Compound Class") +
   theme_bw(base_size = 12)
 
 box_chem_location_study %>%
