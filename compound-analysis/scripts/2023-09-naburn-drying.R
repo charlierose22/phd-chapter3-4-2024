@@ -215,6 +215,10 @@ location_classes_means_drop <- location_classes_means[!grepl('unknown|antifungal
 location_classes_box_drop <- location_classes_box[!grepl('unknown|antifungal', 
                                                             location_classes_box$class), ]
 
+# capitalise names
+location_classes_means_drop$name.x <- str_to_title(location_classes_means_drop$name.x)
+location_classes_box_drop$name.x <- str_to_title(location_classes_box_drop$name.x)
+
 # create separate data sets for location study and time series.
 chem_location_study <- location_classes_means_drop[grepl('\\<01\\>|\\<29\\>', 
                                                     location_classes_means_drop$day), ]
@@ -537,6 +541,29 @@ box_chem_loc_tet %>%
   theme_minimal(base_size = 12)
 
 # TIME ------------
+# stacked area plot
+stacked_time_compound <- box_chem_time_study %>% 
+  group_by(day, class) %>%
+  summarise(n = sum(group_area)) %>%
+  mutate(percentage = n / sum(n))
+
+# time_chem
+ggplot(stacked_time_compound, aes(x=day, y=percentage, fill=class)) + 
+  geom_area(alpha=0.6 , size=0.5, colour="black") +
+  scale_fill_manual(values = brewer.pal("Spectral", n = 11),
+                    labels = c("Aminoglycosides",
+                               "Beta-Lactams",
+                               "Glycopeptides and\nMetronidazole",
+                               "Macrolides and\nLincosamides",
+                               "Other",
+                               "Phenicols",
+                               "Quinolones",
+                               "Sulfonamides and\nTrimethoprim",
+                               "Tetracyclines")) +
+  labs(x = "Day of Drying Period", y = "Proportion of Peak Intensities", fill = "Antibiotic Class") +
+  theme_bw(base_size = 12)
+
+# total over time
 chem_mean_time_total %>%
   ggplot(aes(x = day, y = mean, colour = class)) +
   geom_point(shape = 15) +
@@ -545,28 +572,22 @@ chem_mean_time_total %>%
                     ymax = mean + se),
                 width = .6) +
   geom_line() +
-  labs(x = "day", y = "compound intensity") +
-  scale_color_manual(values = darkpalette) +
-  geom_text_repel(
-    data = chem_mean_time_total %>% filter(day == 29),
-    aes(color = class, label = class),
-    direction = "y",
-    xlim = c(40, NA),
-    hjust = 0,
-    segment.size = .7,
-    segment.alpha = .5,
-    segment.linetype = "dotted",
-    box.padding = .4,
-    segment.curvature = -0.1,
-    segment.ncp = 3,
-    segment.angle = 20) +
+  labs(x = "Day of Drying Period", y = "UHPLC Peak Intensity (Log10)", color = "Antibiotic Class") +
+  scale_color_grafify(palette = "kelly",
+                      labels = c("Aminoglycosides",
+                                 "Beta-Lactams",
+                                 "Glycopeptides and\nMetronidazole",
+                                 "Macrolides and\nLincosamides",
+                                 "Other",
+                                 "Phenicols",
+                                 "Quinolones",
+                                 "Sulfonamides and\nTrimethoprim",
+                                 "Tetracyclines")) +
   scale_y_continuous(trans='log10') +
-  scale_x_continuous(
-    expand = c(0, 0),
-    limits = c(0, 40), 
-    breaks = seq(0, 30, by = 5)) +
-  theme_minimal(base_size = 12) +
-  theme(legend.position = "none")
+  scale_x_continuous(limits = c(0, 30), 
+                     breaks = c(0, 5, 10, 15, 20, 25, 30)) +
+  theme_bw(base_size = 12) +
+  theme(legend.position = "bottom")
 
 # aminolgycoside over time
 chem_time_amino %>%
@@ -577,10 +598,12 @@ chem_time_amino %>%
                     ymax = mean + se),
                 width = .6) +
   geom_line() +
-  labs(x = "day", y = "intensity", color = "compound name") +
-  scale_y_continuous(trans='log10') +
-  scale_color_manual(values = darkpalette) +
-  theme_minimal(base_size = 12)
+  labs(x = "Day of Drying Period", y = "UHPLC Peak Intensity", color = "Compound Name") +
+  scale_color_grafify(palette = "kelly") +
+  scale_x_continuous(limits = c(0, 30), 
+                     breaks = c(0, 5, 10, 15, 20, 25, 30)) +
+  theme_bw(base_size = 12) +
+  theme(legend.position = "bottom")
 
 # beta over time
 chem_time_beta %>%
@@ -591,10 +614,12 @@ chem_time_beta %>%
                     ymax = mean + se),
                 width = .6) +
   geom_line() +
-  labs(x = "day", y = "intensity", color = "compound name") +
-  scale_y_continuous(trans='log10') +
-  scale_color_manual(values = darkpalette) +
-  theme_minimal(base_size = 12)
+  labs(x = "Day of Drying Period", y = "UHPLC Peak Intensity", color = "Compound Name") +
+  scale_color_grafify(palette = "kelly") +
+  scale_x_continuous(limits = c(0, 30), 
+                     breaks = c(0, 5, 10, 15, 20, 25, 30)) +
+  theme_bw(base_size = 12) +
+  theme(legend.position = "bottom")
 
 # mac over time
 chem_time_mac %>%
@@ -605,10 +630,12 @@ chem_time_mac %>%
                     ymax = mean + se),
                 width = .6) +
   geom_line() +
-  labs(x = "day", y = "intensity", color = "compound name") +
-  scale_y_continuous(trans='log10') +
-  scale_color_manual(values = darkpalette) +
-  theme_minimal(base_size = 12)
+  labs(x = "Day of Drying Period", y = "UHPLC Peak Intensity", color = "Compound Name") +
+  scale_color_grafify(palette = "kelly") +
+  scale_x_continuous(limits = c(0, 30), 
+                     breaks = c(0, 5, 10, 15, 20, 25, 30)) +
+  theme_bw(base_size = 12) +
+  theme(legend.position = "bottom")
 
 # other over time
 chem_time_other %>%
@@ -619,10 +646,12 @@ chem_time_other %>%
                     ymax = mean + se),
                 width = .6) +
   geom_line() +
-  labs(x = "day", y = "intensity", color = "compound name") +
-  scale_y_continuous(trans='log10') +
-  scale_color_manual(values = darkpalette) +
-  theme_minimal(base_size = 12)
+  labs(x = "Day of Drying Period", y = "UHPLC Peak Intensity", color = "Compound Name") +
+  scale_color_grafify(palette = "kelly") +
+  scale_x_continuous(limits = c(0, 30), 
+                     breaks = c(0, 5, 10, 15, 20, 25, 30)) +
+  theme_bw(base_size = 12) +
+  theme(legend.position = "bottom")
 
 # phen over time
 chem_time_phen %>%
@@ -633,10 +662,12 @@ chem_time_phen %>%
                     ymax = mean + se),
                 width = .6) +
   geom_line() +
-  labs(x = "day", y = "intensity", color = "compound name") +
-  scale_y_continuous(trans='log10') +
-  scale_color_manual(values = darkpalette) +
-  theme_minimal(base_size = 12)
+  labs(x = "Day of Drying Period", y = "UHPLC Peak Intensity", color = "Compound Name") +
+  scale_color_grafify(palette = "vibrant") +
+  scale_x_continuous(limits = c(0, 30), 
+                     breaks = c(0, 5, 10, 15, 20, 25, 30)) +
+  theme_bw(base_size = 12) +
+  theme(legend.position = "bottom")
 
 # quin over time
 chem_time_quin %>%
@@ -647,10 +678,12 @@ chem_time_quin %>%
                     ymax = mean + se),
                 width = .6) +
   geom_line() +
-  labs(x = "day", y = "intensity", color = "compound name") +
-  scale_y_continuous(trans='log10') +
-  scale_color_manual(values = darkpalette) +
-  theme_minimal(base_size = 12)
+  labs(x = "Day of Drying Period", y = "UHPLC Peak Intensity", color = "Compound Name") +
+  scale_color_grafify(palette = "kelly") +
+  scale_x_continuous(limits = c(0, 30), 
+                     breaks = c(0, 5, 10, 15, 20, 25, 30)) +
+  theme_bw(base_size = 12) +
+  theme(legend.position = "bottom")
 
 # sulf over time
 chem_time_sulf %>%
@@ -661,11 +694,12 @@ chem_time_sulf %>%
                     ymax = mean + se),
                 width = .6) +
   geom_line() +
-  labs(x = "day", y = "intensity", color = "compound name") +
-  scale_y_continuous(trans='log10') +
-  scale_color_manual(values = darkpalette) +
-  theme_minimal(base_size = 12) +
-  theme(legend.position="bottom")
+  labs(x = "Day of Drying Period", y = "UHPLC Peak Intensity", color = "Compound Name") +
+  scale_color_grafify(palette = "kelly") +
+  scale_x_continuous(limits = c(0, 30), 
+                     breaks = c(0, 5, 10, 15, 20, 25, 30)) +
+  theme_bw(base_size = 12) +
+  theme(legend.position = "bottom")
 
 # tet over time
 chem_time_tet %>%
@@ -676,7 +710,9 @@ chem_time_tet %>%
                     ymax = mean + se),
                 width = .6) +
   geom_line() +
-  labs(x = "day", y = "intensity", color = "compound name") +
-  scale_y_continuous(trans='log10') +
-  scale_color_manual(values = darkpalette) +
-  theme_minimal(base_size = 12)
+  labs(x = "Day of Drying Period", y = "UHPLC Peak Intensity", color = "Compound Name") +
+  scale_color_grafify(palette = "kelly") +
+  scale_x_continuous(limits = c(0, 30), 
+                     breaks = c(0, 5, 10, 15, 20, 25, 30)) +
+  theme_bw(base_size = 12) +
+  theme(legend.position = "bottom")

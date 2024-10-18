@@ -16,6 +16,9 @@ moisture_data <- readxl::read_excel("moisture-content-analysis/data/raw-data/Moi
                                     sheet = "Modified") %>%
   janitor::clean_names()
 
+weather_data <- readxl::read_excel("moisture-content-analysis/data/Weather Data Topcliffe.xlsx") %>%
+  janitor::clean_names()
+
 grouped <- moisture_data %>% 
   group_by(date, pile_height)
 
@@ -47,7 +50,9 @@ moisture_stats <- moisture_number %>%
 moisture_stats$mean <- moisture_stats$mean * 100
 
 moisture_stats %>% skim()
-moisture_stats_height %>% skim()
+moisture_stats_height %>% skim
+
+weather_data$day = row_number(weather_data)
 
 # simple graph
 moisture_stats %>%
@@ -67,6 +72,19 @@ ggplot() +
                      breaks = c(0, 5, 10, 15, 20, 25, 30)) +
   labs(x = "Day of Drying Period",
        y = "% Moisture Content of the Biosolid Pile") +
+  theme_bw(base_size = 12)
+
+# weather graph
+weather_data %>%
+  ggplot(aes(x = day, y = avg_temp, ymin = min_temp, ymax = max_temp)) + 
+  geom_line(color = "black", size = 1) +
+  geom_ribbon(fill = "indianred", alpha = 0.3) +
+  geom_bar(aes(y = precipitation), stat = "identity", size = .1, fill = "lightseagreen", alpha = .4) + 
+  scale_x_continuous(limits = c(0, 30), 
+                     breaks = c(0, 5, 10, 15, 20, 25, 30)) +
+  scale_y_continuous(name = "Temperature (°C)", 
+                     sec.axis = sec_axis(~ . * 1, name = "Precipitation (mm)")) +
+  labs(x = "Day of Drying Period") +
   theme_bw(base_size = 12)
 
 # simple graph

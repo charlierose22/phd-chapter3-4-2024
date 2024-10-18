@@ -3,6 +3,7 @@ library(grafify)
 library(ggrepel)
 library(ggtext)
 library(dygraphs)
+library(ggtext)
 darkpalette <- c("firebrick4",
                  "orangered1",
                  "darkgoldenrod2",
@@ -95,18 +96,18 @@ count_loc %>%
   scale_fill_manual(values = brewer.pal("Spectral", n = 11),
                     labels = c("Aminoglycosides",
                                "Beta-lactams",
-                               "Glycopeptides and\nmetronidazole",
+                               "Glycopeptides and\nMetronidazole",
                                "MLSB",
                                "Multi-drug resistance",
-                               "MGEs and integrons",
+                               "MGEs and Integrons",
                                "Other",
-                               "Chloramphenicol",
+                               "Phenicols",
                                "Quinolones",
-                               "Sulfonamides and\ntrimethoprim",
+                               "Sulfonamides and\nTrimethoprim",
                                "Tetracyclines")) +
-  scale_x_discrete(labels = c("~20 cm from\n ground", "~1m from\n ground", "~20 cm from\n surface")) +
-  labs(y = "Number of different genes detected", x = "Pile height",
-       fill = "Target antibiotic class") +
+  scale_x_discrete(labels = c("~20 cm from\nthe ground", "~1m from\nthe ground", "~20 cm from\nthe surface")) +
+  labs(y = "Number of Different Genes Detected", x = "Height in the Biosolid Pile",
+       fill = "Target Antibiotic Class") +
   theme_bw(base_size = 12)
 
 # total location
@@ -411,17 +412,17 @@ loc_box_tet %>%
   theme_bw(base_size = 12)
 
 # TIME -------------------------------------
-labels <- c("aminoglycoside",
-           "beta-lactam",
-           "glycopeptide and\nmetronidazole",
-           "macrolide lincosamide",
-           "multi-drug resistance",
-           "mobile genetic elements\nand integrons",
-           "other",
-           "phenicol",
-           "quinolone",
-           "sulfonamide and\ntrimethoprim",
-           "tetracycline")
+labels <- c("Aminoglycosides",
+            "Beta-lactams",
+            "Glycopeptides and\nMetronidazole",
+            "MLSB",
+            "Multi-drug Resistance",
+            "MGEs and Integrons",
+            "Other",
+            "Chloramphenicol",
+            "Quinolones",
+            "Sulfonamides and\ntrimethoprim",
+            "Tetracyclines")
 
 # stacked area plot
 stacked_time_gene <- time_study %>% 
@@ -434,17 +435,17 @@ ggplot(stacked_time_gene, aes(x=day, y=percentage, fill=class)) +
   geom_area(alpha=0.6 , size=0.5, colour="black") +
   scale_fill_manual(values = brewer.pal("Spectral", n = 11),
                     labels = c("Aminoglycosides",
-                               "Beta-lactams",
-                               "Glycopeptides and\nmetronidazole",
+                               "Beta-Lactams",
+                               "Glycopeptides and\nMetronidazole",
                                "MLSB",
-                               "Multi-drug resistance",
-                               "MGEs and integrons",
+                               "Multi-Drug Resistance",
+                               "MGEs and Integrons",
                                "Other",
                                "Chloramphenicol",
                                "Quinolones",
-                               "Sulfonamides and\ntrimethoprim",
+                               "Sulfonamides and\nTrimethoprim",
                                "Tetracyclines")) +
-  labs(x = "Day", y = "Proportion of gene abundance", fill = "Target antibiotic class") +
+  labs(x = "Day of Drying Period", y = "Proportion of Relative Gene Abundance", fill = "Target Antibiotic Class") +
   theme_bw(base_size = 12)
 
 # stacked area plot
@@ -453,11 +454,20 @@ stacked_time_mechanism <- time_study %>%
   summarise(n = sum(delta_ct)) %>%
   mutate(percentage = n / sum(n))
 
-# time_gene
-ggplot(stacked_time_mechanism, aes(x=day, y=percentage, fill=mechanism)) + 
-  geom_area(alpha=0.6 , size=0.5, colour="black") +
-  scale_fill_grafify(palette = "kelly") +
-  labs(x = "Day", y = "Proportion of gene abundance", fill = "Type of resistance\nmechanism") +
+# time_mechanism
+ggplot(stacked_time_mechanism, aes(x = day, y = percentage, fill = mechanism)) + 
+  geom_area(alpha = 0.6 , size = 0.5, colour = "black") +
+  scale_fill_manual(values = brewer.pal("Spectral", n = 9),
+                    labels = c("Antibiotic Deactivation",
+                               "Antibiotic Target Alteration",
+                               "Antibiotic Target Protection",
+                               "Antibiotic Target Replacement",
+                               "Efflux Pumps",
+                               "Insertion Sequence",
+                               "Integrase",
+                               "Phage",
+                               "Transposase")) +
+  labs(x = "Day of Drying Period", y = "Proportion of Relative Gene Abundance", fill = "Type of Resistance\nMechanism") +
   theme_bw(base_size = 12)
 
 # aminolgycoside over time
@@ -469,10 +479,12 @@ time_amino %>%
                     ymax = mean + se),
                 width = .6) +
   geom_line() +
-  labs(x = "day", y = "relative abundance", color = "gene") +
-  scale_color_manual(values = darkpalette) +
-  facet_wrap(~gene) +
-  theme_bw(base_size = 12)
+  labs(x = "Day of Drying Period", y = "Relative Gene Abundance (∆Ct)", color = "Gene Name") +
+  scale_color_grafify(palette = "kelly") +
+  scale_x_continuous(limits = c(0, 30), 
+                     breaks = c(0, 5, 10, 15, 20, 25, 30)) +
+  theme_bw(base_size = 12) +
+  theme(legend.position = "bottom")
 
 # beta-lactam over time
 time_beta %>%
@@ -483,9 +495,12 @@ time_beta %>%
                     ymax = mean + se),
                 width = .6) +
   geom_line() +
-  labs(x = "day", y = "relative abundance", color = "gene") +
-  scale_color_manual(values = darkpalette) +
-  theme_minimal(base_size = 12)
+  labs(x = "Day of Drying Period", y = "Relative Gene Abundance (∆Ct)", color = "Gene Name") +
+  scale_color_grafify(palette = "kelly") +
+  scale_x_continuous(limits = c(0, 30), 
+                     breaks = c(0, 5, 10, 15, 20, 25, 30)) +
+  theme_bw(base_size = 12) +
+  theme(legend.position = "bottom")
 
 # glyc over time
 time_glyc %>%
@@ -496,9 +511,12 @@ time_glyc %>%
                     ymax = mean + se),
                 width = .6) +
   geom_line() +
-  labs(x = "day", y = "relative abundance", color = "gene") +
-  scale_color_manual(values = darkpalette) +
-  theme_minimal(base_size = 12)
+  labs(x = "Day of Drying Period", y = "Relative Gene Abundance (∆Ct)", color = "Gene Name") +
+  scale_color_grafify(palette = "kelly") +
+  scale_x_continuous(limits = c(0, 30), 
+                     breaks = c(0, 5, 10, 15, 20, 25, 30)) +
+  theme_bw(base_size = 12) +
+  theme(legend.position = "bottom")
 
 # macrolide over time
 time_mac %>%
@@ -509,9 +527,12 @@ time_mac %>%
                     ymax = mean + se),
                 width = .6) +
   geom_line() +
-  labs(x = "day", y = "relative abundance", color = "gene") +
-  scale_color_manual(values = darkpalette) +
-  theme_minimal(base_size = 12)
+  labs(x = "Day of Drying Period", y = "Relative Gene Abundance (∆Ct)", color = "Gene Name") +
+  scale_color_grafify(palette = "kelly") +
+  scale_x_continuous(limits = c(0, 30), 
+                     breaks = c(0, 5, 10, 15, 20, 25, 30)) +
+  theme_bw(base_size = 12) +
+  theme(legend.position = "bottom")
 
 # mdr over time
 time_mdr %>%
@@ -522,9 +543,12 @@ time_mdr %>%
                     ymax = mean + se),
                 width = .6) +
   geom_line() +
-  labs(x = "day", y = "relative abundance", color = "gene") +
-  scale_color_manual(values = darkpalette) +
-  theme_minimal(base_size = 12)
+  labs(x = "Day of Drying Period", y = "Relative Gene Abundance (∆Ct)", color = "Gene Name") +
+  scale_color_grafify(palette = "kelly") +
+  scale_x_continuous(limits = c(0, 30), 
+                     breaks = c(0, 5, 10, 15, 20, 25, 30)) +
+  theme_bw(base_size = 12) +
+  theme(legend.position = "bottom")
 
 # mge over time
 time_mge %>%
@@ -535,9 +559,12 @@ time_mge %>%
                     ymax = mean + se),
                 width = .6) +
   geom_line() +
-  labs(x = "day", y = "relative abundance", color = "gene") +
-  scale_color_manual(values = darkpalette) +
-  theme_minimal(base_size = 12)
+  labs(x = "Day of Drying Period", y = "Relative Gene Abundance (∆Ct)", color = "Gene Name") +
+  scale_color_grafify(palette = "kelly") +
+  scale_x_continuous(limits = c(0, 30), 
+                     breaks = c(0, 5, 10, 15, 20, 25, 30)) +
+  theme_bw(base_size = 12) +
+  theme(legend.position = "bottom")
 
 # other over time
 time_other %>%
@@ -548,9 +575,12 @@ time_other %>%
                     ymax = mean + se),
                 width = .6) +
   geom_line() +
-  labs(x = "day", y = "relative abundance", color = "gene") +
-  scale_color_manual(values = darkpalette) +
-  theme_minimal(base_size = 12)
+  labs(x = "Day of Drying Period", y = "Relative Gene Abundance (∆Ct)", color = "Gene Name") +
+  scale_color_grafify(palette = "kelly") +
+  scale_x_continuous(limits = c(0, 30), 
+                     breaks = c(0, 5, 10, 15, 20, 25, 30)) +
+  theme_bw(base_size = 12) +
+  theme(legend.position = "bottom")
 
 # phen over time
 time_phen %>%
@@ -561,9 +591,12 @@ time_phen %>%
                     ymax = mean + se),
                 width = .6) +
   geom_line() +
-  labs(x = "day", y = "relative abundance", color = "gene") +
-  scale_color_manual(values = darkpalette) +
-  theme_minimal(base_size = 12)
+  labs(x = "Day of Drying Period", y = "Relative Gene Abundance (∆Ct)", color = "Gene Name") +
+  scale_color_grafify(palette = "kelly") +
+  scale_x_continuous(limits = c(0, 30), 
+                     breaks = c(0, 5, 10, 15, 20, 25, 30)) +
+  theme_bw(base_size = 12) +
+  theme(legend.position = "bottom")
 
 # quin over time
 time_quin %>%
@@ -574,9 +607,12 @@ time_quin %>%
                     ymax = mean + se),
                 width = .6) +
   geom_line() +
-  labs(x = "day", y = "relative abundance", color = "gene") +
-  scale_color_manual(values = darkpalette) +
-  theme_minimal(base_size = 12)
+  labs(x = "Day of Drying Period", y = "Relative Gene Abundance (∆Ct)", color = "Gene Name") +
+  scale_color_grafify(palette = "kelly") +
+  scale_x_continuous(limits = c(0, 30), 
+                     breaks = c(0, 5, 10, 15, 20, 25, 30)) +
+  theme_bw(base_size = 12) +
+  theme(legend.position = "bottom")
 
 # sulf over time
 time_sulf %>%
@@ -587,9 +623,12 @@ time_sulf %>%
                     ymax = mean + se),
                 width = .6) +
   geom_line() +
-  labs(x = "day", y = "relative abundance", color = "gene") +
-  scale_color_manual(values = darkpalette) +
-  theme_minimal(base_size = 12)
+  labs(x = "Day of Drying Period", y = "Relative Gene Abundance (∆Ct)", color = "Gene Name") +
+  scale_color_grafify(palette = "kelly") +
+  scale_x_continuous(limits = c(0, 30), 
+                     breaks = c(0, 5, 10, 15, 20, 25, 30)) +
+  theme_bw(base_size = 12) +
+  theme(legend.position = "bottom")
 
 # tet over time
 time_tet %>%
@@ -600,6 +639,9 @@ time_tet %>%
                     ymax = mean + se),
                 width = .6) +
   geom_line() +
-  labs(x = "day", y = "relative abundance", color = "gene") +
-  scale_color_manual(values = darkpalette) +
-  theme_minimal(base_size = 12)
+  labs(x = "Day of Drying Period", y = "Relative Gene Abundance (∆Ct)", color = "Gene Name") +
+  scale_color_grafify(palette = "kelly") +
+  scale_x_continuous(limits = c(0, 30), 
+                     breaks = c(0, 5, 10, 15, 20, 25, 30)) +
+  theme_bw(base_size = 12) +
+  theme(legend.position = "bottom")
