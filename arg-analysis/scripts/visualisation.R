@@ -432,7 +432,7 @@ stacked_time_gene <- time_study %>%
 
 # time_gene
 ggplot(stacked_time_gene, aes(x=day, y=percentage, fill=class)) + 
-  geom_area(alpha=0.6 , size=0.5, colour="black") +
+  geom_area(alpha=0.6 , linewidth=0.5, colour="black") +
   scale_fill_manual(values = brewer.pal("Spectral", n = 11),
                     labels = c("Aminoglycosides",
                                "Beta-Lactams",
