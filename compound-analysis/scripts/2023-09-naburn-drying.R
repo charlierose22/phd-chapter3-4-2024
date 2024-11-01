@@ -202,8 +202,6 @@ location_classes_box <- antibiotics %>%
                   by = c("name" = "name"),
                   match_fun = str_detect)
 
-
-
 # drop_na
 location_classes_means$class <- location_classes_means$class %>%
   replace_na('unknown')
@@ -220,11 +218,11 @@ location_classes_means_drop$name.x <- str_to_title(location_classes_means_drop$n
 location_classes_box_drop$name.x <- str_to_title(location_classes_box_drop$name.x)
 
 # create separate data sets for location study and time series.
-chem_location_study <- location_classes_means_drop[grepl('\\<01\\>|\\<29\\>', 
+chem_location_study <- location_classes_means_drop[grepl('\\<29\\>', 
                                                     location_classes_means_drop$day), ]
 chem_time_study <- location_classes_means_drop[grepl('bottom',
                                                 location_classes_means_drop$height), ]
-box_chem_location_study <- location_classes_box_drop[grepl('\\<01\\>|\\<29\\>', 
+box_chem_location_study <- location_classes_box_drop[grepl('\\<29\\>', 
                                                       location_classes_box_drop$day), ]
 box_chem_time_study <- location_classes_box_drop[grepl('bottom',
                                                   location_classes_box_drop$height), ]
@@ -328,6 +326,25 @@ box_chem_time_quin <- box_split_time_compound$quinolone
 box_chem_time_sulf <- box_split_time_compound$sulfonamide_trimethoprim
 box_chem_time_tet <- box_split_time_compound$tetracycline
 
+# edit class names for facets
+box_chem_time_study$class <- str_to_title(box_chem_time_study$class)
+box_chem_location_study$class <- str_to_title(box_chem_location_study$class)
+chem_time_study$class <- str_to_title(chem_time_study$class)
+chem_location_study$class <- str_to_title(chem_location_study$class)
+
+box_chem_time_study$class <- str_replace_all(box_chem_time_study$class,'Beta-Lactam','Beta-lactam')
+box_chem_time_study$class <- str_replace_all(box_chem_time_study$class,'Macrolide_lincosamide','Macrolides and Lincosamides')
+box_chem_time_study$class <- str_replace_all(box_chem_time_study$class,'Sulfonamide_trimethoprim','Sulfonamides and Trimethoprim')
+box_chem_location_study$class <- str_replace_all(box_chem_location_study$class,'Beta-Lactam','Beta-lactam')
+box_chem_location_study$class <- str_replace_all(box_chem_location_study$class,'Macrolide_lincosamide','Macrolides and Lincosamides')
+box_chem_location_study$class <- str_replace_all(box_chem_location_study$class,'Sulfonamide_trimethoprim','Sulfonamides and Trimethoprim')
+chem_time_study$class <- str_replace_all(chem_time_study$class,'Beta-Lactam','Beta-lactam')
+chem_time_study$class <- str_replace_all(chem_time_study$class,'Macrolide_lincosamide','Macrolides and Lincosamides')
+chem_time_study$class <- str_replace_all(chem_time_study$class,'Sulfonamide_trimethoprim','Sulfonamides and Trimethoprim')
+chem_location_study$class <- str_replace_all(chem_location_study$class,'Beta-Lactam','Beta-lactam')
+chem_location_study$class <- str_replace_all(chem_location_study$class,'Macrolide_lincosamide','Macrolides and Lincosamides')
+chem_location_study$class <- str_replace_all(chem_location_study$class,'Sulfonamide_trimethoprim','Sulfonamides and Trimethoprim')
+
 # count number of genes per class
 chem_count_loc <- chem_location_study %>%
   group_by(class, height) %>% 
@@ -341,57 +358,48 @@ chem_count_loc %>%
   ggplot(aes(fill = class, y = count, x = height, label = count)) + 
   geom_bar(position = "stack", stat = "identity") +
   geom_text(size = 3, position = position_stack(vjust = 0.5), colour = "grey10") +
-  scale_fill_manual(values = brewer.pal("Spectral", n = 8),
-                    labels = c("Aminoglycosides",
-                               "Beta-lactams",
-                               "Macrolides and\nLincosamides",
-                               "Other",
-                               "Chloramphenicol",
-                               "Quinolones",
-                               "Sulfonamides and\nTrimethoprim",
-                               "Tetracyclines")) +
+  scale_fill_manual(values = brewer.pal("Spectral", n = 8)) +
   scale_x_discrete(labels = c("~20 cm from\nthe ground", "~1m from\nthe ground", "~20 cm from\nthe surface")) +
   labs(y = "Number of Different Compounds Detected", x = "Height in the Biosolid Pile",
        fill = "Antibiotic Compound Class") +
   theme_bw(base_size = 12)
 
-box_chem_location_study %>%
-  ggplot(aes(x = day, y = group_area, fill = class)) +
+box_chem_location_study %>% 
+ggplot(aes(x = height, y = group_area, fill = height)) +
   geom_boxplot() +
-  scale_y_continuous(trans='log10') +
-  scale_fill_manual(values = brewer.pal("Spectral", n = 10),
-                    labels = c("aminoglycoside",
-                               "beta-lactam",
-                               "macrolide lincosamide",
-                               "other",
-                               "phenicol",
-                               "quinolone",
-                               "sulfonamide and\ntrimethoprim",
-                               "tetracycline")) +
-  labs(x = "day", y = "compound intensity", fill = "antibiotic class") +
-  facet_grid(rows = vars(height)) +
-  theme_minimal(base_size = 12)
+  scale_y_continuous(trans = 'log10') +
+  scale_fill_grafify(palette = "vibrant",
+                     labels = c("~20 cm from\nthe ground", "~1m from\nthe ground", "~20 cm from\nthe surface")) +
+  scale_x_discrete(labels = c("~20 cm from\nthe ground", "~1m from\nthe ground", "~20 cm from\nthe surface")) +
+  labs(y = "UHPLC Compound Peak Intensity (log10)", x = "Height in the Biosolid Pile",
+       fill = "Height") +
+  facet_wrap(~class, ncol = 3) +
+  theme_bw(base_size = 12)
 
-# aminoglycoside location
+# aminoglycoside total location
 box_chem_loc_amino %>%
   ggplot(aes(x = height, y = group_area, fill = height)) +
   geom_boxplot() +
-  geom_jitter(position=position_jitter(0.2), color = "antiquewhite4", shape = 4) +
-  scale_y_continuous(trans='log10') +
-  scale_fill_manual(values = brewer.pal("Accent", n = 3)) +
-  labs(x = "height", y = "compound intensity", fill = "height") +
-  facet_wrap(~day) +
-  theme_minimal(base_size = 12)
+  geom_jitter(position=position_jitter(0.2), color = "grey35", shape = 4) +
+  scale_y_continuous(trans = "log10") +
+  scale_fill_grafify(palette = "vibrant",
+                     labels = c("~20 cm from\nthe ground", "~20 cm from\nthe surface")) +
+  scale_x_discrete(labels = c("~20 cm from\nthe ground", "~20 cm from\nthe surface")) +
+  labs(x = "Height in the Biosolid Pile", y = "UHPLC Compound Peak Intensity (log10)", fill = "Height in the Biosolid Pile") +
+  theme_bw(base_size = 12)
 
 # per gene
 box_chem_loc_amino %>%
-  ggplot(aes(x = day, y = group_area, fill = height)) +
+  ggplot(aes(x = height, y = delta_ct, fill = height)) +
   geom_boxplot() +
+  geom_jitter(position=position_jitter(0.2), color = "grey35", shape = 4) +
   scale_y_continuous(trans='log10') +
-  scale_fill_manual(values = brewer.pal("Accent", n = 3)) +
-  labs(x = "day", y = "relative abundance", fill = "height") +
-  facet_wrap(~name.x) +
-  theme_minimal(base_size = 12)
+  scale_fill_grafify(palette = "okabe_ito",
+                     labels = c("~20 cm from\n ground", "~1m from\n ground", "~20 cm from\n surface")) +
+  scale_x_discrete(labels = c("~20 cm from\n ground", "~1m from\n ground", "~20 cm from\n surface")) +
+  labs(x = "Pile height", y = "Relative gene abundance", fill = "Pile height") +
+  facet_wrap(~gene) +
+  theme_bw(base_size = 12)
 
 # beta-lac location
 box_chem_loc_beta %>%

@@ -78,15 +78,47 @@ time_box_tet <- split_time_box$tetracycline
 
 class_names <- c("Aminoglycosides",
                  "Beta-lactams",
-                 "Glycopeptides and metronidazole",
+                 "Glycopeptides and Metronidazole",
                  "MLSB",
-                 "Multi-drug resistance",
-                 "MGEs and integrons",
+                 "Multi-Drug Resistance",
+                 "MGEs and Integrons",
                  "Other",
                  "Chloramphenicol",
                  "Quinolones",
-                 "Sulfonamides and trimethoprim",
+                 "Sulfonamides and Trimethoprim",
                  "Tetracyclines")
+
+# edit class names for facets
+location_study$class <- str_to_title(location_study$class)
+means_loc$class <- str_to_title(means_loc$class)
+time_study$class <- str_to_title(time_study$class)
+means_time$class <- str_to_title(means_time$class)
+
+location_study$class <- str_replace_all(location_study$class,'Beta-Lactam','Beta-lactam')
+location_study$class <- str_replace_all(location_study$class,'Glycopeptide_metronidazole','Glycopeptides and Metronidazole')
+location_study$class <- str_replace_all(location_study$class,'Macrolide_lincosamide','MLSB')
+location_study$class <- str_replace_all(location_study$class,'Mdr','Multi-Drug Resistance')
+location_study$class <- str_replace_all(location_study$class,'Mge_integrons','MGEs and Integrons')
+location_study$class <- str_replace_all(location_study$class,'Sulfonamide_trimethoprim','Sulfonamides and Trimethoprim')
+means_loc$class <- str_replace_all(means_loc$class,'Beta-Lactam','Beta-lactam')
+means_loc$class <- str_replace_all(means_loc$class,'Glycopeptide_metronidazole','Glycopeptides and Metronidazole')
+means_loc$class <- str_replace_all(means_loc$class,'Macrolide_lincosamide','MLSB')
+means_loc$class <- str_replace_all(means_loc$class,'Mdr','Multi-Drug Resistance')
+means_loc$class <- str_replace_all(means_loc$class,'Mge_integrons','MGEs and Integrons')
+means_loc$class <- str_replace_all(means_loc$class,'Sulfonamide_trimethoprim','Sulfonamides and Trimethoprim')
+time_study$class <- str_replace_all(time_study$class,'Beta-Lactam','Beta-lactam')
+time_study$class <- str_replace_all(time_study$class,'Glycopeptide_metronidazole','Glycopeptides and Metronidazole')
+time_study$class <- str_replace_all(time_study$class,'Macrolide_lincosamide','MLSB')
+time_study$class <- str_replace_all(time_study$class,'Mdr','Multi-Drug Resistance')
+time_study$class <- str_replace_all(time_study$class,'Mge_integrons','MGEs and Integrons')
+time_study$class <- str_replace_all(time_study$class,'Sulfonamide_trimethoprim','Sulfonamides and Trimethoprim')
+means_time$class <- str_replace_all(means_time$class,'Beta-Lactam','Beta-lactam')
+means_time$class <- str_replace_all(means_time$class,'Glycopeptide_metronidazole','Glycopeptides and Metronidazole')
+means_time$class <- str_replace_all(means_time$class,'Macrolide_lincosamide','MLSB')
+means_time$class <- str_replace_all(means_time$class,'Mdr','Multi-Drug Resistance')
+means_time$class <- str_replace_all(means_time$class,'Mge_integrons','MGEs and Integrons')
+means_time$class <- str_replace_all(means_time$class,'Sulfonamide_trimethoprim','Sulfonamides and Trimethoprim')
+
 
 # count
 count_loc %>% 
