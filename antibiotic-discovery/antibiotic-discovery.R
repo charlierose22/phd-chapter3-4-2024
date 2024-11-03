@@ -12,11 +12,10 @@ discovery_timeline$year2 <- lubridate::year(discovery_timeline$year)
 # plot
 discovery_timeline %>%
   ggplot(aes(x = year, y = 0.5, colour = class, label = class)) +
-  geom_point(shape = 16, size = 2) +
-  geom_text(aes(label = class), nudge_y = 0.25, size = 4, angle = 90) +
-  geom_label(aes(label = year2), nudge_y = -0.08, size = 4, angle = 90) +
+  geom_point(shape = 16, size = 4) +
   labs(x = "Year", y = "") +
   scale_x_date(date_breaks = "5 years", date_labels = "%Y") +
   scale_y_discrete(labels = "") +
   theme_void(base_size = 12) +
   theme(legend.position = "none")
+
