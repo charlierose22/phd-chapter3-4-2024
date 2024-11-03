@@ -453,8 +453,36 @@ labels <- c("Aminoglycosides",
             "Other",
             "Chloramphenicol",
             "Quinolones",
-            "Sulfonamides and\ntrimethoprim",
+            "Sulfonamides and\nTrimethoprim",
             "Tetracyclines")
+
+# total gene over time
+mean_time_total %>%
+  ggplot(aes(x = day, y = mean, colour = class)) +
+  geom_point(shape = 15) +
+  geom_errorbar(aes(x = day,
+                    ymin = mean - se,
+                    ymax = mean + se),
+                width = .6) +
+  geom_line() +
+  labs(x = "Day of Drying Period", y = "Average Relative Gene Abundance", color = "Antibiotic Class") +
+  scale_color_grafify(palette = "kelly",
+                      labels = c("Aminoglycosides",
+                                 "Beta-lactams",
+                                 "Glycopeptides and\nMetronidazole",
+                                 "MLSB",
+                                 "Multi-drug Resistance",
+                                 "MGEs and Integrons",
+                                 "Other",
+                                 "Chloramphenicol",
+                                 "Quinolones",
+                                 "Sulfonamides and\nTrimethoprim",
+                                 "Tetracyclines")) +
+  scale_y_continuous(trans='log10') +
+  scale_x_continuous(limits = c(0, 30), 
+                     breaks = c(0, 5, 10, 15, 20, 25, 30)) +
+  theme_bw(base_size = 12) +
+  theme(legend.position = "bottom")
 
 # stacked area plot
 stacked_time_gene <- time_study %>% 
@@ -501,6 +529,32 @@ ggplot(stacked_time_mechanism, aes(x = day, y = percentage, fill = mechanism)) +
                                "Transposase")) +
   labs(x = "Day of Drying Period", y = "Proportion of Relative Gene Abundance", fill = "Type of Resistance\nMechanism") +
   theme_bw(base_size = 12)
+
+# total mechanism over time
+mechanism_time_total %>%
+  ggplot(aes(x = day, y = mean, colour = mechanism)) +
+  geom_point(shape = 15) +
+  geom_errorbar(aes(x = day,
+                    ymin = mean - se,
+                    ymax = mean + se),
+                width = .6) +
+  geom_line() +
+  labs(x = "Day of Drying Period", y = "Average Relative Gene Abundance", color = "Type of Resistance\nMechanism") +
+  scale_color_grafify(palette = "kelly",
+                      labels = c("Antibiotic Deactivation",
+                                 "Antibiotic Target Alteration",
+                                 "Antibiotic Target Protection",
+                                 "Antibiotic Target Replacement",
+                                 "Efflux Pumps",
+                                 "Insertion Sequence",
+                                 "Integrase",
+                                 "Phage",
+                                 "Transposase")) +
+  scale_y_continuous(trans='log10') +
+  scale_x_continuous(limits = c(0, 30), 
+                     breaks = c(0, 5, 10, 15, 20, 25, 30)) +
+  theme_bw(base_size = 12) +
+  theme(legend.position = "bottom")
 
 # aminolgycoside over time
 time_amino %>%
