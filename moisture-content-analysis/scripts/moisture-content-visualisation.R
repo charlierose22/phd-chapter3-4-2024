@@ -10,6 +10,8 @@ library(scales)
 library(gridExtra)
 library(RColorBrewer)
 library(grafify)
+library(FSA)
+library(rstatix)
 
 # import moisture data from folder
 moisture_data <- readxl::read_excel("moisture-content-analysis/data/raw-data/Moisture Content Analysis.xlsx",
@@ -112,3 +114,49 @@ moisture_stats_height %>%
        y = "% Moisture Content of the Biosolid Pile",
        colour = "Height in the\nBiosolid Pile") +
   theme_bw(base_size = 12)
+
+# statistics time
+moisture_stats <- moisture_number %>% 
+  group_by(day) %>% 
+  summarise(mean = mean(moisture_content_pc),
+            sd = sd(moisture_content_pc))
+moisture_number$moisture_content_pc <- moisture_number$moisture_content_pc * 100
+moisture_stats$mean <- moisture_stats$mean * 100
+summary(moisture_number)
+# one way anova
+one.way <- aov(moisture_content_pc ~ day, data = moisture_number)
+summary(one.way)
+# check normal distribution
+par(mfrow=c(2,2))
+plot(one.way)
+par(mfrow=c(1,1))
+# kruskal wallis 
+kruskal.test(data = moisture_number, moisture_content_pc ~ day)
+# post-hoc test
+moisture_factor <- moisture_number
+moisture_factor$day <- as.factor(moisture_factor$day)
+dunnTest(moisture_content_pc ~ day,
+         data = moisture_factor,
+         method = "none")
+
+# statistics height
+moisture_stats_height <- moisture_number %>% 
+  group_by(day, pile_height) %>% 
+  summarise(mean = mean(moisture_content_pc),
+            sd = sd(moisture_content_pc))
+moisture_factor$pile_height <- as.factor(moisture_factor$pile_height)
+moisture_stats_height$mean <- moisture_stats_height$mean * 100
+summary(moisture_number)
+# one way anova
+one.way2 <- aov(moisture_content_pc ~ pile_height, data = moisture_number)
+summary(one.way2)
+# check normal distribution
+par(mfrow=c(2,2))
+plot(one.way2)
+par(mfrow=c(1,1))
+# kruskal wallis 
+kruskal.test(data = moisture_number, moisture_content_pc ~ pile_height)
+# post-hoc test
+dunnTest(moisture_content_pc ~ pile_height,
+         data = moisture_factor,
+         method = "bh")

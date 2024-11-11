@@ -4,6 +4,9 @@ library(ggrepel)
 library(ggtext)
 library(dygraphs)
 library(ggtext)
+library(emmeans)
+library(FSA)
+
 darkpalette <- c("firebrick4",
                  "orangered1",
                  "darkgoldenrod2",
@@ -119,7 +122,374 @@ means_time$class <- str_replace_all(means_time$class,'Mdr','Multi-Drug Resistanc
 means_time$class <- str_replace_all(means_time$class,'Mge_integrons','MGEs and Integrons')
 means_time$class <- str_replace_all(means_time$class,'Sulfonamide_trimethoprim','Sulfonamides and Trimethoprim')
 
+# replace days as factor for significance tests
+time_factor <- time_study
+time_factor$day <- as.factor(time_factor$day)
+location_factor <- location_study
+location_factor$day <- as.factor(location_factor$day)
+location_factor$height <- as.factor(location_factor$height)
 
+# split based on factor dfs
+# split based on target antibiotics for location 
+split_loc_factor <- split(location_factor, location_factor$class)
+loc_factor_amino <- split_loc_factor$Aminoglycoside
+loc_factor_beta <- split_loc_factor$'Beta-lactam'
+loc_factor_glyc <- split_loc_factor$'Glycopeptides and Metronidazole'
+loc_factor_mac <- split_loc_factor$MLSB
+loc_factor_mdr <- split_loc_factor$'Multi-Drug Resistance'
+loc_factor_mge <- split_loc_factor$'MGEs and Integrons'
+loc_factor_other <- split_loc_factor$Other
+loc_factor_phen <- split_loc_factor$Phenicol
+loc_factor_quin <- split_loc_factor$Quinolone
+loc_factor_sulf <- split_loc_factor$'Sulfonamides and Trimethoprim'
+loc_factor_tet <- split_loc_factor$Tetracycline
+split_time_factor <- split(time_factor, time_factor$class)
+time_factor_amino <- split_time_factor$Aminoglycoside
+time_factor_beta <- split_time_factor$'Beta-lactam'
+time_factor_glyc <- split_time_factor$'Glycopeptides and Metronidazole'
+time_factor_mac <- split_time_factor$MLSB
+time_factor_mdr <- split_time_factor$'Multi-Drug Resistance'
+time_factor_mge <- split_time_factor$'MGEs and Integrons'
+time_factor_other <- split_time_factor$Other
+time_factor_phen <- split_time_factor$Phenicol
+time_factor_quin <- split_time_factor$Quinolone
+time_factor_sulf <- split_time_factor$'Sulfonamides and Trimethoprim'
+time_factor_tet <- split_time_factor$Tetracycline
+
+# statistics
+# time study
+
+# all classes
+# one way anova
+one_way_all_time <- aov(delta_ct ~ class, data = time_factor)
+summary(one_way_all_time)
+# two way anova
+two_way_all_time <- aov(delta_ct ~ day * class, data = time_factor)
+summary(two_way_all_time)
+# check normal distribution
+par(mfrow=c(2,2))
+plot(one_way_all_time)
+par(mfrow=c(1,1))
+# anova
+anova(one_way_all_time)
+# tukey
+emmeans(one_way_all_time, ~ class) |> pairs()
+# plot
+emmeans(one_way_all_time, ~ class) |> plot()
+
+# all mechanisms
+# one way anova
+one_way_all_mech <- aov(delta_ct ~ mechanism, data = time_factor)
+summary(one_way_all_mech)
+# check normal distribution
+par(mfrow=c(2,2))
+plot(one_way_all_mech)
+par(mfrow=c(1,1))
+# kruskal wallis 
+kruskal.test(data = time_factor, delta_ct ~ mechanism)
+# post-hoc test
+time_factor$mechanism <- as.factor(time_factor$mechanism)
+dunnTest(delta_ct ~ mechanism,
+         data = time_factor,
+         method = "bh")
+
+# Aminoglycosides
+# one way anova
+one_way_amino_gene <- aov(delta_ct ~ gene, data = time_factor_amino)
+summary(one_way_amino_gene)
+one_way_amino_day <- aov(delta_ct ~ day, data = time_factor_amino)
+summary(one_way_amino_day)
+# two way anova
+two_way_amino <- aov(delta_ct ~ day * gene, data = time_factor_amino)
+summary(two_way_amino)
+# check normal distribution
+par(mfrow=c(2,2))
+plot(one_way_amino_day)
+par(mfrow=c(1,1))
+# anova
+anova(one_way_amino_gene)
+anova(one_way_amino_day)
+# tukey
+emmeans(one_way_amino_gene, ~ gene) |> pairs()
+# plot
+emmeans(one_way_amino_gene, ~ gene) |> plot()
+# tukey
+emmeans(one_way_amino_day, ~ day) |> pairs()
+# plot
+emmeans(one_way_amino_day, ~ day) |> plot()
+
+# Beta-lactams
+# one way anova
+one_way_beta_gene <- aov(delta_ct ~ gene, data = time_factor_beta)
+summary(one_way_beta_gene)
+one_way_beta_day <- aov(delta_ct ~ day, data = time_factor_beta)
+summary(one_way_beta_day)
+# two way anova
+two_way_beta <- aov(delta_ct ~ day * gene, data = time_factor_beta)
+summary(two_way_beta)
+# check normal distribution
+par(mfrow=c(2,2))
+plot(one_way_beta_day)
+par(mfrow=c(1,1))
+# anova
+anova(one_way_beta_gene)
+anova(one_way_beta_day)
+# tukey
+emmeans(one_way_beta_gene, ~ gene) |> pairs()
+# plot
+emmeans(one_way_beta_gene, ~ gene) |> plot()
+# tukey
+emmeans(one_way_beta_day, ~ day) |> pairs()
+# plot
+emmeans(one_way_beta_day, ~ day) |> plot()
+
+# Glycopeptides and Metronidazole
+# one way anova
+one_way_glyc_gene <- aov(delta_ct ~ gene, data = time_factor_glyc)
+summary(one_way_glyc_gene)
+one_way_glyc_day <- aov(delta_ct ~ day, data = time_factor_glyc)
+summary(one_way_glyc_day)
+# two way anova
+two_way_glyc <- aov(delta_ct ~ day * gene, data = time_factor_glyc)
+summary(two_way_glyc)
+# check normal distribution
+par(mfrow=c(2,2))
+plot(one_way_glyc_day)
+par(mfrow=c(1,1))
+# anova
+anova(one_way_glyc_gene)
+anova(one_way_glyc_day)
+# tukey
+emmeans(one_way_glyc_gene, ~ gene) |> pairs()
+# plot
+emmeans(one_way_glyc_gene, ~ gene) |> plot()
+# tukey
+emmeans(one_way_glyc_day, ~ day) |> pairs()
+# plot
+emmeans(one_way_glyc_day, ~ day) |> plot()
+
+#MLSB
+# one way anova
+one_way_mlsb_gene <- aov(delta_ct ~ gene, data = time_factor_mac)
+summary(one_way_mlsb_gene)
+one_way_mlsb_day <- aov(delta_ct ~ day, data = time_factor_mac)
+summary(one_way_mlsb_day)
+# two way anova
+two_way_mlsb <- aov(delta_ct ~ day * gene, data = time_factor_mac)
+summary(two_way_mlsb)
+# check normal distribution
+par(mfrow=c(2,2))
+plot(one_way_mlsb_day)
+par(mfrow=c(1,1))
+# anova
+anova(one_way_mlsb_gene)
+anova(one_way_mlsb_day)
+# tukey
+emmeans(one_way_mlsb_gene, ~ gene) |> pairs()
+# plot
+emmeans(one_way_mlsb_gene, ~ gene) |> plot()
+# tukey
+emmeans(one_way_mlsb_day, ~ day) |> pairs()
+# plot
+emmeans(one_way_mlsb_day, ~ day) |> plot()
+
+# Chloramphenicol
+# one way anova
+one_way_phen_gene <- aov(delta_ct ~ gene, data = time_factor_phen)
+summary(one_way_phen_gene)
+one_way_phen_day <- aov(delta_ct ~ day, data = time_factor_phen)
+summary(one_way_phen_day)
+# two way anova
+two_way_phen <- aov(delta_ct ~ day * gene, data = time_factor_phen)
+summary(two_way_phen)
+# check normal distribution
+par(mfrow=c(2,2))
+plot(one_way_phen_day)
+par(mfrow=c(1,1))
+# anova
+anova(one_way_phen_gene)
+anova(one_way_phen_day)
+# tukey
+emmeans(one_way_phen_gene, ~ gene) |> pairs()
+# plot
+emmeans(one_way_phen_gene, ~ gene) |> plot()
+# tukey
+emmeans(one_way_phen_day, ~ day) |> pairs()
+# plot
+emmeans(one_way_phen_day, ~ day) |> plot()
+
+# Quinolones
+# one way anova
+one_way_quin_gene <- aov(delta_ct ~ gene, data = time_factor_quin)
+summary(one_way_quin_gene)
+one_way_quin_day <- aov(delta_ct ~ day, data = time_factor_quin)
+summary(one_way_quin_day)
+# two way anova
+two_way_quin <- aov(delta_ct ~ day * gene, data = time_factor_quin)
+summary(two_way_quin)
+# check normal distribution
+par(mfrow=c(2,2))
+plot(one_way_quin_day)
+par(mfrow=c(1,1))
+# anova
+anova(one_way_quin_gene)
+anova(one_way_quin_day)
+# tukey
+emmeans(one_way_quin_gene, ~ gene) |> pairs()
+# plot
+emmeans(one_way_quin_gene, ~ gene) |> plot()
+# tukey
+emmeans(one_way_quin_day, ~ day) |> pairs()
+# plot
+emmeans(one_way_quin_day, ~ day) |> plot()
+
+# Sulfonamides and Trimethoprim
+# one way anova
+one_way_sulf_gene <- aov(delta_ct ~ gene, data = time_factor_sulf)
+summary(one_way_sulf_gene)
+one_way_sulf_day <- aov(delta_ct ~ day, data = time_factor_sulf)
+summary(one_way_sulf_day)
+# two way anova
+two_way_sulf <- aov(delta_ct ~ day * gene, data = time_factor_sulf)
+summary(two_way_sulf)
+# check normal distribution
+par(mfrow=c(2,2))
+plot(one_way_sulf_day)
+par(mfrow=c(1,1))
+# anova
+anova(one_way_sulf_gene)
+anova(one_way_sulf_day)
+# tukey
+emmeans(one_way_sulf_gene, ~ gene) |> pairs()
+# plot
+emmeans(one_way_sulf_gene, ~ gene) |> plot()
+# tukey
+emmeans(one_way_sulf_day, ~ day) |> pairs()
+# plot
+emmeans(one_way_sulf_day, ~ day) |> plot()
+
+# Tetracyclines
+# one way anova
+one_way_tet_gene <- aov(delta_ct ~ gene, data = time_factor_tet)
+summary(one_way_tet_gene)
+one_way_tet_day <- aov(delta_ct ~ day, data = time_factor_tet)
+summary(one_way_tet_day)
+# two way anova
+two_way_tet <- aov(delta_ct ~ day * gene, data = time_factor_tet)
+summary(two_way_tet)
+# check normal distribution
+par(mfrow=c(2,2))
+plot(one_way_tet_day)
+par(mfrow=c(1,1))
+# anova
+anova(one_way_tet_gene)
+anova(one_way_tet_day)
+# tukey
+emmeans(one_way_tet_gene, ~ gene) |> pairs()
+# plot
+emmeans(one_way_tet_gene, ~ gene) |> plot()
+# tukey
+emmeans(one_way_tet_day, ~ day) |> pairs()
+# plot
+emmeans(one_way_tet_day, ~ day) |> plot()
+
+# Other
+# one way anova
+one_way_other_gene <- aov(delta_ct ~ gene, data = time_factor_other)
+summary(one_way_other_gene)
+one_way_other_day <- aov(delta_ct ~ day, data = time_factor_other)
+summary(one_way_other_day)
+# two way anova
+two_way_other <- aov(delta_ct ~ day * gene, data = time_factor_other)
+summary(two_way_other)
+# check normal distribution
+par(mfrow=c(2,2))
+plot(one_way_other_day)
+par(mfrow=c(1,1))
+# anova
+anova(one_way_other_gene)
+anova(one_way_other_day)
+# tukey
+emmeans(one_way_other_gene, ~ gene) |> pairs()
+# plot
+emmeans(one_way_other_gene, ~ gene) |> plot()
+# tukey
+emmeans(one_way_other_day, ~ day) |> pairs()
+# plot
+emmeans(one_way_other_day, ~ day) |> plot()
+
+# Multi-Drug Resistance
+# one way anova
+one_way_mdr_gene <- aov(delta_ct ~ gene, data = time_factor_mdr)
+summary(one_way_mdr_gene)
+one_way_mdr_day <- aov(delta_ct ~ day, data = time_factor_mdr)
+summary(one_way_mdr_day)
+# two way anova
+two_way_mdr <- aov(delta_ct ~ day * gene, data = time_factor_mdr)
+summary(two_way_mdr)
+# check normal distribution
+par(mfrow=c(2,2))
+plot(one_way_mdr_day)
+par(mfrow=c(1,1))
+# anova
+anova(one_way_mdr_gene)
+anova(one_way_mdr_day)
+# tukey
+emmeans(one_way_mdr_gene, ~ gene) |> pairs()
+# plot
+emmeans(one_way_mdr_gene, ~ gene) |> plot()
+# tukey
+emmeans(one_way_mdr_day, ~ day) |> pairs()
+# plot
+emmeans(one_way_mdr_day, ~ day) |> plot()
+
+# MGEs and Integrons
+# one way anova
+one_way_mge_gene <- aov(delta_ct ~ gene, data = time_factor_mge)
+summary(one_way_mge_gene)
+one_way_mge_day <- aov(delta_ct ~ day, data = time_factor_mge)
+summary(one_way_mge_day)
+# two way anova
+two_way_mge <- aov(delta_ct ~ day * gene, data = time_factor_mge)
+summary(two_way_mge)
+# check normal distribution
+par(mfrow=c(2,2))
+plot(one_way_mge_day)
+par(mfrow=c(1,1))
+# anova
+anova(one_way_mge_gene)
+anova(one_way_mge_day)
+# tukey
+emmeans(one_way_mge_gene, ~ gene) |> pairs()
+# plot
+emmeans(one_way_mge_gene, ~ gene) |> plot()
+# tukey
+emmeans(one_way_mge_day, ~ day) |> pairs()
+# plot
+emmeans(one_way_mge_day, ~ day) |> plot()
+
+# location study
+
+# all classes
+# one way anova
+one_way_all_loc <- aov(delta_ct ~ height, data = location_factor)
+summary(one_way_all_loc)
+# two way anova
+two_way_all_loc <- aov(delta_ct ~ height * class, data = location_factor)
+summary(two_way_all_loc)
+# check normal distribution
+par(mfrow=c(2,2))
+plot(one_way_all_loc)
+par(mfrow=c(1,1))
+# anova
+anova(one_way_all_loc)
+# tukey
+emmeans(one_way_all_loc, ~ height) |> pairs()
+# plot
+emmeans(one_way_all_loc, ~ height) |> plot()
+
+
+# plots
 # count
 count_loc %>% 
   ggplot(aes(fill = class, y = count, x = height, label = count)) + 
