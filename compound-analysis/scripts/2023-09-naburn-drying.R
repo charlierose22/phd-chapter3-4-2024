@@ -8,6 +8,7 @@ library(grafify)
 library(ggrepel)
 library(ggtext)
 library(dygraphs)
+library(emmeans)
 
 # IMPORT YOUR CD DATA
 drying_compounds <- readr::read_delim(
@@ -354,6 +355,264 @@ chem_count_time <- chem_time_study %>%
   group_by(class, day) %>% 
   summarise(count = n_distinct(name.x))
 
+# make factor datasets for ANOVA analysis
+class_names <- c("Aminoglycosides",
+                 "Beta-lactams",
+                 "Glycopeptides and Metronidazole",
+                 "Macrolides and Lincosamides",
+                 "Other",
+                 "Chloramphenicol",
+                 "Quinolones",
+                 "Sulfonamides and Trimethoprim",
+                 "Tetracyclines")
+
+# replace days as factor for significance tests
+chem_time_factor <- box_chem_time_study
+chem_time_factor$day <- as.factor(chem_time_factor$day)
+chem_time_factor$name.x <- as.factor(chem_time_factor$name.x)
+chem_location_factor <- box_chem_location_study
+chem_location_factor$day <- as.factor(chem_location_factor$day)
+chem_location_factor$height <- as.factor(chem_location_factor$height)
+chem_location_factor$name.x <- as.factor(chem_location_factor$name.x)
+
+# split based on factor dfs
+# split based on target antibiotics for location 
+chem_split_loc_factor <- split(chem_location_factor, chem_location_factor$class)
+chem_loc_factor_amino <- chem_split_loc_factor$Aminoglycoside
+chem_loc_factor_beta <- chem_split_loc_factor$'Beta-lactam'
+chem_loc_factor_glyc <- chem_split_loc_factor$'Glycopeptides and Metronidazole'
+chem_loc_factor_mac <- chem_split_loc_factor$'Macrolides and Lincosamides'
+chem_loc_factor_other <- chem_split_loc_factor$Other
+chem_loc_factor_phen <- chem_split_loc_factor$Phenicol
+chem_loc_factor_quin <- chem_split_loc_factor$Quinolone
+chem_loc_factor_sulf <- chem_split_loc_factor$'Sulfonamides and Trimethoprim'
+chem_loc_factor_tet <- chem_split_loc_factor$Tetracycline
+chem_split_time_factor <- split(chem_time_factor, chem_time_factor$class)
+chem_time_factor_amino <- chem_split_time_factor$Aminoglycoside
+chem_time_factor_beta <- chem_split_time_factor$'Beta-lactam'
+chem_time_factor_glyc <- chem_split_time_factor$'Glycopeptides and Metronidazole'
+chem_time_factor_mac <- chem_split_time_factor$'Macrolides and Lincosamides'
+chem_time_factor_other <- chem_split_time_factor$Other
+chem_time_factor_phen <- chem_split_time_factor$Phenicol
+chem_time_factor_quin <- chem_split_time_factor$Quinolone
+chem_time_factor_sulf <- chem_split_time_factor$'Sulfonamides and Trimethoprim'
+chem_time_factor_tet <- chem_split_time_factor$Tetracycline
+
+# statistics
+# time study
+library(FSA)
+# all classes
+# one way anova
+one_way_all_chem <- aov(group_area ~ class, data = chem_time_factor)
+summary(one_way_all_chem)
+# two way anova
+two_way_all_chem <- aov(group_area ~ day * class, data = chem_time_factor)
+summary(two_way_all_chem)
+# check normal distribution
+par(mfrow=c(2,2))
+plot(one_way_all_chem)
+par(mfrow=c(1,1))
+# kruskal wallis 
+kruskal.test(data = chem_time_factor, group_area ~ class)
+# post-hoc test
+chem_time_factor$class <- as.factor(chem_time_factor$class)
+dunnTest(group_area ~ class,
+         data = chem_time_factor,
+         method = "bh")
+
+# Aminoglycosides
+# one way anova
+chem_one_way_amino <- aov(group_area ~ name.x, data = chem_time_factor_amino)
+summary(chem_one_way_amino)
+chem_one_way_amino_day <- aov(group_area ~ day, data = chem_time_factor_amino)
+summary(chem_one_way_amino_day)
+# two way anova
+chem_two_way_amino <- aov(group_area ~ day * name.x, data = chem_time_factor_amino)
+summary(chem_two_way_amino)
+# check normal distribution
+par(mfrow=c(2,2))
+plot(chem_one_way_amino_day)
+par(mfrow=c(1,1))
+# kruskal wallis 
+kruskal.test(data = chem_time_factor_amino, group_area ~ name.x)
+kruskal.test(data = chem_time_factor_amino, group_area ~ day)
+# post-hoc test
+dunnTest(group_area ~ name.x,
+         data = chem_time_factor_amino,
+         method = "bh")
+dunnTest(group_area ~ day,
+         data = chem_time_factor_amino,
+         method = "bh")
+
+# Beta-lactams
+# one way anova
+chem_one_way_beta <- aov(group_area ~ name.x, data = chem_time_factor_beta)
+summary(chem_one_way_beta)
+chem_one_way_beta_day <- aov(group_area ~ day, data = chem_time_factor_beta)
+summary(chem_one_way_beta_day)
+# two way anova
+chem_two_way_beta <- aov(group_area ~ day * name.x, data = chem_time_factor_beta)
+summary(chem_two_way_beta)
+# check normal distribution
+par(mfrow=c(2,2))
+plot(chem_one_way_beta_day)
+par(mfrow=c(1,1))
+# kruskal wallis 
+kruskal.test(data = chem_time_factor_beta, group_area ~ name.x)
+kruskal.test(data = chem_time_factor_beta, group_area ~ day)
+# post-hoc test
+dunnTest(group_area ~ name.x,
+         data = chem_time_factor_beta,
+         method = "bh")
+dunnTest(group_area ~ day,
+         data = chem_time_factor_beta,
+         method = "bh")
+
+# Macrolide Lincosamide
+# one way anova
+chem_one_way_mac <- aov(group_area ~ name.x, data = chem_time_factor_mac)
+summary(chem_one_way_mac)
+chem_one_way_mac_day <- aov(group_area ~ day, data = chem_time_factor_mac)
+summary(chem_one_way_mac_day)
+# two way anova
+chem_two_way_mac <- aov(group_area ~ day * name.x, data = chem_time_factor_mac)
+summary(chem_two_way_mac)
+# check normal distribution
+par(mfrow=c(2,2))
+plot(chem_one_way_mac_day)
+par(mfrow=c(1,1))
+# kruskal wallis 
+kruskal.test(data = chem_time_factor_mac, group_area ~ name.x)
+kruskal.test(data = chem_time_factor_mac, group_area ~ day)
+# post-hoc test
+dunnTest(group_area ~ name.x,
+         data = chem_time_factor_mac,
+         method = "bh")
+dunnTest(group_area ~ day,
+         data = chem_time_factor_mac,
+         method = "bh")
+
+# Chloramphenicol
+# one way anova
+chem_one_way_phen <- aov(group_area ~ name.x, data = chem_time_factor_phen)
+summary(chem_one_way_phen)
+chem_one_way_phen_day <- aov(group_area ~ day, data = chem_time_factor_phen)
+summary(chem_one_way_phen_day)
+# two way anova
+chem_two_way_phen <- aov(group_area ~ day * name.x, data = chem_time_factor_phen)
+summary(chem_two_way_phen)
+# check normal distribution
+par(mfrow=c(2,2))
+plot(chem_one_way_phen_day)
+par(mfrow=c(1,1))
+# kruskal wallis 
+kruskal.test(data = chem_time_factor_phen, group_area ~ name.x)
+kruskal.test(data = chem_time_factor_phen, group_area ~ day)
+# post-hoc test
+dunnTest(group_area ~ name.x,
+         data = chem_time_factor_phen,
+         method = "bh")
+dunnTest(group_area ~ day,
+         data = chem_time_factor_phen,
+         method = "bh")
+
+# Quinolones
+# one way anova
+chem_one_way_quin <- aov(group_area ~ name.x, data = chem_time_factor_quin)
+summary(chem_one_way_quin)
+chem_one_way_quin_day <- aov(group_area ~ day, data = chem_time_factor_quin)
+summary(chem_one_way_quin_day)
+# two way anova
+chem_two_way_quin <- aov(group_area ~ day * name.x, data = chem_time_factor_quin)
+summary(chem_two_way_quin)
+# check normal distribution
+par(mfrow=c(2,2))
+plot(chem_one_way_quin_day)
+par(mfrow=c(1,1))
+# kruskal wallis 
+kruskal.test(data = chem_time_factor_quin, group_area ~ name.x)
+kruskal.test(data = chem_time_factor_quin, group_area ~ day)
+# post-hoc test
+dunnTest(group_area ~ name.x,
+         data = chem_time_factor_quin,
+         method = "bh")
+dunnTest(group_area ~ day,
+         data = chem_time_factor_quin,
+         method = "bh")
+
+# Sulfonamides and Trimethoprim
+# one way anova
+chem_one_way_sulf <- aov(group_area ~ name.x, data = chem_time_factor_sulf)
+summary(chem_one_way_sulf)
+chem_one_way_amino_day <- aov(group_area ~ day, data = chem_time_factor_sulf)
+summary(chem_one_way_amino_sulf)
+# two way anova
+chem_two_way_sulf <- aov(group_area ~ day * name.x, data = chem_time_factor_sulf)
+summary(chem_two_way_sulf)
+# check normal distribution
+par(mfrow=c(2,2))
+plot(chem_one_way_sulf_day)
+par(mfrow=c(1,1))
+# kruskal wallis 
+kruskal.test(data = chem_time_factor_sulf, group_area ~ name.x)
+kruskal.test(data = chem_time_factor_sulf, group_area ~ day)
+# post-hoc test
+dunnTest(group_area ~ name.x,
+         data = chem_time_factor_sulf,
+         method = "bh")
+dunnTest(group_area ~ day,
+         data = chem_time_factor_sulf,
+         method = "bh")
+
+# Tetracyclines
+# one way anova
+chem_one_way_tet <- aov(group_area ~ name.x, data = chem_time_factor_tet)
+summary(chem_one_way_tet)
+chem_one_way_tet_day <- aov(group_area ~ day, data = chem_time_factor_tet)
+summary(chem_one_way_tet_day)
+# two way anova
+chem_two_way_tet <- aov(group_area ~ day * name.x, data = chem_time_factor_tet)
+summary(chem_two_way_tet)
+# check normal distribution
+par(mfrow=c(2,2))
+plot(chem_one_way_tet_day)
+par(mfrow=c(1,1))
+# kruskal wallis 
+kruskal.test(data = chem_time_factor_tet, group_area ~ name.x)
+kruskal.test(data = chem_time_factor_tet, group_area ~ day)
+# post-hoc test
+dunnTest(group_area ~ name.x,
+         data = chem_time_factor_tet,
+         method = "bh")
+dunnTest(group_area ~ day,
+         data = chem_time_factor_tet,
+         method = "bh")
+
+# Other
+# one way anova
+chem_one_way_other <- aov(group_area ~ name.x, data = chem_time_factor_other)
+summary(chem_one_way_other)
+chem_one_way_other_day <- aov(group_area ~ day, data = chem_time_factor_other)
+summary(chem_one_way_other_day)
+# two way anova
+chem_two_way_other <- aov(group_area ~ day * name.x, data = chem_time_factor_other)
+summary(chem_two_way_other)
+# check normal distribution
+par(mfrow=c(2,2))
+plot(chem_one_way_other_day)
+par(mfrow=c(1,1))
+# kruskal wallis 
+kruskal.test(data = chem_time_factor_other, group_area ~ name.x)
+kruskal.test(data = chem_time_factor_other, group_area ~ day)
+# post-hoc test
+dunnTest(group_area ~ name.x,
+         data = chem_time_factor_other,
+         method = "bh")
+dunnTest(group_area ~ day,
+         data = chem_time_factor_other,
+         method = "bh")
+
+# PLOTTING
 chem_count_loc %>% 
   ggplot(aes(fill = class, y = count, x = height, label = count)) + 
   geom_bar(position = "stack", stat = "identity") +
@@ -549,27 +808,6 @@ box_chem_loc_tet %>%
   theme_minimal(base_size = 12)
 
 # TIME ------------
-# stacked area plot
-stacked_time_compound <- box_chem_time_study %>% 
-  group_by(day, class) %>%
-  summarise(n = sum(group_area)) %>%
-  mutate(percentage = n / sum(n))
-
-# time_chem
-ggplot(stacked_time_compound, aes(x=day, y=percentage, fill=class)) + 
-  geom_area(alpha=0.6 , size=0.5, colour="black") +
-  scale_fill_manual(values = brewer.pal("Spectral", n = 11),
-                    labels = c("Aminoglycosides",
-                               "Beta-Lactams",
-                               "Glycopeptides and\nMetronidazole",
-                               "Macrolides and\nLincosamides",
-                               "Other",
-                               "Phenicols",
-                               "Quinolones",
-                               "Sulfonamides and\nTrimethoprim",
-                               "Tetracyclines")) +
-  labs(x = "Day of Drying Period", y = "Proportion of Peak Intensities", fill = "Antibiotic Class") +
-  theme_bw(base_size = 12)
 
 # total over time
 chem_mean_time_total %>%
@@ -580,18 +818,16 @@ chem_mean_time_total %>%
                     ymax = mean + se),
                 width = .6) +
   geom_line() +
-  labs(x = "Day of Drying Period", y = "UHPLC Peak Intensity (Log10)", color = "Antibiotic Class") +
+  labs(x = "Day of Drying Period", y = "UHPLC Peak Intensity", color = "Antibiotic Class") +
   scale_color_grafify(palette = "kelly",
                       labels = c("Aminoglycosides",
                                  "Beta-Lactams",
-                                 "Glycopeptides and\nMetronidazole",
                                  "Macrolides and\nLincosamides",
                                  "Other",
                                  "Phenicols",
                                  "Quinolones",
                                  "Sulfonamides and\nTrimethoprim",
                                  "Tetracyclines")) +
-  scale_y_continuous(trans='log10') +
   scale_x_continuous(limits = c(0, 30), 
                      breaks = c(0, 5, 10, 15, 20, 25, 30)) +
   theme_bw(base_size = 12) +
