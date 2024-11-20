@@ -1,0 +1,35 @@
+ID	Taxonomy
+PF00147	Fibrinogen beta and gamma chains, C-terminal globular domain
+PF02182	SAD/SRA domain
+PF03677	Uncharacterised protein family (UPF0137)
+PF03771	Domain of unknown function (DUF317)
+PF04917	Bacterial shufflon protein, N-terminal constant region
+PF05037	Protein of unknown function (DUF669)
+PF05095	Protein of unknown function (DUF687)
+PF05339	Protein of unknown function (DUF739)
+PF05354	Phage Head-Tail Attachment
+PF06483	Chitinase C
+PF06619	Protein of unknown function (DUF1149)
+PF07278	Protein of unknown function (DUF1441)
+PF08820	Domain of unknown function (DUF1803)
+PF09081	Domain of unknown function (DUF1921)
+PF09217	Restriction endonuclease EcoRII, N-terminal
+PF09636	XkdW protein
+PF10078	Uncharacterized protein conserved in bacteria (DUF2316)
+PF10915	Protein of unknown function (DUF2709)
+PF11215	Protein of unknown function (DUF3010)
+PF12123	N-acetylmuramoyl-l-alanine amidase
+PF12340	Protein of unknown function (DUF3638)
+PF12937	F-box-like
+PF12959	Protein of unknown function (DUF3848)
+PF12993	Domain of unknown function, E. rectale Gene description (DUF3877)
+PF13108	Protein of unknown function (DUF3969)
+PF13133	Protein of unknown function (DUF3949)
+PF14404	Ribosomally synthesized peptide in Streptomyces species
+PF14506	CppA N-terminal
+PF14507	CppA C-terminal
+PF15899	BNR-Asp box repeat
+PF16067	Domain of unknown function (DUF4809)
+PF16160	Domain of unknown function (DUF4866)
+PF16405	Domain of unknown function (DUF5013)
+PF16789	YscO-like protein

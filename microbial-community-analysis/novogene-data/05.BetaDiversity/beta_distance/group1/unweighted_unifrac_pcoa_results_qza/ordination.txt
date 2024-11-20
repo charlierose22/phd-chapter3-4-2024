@@ -1,0 +1,15 @@
+Eigvals	2
+0.09518842887545666	0.0
+
+Proportion explained	2
+1.0	0.0
+
+Species	0	0
+
+Site	2	2
+Day.1	-0.21816098284919858	-0.0
+Day.29	0.21816098284919858	-0.0
+
+Biplot	0	0
+
+Site constraints	0	0

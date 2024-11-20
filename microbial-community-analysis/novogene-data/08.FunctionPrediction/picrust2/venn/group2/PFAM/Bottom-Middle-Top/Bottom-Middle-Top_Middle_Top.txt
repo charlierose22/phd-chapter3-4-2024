@@ -1,0 +1,13 @@
+ID	Taxonomy
+PF01298	Transferrin binding protein-like solute binding protein
+PF02013	Cellulose or protein binding domain
+PF03423	Carbohydrate binding domain (family 25)
+PF04449	CS1 type fimbrial major subunit
+PF07481	Domain of Unknown Function (DUF1521)
+PF07902	gp58-like protein
+PF08460	Bacterial SH3 domain
+PF09206	Alpha-L-arabinofuranosidase B, catalytic
+PF10786	Glucose-6-phosphate 1-dehydrogenase (EC 1.1.1.49)
+PF12222	Peptide N-acetyl-beta-D-glucosaminyl asparaginase amidase A
+PF13651	Adenine-specific methyltransferase EcoRI
+PF13957	Toxin YafO, type II toxin-antitoxin system

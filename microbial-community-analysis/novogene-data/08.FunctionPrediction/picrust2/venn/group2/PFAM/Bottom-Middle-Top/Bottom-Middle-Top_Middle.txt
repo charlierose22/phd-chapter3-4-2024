@@ -1,0 +1,2 @@
+ID	Taxonomy
+PF00502	Phycobilisome protein

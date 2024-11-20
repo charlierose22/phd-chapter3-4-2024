@@ -1,0 +1,36 @@
+ID	Taxonomy
+TIGR01006	polysaccharide export protein, MPA1 family
+TIGR01674	phage minor tail protein G
+TIGR01715	phage tail assembly protein T
+TIGR01741	conserved hypothetical protein
+TIGR01823	aminodeoxychorismate synthase
+TIGR01904	Geobacter sulfurreducens CxxxxCH...CXXCH domain
+TIGR02172	fibrobacter succinogenes paralogous family TIGR02172
+TIGR02259	benzoyl-CoA reductase, subunit A
+TIGR02525	plasmid transfer ATPase TraJ
+TIGR02736	cytochrome c oxidase, cbb3-type, CcoQ subunit
+TIGR03021	type IV pilus biogenesis protein PilP
+TIGR03068	sortase B signal domain, NPQTN class
+TIGR03117	CRISPR type AFERR-associated DEAD/DEAH-box helicase Csf4
+TIGR03235	cysteine desulfurase DndA
+TIGR03325	cis-2,3-dihydrobiphenyl-2,3-diol dehydrogenase
+TIGR03393	indolepyruvate decarboxylase
+TIGR03463	2,3-oxidosqualene cyclase
+TIGR03734	PRTRC system ParB family protein
+TIGR03735	PRTRC system protein A
+TIGR04004	colanic acid biosynthesis protein WcaM
+TIGR04005	colanic acid biosynthesis glycosyltransferase WcaL
+TIGR04006	colanic acid biosynthesis pyruvyl transferase WcaK
+TIGR04007	colanic acid biosynthesis glycosyltransferase WcaI
+TIGR04008	colanic acid biosynthesis acetyltransferase WcaF
+TIGR04009	colanic acid biosynthesis glycosyltransferase WcaE
+TIGR04010	putative colanic acid polymerase WcaD
+TIGR04015	colanic acid biosynthesis glycosyltransferase WcaC
+TIGR04017	colanic acid biosynthesis glycosyltransferase WcaA
+TIGR04035	glucan-binding repeat
+TIGR04062	dnd system-associated protein 4
+TIGR04072	lipid biosynthesis B12-binding/radical SAM protein
+TIGR04095	DNA phosphorothioation system restriction enzyme
+TIGR04351	putative TOMM peptide
+TIGR04432	23S rRNA (adenine(2503)-C(8))-methyltransferase Cfr
+TIGR04516	glycosyltransferase, activator-dependent family

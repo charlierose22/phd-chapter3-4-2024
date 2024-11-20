@@ -1,0 +1,3 @@
+ID	Taxonomy
+PWY-5675	nitrate reduction V (assimilatory)
+PWY-5757	fosfomycin biosynthesis

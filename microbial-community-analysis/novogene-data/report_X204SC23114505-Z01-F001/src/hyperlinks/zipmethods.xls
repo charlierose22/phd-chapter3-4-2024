@@ -1,0 +1,5 @@
+压缩格式	用户类型	解压方法
+*.gz形式的压缩文件	Unix/Linux/Mac 用户	使用 gzip –d *.gz 命令打开
+*.gz形式的压缩文件	Windows 用户	使用解压缩软件如 WinRAR, 7-Zip 等打开
+*.zip形式的压缩文件	Unix/Linux/Mac 用户	使用 unzip *.zip 命令打开
+*.zip形式的压缩文件	Windows 用户	使用解压缩软件如 WinRAR, 7-Zip 等打开

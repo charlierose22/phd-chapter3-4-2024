@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.0//EN" "http://www.w3.org/TR/2001/REC-SVG-20010904/DTD/svg10.dtd">
+<svg height="350" width="744" xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+	<line stroke="black" stroke-width="2" x1="130.5" x2="270.5" y1="260" y2="260" />
+	<line stroke="black" stroke-width="1" x1="130.5" x2="130.5" y1="260" y2="255" />
+	<line stroke="black" stroke-width="1" x1="270.5" x2="270.5" y1="260" y2="255" />
+	<text font-family="Arial" font-size="10" text-anchor="middle" x="130.5" y="275">0</text>
+	<text font-family="Arial" font-size="10" text-anchor="middle" x="270.5" y="275">0.06</text>
+	<text font-family="Arial" font-size="15" text-anchor="middle" x="200.5" y="290">Means in groups</text>
+	<rect fill="sandybrown" height="10" stroke="black" width="28" x="17" y="70" />
+	<text font-family="Arial" font-size="10" text-anchor="start" x="50" y="80">Day.1</text>
+	<rect fill="cornflowerblue" height="10" stroke="black" width="28" x="100" y="70" />
+	<text font-family="Arial" font-size="10" text-anchor="start" x="133" y="80">Day.29</text>
+	<line stroke="black" stroke-width="2" x1="330.5" x2="580.5" y1="260" y2="260" />
+	<line stroke="black" stroke-width="1" x1="330.5" x2="330.5" y1="260" y2="255" />
+	<text font-family="Arial" font-size="10" text-anchor="end" x="330.5" y="275">0</text>
+	<line stroke="black" stroke-width="1" x1="393" x2="393" y1="260" y2="255" />
+	<text font-family="Arial" font-size="10" text-anchor="end" x="393" y="275">0.015</text>
+	<line stroke="black" stroke-width="1" x1="455.5" x2="455.5" y1="260" y2="255" />
+	<text font-family="Arial" font-size="10" text-anchor="end" x="455.5" y="275">0.03</text>
+	<line stroke="black" stroke-width="1" x1="518" x2="518" y1="260" y2="255" />
+	<text font-family="Arial" font-size="10" text-anchor="end" x="518" y="275">0.045</text>
+	<line stroke="black" stroke-width="1" x1="580.5" x2="580.5" y1="260" y2="255" />
+	<text font-family="Arial" font-size="10" text-anchor="end" x="580.5" y="275">0.06</text>
+	<line stroke="black" stroke-dasharray="3 2" stroke-width="1" x1="330.5" x2="330.5" y1="250" y2="100" />
+	<text font-family="Arial" font-size="15" text-anchor="middle" x="455.5" y="290">Difference between groups</text>
+	<text font-family="Arial" font-size="10" text-anchor="middle" x="455.5" y="80">95% confidence intervals</text>
+	<text font-family="Arial" font-size="10" text-anchor="end" x="125.5" y="130">Burkholderiales</text>
+	<text font-family="Arial" font-size="10" text-anchor="start" x="585.5" y="130">0.004</text>
+	<rect fill-opacity="0.1" height="50" width="140" x="130.5" y="100" />
+	<rect fill-opacity="0.1" height="50" width="250" x="330.5" y="100" />
+	<text font-family="Arial" font-size="10" text-anchor="end" x="125.5" y="180">Enterobacterales</text>
+	<text font-family="Arial" font-size="10" text-anchor="start" x="585.5" y="180">0.012</text>
+	<text font-family="Arial" font-size="10" text-anchor="end" x="125.5" y="230">Cardiobacteriales</text>
+	<text font-family="Arial" font-size="10" text-anchor="start" x="585.5" y="230">0.044</text>
+	<rect fill-opacity="0.1" height="50" width="140" x="130.5" y="200" />
+	<rect fill-opacity="0.1" height="50" width="250" x="330.5" y="200" />
+	<rect fill="sandybrown" height="20" stroke="black" stroke-width="1" width="93.324697155459" x="130.5" y="105" />
+	<rect fill="cornflowerblue" height="20" stroke="black" width="24.9909397241049" x="130.5" y="125" />
+	<rect fill="sandybrown" height="20" stroke="black" stroke-width="1" width="13.7459164501197" x="130.5" y="155" />
+	<rect fill="cornflowerblue" height="20" stroke="black" width="2.26699669203544" x="130.5" y="175" />
+	<rect fill="sandybrown" height="20" stroke="black" stroke-width="1" width="2.41093298994245" x="130.5" y="205" />
+	<rect fill="cornflowerblue" height="20" stroke="black" width="0" x="130.5" y="225" />
+	<line stroke="black" stroke-width="1" x1="400.04631762922" x2="444.19123350837" y1="125" y2="125" />
+	<circle cx="452.524566841704" cy="125" fill="sandybrown" r="8.33333333333333" stroke="black" />
+	<line stroke="black" stroke-width="1" x1="460.857900175037" x2="505.002816054187" y1="125" y2="125" />
+	<line stroke="black" stroke-width="1" x1="400.04631762922" x2="400.04631762922" y1="120.833333333333" y2="129.166666666667" />
+	<line stroke="black" stroke-width="1" x1="505.002816054187" x2="505.002816054187" y1="120.833333333333" y2="129.166666666667" />
+	<line stroke="black" stroke-width="1" x1="339.098466248081" x2="342.664737663246" y1="175" y2="175" />
+	<circle cx="350.998070996579" cy="175" fill="sandybrown" r="8.33333333333333" stroke="black" />
+	<line stroke="black" stroke-width="1" x1="359.331404329912" x2="362.897675745077" y1="175" y2="175" />
+	<line stroke="black" stroke-width="1" x1="339.098466248081" x2="339.098466248081" y1="170.833333333333" y2="179.166666666667" />
+	<line stroke="black" stroke-width="1" x1="362.897675745077" x2="362.897675745077" y1="170.833333333333" y2="179.166666666667" />
+	<line stroke="black" stroke-width="1" x1="330.789180808112" x2="326.471904148707" y1="225" y2="225" />
+	<circle cx="334.80523748204" cy="225" fill="sandybrown" r="8.33333333333333" stroke="black" />
+	<line stroke="black" stroke-width="1" x1="343.138570815373" x2="338.821294155968" y1="225" y2="225" />
+	<line stroke="black" stroke-width="1" x1="330.789180808112" x2="330.789180808112" y1="220.833333333333" y2="229.166666666667" />
+	<line stroke="black" stroke-width="1" x1="338.821294155968" x2="338.821294155968" y1="220.833333333333" y2="229.166666666667" />
+	<g transform="rotate(90,628,175)">
+		<text font-family="Arial" font-size="10" text-anchor="middle" x="628" y="175">p_value</text>
+	</g>
+	<!-- 
+	Generated using the Perl SVG Module V2.59
+	by Ronan Oger
+	Info: http://www.roitsystems.com/
+ -->
+</svg>

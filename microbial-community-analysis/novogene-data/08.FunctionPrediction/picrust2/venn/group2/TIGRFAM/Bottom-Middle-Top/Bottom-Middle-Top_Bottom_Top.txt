@@ -1,0 +1,26 @@
+ID	Taxonomy
+TIGR01118	galactose-6-phosphate isomerase, LacA subunit
+TIGR01119	galactose-6-phosphate isomerase, LacB subunit
+TIGR01757	malate dehydrogenase, NADP-dependent
+TIGR02514	type III secretion system needle length determinant
+TIGR03076	chlamydial GcvH-like protein upstream region protein
+TIGR03096	nitrosocyanin
+TIGR03393	indolepyruvate decarboxylase
+TIGR03898	type 2 lantibiotic, mersacidin/lichenicidin family
+TIGR04004	colanic acid biosynthesis protein WcaM
+TIGR04005	colanic acid biosynthesis glycosyltransferase WcaL
+TIGR04006	colanic acid biosynthesis pyruvyl transferase WcaK
+TIGR04007	colanic acid biosynthesis glycosyltransferase WcaI
+TIGR04008	colanic acid biosynthesis acetyltransferase WcaF
+TIGR04009	colanic acid biosynthesis glycosyltransferase WcaE
+TIGR04010	putative colanic acid polymerase WcaD
+TIGR04015	colanic acid biosynthesis glycosyltransferase WcaC
+TIGR04017	colanic acid biosynthesis glycosyltransferase WcaA
+TIGR04035	glucan-binding repeat
+TIGR04087	YqxM protein
+TIGR04359	entry exclusion lipoprotein TrbK
+TIGR04424	McbB family protein
+TIGR04470	radical SAM mobile pair protein B
+TIGR04471	radical SAM mobile pair protein A
+TIGR04472	mobile rSAM pair MarR family regulator
+TIGR04493	microcompartment protein PduM

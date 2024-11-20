@@ -1,0 +1,18 @@
+Num samples: 2
+Num observations: 2164
+Total count: 325374
+Table density (fraction of non-zero values): 0.33086876155268
+Table md5 (unzipped): f0cc30fcaabb77b9673aaf44b88870d4
+
+Counts/sample summary:
+ Min: 156226
+ Max: 169148
+ Median: 162687
+ Mean: 162687
+ Std. dev.: 6461
+ Sample Metadata Categories: None provided
+ Observation Metadata Categories: taxonomy
+
+Counts/sample detail:
+ Day.1: 169148
+ Day.29: 156226

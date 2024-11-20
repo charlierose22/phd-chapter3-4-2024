@@ -1,0 +1,3 @@
+ID	Taxonomy
+COG4688	Uncharacterized protein
+COG5283	Phage-related tail protein

@@ -1,0 +1,41 @@
+Analytical content	Software	Version	Parameters	Remarks
+Reads splited	python	3.6.13	-	-
+Reads filtration	cutadapt	3.3	--minimum-length 20	Remove short sequence and intercept over sequence
+Reads merging	flash	1.2.11	--min-overlap 10  --max-mismatch-densit 0.2	-
+Tags flitration	fastp	0.23.1	-q 19 -u 15	-
+Chimeras Removal	vsearch	2.16.0	-	-
+Denoise	qiime2	202202	dada2	-
+ASV tree	qiime2	202202	phylogeny	-
+Taxonomy annotation	qiime2	202202	-	-
+Top10 barplot	perl	5.26.2	SVG	-
+Heatmap	R	4.0.3	pheatmap	-
+Ternary plot	R	4.0.3	vcd	-
+Venn	R	4.0.3	VennDiagram	-
+Flower	perl	5.26.2	SVG	-
+Tree100	perl	5.26.2	SVG	-
+Alpha diversity indices	qiime2	202202	chao1, dominance, goods_coverage, observed_otus, pielou_e, shannon, simpson	-
+Specaccum	R	4.0.3	vegan, reshape2	-
+Rank_abundance	R	4.0.3	RColorBrewer	-
+Rarefaction curve/indexes	R	4.0.3	plyr, reshape2, ggplot2	-
+Alpha diversity analysis	R	4.0.3	ggplot2, agricolae	-
+BetaDistance	qiime2	202202	-	-
+PCA	R	4.0.3	ade4, cluster, grid, fpc, clusterSim, RColorBrewer, ggplot2, vegan, permute, lattice, stringr, grid, cowplot	-
+DCA	R	4.0.3	vegan, permute, lattice, methods, ggplot2	-
+UnifracHeatmap	perl	5.26.2	-	-
+PCoA	R	4.0.3	ggplot2, extrafont, grid, ade4	-
+NMDS	R	4.0.3	ade4, cluster, grid, fpc, clusterSim, RColorBrewer, ggplot2, vegan, permute, lattice, stringr, grid, cowplot	-
+BetaDiv	R	4.0.3	ggplot2, optparse	-
+Adonis	R	4.0.3	vegan, ggplot2, tidyr, dplyr, gridExtra, permute, lattice	-
+Anosim	R	4.0.3	vegan, ggplot3, tidyr, dplyr, gridExtra, permute, lattice	-
+MRPP	R	4.0.3	vegan, ggplot4, tidyr, dplyr, gridExtra, permute, lattice	-
+Simper	R	4.0.3	vegan, ggplot2, tidyr, dplyr, gridExtra	-
+LEFse	lefse	1.1.01	-l 4	-
+T-test	R	4.0.3	-	-
+metagenomeSeq	R	4.0.3	metagenomeSeq	-
+Picrust2	picrust2	2.3.0	-	-
+Picrust	picrust	1.1.4	-	-
+Tax4fun	tax4fun	0.3.1	-	-
+FAPROTAX	python	2.7.15	-	-
+Bugbase	R	3.4.0	reshape2, plyr, gridExtra, ggplot2, digest, labeling, RColorBrewer, Matrix, grid, biom, beeswarm, optparse, RJSONIO	-
+Funguild	python	2.7.15	-	-
+Environmental association analysis	R	4.0.3	psych, vegan, ggplot2, grid, ggrepel, MASS	-

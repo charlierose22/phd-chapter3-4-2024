@@ -1,0 +1,57 @@
+ID	Taxonomy
+EC:1.1.1.163	Cyclopentanol dehydrogenase
+EC:1.1.1.21	Aldehyde reductase
+EC:1.1.1.307	D-xylose reductase
+EC:1.1.1.316	L-galactose 1-dehydrogenase
+EC:1.1.1.340	1-deoxy-11-beta-hydroxypentalenate dehydrogenase
+EC:1.12.5.1	Hydrogen:quinone oxidoreductase
+EC:1.13.11.56	1,2-dihydroxynaphthalene dioxygenase
+EC:1.13.11.66	Hydroquinone 1,2-dioxygenase
+EC:1.14.11.35	1-deoxypentalenic acid 11-beta-hydroxylase
+EC:1.14.11.36	Pentalenolactone F synthase
+EC:1.14.12.12	Naphthalene 1,2-dioxygenase
+EC:1.14.13.106	Epi-isozizaene 5-monooxygenase
+EC:1.14.13.170	Pentalenolactone D synthase
+EC:1.14.13.171	Neopentalenolactone D synthase
+EC:1.14.17.3	Peptidylglycine monooxygenase
+EC:1.14.18.6	4-hydroxysphinganine ceramide fatty acyl 2-hydroxylase
+EC:1.14.18.7	Dihydroceramide fatty acyl 2-hydroxylase
+EC:1.14.21.7	Biflaviolin synthase
+EC:1.2.1.65	Salicylaldehyde dehydrogenase
+EC:1.2.1.76	Succinate-semialdehyde dehydrogenase (acetylating)
+EC:1.3.1.29	Cis-1,2-dihydro-1,2-dihydroxynaphthalene dehydrogenase
+EC:1.3.1.49	Cis-3,4-dihydrophenanthrene-3,4-diol dehydrogenase
+EC:1.3.1.58	2,3-dihydroxy-2,3-dihydro-p-cumate dehydrogenase
+EC:1.3.1.60	Dibenzothiophene dihydrodiol dehydrogenase
+EC:1.3.8.2	4,4-diapophytoene desaturase (4,4-diapolycopene-forming)
+EC:2.1.1.204	tRNA (cytosine(38)-C(5))-methyltransferase
+EC:2.1.1.224	23S rRNA (adenine(2503)-C(8))-methyltransferase
+EC:2.1.1.285	Demethyldecarbamoylnovobiocin O-methyltransferase
+EC:2.1.1.307	methyltransferase
+EC:2.1.1.95	Tocopherol O-methyltransferase
+EC:2.1.3.7	3-hydroxymethylcephem carbamoyltransferase
+EC:2.1.4.2	Scyllo-inosamine-4-phosphate amidinotransferase
+EC:2.3.1.202	UDP-4-amino-4,6-dideoxy-N-acetyl-beta-L-altrosamine N-acetyltransferase
+EC:2.4.1.13	Sucrose synthase
+EC:2.4.1.5	Dextransucrase
+EC:2.4.99.19	Undecaprenyl-diphosphooligosaccharide--protein glycotransferase
+EC:2.5.1.38	Isonocardicin synthase
+EC:2.7.1.163	Hygromycin B 4-O-kinase
+EC:2.7.8.36	transferase
+EC:3.1.25.1	Deoxyribonuclease (pyrimidine dimer)
+EC:3.1.6.4	N-acetylgalactosamine-6-sulfatase
+EC:3.2.1.169	Protein O-GlcNAcase
+EC:3.2.1.76	L-iduronidase
+EC:3.4.21.100	Sedolisin
+EC:3.4.21.59	Tryptase
+EC:3.4.21.80	Streptogrisin A
+EC:3.4.23.48	Plasminogen activator Pla
+EC:3.6.1.57	UDP-2,4-diacetamido-2,4,6-trideoxy-beta-L-altropyranose hydrolase
+EC:4.2.1.106	Bile-acid 7-alpha-dehydratase
+EC:4.2.1.5	Arabinonate dehydratase
+EC:4.2.2.17	Inulin fructotransferase (DFA-I-forming)
+EC:4.2.3.37	Epi-isozizaene synthase
+EC:4.2.3.7	Pentalenene synthase
+EC:4.2.3.90	5-epi-alpha-selinene synthase
+EC:4.3.3.2	Strictosidine synthase
+EC:5.5.1.7	Chloromuconate cycloisomerase

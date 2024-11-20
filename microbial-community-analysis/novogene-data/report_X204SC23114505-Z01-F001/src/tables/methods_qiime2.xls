@@ -1,0 +1,43 @@
+分析内容	软件	版本	参数	备注
+数据拆分	python	3.6.13		
+过滤	cutadapt	3.3	--minimum-length	
+拼接	flash	1.2.11	--min-overlap	
+质控	fastp	0.23.1	-q	
+去嵌合体	vsearch	2.16.0		
+降噪	qiime2	202202	dada2	
+建树	qiime2	202202	phylogeny	
+注释	qiime2	202202	classify-sklearn	
+top10柱形图	perl	5.26.2	SVG	
+热图	R	4.0.3	pheatmap	
+三元相图	R	4.0.3	vcd	
+韦恩图	R	4.0.3	VennDiagram	
+花瓣图	perl	5.26.2	SVG	
+Tree100	perl	5.26.2	SVG	
+稀释曲线/指数	qiime2	202202	chao1	
+Specaccum	R	4.0.3	vegan、reshape2	
+rank_abundance	R	4.0.3	RColorBrewer	
+稀释曲线可视化	R	4.0.3	plyr、reshape2、ggplot2	
+Alpha多样性分析	R	4.0.3	ggplot2、agricolae	
+betaDistance	qiime2	202202		
+PCA	R	4.0.3	ade4、cluster、grid、fpc、clusterSim、RColorBrewer、ggplot2、vegan、permute、lattice、stringr、grid、cowplot	
+DCA	R	4.0.3	vegan、permute、lattice、methods、ggplot2	
+UnifracHeatmap	perl	5.26.2		
+PCoA	R	4.0.3	ggplot2、extrafont、grid、ade4	
+PCoA3D	qiime2	202202		
+NMDS	R	4.0.3	ade4、cluster、grid、fpc、clusterSim、RColorBrewer、ggplot2、vegan、permute、lattice、stringr、grid、cowplot	
+betaDiv	R	4.0.3	ggplot2、optparse	
+adonis	R	4.0.3	vegan、ggplot2、tidyr、dplyr、gridExtra、permute、lattice	
+anosim	R	4.0.3	vegan、ggplot3、tidyr、dplyr、gridExtra、permute、lattice	
+mrpp	R	4.0.3	vegan、ggplot4、tidyr、dplyr、gridExtra、permute、lattice	
+simper	R	4.0.3	vegan、ggplot2、tidyr、dplyr、gridExtra	
+lefse	lefse	1.1.01	-l	
+ttest	R	4.0.3		
+metagenomeSeq	R	4.0.3	metagenomeSeq	
+randomforest	R	4.0.3	randomForest	
+picrust2	picrust2	2.3.0		
+picrust	picrust	1.1.4		
+tax4fun	tax4fun	0.3.1		
+FAPROTAX	python	2.7.15		
+bugbase	R	3.4.0	reshape2、plyr、gridExtra、ggplot2、digest、labeling、RColorBrewer、Matrix、grid、biom、beeswarm、optparse、RJSONIO	
+funguild	python	2.7.15		
+环境因子	R	4.0.3	psych，vegan，ggplot2，grid，ggrepel，MASS	

@@ -420,6 +420,12 @@ dunnTest(group_area ~ class,
          data = chem_time_factor,
          method = "bh")
 
+ggplot(chem_time_factor, aes(x = class, y = group_area) ) +
+  geom_boxplot() +
+  scale_x_discrete(name = "Antibiotic Class") +
+  scale_y_continuous(name = "UHPLC Peak Intensity") +
+  theme_classic()
+
 # Aminoglycosides
 # one way anova
 chem_one_way_amino <- aov(group_area ~ name.x, data = chem_time_factor_amino)
@@ -431,15 +437,12 @@ chem_two_way_amino <- aov(group_area ~ day * name.x, data = chem_time_factor_ami
 summary(chem_two_way_amino)
 # check normal distribution
 par(mfrow=c(2,2))
-plot(chem_one_way_amino_day)
+plot(chem_one_way_amino)
 par(mfrow=c(1,1))
 # kruskal wallis 
 kruskal.test(data = chem_time_factor_amino, group_area ~ name.x)
 kruskal.test(data = chem_time_factor_amino, group_area ~ day)
 # post-hoc test
-dunnTest(group_area ~ name.x,
-         data = chem_time_factor_amino,
-         method = "bh")
 dunnTest(group_area ~ day,
          data = chem_time_factor_amino,
          method = "bh")
@@ -494,24 +497,15 @@ dunnTest(group_area ~ day,
 
 # Chloramphenicol
 # one way anova
-chem_one_way_phen <- aov(group_area ~ name.x, data = chem_time_factor_phen)
-summary(chem_one_way_phen)
 chem_one_way_phen_day <- aov(group_area ~ day, data = chem_time_factor_phen)
 summary(chem_one_way_phen_day)
-# two way anova
-chem_two_way_phen <- aov(group_area ~ day * name.x, data = chem_time_factor_phen)
-summary(chem_two_way_phen)
 # check normal distribution
 par(mfrow=c(2,2))
 plot(chem_one_way_phen_day)
 par(mfrow=c(1,1))
 # kruskal wallis 
-kruskal.test(data = chem_time_factor_phen, group_area ~ name.x)
 kruskal.test(data = chem_time_factor_phen, group_area ~ day)
 # post-hoc test
-dunnTest(group_area ~ name.x,
-         data = chem_time_factor_phen,
-         method = "bh")
 dunnTest(group_area ~ day,
          data = chem_time_factor_phen,
          method = "bh")
@@ -544,8 +538,8 @@ dunnTest(group_area ~ day,
 # one way anova
 chem_one_way_sulf <- aov(group_area ~ name.x, data = chem_time_factor_sulf)
 summary(chem_one_way_sulf)
-chem_one_way_amino_day <- aov(group_area ~ day, data = chem_time_factor_sulf)
-summary(chem_one_way_amino_sulf)
+chem_one_way_sulf_day <- aov(group_area ~ day, data = chem_time_factor_sulf)
+summary(chem_one_way_sulf_day)
 # two way anova
 chem_two_way_sulf <- aov(group_area ~ day * name.x, data = chem_time_factor_sulf)
 summary(chem_two_way_sulf)
@@ -581,9 +575,6 @@ par(mfrow=c(1,1))
 kruskal.test(data = chem_time_factor_tet, group_area ~ name.x)
 kruskal.test(data = chem_time_factor_tet, group_area ~ day)
 # post-hoc test
-dunnTest(group_area ~ name.x,
-         data = chem_time_factor_tet,
-         method = "bh")
 dunnTest(group_area ~ day,
          data = chem_time_factor_tet,
          method = "bh")

@@ -1,0 +1,12 @@
+98a8684e7b4f20c301f13e1813521a02  A4/A4.effective.fastq.gz
+1ed87d4bc3b1a7d7f7d9e284881726b3  A4/A4.fna.gz
+79427a7e1889c1968265003ea8566044  A52/A52.effective.fastq.gz
+22d6503cefd66912bc2195ecb68972ae  A52/A52.fna.gz
+5ae0cdfbf2b1e75aa87af59e8e891114  A53/A53.effective.fastq.gz
+f61a408927e2aff492d22e1c3dc5a540  A53/A53.fna.gz
+8ba503c694d7bcb8066193e4f647bb0d  A54/A54.effective.fastq.gz
+24f7175fb2c74e53ad3154ea6a76af84  A54/A54.fna.gz
+7dccd7269310b0cbef7bc34651decee3  A5/A5.effective.fastq.gz
+ef318f5470ab7fec374fa519747973df  A5/A5.fna.gz
+f89ca145a9d30c14558439b20bb256cd  A6/A6.effective.fastq.gz
+04dbe9eedd16611392f5ba694602d9d7  A6/A6.fna.gz

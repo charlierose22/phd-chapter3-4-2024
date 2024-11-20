@@ -1,0 +1,4 @@
+Taxonomy	Bottom	Middle	Top	Tax_detail
+Bacteria	0.852506	0.792177	0.861297	k__Bacteria;
+Archaea	0.147494	0.207823	0.138657	k__Archaea;
+Others	0.000000	0.000000	0.000046	Others

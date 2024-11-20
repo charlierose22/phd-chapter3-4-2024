@@ -1,0 +1,5 @@
+ID	Taxonomy
+CENTBENZCOA-PWY	benzoyl-CoA degradation II (anaerobic)
+PWY-6915	pentalenolactone biosynthesis
+PWY-6919	neopentalenoketolactone and pentalenate biosynthesis
+PWY-7002	4-hydroxyacetophenone degradation

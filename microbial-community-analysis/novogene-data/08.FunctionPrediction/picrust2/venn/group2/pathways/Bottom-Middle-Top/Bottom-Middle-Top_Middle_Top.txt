@@ -1,0 +1,2 @@
+ID	Taxonomy
+LPSSYN-PWY	superpathway of lipopolysaccharide biosynthesis

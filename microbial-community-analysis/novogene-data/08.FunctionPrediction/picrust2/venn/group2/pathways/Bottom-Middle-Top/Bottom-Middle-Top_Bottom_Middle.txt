@@ -1,0 +1,2 @@
+ID	Taxonomy
+PWY-5656	mannosylglycerate biosynthesis I

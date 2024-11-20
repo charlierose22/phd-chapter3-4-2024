@@ -1,0 +1,16 @@
+ID	Taxonomy
+TIGR01006	polysaccharide export protein, MPA1 family
+TIGR01674	phage minor tail protein G
+TIGR01715	phage tail assembly protein T
+TIGR01741	conserved hypothetical protein
+TIGR02525	plasmid transfer ATPase TraJ
+TIGR03021	type IV pilus biogenesis protein PilP
+TIGR03068	sortase B signal domain, NPQTN class
+TIGR03117	CRISPR type AFERR-associated DEAD/DEAH-box helicase Csf4
+TIGR03325	cis-2,3-dihydrobiphenyl-2,3-diol dehydrogenase
+TIGR03734	PRTRC system ParB family protein
+TIGR03735	PRTRC system protein A
+TIGR04072	lipid biosynthesis B12-binding/radical SAM protein
+TIGR04218	ribosomal natural product, plantazolicin-class
+TIGR04351	putative TOMM peptide
+TIGR04516	glycosyltransferase, activator-dependent family

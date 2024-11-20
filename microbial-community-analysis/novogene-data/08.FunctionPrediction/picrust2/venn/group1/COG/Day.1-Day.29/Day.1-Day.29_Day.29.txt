@@ -1,0 +1,5 @@
+ID	Taxonomy
+COG2158	Uncharacterized protein, contains a Zn-finger-like domain
+COG3863	Uncharacterized protein YycO
+COG4367	Uncharacterized protein
+COG4688	Uncharacterized protein

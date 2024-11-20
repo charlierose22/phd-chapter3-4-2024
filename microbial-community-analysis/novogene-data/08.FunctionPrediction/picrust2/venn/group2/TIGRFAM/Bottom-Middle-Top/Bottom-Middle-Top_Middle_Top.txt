@@ -1,0 +1,15 @@
+ID	Taxonomy
+TIGR01823	aminodeoxychorismate synthase
+TIGR01904	Geobacter sulfurreducens CxxxxCH...CXXCH domain
+TIGR02465	chlorocatechol 1,2-dioxygenase
+TIGR02809	phasin family protein
+TIGR03715	KxYKxGKxW signal peptide
+TIGR03979	His-Xaa-Ser repeat protein HxsA
+TIGR04062	dnd system-associated protein 4
+TIGR04142	putative peptidyl-prolyl cis-trans isomerase, LIC12922 family
+TIGR04302	GeoRSP system PqqD family protein
+TIGR04303	GeoRSP system radical SAM/SPASM protein
+TIGR04304	GeoRSP system SPASM domain protein
+TIGR04311	putative metalloenzyme radical SAM/SPASM domain maturase
+TIGR04410	type II secretion system-associated lipoprotein
+TIGR04442	TIGR04442 family protein

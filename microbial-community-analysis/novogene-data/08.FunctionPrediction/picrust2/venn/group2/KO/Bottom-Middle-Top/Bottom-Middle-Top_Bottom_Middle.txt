@@ -1,0 +1,36 @@
+ID	Taxonomy
+K00329	E1.6.5.3; NADH dehydrogenase [EC:1.6.5.3]
+K00621	GNPNAT1, GNA1; glucosamine-phosphate N-acetyltransferase [EC:2.3.1.4]
+K01180	E3.2.1.6; endo-1,3(4)-beta-glucanase [EC:3.2.1.6]
+K01188	E3.2.1.21; beta-glucosidase [EC:3.2.1.21]
+K01481	E3.5.3.15; protein-arginine deiminase [EC:3.5.3.15]
+K01762	ACS; 1-aminocyclopropane-1-carboxylate synthase [EC:4.4.1.14]
+K02293	PDS, crtP; 15-cis-phytoene desaturase [EC:1.3.5.5]
+K02635	petB; cytochrome b6
+K02975	RP-S25e, RPS25; small subunit ribosomal protein S25e
+K02976	RP-S26e, RPS26; small subunit ribosomal protein S26e
+K02983	RP-S30e, RPS30; small subunit ribosomal protein S30e
+K03014	RPB6, POLR2F; DNA-directed RNA polymerases I, II, and III subunit RPABC2
+K03163	TOP1; DNA topoisomerase I [EC:5.99.1.2]
+K05947	E2.4.1.217; mannosyl-3-phosphoglycerate synthase [EC:2.4.1.217]
+K06072	DOHH; deoxyhypusine monooxygenase [EC:1.14.99.29]
+K07176	K07176; putative serine/threonine protein kinase
+K07450	K07450; putative resolvase
+K08698	ccmM; carbon dioxide concentrating mechanism protein CcmM
+K10811	E2.5.1.2; thiamine pyridinylase [EC:2.5.1.2]
+K10848	ERCC4, XPF; DNA excision repair protein ERCC-4 [EC:3.1.-.-]
+K10956	SEC61A; protein transport protein SEC61 subunit alpha
+K11415	SIRT5, SIR2L5; NAD-dependent deacetylase sirtuin 5 [EC:3.5.1.-]
+K13524	ABAT; 4-aminobutyrate aminotransferase / (S)-3-amino-2-methylpropionate transaminase [EC:2.6.1.19 2.6.1.22]
+K13811	PAPSS; 3-phosphoadenosine 5-phosphosulfate synthase [EC:2.7.7.4 2.7.1.25]
+K14568	EMG1, NEP1; rRNA small subunit pseudouridine methyltransferase Nep1 [EC:2.1.1.260]
+K15297	RIMS2, RIM2; regulating synaptic membrane exocytosis protein 2
+K15528	FAAH; fatty acid amide hydrolase [EC:3.5.1.99]
+K15878	K15878, narB; rieske iron-sulphur protein
+K15928	jadH; bifunctional hydroxylase/dehydrase
+K16102	vioO; nonribosomal peptide synthetase protein VioO
+K16159	mmoZ; methane monooxygenase component A gamma chain [EC:1.14.13.25]
+K16160	mmoB; methane monooxygenase regulatory protein B
+K16161	mmoC; methane monooxygenase component C [EC:1.14.13.25]
+K17745	spr1; sepiapterin reductase [EC:1.1.1.325]
+K18491	ESX1; homeobox protein ESX1

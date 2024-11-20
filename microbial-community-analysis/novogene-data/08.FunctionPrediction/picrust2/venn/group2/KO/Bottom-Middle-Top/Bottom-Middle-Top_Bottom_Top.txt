@@ -1,0 +1,63 @@
+ID	Taxonomy
+K00051	E1.1.1.82; malate dehydrogenase (NADP+) [EC:1.1.1.82]
+K00213	DHCR7; 7-dehydrocholesterol reductase [EC:1.3.1.21]
+K00533	E1.12.7.2L; ferredoxin hydrogenase large subunit [EC:1.12.7.2]
+K00630	ATS1; glycerol-3-phosphate O-acyltransferase [EC:2.3.1.15]
+K00785	lst; beta-galactosamide-alpha-2,3-sialyltransferase [EC:2.4.99.-]
+K01014	SULT1A; aryl sulfotransferase [EC:2.8.2.1]
+K01214	ISA, treX; isoamylase [EC:3.2.1.68]
+K01240	URH1; uridine nucleosidase [EC:3.2.2.3]
+K01318	sspA; glutamyl endopeptidase [EC:3.4.21.19]
+K01408	IDE, ide; insulysin [EC:3.4.24.56]
+K01594	CSAD; sulfinoalanine decarboxylase [EC:4.1.1.29]
+K06033	E4.1.1.76; arylmalonate decarboxylase [EC:4.1.1.76]
+K06157	idnT; Gnt-II system L-idonate transporter
+K06341	cotW; spore coat protein W
+K06343	cotY; spore coat protein Y
+K06580	SLC42A, RHAG, RHBG, RHCG, CD241; ammonium transporter Rh
+K07352	sfmA; type 1 fimbrial protein
+K07453	K07453; putative restriction endonuclease
+K07698	kinC; two-component system, sporulation sensor kinase C [EC:2.7.13.3]
+K08174	glcP; MFS transporter, FHS family, glucose/mannose:H+ symporter
+K09611	NPEPL1; probable aminopeptidase NPEPL1 [EC:3.4.11.-]
+K09805	K09805; uncharacterized protein
+K10681	saeS; two-component system, OmpR family, sensor histidine kinase SaeS [EC:2.7.13.3]
+K10916	cqsS; two-component system, CAI-1 autoinducer sensor kinase/phosphatase CqsS [EC:2.7.13.3 3.1.3.-]
+K11033	nheA; non-hemolytic enterotoxin A
+K11034	nheBC; non-hemolytic enterotoxin B/C
+K11440	gbsB; choline dehydrogenase [EC:1.1.1.1]
+K11616	maeN; malate:Na+ symporter
+K11620	liaH; lia operon protein LiaH
+K11626	glnT; putative sodium/glutamine symporter
+K11916	stk1; serine/threonine-protein kinase Stk1 [EC:2.7.11.-]
+K12434	pks7; polyketide synthase 7
+K12554	murN; alanine adding enzyme [EC:2.3.2.-]
+K12619	XRN2, RAT1; 5-3 exoribonuclease 2 [EC:3.1.13.-]
+K13936	mdcF; malonate transporter
+K13941	folKP; 2-amino-4-hydroxy-6-hydroxymethyldihydropteridine diphosphokinase / dihydropteroate synthase [EC:2.7.6.3 2.5.1.15]
+K14640	SLC20A, PIT; solute carrier family 20 (sodium-dependent phosphate transporter)
+K15314	sgcE, mdpE, ncsE, kedE, calE8, pksE; enediyne polyketide synthase
+K15315	sgcE10, mdpE10, ncsE10, kedE10, calE7, pksE10; enediyne core biosynthesis thioesterase
+K15329	pksE; trans-AT polyketide synthase, acyltransferase and oxidoreductase domains
+K15373	isfD; sulfoacetaldehyde reductase [EC:1.1.1.313]
+K15632	cfr; 23S rRNA (adenine-C8)-methyltransferase [EC:2.1.1.224]
+K15656	srfAC, lchAC; surfactin family lipopeptide synthetase C
+K15663	ituC, mycC, bmyC; iturin family lipopeptide synthetase C
+K15667	K15667, ppsD, fenA; fengycin family lipopeptide synthetase D
+K15731	CTDSP; carboxy-terminal domain RNA polymerase II polypeptide A small phosphatase [EC:3.1.3.16]
+K15760	tmoA, tbuA1, touA; toluene monooxygenase system protein A [EC:1.14.13.236 1.14.13.-]
+K15761	tmoB, tbuU, touB; toluene monooxygenase system protein B [EC:1.14.13.236 1.14.13.-]
+K15763	tmoD, tbuV, touD; toluene monooxygenase system protein D [EC:1.14.13.236 1.14.13.-]
+K15764	tmoE, tbuA2, touE; toluene monooxygenase system protein E [EC:1.14.13.236 1.14.13.-]
+K16054	DEP1; methylthioribulose 1-phosphate dehydratase / enolase-phosphatase E1 [EC:4.2.1.109 3.1.3.77]
+K16424	dpgA; 3,5-dihydroxyphenylacetyl-CoA synthase [EC:2.3.1.246]
+K16426	dpgD; dehydration protein DpgD
+K16654	K16654; spore-specific protein
+K17474	CYP134A, cypX; pulcherriminic acid synthase [EC:1.14.15.13]
+K17876	CYP105D; pentalenic acid synthase [EC:1.14.15.11]
+K18058	asnO; L-asparagine oxygenase [EC:1.14.11.39]
+K18817	hph; hygromycin-B 4-O-kinase [EC:2.7.1.163]
+K18821	lipL; lipoyl amidotransferase [EC:2.3.1.200]
+K19425	epsH; glycosyltransferase EpsH [EC:2.4.-.-]
+K19659	phaJ; enoyl-CoA hydratase [EC:4.2.1.119]
+K19734	expR; LuxR family transcriptional regulator, quorum-sensing system regulator ExpR

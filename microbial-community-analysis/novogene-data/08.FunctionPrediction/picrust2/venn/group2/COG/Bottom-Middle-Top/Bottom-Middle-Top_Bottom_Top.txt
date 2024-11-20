@@ -1,0 +1,5 @@
+ID	Taxonomy
+COG4253	Uncharacterized conserved protein, DUF2345 family
+COG4367	Uncharacterized protein
+COG4588	Accessory colonization factor AcfC, contains ABC-type periplasmic domain
+COG4835	Uncharacterized protein

@@ -1,0 +1,5 @@
+Compressed format	Customer type	Decompression method
+*.gz format	Unix/Linux/Mac	Open with gzip -d *.gz command
+*.gz format	Windows	Open with decompression software such as WinRAR, 7-Zip, etc
+*.zip format	Unix/Linux/Mac	Open with unzip *.zip command
+*.zip format	Windows	Open with decompression software such as WinRAR, 7-Zip, etc

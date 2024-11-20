@@ -1,0 +1,90 @@
+ID	Taxonomy
+TIGR01330	3(2),5-bisphosphate nucleotidase
+TIGR04566	1.00	2.33	0.00	outer membrane exchange protein TraA, N-terminal region
+TIGR03903	1.00	2.33	0.00	TOMM system kinase/cyclase fusion protein
+TIGR03795	1.00	2.33	0.00	ribosomal natural product, two-chain TOMM family
+TIGR04384	1.00	0.00	2.21	putrescine carbamoyltransferase
+TIGR04496	0.00	0.00	2.00	radical SAM/SPASM domain peptide maturase, XyeB family
+TIGR04495	0.00	0.00	2.00	putative rSAM-modified RiPP, XyeA family
+TIGR04432	2.00	0.00	2.00	23S rRNA (adenine(2503)-C(8))-methyltransferase Cfr
+TIGR04376	0.00	2.00	0.00	TIGR04376 family protein
+TIGR04168	0.00	2.00	0.00	TIGR04168 family protein
+TIGR04160	0.00	0.00	2.00	methanobactin biosynthesis cassette protein MbnC
+TIGR04159	0.00	0.00	2.00	methanobactin biosynthesis cassette protein MbnB
+TIGR04113	0.00	0.00	2.00	CRISPR-associated protein Csx17, subtype Dpsyc
+TIGR04059	0.00	2.00	0.00	long-chain fatty aldehyde decarbonylase
+TIGR04058	0.00	2.00	0.00	long-chain fatty acyl-ACP reductase (aldehyde-forming)
+TIGR04026	0.00	2.00	0.00	PPOX class probable FMN-dependent enzyme, alr4036 family
+TIGR03766	0.00	2.00	0.00	conserved hypothetical integral membrane protein
+TIGR03698	0.00	2.00	0.00	clan AA aspartic protease, AF_0612 family
+TIGR03697	0.00	2.00	0.00	global nitrogen regulator NtcA
+TIGR03556	0.00	2.00	0.00	deoxyribodipyrimidine photo-lyase, 8-HDF type
+TIGR03194	0.00	0.00	2.00	4-hydroxybenzoyl-CoA reductase, alpha subunit
+TIGR03069	0.00	2.00	0.00	photosystem II S4 domain protein
+TIGR03053	0.00	2.00	0.00	photosystem I reaction center subunit XII
+TIGR03049	0.00	2.00	0.00	photosystem I reaction center subunit PsaK
+TIGR03048	0.00	2.00	0.00	photosystem I iron-sulfur protein PsaC
+TIGR03047	0.00	2.00	0.00	photosystem II reaction center protein Psb28
+TIGR03046	0.00	2.00	0.00	photosystem II cytochrome PsbV2
+TIGR03045	0.00	2.00	0.00	cytochrome c-550
+TIGR03044	0.00	2.00	0.00	photosystem II protein Psb27
+TIGR03043	0.00	2.00	0.00	photosystem II core protein PsbZ
+TIGR03039	0.00	2.00	0.00	photosystem II chlorophyll-binding protein CP47
+TIGR03038	0.00	2.00	0.00	photosystem II reaction center protein PsbM
+TIGR02749	0.00	2.00	0.00	solanesyl diphosphate synthase
+TIGR02731	0.00	2.00	0.00	phytoene desaturase
+TIGR02730	0.00	2.00	0.00	carotene isomerase
+TIGR02689	0.00	2.00	0.00	arsenate reductase, glutathione/glutaredoxin type
+TIGR02652	0.00	2.00	0.00	TIGR02652 family protein
+TIGR02561	0.00	0.00	2.00	type III secretion protein HrpB1/HrpK
+TIGR02501	0.00	0.00	2.00	type III secretion system protein, YseE family
+TIGR02498	0.00	0.00	2.00	type III secretion system protein, SsaH family
+TIGR02497	0.00	0.00	2.00	type III secretion apparatus protein, YscI/HrpB, C-terminal domain
+TIGR02387	0.00	2.00	0.00	DNA-directed RNA polymerase, gamma subunit
+TIGR02306	0.00	2.00	0.00	RNA ligase
+TIGR02259	2.00	0.00	2.00	benzoyl-CoA reductase, subunit A
+TIGR02235	0.00	2.00	0.00	1,4-dihydroxy-2-naphthoate phytyltransferase
+TIGR02172	2.00	0.00	2.00	fibrobacter succinogenes paralogous family TIGR02172
+TIGR02056	0.00	2.00	0.00	chlorophyll synthase ChlG
+TIGR02042	0.00	2.00	0.00	sulfite reductase, ferredoxin dependent
+TIGR02028	0.00	2.00	0.00	geranylgeranyl reductase
+TIGR01960	0.00	2.00	0.00	NAD(P)H dehydrogenase, subunit NdhF3 family
+TIGR01884	2.00	2.00	2.00	CRISPR locus-related DNA-binding protein
+TIGR01689	2.00	1.00	2.00	capsule biosynthesis phosphatase
+TIGR01339	0.00	2.00	0.00	phycocyanin, beta subunit
+TIGR01338	0.00	2.00	0.00	phycocyanin, alpha subunit
+TIGR01332	0.00	2.00	0.00	cytochrome b559, alpha subunit
+TIGR01289	0.00	2.00	0.00	light-dependent protochlorophyllide reductase
+TIGR01156	0.00	2.00	0.00	cytb6/f complex subunit IV
+TIGR01153	0.00	2.00	0.00	photosystem II 44 kDa subunit reaction center protein
+TIGR01151	0.00	2.00	0.00	photosystem II q(b) protein
+TIGR01000	0.00	2.00	0.00	bacteriocin secretion accessory protein
+TIGR00947	0.00	2.00	0.00	putative bicarbonate transporter, IctB family
+TIGR00403	0.00	2.00	0.00	NADH-plastoquinone oxidoreductase, I subunit
+TIGR02758	0.00	0.20	1.96	type IV conjugative transfer system pilin TraA
+TIGR02744	0.00	0.20	1.96	type-F conjugative transfer system protein TrbI
+TIGR04363	1.00	0.00	1.50	FxLD family lantipeptide
+TIGR03034	1.14	0.00	0.00	conserved hypothetical protein
+TIGR04497	0.00	0.00	1.00	putative ATP-grasp target RiPP
+TIGR04317	1.00	0.00	0.00	tungsten cofactor oxidoreducase radical SAM maturase
+TIGR04280	0.00	1.00	0.00	putative geopeptide radical SAM maturase
+TIGR04193	0.00	0.00	1.00	SPASM domain peptide maturase, grasp-with-spasm system
+TIGR04192	0.00	0.00	1.00	ATP-GRASP peptide maturase, grasp-with-spasm system
+TIGR04115	1.00	0.00	1.00	radical SAM peptide maturase, CXXX-repeat target family
+TIGR03649	0.00	1.00	0.00	ergot alkaloid biosynthesis protein, AFUA_2G17970 family
+TIGR03200	0.00	0.00	1.00	6-oxocyclohex-1-ene-1-carbonyl-CoA hydrolase
+TIGR03189	0.00	0.00	1.00	cyclohexa-1,5-dienecarbonyl-CoA hydratase
+TIGR02704	0.00	0.00	1.00	carboxysome peptide B
+TIGR02703	0.00	0.00	1.00	carboxysome peptide A
+TIGR02701	0.00	0.00	1.00	carboxysome shell carbonic anhydrase
+TIGR02664	0.00	0.00	1.00	conserved hypothetical protein
+TIGR04068	0.00	0.80	0.00	Cys-rich peptide radical SAM maturase CcpM
+TIGR04320	0.00	0.00	0.71	SEC10/PgrA surface exclusion domain
+TIGR01100	0.00	0.00	0.71	V-type ATPase, C subunit
+TIGR02616	0.57	0.00	0.00	tryptophanase leader peptide
+TIGR03403	0.00	0.50	0.00	cysteine desulfurase, NifS family
+TIGR01126	0.50	0.00	0.00	protein disulfide-isomerase domain
+TIGR03773	0.33	0.00	0.00	putative ABC transporter-associated repeat protein
+TIGR02741	0.00	0.20	0.10	type-F conjugative transfer system pilin chaperone TraQ
+
+TIGR03463	2,3-oxidosqualene cyclase

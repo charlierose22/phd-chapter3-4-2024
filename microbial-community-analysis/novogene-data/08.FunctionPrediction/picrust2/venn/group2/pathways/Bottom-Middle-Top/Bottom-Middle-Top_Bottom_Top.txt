@@ -1,0 +1,4 @@
+ID	Taxonomy
+AEROBACTINSYN-PWY	aerobactin biosynthesis
+PWY-622	starch biosynthesis
+PWY-7385	1,3-propanediol biosynthesis (engineered)

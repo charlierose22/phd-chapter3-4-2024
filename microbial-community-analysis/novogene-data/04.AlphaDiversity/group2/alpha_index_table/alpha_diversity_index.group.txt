@@ -1,0 +1,4 @@
+Sample_Name	chao1	dominance	goods_coverage	observed_features	pielou_e	shannon	simpson
+Bottom	1215.575	0.037	0.999	1201	0.662	6.775	0.963
+Middle	1168.308	0.053	0.999	1145	0.636	6.465	0.947
+Top	1242.959	0.031	0.999	1227	0.686	7.041	0.969

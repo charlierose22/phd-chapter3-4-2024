@@ -1,0 +1,31 @@
+ID	Taxonomy
+PF00630	Filamin/ABP280 repeat
+PF01446	Replication protein
+PF01535	PPR repeat
+PF01719	Plasmid replication protein
+PF02090	Salmonella surface presentation of antigen gene type M protein
+PF04394	Protein of unknown function, DUF536
+PF04922	DIE2/ALG10 family
+PF05931	Staphylococcal AgrD protein
+PF06106	Staphylococcus protein of unknown function (DUF950)
+PF06163	Bacterial protein of unknown function (DUF977)
+PF07014	Hs1pro-1 protein C-terminus
+PF07419	PilM
+PF07455	Phage polarity suppression protein (Psu)
+PF07901	Protein of unknown function (DUF1672)
+PF08884	Flagellin D3 domain
+PF09028	Mac 1
+PF09683	Bacteriocin (Lactococcin_972)
+PF10893	Protein of unknown function (DUF2724)
+PF11311	Protein of unknown function (DUF3114)
+PF11678	Protein of unknown function (DUF3274)
+PF12306	Inclusion body protein
+PF12604	Tail fibre protein gp37 C terminal
+PF13269	Protein of unknown function (DUF4060)
+PF14515	Haem-oxygenase-associated N-terminal helices
+PF15656	Toxin with a H, D/N and C signature
+PF15984	Bacterial collagen, middle region
+PF16230	Domain of unknown function (DUF4889)
+PF16308	Domain of unknown function (DUF4950)
+PF16754	Bacterial toxin homologue of phage lysozyme, C-term
+PF16929	Accessory Sec system GspB-transporter

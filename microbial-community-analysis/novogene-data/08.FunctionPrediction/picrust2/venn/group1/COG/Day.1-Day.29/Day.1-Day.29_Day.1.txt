@@ -1,0 +1,3 @@
+ID	Taxonomy
+COG4382	Mu-like prophage protein gp16
+COG5003	Mu-like prophage protein gp37

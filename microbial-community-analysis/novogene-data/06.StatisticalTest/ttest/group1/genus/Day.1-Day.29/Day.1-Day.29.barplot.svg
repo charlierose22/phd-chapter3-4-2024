@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.0//EN" "http://www.w3.org/TR/2001/REC-SVG-20010904/DTD/svg10.dtd">
+<svg height="500" width="684" xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+	<line stroke="black" stroke-width="2" x1="98" x2="238" y1="410" y2="410" />
+	<line stroke="black" stroke-width="1" x1="98" x2="98" y1="410" y2="405" />
+	<line stroke="black" stroke-width="1" x1="238" x2="238" y1="410" y2="405" />
+	<text font-family="Arial" font-size="10" text-anchor="middle" x="98" y="425">0</text>
+	<text font-family="Arial" font-size="10" text-anchor="middle" x="238" y="425">0.03</text>
+	<text font-family="Arial" font-size="15" text-anchor="middle" x="168" y="440">Means in groups</text>
+	<rect fill="sandybrown" height="10" stroke="black" width="28" x="12" y="70" />
+	<text font-family="Arial" font-size="10" text-anchor="start" x="45" y="80">Day.1</text>
+	<rect fill="cornflowerblue" height="10" stroke="black" width="28" x="95" y="70" />
+	<text font-family="Arial" font-size="10" text-anchor="start" x="128" y="80">Day.29</text>
+	<line stroke="black" stroke-width="2" x1="298" x2="548" y1="410" y2="410" />
+	<line stroke="black" stroke-width="1" x1="298" x2="298" y1="410" y2="405" />
+	<text font-family="Arial" font-size="10" text-anchor="end" x="298" y="425">0</text>
+	<line stroke="black" stroke-width="1" x1="360.5" x2="360.5" y1="410" y2="405" />
+	<text font-family="Arial" font-size="10" text-anchor="end" x="360.5" y="425">0.01</text>
+	<line stroke="black" stroke-width="1" x1="423" x2="423" y1="410" y2="405" />
+	<text font-family="Arial" font-size="10" text-anchor="end" x="423" y="425">0.02</text>
+	<line stroke="black" stroke-width="1" x1="485.5" x2="485.5" y1="410" y2="405" />
+	<text font-family="Arial" font-size="10" text-anchor="end" x="485.5" y="425">0.03</text>
+	<line stroke="black" stroke-width="1" x1="548" x2="548" y1="410" y2="405" />
+	<text font-family="Arial" font-size="10" text-anchor="end" x="548" y="425">0.04</text>
+	<line stroke="black" stroke-dasharray="3 2" stroke-width="1" x1="298" x2="298" y1="400" y2="100" />
+	<text font-family="Arial" font-size="15" text-anchor="middle" x="423" y="440">Difference between groups</text>
+	<text font-family="Arial" font-size="10" text-anchor="middle" x="423" y="80">95% confidence intervals</text>
+	<text font-family="Arial" font-size="10" text-anchor="end" x="93" y="126.428571428571">Comamonas</text>
+	<text font-family="Arial" font-size="10" text-anchor="start" x="553" y="126.428571428571">0.014</text>
+	<rect fill-opacity="0.1" height="42.8571428571429" width="140" x="98" y="100" />
+	<rect fill-opacity="0.1" height="42.8571428571429" width="250" x="298" y="100" />
+	<text font-family="Arial" font-size="10" text-anchor="end" x="93" y="169.285714285714">Trichococcus</text>
+	<text font-family="Arial" font-size="10" text-anchor="start" x="553" y="169.285714285714">0.003</text>
+	<text font-family="Arial" font-size="10" text-anchor="end" x="93" y="212.142857142857">Providencia</text>
+	<text font-family="Arial" font-size="10" text-anchor="start" x="553" y="212.142857142857">0.007</text>
+	<rect fill-opacity="0.1" height="42.8571428571429" width="140" x="98" y="185.714285714286" />
+	<rect fill-opacity="0.1" height="42.8571428571429" width="250" x="298" y="185.714285714286" />
+	<text font-family="Arial" font-size="10" text-anchor="end" x="93" y="255">Vitreoscilla</text>
+	<text font-family="Arial" font-size="10" text-anchor="start" x="553" y="255">0.042</text>
+	<text font-family="Arial" font-size="10" text-anchor="end" x="93" y="297.857142857143">Solibacillus</text>
+	<text font-family="Arial" font-size="10" text-anchor="start" x="553" y="297.857142857143">0.033</text>
+	<rect fill-opacity="0.1" height="42.8571428571429" width="140" x="98" y="271.428571428571" />
+	<rect fill-opacity="0.1" height="42.8571428571429" width="250" x="298" y="271.428571428571" />
+	<text font-family="Arial" font-size="10" text-anchor="end" x="93" y="340.714285714286">Morganella</text>
+	<text font-family="Arial" font-size="10" text-anchor="start" x="553" y="340.714285714286">0.031</text>
+	<text font-family="Arial" font-size="10" text-anchor="end" x="93" y="383.571428571429">Koukoulia</text>
+	<text font-family="Arial" font-size="10" text-anchor="start" x="553" y="383.571428571429">0.044</text>
+	<rect fill-opacity="0.1" height="42.8571428571429" width="140" x="98" y="357.142857142857" />
+	<rect fill-opacity="0.1" height="42.8571428571429" width="250" x="298" y="357.142857142857" />
+	<rect fill="sandybrown" height="17.1428571428571" stroke="black" stroke-width="1" width="125.584419923868" x="98" y="104.285714285714" />
+	<rect fill="cornflowerblue" height="17.1428571428571" stroke="black" width="18.7117187279115" x="98" y="121.428571428571" />
+	<rect fill="sandybrown" height="17.1428571428571" stroke="black" stroke-width="1" width="26.8801036341345" x="98" y="147.142857142857" />
+	<rect fill="cornflowerblue" height="17.1428571428571" stroke="black" width="7.01689452296681" x="98" y="164.285714285714" />
+	<rect fill="sandybrown" height="17.1428571428571" stroke="black" stroke-width="1" width="18.8556550258186" x="98" y="190" />
+	<rect fill="cornflowerblue" height="17.1428571428571" stroke="black" width="0.143936297907011" x="98" y="207.142857142857" />
+	<rect fill="sandybrown" height="17.1428571428571" stroke="black" stroke-width="1" width="16.9484990785507" x="98" y="232.857142857143" />
+	<rect fill="cornflowerblue" height="17.1428571428571" stroke="black" width="0.575745191628049" x="98" y="250" />
+	<rect fill="sandybrown" height="17.1428571428571" stroke="black" stroke-width="1" width="14.8254386844222" x="98" y="275.714285714286" />
+	<rect fill="cornflowerblue" height="17.1428571428571" stroke="black" width="4.2101367137801" x="98" y="292.857142857143" />
+	<rect fill="sandybrown" height="17.1428571428571" stroke="black" stroke-width="1" width="6.08130858657126" x="98" y="318.571428571429" />
+	<rect fill="cornflowerblue" height="17.1428571428571" stroke="black" width="1.25944260668636" x="98" y="335.714285714286" />
+	<rect fill="sandybrown" height="17.1428571428571" stroke="black" stroke-width="1" width="4.82186597988489" x="98" y="361.428571428571" />
+	<rect fill="cornflowerblue" height="17.1428571428571" stroke="black" width="0" x="98" y="378.571428571429" />
+	<line stroke="black" stroke-width="1" x1="355.332633968521" x2="433.990224816013" y1="121.428571428571" y2="121.428571428571" />
+	<circle cx="441.13308195887" cy="121.428571428571" fill="sandybrown" r="7.14285714285714" stroke="black" />
+	<line stroke="black" stroke-width="1" x1="448.275939101727" x2="526.933529949219" y1="121.428571428571" y2="121.428571428571" />
+	<line stroke="black" stroke-width="1" x1="355.332633968521" x2="355.332633968521" y1="117.857142857143" y2="125" />
+	<line stroke="black" stroke-width="1" x1="526.933529949219" x2="526.933529949219" y1="117.857142857143" y2="125" />
+	<line stroke="black" stroke-width="1" x1="313.517961814023" x2="317.4596550596" y1="164.285714285714" y2="164.285714285714" />
+	<circle cx="324.602512202457" cy="164.285714285714" fill="sandybrown" r="7.14285714285714" stroke="black" />
+	<line stroke="black" stroke-width="1" x1="331.745369345314" x2="335.68706259089" y1="164.285714285714" y2="164.285714285714" />
+	<line stroke="black" stroke-width="1" x1="313.517961814023" x2="313.517961814023" y1="160.714285714286" y2="167.857142857143" />
+	<line stroke="black" stroke-width="1" x1="335.68706259089" x2="335.68706259089" y1="160.714285714286" y2="167.857142857143" />
+	<line stroke="black" stroke-width="1" x1="313.926654537464" x2="315.917480439167" y1="207.142857142857" y2="207.142857142857" />
+	<circle cx="323.060337582024" cy="207.142857142857" fill="sandybrown" r="7.14285714285714" stroke="black" />
+	<line stroke="black" stroke-width="1" x1="330.203194724882" x2="332.194020626585" y1="207.142857142857" y2="207.142857142857" />
+	<line stroke="black" stroke-width="1" x1="313.926654537464" x2="313.926654537464" y1="203.571428571429" y2="210.714285714286" />
+	<line stroke="black" stroke-width="1" x1="332.194020626585" x2="332.194020626585" y1="203.571428571429" y2="210.714285714286" />
+	<line stroke="black" stroke-width="1" x1="300.029043482326" x2="312.784938241414" y1="250" y2="250" />
+	<circle cx="319.927795384271" cy="250" fill="sandybrown" r="7.14285714285714" stroke="black" />
+	<line stroke="black" stroke-width="1" x1="327.070652527129" x2="339.826547286217" y1="250" y2="250" />
+	<line stroke="black" stroke-width="1" x1="300.029043482326" x2="300.029043482326" y1="246.428571428571" y2="253.571428571429" />
+	<line stroke="black" stroke-width="1" x1="339.826547286217" x2="339.826547286217" y1="246.428571428571" y2="253.571428571429" />
+	<line stroke="black" stroke-width="1" x1="299.820029258381" x2="305.074065139253" y1="292.857142857143" y2="292.857142857143" />
+	<circle cx="312.21692228211" cy="292.857142857143" fill="sandybrown" r="7.14285714285714" stroke="black" />
+	<line stroke="black" stroke-width="1" x1="319.359779424967" x2="324.613815305839" y1="292.857142857143" y2="292.857142857143" />
+	<line stroke="black" stroke-width="1" x1="299.820029258381" x2="299.820029258381" y1="289.285714285714" y2="296.428571428571" />
+	<line stroke="black" stroke-width="1" x1="324.613815305839" x2="324.613815305839" y1="289.285714285714" y2="296.428571428571" />
+	<line stroke="black" stroke-width="1" x1="299.040513362031" x2="297.314999080203" y1="335.714285714286" y2="335.714285714286" />
+	<circle cx="304.45785622306" cy="335.714285714286" fill="sandybrown" r="7.14285714285714" stroke="black" />
+	<line stroke="black" stroke-width="1" x1="311.600713365917" x2="309.875199084089" y1="335.714285714286" y2="335.714285714286" />
+	<line stroke="black" stroke-width="1" x1="299.040513362031" x2="299.040513362031" y1="332.142857142857" y2="339.285714285714" />
+	<line stroke="black" stroke-width="1" x1="309.875199084089" x2="309.875199084089" y1="332.142857142857" y2="339.285714285714" />
+	<line stroke="black" stroke-width="1" x1="298.433771212168" x2="297.314999080203" y1="378.571428571429" y2="378.571428571429" />
+	<circle cx="304.45785622306" cy="378.571428571429" fill="sandybrown" r="7.14285714285714" stroke="black" />
+	<line stroke="black" stroke-width="1" x1="311.600713365917" x2="310.481941233953" y1="378.571428571429" y2="378.571428571429" />
+	<line stroke="black" stroke-width="1" x1="298.433771212168" x2="298.433771212168" y1="375" y2="382.142857142857" />
+	<line stroke="black" stroke-width="1" x1="310.481941233953" x2="310.481941233953" y1="375" y2="382.142857142857" />
+	<g transform="rotate(90,595.5,250)">
+		<text font-family="Arial" font-size="10" text-anchor="middle" x="595.5" y="250">p_value</text>
+	</g>
+	<!-- 
+	Generated using the Perl SVG Module V2.59
+	by Ronan Oger
+	Info: http://www.roitsystems.com/
+ -->
+</svg>

@@ -1,0 +1,24 @@
+ID	Taxonomy
+EC:1.1.1.287	D-arabinitol dehydrogenase (NADP(+))
+EC:1.1.1.309	Phosphonoacetaldehyde reductase (NADH)
+EC:1.1.1.316	L-galactose 1-dehydrogenase
+EC:1.13.11.72	2-hydroxyethylphosphonate dioxygenase
+EC:1.14.17.3	Peptidylglycine monooxygenase
+EC:1.7.1.1	Nitrate reductase (NADH)
+EC:1.7.1.2	Nitrate reductase (NAD(P)H)
+EC:1.7.1.3	Nitrate reductase (NADPH)
+EC:2.7.1.162	N-acetylhexosamine 1-kinase
+EC:2.7.1.37	2.7.11.30 and 2.7.12.1
+EC:3.1.25.1	Deoxyribonuclease (pyrimidine dimer)
+EC:3.2.1.11	Dextranase
+EC:3.2.1.185	Non-reducing end beta-L-arabinofuranosidase
+EC:3.2.1.187	(Ara-f)(3)-Hyp beta-L-arabinobiosidase
+EC:3.4.21.80	Streptogrisin A
+EC:3.4.24.69	Bontoxilysin
+EC:3.6.1.5	Apyrase
+EC:4.1.1.83	4-hydroxyphenylacetate decarboxylase
+EC:4.2.1.5	Arabinonate dehydratase
+EC:4.2.2.17	Inulin fructotransferase (DFA-I-forming)
+EC:6.5.1.5	RNA 3-terminal-phosphate cyclase (GTP)
+EC:4.2.1.100	0.00	0.00	1.00	Cyclohexa-1,5-dienecarbonyl-CoA hydratase
+EC:3.6.1.17	0.00	1.00	1.00	Bis(5-nucleosyl)-tetraphosphatase (asymmetrical)

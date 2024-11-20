@@ -1,0 +1,5 @@
+|-- 01.CleanData/	[Nochime tags information]
+|	|-- Sample_Name/	[Results of  Merged reads and Nochime tags for each sample]
+|	|	|--*.effective.fastq.gz	[Nochime tags(FASTQ format)]
+|	|	|--*.fna.gz		[Nochime tags(FASTA format)]
+|	|-- data_table.xls	[Statistical table for data pre-processing, quality control and assemble stat]

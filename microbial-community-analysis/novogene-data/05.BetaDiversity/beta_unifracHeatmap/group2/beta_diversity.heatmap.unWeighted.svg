@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.0//EN" "http://www.w3.org/TR/2001/REC-SVG-20010904/DTD/svg10.dtd">
+<svg height="471.819805153395" width="616.819805153395" xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+	<polygon fill="rgb(255,179,0)" points="311.819805153395, 11.8198051533946, 211.819805153395, 111.819805153395, 311.819805153395, 211.819805153395, 411.819805153395, 111.819805153395" stroke="none" />
+	<text fill="black" font-family="Arial" font-size="12.75" stroke="none" text-anchor="middle" x="311.819805153395" y="116.069805153395">0.421</text>
+	<polygon fill="rgb(255,165,0)" points="211.819805153395, 111.819805153395, 111.819805153395, 211.819805153395, 211.819805153395, 311.819805153395, 311.819805153395, 211.819805153395" stroke="none" />
+	<text fill="black" font-family="Arial" font-size="12.75" stroke="none" text-anchor="middle" x="211.819805153395" y="216.069805153395">0.389</text>
+	<polygon fill="rgb(255,0,0)" points="111.819805153395, 211.819805153395, 11.8198051533947, 311.819805153395, 111.819805153395, 411.819805153395, 211.819805153395, 311.819805153395" stroke="none" />
+	<text fill="black" font-family="Arial" font-size="12.75" stroke="none" text-anchor="middle" x="111.819805153395" y="316.069805153395">0</text>
+	<polygon fill="rgb(255,170,0)" points="411.819805153395, 111.819805153395, 311.819805153395, 211.819805153395, 411.819805153395, 311.819805153395, 511.819805153395, 211.819805153395" stroke="none" />
+	<text fill="black" font-family="Arial" font-size="12.75" stroke="none" text-anchor="middle" x="411.819805153395" y="216.069805153395">0.399</text>
+	<polygon fill="rgb(255,0,0)" points="311.819805153395, 211.819805153395, 211.819805153395, 311.819805153395, 311.819805153395, 411.819805153395, 411.819805153395, 311.819805153395" stroke="none" />
+	<text fill="black" font-family="Arial" font-size="12.75" stroke="none" text-anchor="middle" x="311.819805153395" y="316.069805153395">0</text>
+	<polygon fill="rgb(255,0,0)" points="511.819805153395, 211.819805153395, 411.819805153395, 311.819805153395, 511.819805153395, 411.819805153395, 611.819805153395, 311.819805153395" stroke="none" />
+	<text fill="black" font-family="Arial" font-size="12.75" stroke="none" text-anchor="middle" x="511.819805153395" y="316.069805153395">0</text>
+	<line stroke="black" stroke-width="1" x1="11.8198051533946" x2="311.819805153395" y1="311.819805153395" y2="11.8198051533946" />
+	<g fill="black" font-family="Arial" font-size="15" stroke="none" transform="rotate(-45,369.319805153395,54.3198051533946)">
+		<text x="369.319805153395" y="59.3198051533946">Bottom</text>
+	</g>
+	<line stroke="black" stroke-width="1" x1="411.819805153395" x2="111.819805153395" y1="111.819805153395" y2="411.819805153395" />
+	<g fill="black" font-family="Arial" font-size="15" stroke="none" transform="rotate(-45,469.319805153395,154.319805153395)">
+		<text x="469.319805153395" y="159.319805153395">Middle</text>
+	</g>
+	<g fill="black" font-family="Arial" font-size="15" stroke="none" transform="rotate(45,54.3198051533946,254.319805153395)">
+		<text text-anchor="end" x="54.3198051533946" y="259.319805153395">Bottom</text>
+	</g>
+	<line stroke="black" stroke-width="1" x1="11.8198051533946" x2="111.819805153395" y1="311.819805153395" y2="411.819805153395" />
+	<line stroke="black" stroke-width="1" x1="511.819805153395" x2="311.819805153395" y1="211.819805153395" y2="411.819805153395" />
+	<g fill="black" font-family="Arial" font-size="15" stroke="none" transform="rotate(-45,569.319805153395,254.319805153395)">
+		<text x="569.319805153395" y="259.319805153395">Top</text>
+	</g>
+	<g fill="black" font-family="Arial" font-size="15" stroke="none" transform="rotate(45,154.319805153395,154.319805153395)">
+		<text text-anchor="end" x="154.319805153395" y="159.319805153395">Middle</text>
+	</g>
+	<line stroke="black" stroke-width="1" x1="111.819805153395" x2="311.819805153395" y1="211.819805153395" y2="411.819805153395" />
+	<line stroke="black" stroke-width="1" x1="611.819805153395" x2="511.819805153395" y1="311.819805153395" y2="411.819805153395" />
+	<g fill="black" font-family="Arial" font-size="15" stroke="none" transform="rotate(-45,669.319805153395,354.319805153395)">
+		<text x="669.319805153395" y="359.319805153395" />
+	</g>
+	<g fill="black" font-family="Arial" font-size="15" stroke="none" transform="rotate(45,254.319805153395,54.3198051533947)">
+		<text text-anchor="end" x="254.319805153395" y="59.3198051533947">Top</text>
+	</g>
+	<line stroke="black" stroke-width="1" x1="211.819805153395" x2="511.819805153395" y1="111.819805153395" y2="411.819805153395" />
+	<line stroke="black" stroke-width="1" x1="311.819805153395" x2="611.819805153395" y1="11.8198051533947" y2="311.819805153395" />
+	<text fill="black" font-family="Arial" font-size="10" stroke="none" text-anchor="middle" x="161.819805153395" y="465.149805153395">Beta Diversity</text>
+	<line stroke="black" stroke-width="0.5" x1="61.8198051533946" x2="261.819805153395" y1="441.819805153395" y2="441.819805153395" />
+	<line stroke="black" stroke-width="0.5" x1="61.8198051533946" x2="61.8198051533946" y1="441.819805153395" y2="444.819805153395" />
+	<text fill="black" font-family="Arial" font-size="10" stroke="none" text-anchor="middle" x="61.8198051533946" y="453.819805153395">0</text>
+	<line stroke="black" stroke-width="0.5" x1="161.819805153395" x2="161.819805153395" y1="441.819805153395" y2="444.819805153395" />
+	<text fill="black" font-family="Arial" font-size="10" stroke="none" text-anchor="middle" x="161.819805153395" y="453.819805153395">0.3</text>
+	<line stroke="black" stroke-width="0.5" x1="261.819805153395" x2="261.819805153395" y1="441.819805153395" y2="444.819805153395" />
+	<text fill="black" font-family="Arial" font-size="10" stroke="none" text-anchor="middle" x="261.819805153395" y="453.819805153395">0.6</text>
+	<linearGradient gradientUnits="userSpaceOnUse" id="gradient_1" x1="61.8198051533946" x2="261.819805153395" y1="0" y2="0">
+		<stop offset="0" stop-opacity="1" style="stop-color:rgb(255,0,0)" />
+		<stop offset="100%" stop-opacity="1" style="stop-color:rgb(255,256,0)" />
+	</linearGradient>
+	<rect fill="url(#gradient_1)" height="20" width="200" x="61.8198051533946" y="421.819805153395" />
+	<!--
+	Generated using the Perl SVG Module V2.84
+	by Ronan Oger
+	Info: http://www.roitsystems.com/
+	-->
+</svg>

@@ -1,0 +1,12 @@
+ID	Taxonomy
+TIGR01337	allophycocyanin, beta subunit
+TIGR01964	CO2 hydration protein
+TIGR02716	C-20 methyltransferase BchU
+TIGR02736	cytochrome c oxidase, cbb3-type, CcoQ subunit
+TIGR03041	chlorophyll a/b binding light-harvesting protein
+TIGR03235	cysteine desulfurase DndA
+TIGR04095	DNA phosphorothioation system restriction enzyme
+TIGR04099	probable biosynthetic protein, Pnap_2097 family
+TIGR04402	mobilome CxxCx(11)CxxC protein
+TIGR04476	exosortase N
+TIGR04477	XrtN system VIT domain protein

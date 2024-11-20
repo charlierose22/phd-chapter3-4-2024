@@ -1,0 +1,209 @@
+ID	Taxonomy
+K00152	nahF; salicylaldehyde dehydrogenase [EC:1.2.1.65]
+K00222	TM7SF2, ERG24; Delta14-sterol reductase [EC:1.3.1.70]
+K00476	ASPH; aspartate beta-hydroxylase [EC:1.14.11.16]
+K00646	pksF; malonyl-ACP decarboxylase
+K01143	E3.1.11.3; exodeoxyribonuclease (lambda-induced) [EC:3.1.11.3]
+K01312	PRSS1_2_3; trypsin [EC:3.4.21.4]
+K01340	E3.4.21.59; tryptase [EC:3.4.21.59]
+K01731	pelW; pectate disaccharide-lyase [EC:4.2.2.9]
+K01757	STR1; strictosidine synthase [EC:4.3.3.2]
+K02465	gspS; general secretion pathway protein S
+K02531	lacT; transcriptional antiterminator
+K02545	mecA; penicillin-binding protein 2 prime [EC:3.4.16.4]
+K02546	mecI; BlaI family transcriptional regulator, methicillin resistance regulatory protein
+K02547	mecR1; methicillin resistance protein
+K02771	PTS-Fru1-EIID, levG; PTS system, fructose-specific IID component
+K03126	TAF12; transcription initiation factor TFIID subunit 12
+K03280	waaK, rfaK; UDP-N-acetylglucosamine:(glucosyl)LPS alpha-1,2-N-acetylglucosaminyltransferase [EC:2.4.1.56]
+K04109	hcrB, hbaD; 4-hydroxybenzoyl-CoA reductase subunit beta [EC:1.3.7.9]
+K04641	bop; bacteriorhodopsin
+K04705	STAM; signal transducing adaptor molecule
+K05747	WAS; Wiskott-Aldrich syndrome protein
+K05759	PFN; profilin
+K05998	E3.4.21.100; pseudomonalisin [EC:3.4.21.100]
+K05999	E3.4.21.101; xanthomonalisin [EC:3.4.21.101]
+K06372	sinI; antagonist of SinR
+K06931	K06931; uncharacterized protein
+K07125	K07125; uncharacterized protein
+K07255	tauX; taurine dehydrogenase small subunit [EC:1.4.2.-]
+K07430	CYP7B; 25/26-hydroxycholesterol 7alpha-hydroxylase [EC:1.14.14.29]
+K07485	K07485; transposase
+K07748	E1.1.1.170, NSDHL, ERG26; sterol-4alpha-carboxylate 3-dehydrogenase (decarboxylating) [EC:1.1.1.170]
+K08246	CPI1; cycloeucalenol cycloisomerase [EC:5.5.1.9]
+K08259	lytM; lysostaphin [EC:3.4.24.75]
+K08280	wbbJ; lipopolysaccharide O-acetyltransferase [EC:2.3.1.-]
+K08566	pla; plasminogen activator [EC:3.4.23.48]
+K08689	bphAa, bphA1, bphA; biphenyl 2,3-dioxygenase subunit alpha [EC:1.14.12.18]
+K09147	K09147; uncharacterized protein
+K09591	DET2; steroid 5-alpha-reductase [EC:1.3.1.22]
+K10209	crtN; 4,4-diapophytoene desaturase [EC:1.3.8.2]
+K10208	0.00	0.00	312.00	crtM; 4,4-diapophytoene synthase [EC:2.5.1.96]
+K10682	saeR; two-component system, OmpR family, response regulator SaeR
+K10814	hcnA; hydrogen cyanide synthase HcnA [EC:1.4.99.5]
+K10815	hcnB; hydrogen cyanide synthase HcnB [EC:1.4.99.5]
+K10816	hcnC; hydrogen cyanide synthase HcnC [EC:1.4.99.5]
+K10918	aphB; LysR family transcriptional regulator, transcriptional activator AphB
+K10921	toxR; cholera toxin transcriptional activator
+K11168	DHRS12; dehydrogenase/reductase SDR family member 12 [EC:1.1.-.-]
+K11187	PRDX5; peroxiredoxin 5, atypical 2-Cys peroxiredoxin [EC:1.11.1.15]
+K11195	PTS-Fru1-EIIB, levE; PTS system, fructose-specific IIB component [EC:2.7.1.202]
+K11196	PTS-Fru1-EIIC, levF; PTS system, fructose-specific IIC component
+K11687	ADPRHL2; poly(ADP-ribose) glycohydrolase ARH3 [EC:3.2.1.143]
+K12069	traA; conjugal transfer pilus assembly protein TraA
+K12070	traI; conjugal transfer pilus assembly protein TraI
+K12071	traD; conjugal transfer pilus assembly protein TraD
+K12227	K12227, traL; TraL protein
+K12238	pchD; pyochelin biosynthesis protein PchD
+K12239	pchE; dihydroaeruginoic acid synthetase
+K12241	pchG; pyochelin biosynthetic protein PchG
+K12512	tadD; tight adherence protein D
+K12513	tadE; tight adherence protein E
+K12514	tadF; tight adherence protein F
+K12515	tadG; tight adherence protein G
+K12518	papC; outer membrane usher protein PapC
+K12519	papD; chaperone protein PapD
+K12545	hasA; heme acquisition protein HasA
+K12549	lapA; surface adhesion protein
+K12908	phpF; phosphonoformate cytidylyltransferase [EC:2.7.7.93]
+K12986	waaS, rfaS; 1,5-rhamnosyltransferase [EC:2.4.1.-]
+K13001	wbyK; mannosyltransferase [EC:2.4.1.-]
+K13061	rhlI, phzI, solI, cepI, tofI; acyl homoserine lactone synthase [EC:2.3.1.184]
+K13310	desV, eryCI; dTDP-3-amino-3,4,6-trideoxy-alpha-D-glucose transaminase [EC:2.6.1.106]
+K13663	gumF; acyltransferase [EC:2.3.1.-]
+K14369	eryG; erythromycin 3-O-methyltransferase [EC:2.1.1.254]
+K14579	nahAc, ndoB, nbzAc, dntAc; naphthalene 1,2-dioxygenase subunit alpha [EC:1.14.12.12 1.14.12.23 1.14.12.24]
+K14580	nahAd, ndoC, nbzAd, dntAd; naphthalene 1,2-dioxygenase subunit beta [EC:1.14.12.12 1.14.12.23 1.14.12.24]
+K14582	nahB, doxE; cis-1,2-dihydro-1,2-dihydroxynaphthalene/dibenzothiophene dihydrodiol dehydrogenase [EC:1.3.1.29 1.3.1.60]
+K14583	nahC; 1,2-dihydroxynaphthalene dioxygenase [EC:1.13.11.56]
+K14748	etbAa; ethylbenzene dioxygenase subunit alpha [EC:1.14.12.-]
+K14978	ssrA; two-component system, LuxR family, secretion system sensor histidine kinase SsrA
+K14979	ssrB; two-component system, LuxR family, secretion system response regulator SsrB
+K15058	amnA; 2-aminophenol/2-amino-5-chlorophenol 1,6-dioxygenase subunit alpha
+K15059	amnB; 2-aminophenol/2-amino-5-chlorophenol 1,6-dioxygenase subunit beta [EC:1.13.11.74 1.13.11.76]
+K15240	linE; hydroquinone 1,2-dioxygenase [EC:1.13.11.66]
+K15242	pcpA; 2,6-dichloro-p-hydroquinone 1,2-dioxygenase [EC:1.13.11.-]
+K15253	tcbC, tfdC; chlorocatechol 1,2-dioxygenase [EC:1.13.11.-]
+K15311	pksG; polyketide biosynthesis 3-hydroxy-3-methylglutaryl-CoA synthase-like enzyme PksG
+K15337	acpK; polyketide biosynthesis acyl carrier protein
+K15344	sseB; secreted effector protein SseB
+K15345	sseC; secreted effector protein SseC
+K15346	sseD; secreted effector protein SseD
+K15350	sseF; secreted effector protein SseF
+K15367	sseA; secretion system chaperone SseA
+K15368	sscA; secretion system chaperone SscA
+K15670	rifA; rifamycin polyketide synthase modules 1, 2 and 3
+K15673	rifE; rifamycin polyketide synthase modules 9 and 10
+K15690	RC3H; RING finger and CCCH-type zinc finger domain-containing protein
+K15750	bphAb, bphA2, bphE; biphenyl 2,3-dioxygenase subunit beta [EC:1.14.12.18]
+K15870	baiCD; NAD+-dependent 7alpha-hydroxy-3-oxo bile acid-CoA-ester 4-dehydrogenase
+K15872	baiE; bile-acid 7alpha-dehydratase [EC:4.2.1.106]
+K15873	baiH; NAD+-dependent 7beta-hydroxy-3-oxo bile acid-CoA-ester 4-dehydrogenase
+K16022	rif19; flavoprotein hydroxylase
+K16118	snbDE; pristinamycin I synthase 3 and 4
+K16425	dpgB; isomerase DpgB
+K16638	K16638, exoU; exoenzyme U
+K16817	PLA2G16; HRAS-like suppressor 3 [EC:3.1.1.32 3.1.1.4]
+K16883	sta; heat-stable enterotoxin STa/STI
+K17266	MVP; major vault protein
+K18067	pht4; phthalate 4,5-cis-dihydrodiol dehydrogenase [EC:1.3.1.64]
+K18068	pht3; phthalate 4,5-dioxygenase [EC:1.14.12.7]
+K18069	pht2; phthalate 4,5-dioxygenase reductase component [EC:1.18.1.-]
+K18070	pht1, ophD; MFS transporter, ACS family, phthalate transporter
+K18073	parR; two-component system, OmpR family, response regulator ParR
+K18075	tphA3; terephthalate 1,2-dioxygenase oxygenase component beta subunit [EC:1.14.12.15]
+K18077	tphA1; terephthalate 1,2-dioxygenase reductase component [EC:1.18.1.-]
+K18087	bphAc, bphA3, bphF; biphenyl 2,3-dioxygenase ferredoxin component
+K18088	bphAd, bphA4, bphG; biphenyl 2,3-dioxygenase ferredoxin reductase component [EC:1.18.1.3]
+K18094	mexX, amrA; membrane fusion protein, multidrug efflux system
+K18095	mexY, amrB; multidrug efflux pump
+K18100	rhlA; rhamnosyltransferase subunit A [EC:2.4.1.-]
+K18119	sucD; succinate-semialdehyde dehydrogenase [EC:1.2.1.76]
+K18129	mexZ; TetR/AcrR family transcriptional regulator, mexXY operon repressor
+K18254	phtAd; phthalate 3,4-dioxygenase ferredoxin reductase component [EC:1.18.1.3]
+K18257	phdE; cis-3,4-dihydrophenanthrene-3,4-diol dehydrogenase [EC:1.3.1.49]
+K18308	opmD; outer membrane protein, multidrug efflux system
+K18373	hrpB1; type III secretion protein HrpB1
+K18374	hrpB2; type III secretion inner rod protein HrpB2
+K18583	thnE; carboxymethylproline synthase [EC:2.3.1.226]
+K18590	dfrA12, dhfr; dihydrofolate reductase (trimethoprim resistance protein) [EC:1.5.1.3]
+K18650	pehX; exo-poly-alpha-galacturonosidase [EC:3.2.1.82]
+K18766	blaZ; beta-lactamase class A BlaZ [EC:3.5.2.6]
+K18830	pezA; HTH-type transcriptional regulator / antitoxin PezA
+K18897	sdmt; sarcosine/dimethylglycine N-methyltransferase [EC:2.1.1.157]
+K18934	lmrS; MFS transporter, DHA2 family, multidrug resistance protein
+K18974	sul1; dihydropteroate synthase type 1 [EC:2.5.1.15]
+K18975	ebr, qacEdelta1; small multidrug resistance pump
+K18984	ssaE; secretion system chaperone SsaE
+K18987	irr; two-component system, OmpR family, response regulator Irr
+K19065	mobA; 3-hydroxybenzoate 4-monooxygenase [EC:1.14.13.23]
+K19077	graS; two-component system, OmpR family, sensor histidine kinase GraS [EC:2.7.13.3]
+K19078	graR; two-component system, OmpR family, response regulator protein GraR
+K19079	vraF; cationic antimicrobial peptide transport system ATP-binding protein
+K19135	csx14; CRISPR-associated protein Csx14
+K19136	csx17; CRISPR-associated protein Csx17
+K19185	kdhA; 6-hydroxypseudooxynicotine dehydrogenase subunit alpha [EC:1.5.99.14]
+K19215	blaACT_MIR; beta-lactamase class C ACT/MIR [EC:3.5.2.6]
+K19504	gfrE; glucoselysine-6-phosphate deglycase
+K19515	bamB; benzoyl-CoA reductase subunit BamB [EC:1.3.-.-]
+K19516	bamC; benzoyl-CoA reductase subunit BamC [EC:1.3.-.-]
+K19541	lmrA; MFS transporter, DHA2 family, lincomycin resistance protein
+K19569	elmMIII; 8-demethyl-8-(2,3-dimethoxy-alpha-L-rhamnosyl)tetracenomycin-C 4-O-methyltransferase [EC:2.1.1.307]
+K19204	0.00	1.00	7.00	pimS2; pimaricinolide synthase PimS2
+K19145	7.00	0.00	6.00	csx16; CRISPR-associated protein Csx16
+K19106	4.00	4.00	7.00	nocL; nocardicin N-oxygenase [EC:1.14.13.-]
+K18908	2.00	4.00	7.00	mepA; multidrug efflux pump
+K18836	0.00	0.00	7.00	vcaE; reductase VcaE
+K18091	0.00	0.00	7.00	pntE, penE, ptlE; pentalenolactone D synthase [EC:1.14.13.170 1.14.13.171]
+K18057	0.00	0.00	7.00	pntD, penD, ptlD; pentalenolactone F synthase [EC:1.14.11.36]
+K18056	0.00	0.00	7.00	pntH, ptlH; 1-deoxypentalenic acid 11beta-hydroxylase [EC:1.14.11.35]
+K17747	0.00	0.00	7.00	ptlF; 1-deoxy-11beta-hydroxypentalenate dehydrogenase [EC:1.1.1.340]
+K17484	1.00	0.00	7.00	E2.3.2.21; cyclo(L-tyrosyl-L-tyrosyl) synthase [EC:2.3.2.21]
+K16706	0.00	4.00	7.00	tuaF; teichuronic acid biosynthesis protein TuaF
+K16705	0.00	4.00	7.00	tuaE; teichuronic acid biosynthesis protein TuaE
+K16699	0.00	4.00	7.00	tuaH; teichuronic acid biosynthesis glycosyltransferase TuaH [EC:2.4.-.-]
+K16697	0.00	4.00	7.00	tuaC; teichuronic acid biosynthesis glycosyltransferase TuaC [EC:2.4.-.-]
+K16439	0.00	0.00	7.00	evaE; reductase EvaE
+K16190	7.00	5.00	7.00	GLCAK; glucuronokinase [EC:2.7.1.43]
+K16124	7.00	7.00	5.00	tycC; tyrocidine synthetase III
+K16039	0.00	0.00	7.00	asm25; N-glycosyltransferase [EC:2.4.1.-]
+K16028	0.00	0.00	7.00	asm17; O-methyltransferase
+K16027	0.00	0.00	7.00	asm16; methoxymalonate biosynthesis protein
+K16026	0.00	0.00	7.00	asm15; methoxymalonate biosynthesis protein
+K16025	0.00	0.00	7.00	asm14; methoxymalonate biosynthesis acyl carrier protein
+K16024	0.00	0.00	7.00	asm13; methoxymalonate biosynthesis protein
+K16023	4.00	0.00	7.00	rif20; acetyltransferase
+K16019	0.00	0.00	7.00	rifH; 3,4-Dideoxy-4-amino-D-arabino-heptulosonate 7-phosphate synthase
+K15852	4.00	0.00	7.00	luxR, vanR; LuxR family transcriptional regulator, transcriptional activator of the bioluminescence operon
+K15492	7.00	0.00	7.00	K15492, lepB; effector protein B
+K15466	0.00	0.00	7.00	rifF, asm9; amide synthase
+K13449	7.00	0.00	6.00	PR1; pathogenesis-related protein 1
+K12997	7.00	0.00	0.00	rgpB; rhamnosyltransferase [EC:2.4.1.-]
+K12712	0.00	0.00	7.00	novP, cloP, couP; demethyldecarbamoylnovobiocin O-methyltransferase [EC:2.1.1.285]
+K12546	0.00	4.00	7.00	nodO; putative nodulation protein
+K12442	5.00	0.00	7.00	ppsC; phthiocerol/phenolphthiocerol synthesis type-I polyketide synthase C
+K12431	0.00	0.00	7.00	pks2; polyketide synthase 2
+K12250	0.00	0.00	7.00	E4.2.3.7; pentalenene synthase [EC:4.2.3.7]
+K12215	7.00	0.00	7.00	icmM, dotJ; intracellular multiplication protein IcmM
+K11889	0.00	4.00	7.00	impN; type VI secretion system protein ImpN [EC:2.7.11.1]
+K11641	0.00	4.00	7.00	natR; two-component system, LytTR family, response regulator NatR
+K11640	0.00	4.00	7.00	natK; two-component system, LytTR family, sensor histidine kinase NatK [EC:2.7.13.3]
+K08762	0.00	0.00	7.00	DBI, ACBP; diazepam-binding inhibitor (GABA receptor modulator, acyl-CoA-binding protein)
+K07725	7.00	0.00	2.00	csa3; CRISPR-associated protein Csa3
+K06790	0.00	0.00	7.00	GPA33; cell surface A33 antigen
+K06047	7.00	1.00	7.00	TTL; tubulin---tyrosine ligase [EC:6.3.2.25]
+K00737	7.00	0.00	1.00	MGAT3; beta-1,4-mannosyl-glycoprotein beta-1,4-N-acetylglucosaminyltransferase [EC:2.4.1.144]
+K00326	7.00	0.00	6.00	E1.6.2.2; cytochrome-b5 reductase [EC:1.6.2.2]
+K02080	0.00	1.20	6.96	agaI; galactosamine-6-phosphate isomerase [EC:5.3.1.-]
+K05956	6.83	3.00	3.00	RABGGTB; geranylgeranyl transferase type-2 subunit beta [EC:2.5.1.60]
+K12281	0.00	6.50	0.00	mshK; MSHA biogenesis protein MshK
+K19433	6.00	0.00	5.00	tapA; TasA anchoring/assembly protein
+K19278	6.00	0.00	4.67	aac6-Ib; aminoglycoside 6-N-acetyltransferase Ib [EC:2.3.1.82]
+K19587	oqxR; Rrf2 family transcriptional regulator, repressor of oqxAB
+K19593	opmE; outer membrane protein, multidrug efflux system
+K19646	fexA_B; MFS transporter, DHA2 family, florfenicol/chloramphenicol resistance protein
+K19648	apdH, APDH; D-arabitol-phosphate dehydrogenase [EC:1.1.1.301]
+K19649	camD; 5-exo-hydroxycamphor dehydrogenase [EC:1.1.1.327]
+K19669	pphA; phosphonopyruvate hydrolase [EC:3.11.1.3]
+K19703	FA2H, SCS7; 4-hydroxysphinganine ceramide fatty acyl 2-hydroxylase [EC:1.14.18.6]
+K19706	FAH; dihydroceramide fatty acyl 2-hydroxylase [EC:1.14.18.7]

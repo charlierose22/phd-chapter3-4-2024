@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.0//EN" "http://www.w3.org/TR/2001/REC-SVG-20010904/DTD/svg10.dtd">
+<svg height="450" width="650" xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+	<text fill="black" font-family="Arial" font-size="15" stroke="none" text-anchor="end" x="92.5" y="355">0</text>
+	<line stroke="black" stroke-width="2" x1="100" x2="95" y1="350" y2="350" />
+	<text fill="black" font-family="Arial" font-size="15" stroke="none" text-anchor="end" x="92.5" y="312.142857142857">25000</text>
+	<line stroke="black" stroke-width="2" x1="100" x2="95" y1="307.142857142857" y2="307.142857142857" />
+	<text fill="black" font-family="Arial" font-size="15" stroke="none" text-anchor="end" x="92.5" y="269.285714285714">50000</text>
+	<line stroke="black" stroke-width="2" x1="100" x2="95" y1="264.285714285714" y2="264.285714285714" />
+	<text fill="black" font-family="Arial" font-size="15" stroke="none" text-anchor="end" x="92.5" y="226.428571428571">75000</text>
+	<line stroke="black" stroke-width="2" x1="100" x2="95" y1="221.428571428571" y2="221.428571428571" />
+	<text fill="black" font-family="Arial" font-size="15" stroke="none" text-anchor="end" x="92.5" y="183.571428571429">100000</text>
+	<line stroke="black" stroke-width="2" x1="100" x2="95" y1="178.571428571429" y2="178.571428571429" />
+	<text fill="black" font-family="Arial" font-size="15" stroke="none" text-anchor="end" x="92.5" y="140.714285714286">125000</text>
+	<line stroke="black" stroke-width="2" x1="100" x2="95" y1="135.714285714286" y2="135.714285714286" />
+	<text fill="black" font-family="Arial" font-size="15" stroke="none" text-anchor="end" x="92.5" y="97.8571428571429">150000</text>
+	<line stroke="black" stroke-width="2" x1="100" x2="95" y1="92.8571428571429" y2="92.8571428571429" />
+	<text fill="black" font-family="Arial" font-size="15" stroke="none" text-anchor="end" x="92.5" y="55">175000</text>
+	<line stroke="black" stroke-width="2" x1="100" x2="95" y1="50" y2="50" />
+	<line stroke="black" stroke-width="1" x1="100" x2="100" y1="50" y2="350" />
+	<text fill="black" font-family="Arial" font-size="15" stroke="none" text-anchor="middle" x="325" y="410.574363164907">sample Name</text>
+	<g transform="rotate(-90,32.5,200)">
+		<text fill="black" font-family="Arial" font-size="15" stroke="none" text-anchor="middle" x="32.5" y="200">Sequence Number</text>
+	</g>
+	<line stroke="black" stroke-width="2" x1="325" x2="325" y1="350" y2="352.7" />
+	<g fill="black" font-family="Arial" font-size="13.5" stroke="none" text-anchor="end" transform="rotate(-45,212.5,359)">
+		<text x="212.5" y="363.5">Day.1</text>
+	</g>
+	<rect fill="crimson" height="289.968" stroke="crimson" width="112.5" x="156.25" y="60.032" />
+	<rect fill="blue" height="289.570285714286" stroke="blue" width="112.5" x="156.25" y="60.4297142857143" />
+	<rect fill="lightseagreen" height="289.407428571429" stroke="lightseagreen" width="112.5" x="156.25" y="60.5925714285714" />
+	<rect fill="orange" height="270.293142857143" stroke="orange" width="112.5" x="156.25" y="79.7068571428571" />
+	<rect fill="mediumpurple" height="256.434857142857" stroke="mediumpurple" width="112.5" x="156.25" y="93.5651428571429" />
+	<rect fill="palegreen" height="200.012571428571" stroke="palegreen" width="112.5" x="156.25" y="149.987428571429" />
+	<rect fill="lightcoral" height="9.19028571428571" stroke="lightcoral" width="112.5" x="156.25" y="340.809714285714" />
+	<g fill="black" font-family="Arial" font-size="8.1" stroke="none" text-anchor="middle">
+		<text x="212.5" y="339.459714285714">5361</text>
+	</g>
+	<g fill="black" font-family="Arial" font-size="8.1" stroke="none" text-anchor="middle">
+		<text x="212.5" y="148.637428571429">116674</text>
+	</g>
+	<g fill="black" font-family="Arial" font-size="8.1" stroke="none" text-anchor="middle">
+		<text x="212.5" y="92.2151428571429">149587</text>
+	</g>
+	<g fill="black" font-family="Arial" font-size="8.1" stroke="none" text-anchor="middle">
+		<text x="212.5" y="78.3568571428571">157671</text>
+	</g>
+	<g fill="black" font-family="Arial" font-size="8.1" stroke="none" text-anchor="middle">
+		<text x="212.5" y="59.2425714285714">168821</text>
+	</g>
+	<g fill="black" font-family="Arial" font-size="8.1" stroke="none" text-anchor="middle">
+		<text x="212.5" y="51.1425714285714">168916</text>
+	</g>
+	<g fill="black" font-family="Arial" font-size="8.1" stroke="none" text-anchor="middle">
+		<text x="212.5" y="43.0425714285714">169148</text>
+	</g>
+	<line stroke="black" stroke-width="2" x1="550" x2="550" y1="350" y2="352.7" />
+	<g fill="black" font-family="Arial" font-size="13.5" stroke="none" text-anchor="end" transform="rotate(-45,437.5,359)">
+		<text x="437.5" y="363.5">Day.29</text>
+	</g>
+	<rect fill="crimson" height="267.809142857143" stroke="crimson" width="112.5" x="381.25" y="82.1908571428572" />
+	<rect fill="blue" height="267.411428571429" stroke="blue" width="112.5" x="381.25" y="82.5885714285715" />
+	<rect fill="lightseagreen" height="267.277714285714" stroke="lightseagreen" width="112.5" x="381.25" y="82.7222857142857" />
+	<rect fill="orange" height="254.026285714286" stroke="orange" width="112.5" x="381.25" y="95.9737142857143" />
+	<rect fill="mediumpurple" height="239.739428571429" stroke="mediumpurple" width="112.5" x="381.25" y="110.260571428571" />
+	<rect fill="palegreen" height="194.724" stroke="palegreen" width="112.5" x="381.25" y="155.276" />
+	<rect fill="lightcoral" height="12.3308571428571" stroke="lightcoral" width="112.5" x="381.25" y="337.669142857143" />
+	<g fill="black" font-family="Arial" font-size="8.1" stroke="none" text-anchor="middle">
+		<text x="437.5" y="336.319142857143">7193</text>
+	</g>
+	<g fill="black" font-family="Arial" font-size="8.1" stroke="none" text-anchor="middle">
+		<text x="437.5" y="153.926">113589</text>
+	</g>
+	<g fill="black" font-family="Arial" font-size="8.1" stroke="none" text-anchor="middle">
+		<text x="437.5" y="108.910571428571">139848</text>
+	</g>
+	<g fill="black" font-family="Arial" font-size="8.1" stroke="none" text-anchor="middle">
+		<text x="437.5" y="94.6237142857143">148182</text>
+	</g>
+	<g fill="black" font-family="Arial" font-size="8.1" stroke="none" text-anchor="middle">
+		<text x="437.5" y="81.3722857142857">155912</text>
+	</g>
+	<g fill="black" font-family="Arial" font-size="8.1" stroke="none" text-anchor="middle">
+		<text x="437.5" y="73.2722857142857">155990</text>
+	</g>
+	<g fill="black" font-family="Arial" font-size="8.1" stroke="none" text-anchor="middle">
+		<text x="437.5" y="65.1722857142857">156222</text>
+	</g>
+	<line stroke="black" stroke-width="2" x1="100" x2="550" y1="350" y2="350" />
+	<line stroke="black" stroke-width="2" x1="100" x2="100" y1="50" y2="352.7" />
+	<rect fill="crimson" height="10.5" stroke="crimson" width="10.5" x="568" y="101" />
+	<text fill="black" font-family="Arial" font-size="15" stroke="none" x="583.75" y="111.5">Kingdom</text>
+	<rect fill="blue" height="10.5" stroke="blue" width="10.5" x="568" y="119" />
+	<text fill="black" font-family="Arial" font-size="15" stroke="none" x="583.75" y="129.5">Phylum</text>
+	<rect fill="lightseagreen" height="10.5" stroke="lightseagreen" width="10.5" x="568" y="137" />
+	<text fill="black" font-family="Arial" font-size="15" stroke="none" x="583.75" y="147.5">Class</text>
+	<rect fill="orange" height="10.5" stroke="orange" width="10.5" x="568" y="155" />
+	<text fill="black" font-family="Arial" font-size="15" stroke="none" x="583.75" y="165.5">Order</text>
+	<rect fill="mediumpurple" height="10.5" stroke="mediumpurple" width="10.5" x="568" y="173" />
+	<text fill="black" font-family="Arial" font-size="15" stroke="none" x="583.75" y="183.5">Family</text>
+	<rect fill="palegreen" height="10.5" stroke="palegreen" width="10.5" x="568" y="191" />
+	<text fill="black" font-family="Arial" font-size="15" stroke="none" x="583.75" y="201.5">Genus</text>
+	<rect fill="lightcoral" height="10.5" stroke="lightcoral" width="10.5" x="568" y="209" />
+	<text fill="black" font-family="Arial" font-size="15" stroke="none" x="583.75" y="219.5">Specie</text>
+	<!--
+	Generated using the Perl SVG Module V2.50
+	by Ronan Oger
+	Info: http://www.roitsystems.com/
+-->
+</svg>

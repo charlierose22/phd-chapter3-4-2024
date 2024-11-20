@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.0//EN" "http://www.w3.org/TR/2001/REC-SVG-20010904/DTD/svg10.dtd">
+<svg height="450" width="790" xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+	<text fill="black" font-family="Arial" font-size="15" stroke="none" text-anchor="end" x="92.5" y="355">0</text>
+	<line stroke="black" stroke-width="2" x1="100" x2="95" y1="350" y2="350" />
+	<text fill="black" font-family="Arial" font-size="15" stroke="none" text-anchor="end" x="92.5" y="280">0.25</text>
+	<line stroke="black" stroke-width="2" x1="100" x2="95" y1="275" y2="275" />
+	<line stroke="black" stroke-dasharray="3 2" stroke-width="0.5" x1="100" x2="550" y1="275" y2="275" />
+	<text fill="black" font-family="Arial" font-size="15" stroke="none" text-anchor="end" x="92.5" y="205">0.5</text>
+	<line stroke="black" stroke-width="2" x1="100" x2="95" y1="200" y2="200" />
+	<line stroke="black" stroke-dasharray="3 2" stroke-width="0.5" x1="100" x2="550" y1="200" y2="200" />
+	<text fill="black" font-family="Arial" font-size="15" stroke="none" text-anchor="end" x="92.5" y="130">0.75</text>
+	<line stroke="black" stroke-width="2" x1="100" x2="95" y1="125" y2="125" />
+	<line stroke="black" stroke-dasharray="3 2" stroke-width="0.5" x1="100" x2="550" y1="125" y2="125" />
+	<text fill="black" font-family="Arial" font-size="15" stroke="none" text-anchor="end" x="92.5" y="55">1</text>
+	<line stroke="black" stroke-width="2" x1="100" x2="95" y1="50" y2="50" />
+	<line stroke="black" stroke-width="1" x1="100" x2="100" y1="50" y2="350" />
+	<text fill="black" font-family="Arial" font-size="15" stroke="none" text-anchor="middle" x="325" y="410.574363164907">group Name</text>
+	<g transform="rotate(-90,47.5,200)">
+		<text fill="black" font-family="Arial" font-size="15" stroke="none" text-anchor="middle" x="47.5" y="200">Relative Abundance</text>
+	</g>
+	<line stroke="black" stroke-width="2" x1="250" x2="250" y1="350" y2="352.7" />
+	<g fill="black" font-family="Arial" font-size="13.5" stroke="none" text-anchor="end" transform="rotate(-45,175,359)">
+		<text x="175" y="363.5">Bottom</text>
+	</g>
+	<rect fill="crimson" height="26.7183" stroke="crimson" width="75" x="137.5" y="323.2817" />
+	<rect fill="blue" height="40.5282" stroke="blue" width="75" x="137.5" y="282.7535" />
+	<rect fill="lightseagreen" height="15.8124" stroke="lightseagreen" width="75" x="137.5" y="266.9411" />
+	<rect fill="orange" height="32.919" stroke="orange" width="75" x="137.5" y="234.0221" />
+	<rect fill="mediumpurple" height="6.2424" stroke="mediumpurple" width="75" x="137.5" y="227.7797" />
+	<rect fill="palegreen" height="21.7665" stroke="palegreen" width="75" x="137.5" y="206.0132" />
+	<rect fill="lightcoral" height="20.9616" stroke="lightcoral" width="75" x="137.5" y="185.0516" />
+	<rect fill="dodgerblue" height="14.865" stroke="dodgerblue" width="75" x="137.5" y="170.1866" />
+	<rect fill="lawngreen" height="3.6294" stroke="lawngreen" width="75" x="137.5" y="166.5572" />
+	<rect fill="olive" height="10.3092" stroke="olive" width="75" x="137.5" y="156.248" />
+	<rect fill="yellow" height="106.248" stroke="yellow" width="75" x="137.5" y="50" />
+	<line stroke="black" stroke-width="2" x1="400" x2="400" y1="350" y2="352.7" />
+	<g fill="black" font-family="Arial" font-size="13.5" stroke="none" text-anchor="end" transform="rotate(-45,325,359)">
+		<text x="325" y="363.5">Middle</text>
+	</g>
+	<rect fill="crimson" height="27.2421" stroke="crimson" width="75" x="287.5" y="322.7579" />
+	<rect fill="blue" height="59.2416" stroke="blue" width="75" x="287.5" y="263.5163" />
+	<rect fill="lightseagreen" height="11.364" stroke="lightseagreen" width="75" x="287.5" y="252.1523" />
+	<rect fill="orange" height="12.3876" stroke="orange" width="75" x="287.5" y="239.7647" />
+	<rect fill="mediumpurple" height="3.9939" stroke="mediumpurple" width="75" x="287.5" y="235.7708" />
+	<rect fill="palegreen" height="24.4662" stroke="palegreen" width="75" x="287.5" y="211.3046" />
+	<rect fill="lightcoral" height="19.6743" stroke="lightcoral" width="75" x="287.5" y="191.6303" />
+	<rect fill="dodgerblue" height="15.7152" stroke="dodgerblue" width="75" x="287.5" y="175.9151" />
+	<rect fill="lawngreen" height="2.1063" stroke="lawngreen" width="75" x="287.5" y="173.8088" />
+	<rect fill="olive" height="7.3596" stroke="olive" width="75" x="287.5" y="166.4492" />
+	<rect fill="yellow" height="116.4492" stroke="yellow" width="75" x="287.5" y="50" />
+	<line stroke="black" stroke-width="2" x1="550" x2="550" y1="350" y2="352.7" />
+	<g fill="black" font-family="Arial" font-size="13.5" stroke="none" text-anchor="end" transform="rotate(-45,475,359)">
+		<text x="475" y="363.5">Top</text>
+	</g>
+	<rect fill="crimson" height="42.3639" stroke="crimson" width="75" x="437.5" y="307.6361" />
+	<rect fill="blue" height="40.1154" stroke="blue" width="75" x="437.5" y="267.5207" />
+	<rect fill="lightseagreen" height="37.5582" stroke="lightseagreen" width="75" x="437.5" y="229.9625" />
+	<rect fill="orange" height="15.5901" stroke="orange" width="75" x="437.5" y="214.3724" />
+	<rect fill="mediumpurple" height="24.8307" stroke="mediumpurple" width="75" x="437.5" y="189.5417" />
+	<rect fill="palegreen" height="12.0405" stroke="palegreen" width="75" x="437.5" y="177.5012" />
+	<rect fill="lightcoral" height="12.1932" stroke="lightcoral" width="75" x="437.5" y="165.308" />
+	<rect fill="dodgerblue" height="13.2828" stroke="dodgerblue" width="75" x="437.5" y="152.0252" />
+	<rect fill="lawngreen" height="13.269" stroke="lawngreen" width="75" x="437.5" y="138.7562" />
+	<rect fill="olive" height="3.6192" stroke="olive" width="75" x="437.5" y="135.137" />
+	<rect fill="yellow" height="85.137" stroke="yellow" width="75" x="437.5" y="49.9999999999999" />
+	<line stroke="black" stroke-width="2" x1="100" x2="550" y1="350" y2="350" />
+	<line stroke="black" stroke-width="2" x1="100" x2="100" y1="50" y2="352.7" />
+	<rect fill="yellow" height="7" stroke="yellow" width="7" x="562" y="97" />
+	<text fill="black" font-family="Arial" font-size="10" stroke="none" x="572.5" y="104">Others</text>
+	<rect fill="olive" height="7" stroke="olive" width="7" x="562" y="109" />
+	<text fill="black" font-family="Arial" font-size="10" stroke="none" x="572.5" y="116">Oscillospirales</text>
+	<rect fill="lawngreen" height="7" stroke="lawngreen" width="7" x="562" y="121" />
+	<text fill="black" font-family="Arial" font-size="10" stroke="none" x="572.5" y="128">Xanthomonadales</text>
+	<rect fill="dodgerblue" height="7" stroke="dodgerblue" width="7" x="562" y="133" />
+	<text fill="black" font-family="Arial" font-size="10" stroke="none" x="572.5" y="140">Corynebacteriales</text>
+	<rect fill="lightcoral" height="7" stroke="lightcoral" width="7" x="562" y="145" />
+	<text fill="black" font-family="Arial" font-size="10" stroke="none" x="572.5" y="152">Peptostreptococcales-Tissierellales</text>
+	<rect fill="palegreen" height="7" stroke="palegreen" width="7" x="562" y="157" />
+	<text fill="black" font-family="Arial" font-size="10" stroke="none" x="572.5" y="164">Bacteroidales</text>
+	<rect fill="mediumpurple" height="7" stroke="mediumpurple" width="7" x="562" y="169" />
+	<text fill="black" font-family="Arial" font-size="10" stroke="none" x="572.5" y="176">Bacillales</text>
+	<rect fill="orange" height="7" stroke="orange" width="7" x="562" y="181" />
+	<text fill="black" font-family="Arial" font-size="10" stroke="none" x="572.5" y="188">Microtrichales</text>
+	<rect fill="lightseagreen" height="7" stroke="lightseagreen" width="7" x="562" y="193" />
+	<text fill="black" font-family="Arial" font-size="10" stroke="none" x="572.5" y="200">Pseudomonadales</text>
+	<rect fill="blue" height="7" stroke="blue" width="7" x="562" y="205" />
+	<text fill="black" font-family="Arial" font-size="10" stroke="none" x="572.5" y="212">Methanosarciniales</text>
+	<rect fill="crimson" height="7" stroke="crimson" width="7" x="562" y="217" />
+	<text fill="black" font-family="Arial" font-size="10" stroke="none" x="572.5" y="224">Micrococcales</text>
+	<!-- 
+	Generated using the Perl SVG Module V2.50
+	by Ronan Oger
+	Info: http://www.roitsystems.com/
+ -->
+</svg>

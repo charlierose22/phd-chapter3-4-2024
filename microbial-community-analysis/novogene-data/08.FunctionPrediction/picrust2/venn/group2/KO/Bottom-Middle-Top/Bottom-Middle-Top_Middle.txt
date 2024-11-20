@@ -1,0 +1,103 @@
+ID	Taxonomy
+K00214	BLVRA, bvdR; biliverdin reductase [EC:1.3.1.24]
+K00218	por; protochlorophyllide reductase [EC:1.3.1.33]
+K00750	GYG1, GYG2; glycogenin [EC:2.4.1.186]
+K01947	birA-coaX; biotin---[acetyl-CoA-carboxylase] ligase / type III pantothenate kinase [EC:6.3.4.15 2.7.1.33]
+K02092	apcA; allophycocyanin alpha subunit
+K02093	apcB; allophycocyanin beta subunit
+K02094	apcC; phycobilisome core linker protein
+K02095	apcD; allophycocyanin-B
+K02096	apcE; phycobilisome core-membrane linker protein
+K02097	apcF; phycobilisome core component
+K02284	cpcA; phycocyanin alpha chain
+K02285	cpcB; phycocyanin beta chain
+K02288	cpcE; phycocyanobilin lyase subunit alpha [EC:4.4.1.32]
+K02289	cpcF; phycocyanobilin lyase subunit beta [EC:4.4.1.32]
+K02290	cpcG; phycobilisome rod-core linker protein
+K02634	petA; apocytochrome f
+K02637	petD; cytochrome b6-f complex subunit 4
+K02640	petG; cytochrome b6-f complex subunit 5
+K02641	petH; ferredoxin--NADP+ reductase [EC:1.18.1.2]
+K02643	petM; cytochrome b6-f complex subunit 7
+K02691	psaC; photosystem I subunit VII
+K02693	psaE; photosystem I subunit IV
+K02694	psaF; photosystem I subunit III
+K02697	psaJ; photosystem I subunit IX
+K02698	psaK; photosystem I subunit X
+K02700	psaM; photosystem I subunit XII
+K02703	psbA; photosystem II P680 reaction center D1 protein [EC:1.10.3.9]
+K02704	psbB; photosystem II CP47 chlorophyll apoprotein
+K02705	psbC; photosystem II CP43 chlorophyll apoprotein
+K02706	psbD; photosystem II P680 reaction center D2 protein [EC:1.10.3.9]
+K02707	psbE; photosystem II cytochrome b559 subunit alpha
+K02709	psbH; photosystem II PsbH protein
+K02711	psbJ; photosystem II PsbJ protein
+K02714	psbM; photosystem II PsbM protein
+K02715	psbN; PsbN protein
+K02716	psbO; photosystem II oxygen-evolving enhancer protein 1
+K02717	psbP; photosystem II oxygen-evolving enhancer protein 2
+K02718	psbT; photosystem II PsbT protein
+K02720	psbV; photosystem II cytochrome c550
+K02722	psbX; photosystem II PsbX protein
+K02723	psbY; photosystem II PsbY protein
+K02724	psbZ; photosystem II PsbZ protein
+K02755	PTS-Bgl-EIIA, bglF, bglP; PTS system, beta-glucoside-specific IIA component [EC:2.7.1.-]
+K04086	clpL; ATP-dependent Clp protease ATP-binding subunit ClpL
+K05356	SPS, sds; all-trans-nonaprenyl-diphosphate synthase [EC:2.5.1.84 2.5.1.85]
+K05371	pcyA; phycocyanobilin:ferredoxin oxidoreductase [EC:1.3.7.5]
+K05572	ndhA; NAD(P)H-quinone oxidoreductase subunit 1 [EC:1.6.5.3]
+K05573	ndhB; NAD(P)H-quinone oxidoreductase subunit 2 [EC:1.6.5.3]
+K05574	ndhC; NAD(P)H-quinone oxidoreductase subunit 3 [EC:1.6.5.3]
+K05575	ndhD; NAD(P)H-quinone oxidoreductase subunit 4 [EC:1.6.5.3]
+K05579	ndhH; NAD(P)H-quinone oxidoreductase subunit H [EC:1.6.5.3]
+K05581	ndhJ; NAD(P)H-quinone oxidoreductase subunit J [EC:1.6.5.3]
+K05582	ndhK; NAD(P)H-quinone oxidoreductase subunit K [EC:1.6.5.3]
+K05583	ndhL; NAD(P)H-quinone oxidoreductase subunit L [EC:1.6.5.3]
+K05584	ndhM; NAD(P)H-quinone oxidoreductase subunit M [EC:1.6.5.3]
+K05585	ndhN; NAD(P)H-quinone oxidoreductase subunit N [EC:1.6.5.3]
+K05922	hydB; quinone-reactive Ni/Fe-hydrogenase large subunit [EC:1.12.5.1]
+K05927	hydA; quinone-reactive Ni/Fe-hydrogenase small subunit [EC:1.12.5.1]
+K06882	K06882; uncharacterized protein
+K07288	tspA; uncharacterized membrane protein
+K07769	nblS; two-component system, OmpR family, sensor histidine kinase NblS [EC:2.7.13.3]
+K07978	plmA; GntR family transcriptional regulator
+K08077	NUDT14; UDP-sugar diphosphatase [EC:3.6.1.45]
+K08902	psb27; photosystem II Psb27 protein
+K08903	psb28; photosystem II 13kDa protein
+K08906	petJ; cytochrome c6
+K09860	K09860; uncharacterized protein
+K10873	RAD52; DNA repair and recombination protein RAD52
+K12287	mshQ; MSHA biogenesis protein MshQ
+K12292	comA; ATP-binding cassette, subfamily C, bacterial, competence factor transporting protein [EC:3.4.22.-]
+K12910	pmmS; 2-phosphinomethylmalate synthase [EC:2.3.3.18]
+K13660	gumM; beta-1,4-glucosyltransferase [EC:2.4.1.-]
+K13799	panC-cmk; pantoate ligase / CMP/dCMP kinase [EC:6.3.2.1 2.7.4.25]
+K14201	clfA; clumping factor A
+K14330	K14330; fatty aldehyde-generating acyl-ACP reductase [EC:1.2.1.80]
+K14331	K14331; fatty aldehyde decarbonylase [EC:4.1.99.5]
+K14486	K14486, ARF; auxin response factor
+K14518	pipX; PII interaction protein X
+K14605	cruA; lycopene cyclase CruA [EC:5.5.1.19]
+K14606	cruP; lycopene cyclase CruP [EC:5.5.1.19]
+K14626	actVIA; actinorhodin biosynthesis protein ActVIA
+K14751	etbC; 2,3-dihydroxyethylbenzene 1,2-dioxygenase [EC:1.13.11.-]
+K15065	desZ; 3-O-methylgallate 3,4-dioxygenase [EC:1.13.11.-]
+K15230	aclA; ATP-citrate lyase alpha-subunit [EC:2.3.3.8]
+K15231	aclB; ATP-citrate lyase beta-subunit [EC:2.3.3.8]
+K15659	ofaB, arfB; arthrofactin-type cyclic lipopeptide synthetase B
+K15719	NCOAT, MGEA5; protein O-GlcNAcase / histone acetyltransferase [EC:3.2.1.169 2.3.1.48]
+K15879	narC; cytochrome b-561
+K15896	pseH; UDP-4-amino-4,6-dideoxy-N-acetyl-beta-L-altrosamine N-acetyltransferase [EC:2.3.1.202]
+K15897	pseG; UDP-2,4-diacetamido-2,4,6-trideoxy-beta-L-altropyranose hydrolase [EC:3.6.1.57]
+K15919	HPR2; hydroxypyruvate reductase 2
+K16127	mcyG; microcystin synthetase protein McyG
+K16303	cmtAc; p-cumate 2,3-dioxygenase subunit beta [EC:1.14.12.25]
+K17251	pglB; undecaprenyl-diphosphooligosaccharide---protein glycotransferase [EC:2.4.99.19]
+K17892	FTRC; ferredoxin-thioredoxin reductase catalytic chain [EC:1.8.7.2]
+K18109	np1; 5-epi-alpha-selinene synthase [EC:4.2.3.90]
+K18136	acrR; TetR/AcrR family transcriptional regulator, multidrug resistance operon repressor
+K18221	tetX; tetracycline 11a-monooxygenase, tetracycline resistance protein [EC:1.14.13.231]
+K18399	BPHL; valacyclovir hydrolase [EC:3.1.-.-]
+K18534	K18534; MPBQ/MSBQ methyltransferase [EC:2.1.1.295]
+K19003	mgdA; 1,2-diacylglycerol 3-beta-glucosyltransferase [EC:2.4.1.336]
+K19551	pelC; pectate lyase C [EC:4.2.2.2 4.2.2.10]

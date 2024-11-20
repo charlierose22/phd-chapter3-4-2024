@@ -1,0 +1,49 @@
+ID	Taxonomy
+PF00022	Actin
+PF00862	Sucrose synthase
+PF01298	Transferrin binding protein-like solute binding protein
+PF01446	Replication protein
+PF02090	Salmonella surface presentation of antigen gene type M protein
+PF02480	Alphaherpesvirus glycoprotein E
+PF02821	Staphylokinase/Streptokinase family
+PF02893	GRAM domain
+PF03423	Carbohydrate binding domain (family 25)
+PF03984	Repeat of unknown function (DUF346)  
+PF04394	Protein of unknown function, DUF536
+PF04447	Protein of unknown function (DUF550)
+PF04639	Baculoviral E56 protein, specific to ODV envelope
+PF04733	Coatomer epsilon subunit
+PF04917	Bacterial shufflon protein, N-terminal constant region
+PF05354	Phage Head-Tail Attachment
+PF06163	Bacterial protein of unknown function (DUF977)
+PF06630	Enterobacterial exodeoxyribonuclease VIII
+PF07278	Protein of unknown function (DUF1441)
+PF07419	PilM
+PF07455	Phage polarity suppression protein (Psu)
+PF07646	Kelch motif
+PF07827	KNTase C-terminal domain
+PF07901	Protein of unknown function (DUF1672)
+PF07902	gp58-like protein
+PF08049	IlvB leader peptide
+PF08052	PyrBI operon leader peptide
+PF08884	Flagellin D3 domain
+PF09028	Mac 1
+PF09683	Bacteriocin (Lactococcin_972)
+PF10078	Uncharacterized protein conserved in bacteria (DUF2316)
+PF10516	SHNi-TPR
+PF10786	Glucose-6-phosphate 1-dehydrogenase (EC 1.1.1.49)
+PF10874	Protein of unknown function (DUF2746)
+PF11311	Protein of unknown function (DUF3114)
+PF11678	Protein of unknown function (DUF3274)
+PF12604	Tail fibre protein gp37 C terminal
+PF13748	ABC transporter transmembrane region
+PF14515	Haem-oxygenase-associated N-terminal helices
+PF15656	Toxin with a H, D/N and C signature
+PF15899	BNR-Asp box repeat
+PF16151	Domain of unknown function (DUF4859)
+PF16308	Domain of unknown function (DUF4950)
+PF16356	Domain of unknown function (DUF4983)
+PF16398	Domain of unknown function (DUF5007)
+PF16405	Domain of unknown function (DUF5013)
+PF16754	Bacterial toxin homologue of phage lysozyme, C-term
+PF16945	Putative lactococcus lactis phage r1t holin

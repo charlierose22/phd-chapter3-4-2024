@@ -1,0 +1,61 @@
+ID	Taxonomy
+K00280	LOXL2_3_4; lysyl oxidase-like protein 2/3/4 [EC:1.4.3.-]
+K00504	PAM, PHM; peptidylglycine monooxygenase [EC:1.14.17.3]
+K00870	E2.7.1.37; protein kinase [EC:2.7.1.37]
+K01161	E3.1.25.1; deoxyribonuclease (pyrimidine dimer) [EC:3.1.25.1]
+K02782	PTS-Gut-EIIB, srlE; PTS system, glucitol/sorbitol-specific IIB component [EC:2.7.1.198]
+K04573	NEF3, NF-M; neurofilament medium polypeptide (neurofilament 3)
+K04783	irp5, ybtE; yersiniabactin salicyl-AMP ligase [EC:6.3.2.-]
+K05988	dexA; dextranase [EC:3.2.1.11]
+K06011	boNT; botulinum neurotoxin [EC:3.4.24.69]
+K06322	cgeD; spore maturation protein CgeD
+K10677	E4.2.2.17; inulin fructotransferase (DFA-I-forming) [EC:4.2.2.17]
+K12904	phpC; phosphonoacetaldehyde reductase [EC:1.1.1.309]
+K12905	phpD; 2-hydroxyethylphosphonate dioxygenase [EC:1.13.11.72]
+K12906	phpE; D-3-phosphoglycerate dehydrogenase
+K12907	phpJ; aldehyde dehydrogenase
+K13611	pksJ; polyketide synthase PksJ
+K14091	echF; ech hydrogenase subunit F
+K15617	LDB1; LIM domain-binding protein 1
+K15930	lndM2; bifunctional oxygenase/reductase
+K15971	tcmP, elmP; O-methyltransferase [EC:2.1.1.-]
+K16431	cepH, sgcC3, mdpC3, kedY3; FAD-dependent halogenase [EC:1.14.19.-]
+K16623	ntnH; botulinum neurotoxin type non-toxic component
+K16838	pucL; urate oxidase / 2-oxo-4-hydroxy-4-carboxy-5-ureidoimidazoline decarboxylase [EC:1.7.3.3 4.1.1.97]
+K17744	GalDH; L-galactose dehydrogenase [EC:1.1.1.316]
+K17818	ARD1; D-arabinitol dehydrogenase (NADP+) [EC:1.1.1.287]
+K18105	rtcA; RNA 3-terminal phosphate cyclase (GTP) [EC:6.5.1.5]
+K17754	0.00	1.00	0.00	cpnA; cyclopentanol dehydrogenase [EC:1.1.1.163]
+K17743	0.00	1.00	0.00	XR; D-xylose reductase [EC:1.1.1.307]
+K17062	0.00	0.00	1.00	bgtB; arginine/lysine/histidine/glutamine transport system substrate-binding and permease protein
+K16108	0.00	1.00	0.00	blmX; nonribosomal peptide synthetase protein BlmX
+K15534	0.00	0.00	1.00	K15534; beta-D-galactosyl-(1->4)-L-rhamnose phosphorylase [EC:2.4.1.247]
+K15387	0.00	0.00	1.00	APDD; FAD-dependent monooxygenase
+K15336	0.00	1.00	0.00	TRDMT1, DNMT2; tRNA (cytosine38-C5)-methyltransferase [EC:2.1.1.204]
+K14685	0.00	0.00	1.00	SLC40A1, FPN1; solute carrier family 40 (iron-regulated transporter), member 1
+K14472	0.00	1.00	1.00	smtB; succinyl-CoA:(S)-malate CoA-transferase subunit B [EC:2.8.3.22]
+K14471	0.00	1.00	1.00	smtA1; succinyl-CoA:(S)-malate CoA-transferase subunit A [EC:2.8.3.22]
+K13059	1.00	0.00	0.00	nahK, lnpB; N-acetylhexosamine 1-kinase [EC:2.7.1.162]
+K12826	0.00	1.00	0.00	SF3A2, SAP62; splicing factor 3A subunit 2
+K12706	0.00	1.00	0.00	novC; novobiocin biosynthesis protein NovC
+K12533	1.00	0.00	0.00	rsaD; ATP-binding cassette, subfamily C, bacterial RsaD
+K10727	0.00	1.00	0.00	CDT1; chromatin licensing and DNA replication factor 1
+K08220	1.00	0.00	1.00	FLVCR, SLC49A1_2; MFS transporter, FLVCR family, feline leukemia virus subgroup C receptor-related protein
+K08193	0.00	1.00	0.00	SLC17A; MFS transporter, ACS family, solute carrier family 17 (sodium-dependent inorganic phosphate cotransporter), other
+K07537	0.00	0.00	1.00	dch; cyclohexa-1,5-dienecarbonyl-CoA hydratase [EC:4.2.1.100]
+K07358	0.57	1.00	1.00	fimE; type 1 fimbriae regulatory protein FimE
+K06493	0.00	0.00	1.00	ITGB3, CD61; integrin beta 3
+K03287	0.00	0.00	1.00	TC.OMF; outer membrane factor, OMF family
+K02184	0.00	1.00	0.00	FMN2; formin 2
+K01518	0.00	1.00	1.00	NUDT2; bis(5-nucleosidyl)-tetraphosphatase [EC:3.6.1.17]
+K18205	hypBA1; non-reducing end beta-L-arabinofuranosidase [EC:3.2.1.185]
+K18206	hypBA2; beta-L-arabinobiosidase [EC:3.2.1.187]
+K18216	steA, tetA46; ATP-binding cassette, subfamily B, tetracycline resistant protein
+K18217	steB, tetB46; ATP-binding cassette, subfamily B, tetracycline resistant protein
+K18427	hpdB; 4-hydroxyphenylacetate decarboxylase large subunit [EC:4.1.1.83]
+K18428	hpdC; 4-hydroxyphenylacetate decarboxylase small subunit [EC:4.1.1.83]
+K18536	thnD; putative oxidoreductase
+K18544	sprA; streptogrisin A [EC:3.4.21.80]
+K18591	dfrD, dhfr; dihydrofolate reductase (trimethoprim resistance protein) [EC:1.5.1.3]
+K18642	creS; crescentin
+K19737	PRMT9; type II protein arginine methyltransferase [EC:2.1.1.320]

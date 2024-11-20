@@ -1,0 +1,9 @@
+ID	Taxonomy
+PF00502	Phycobilisome protein
+PF03139	Vanadium/alternative nitrogenase delta subunit
+PF07271	Cytadhesin P30/P32
+PF07828	PA-IL-like protein
+PF07900	Protein of unknown function (DUF1670)
+PF08480	Disaggregatase related
+PF09447	Cnl2/NKP2 family protein
+PF16283	Domain of unknown function (DUF4929)

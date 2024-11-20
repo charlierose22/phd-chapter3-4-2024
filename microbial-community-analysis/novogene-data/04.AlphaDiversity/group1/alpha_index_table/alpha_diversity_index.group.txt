@@ -1,0 +1,3 @@
+Sample_Name	chao1	dominance	goods_coverage	observed_features	pielou_e	shannon	simpson
+Day.1	1350.627	0.045	0.999	1327	0.635	6.592	0.955
+Day.29	1579.512	0.031	0.999	1553	0.666	7.063	0.969

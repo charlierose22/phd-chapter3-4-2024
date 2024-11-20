@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.0//EN" "http://www.w3.org/TR/2001/REC-SVG-20010904/DTD/svg10.dtd">
+<svg height="515" width="610" xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+	<polygon fill="rgb(255,186,0)" points="305, 5, 155, 155, 305, 305, 455, 155" stroke="none" />
+	<text fill="black" font-family="Arial" font-size="12.75" stroke="none" text-anchor="middle" x="305" y="159.25">0.436</text>
+	<polygon fill="rgb(255,0,0)" points="155, 155, 5, 305, 155, 455, 305, 305" stroke="none" />
+	<text fill="black" font-family="Arial" font-size="12.75" stroke="none" text-anchor="middle" x="155" y="309.25">0</text>
+	<polygon fill="rgb(255,0,0)" points="455, 155, 305, 305, 455, 455, 605, 305" stroke="none" />
+	<text fill="black" font-family="Arial" font-size="12.75" stroke="none" text-anchor="middle" x="455" y="309.25">0</text>
+	<line stroke="black" stroke-width="1" x1="5" x2="305" y1="305" y2="5" />
+	<g fill="black" font-family="Arial" font-size="15" stroke="none" transform="rotate(-45,387.5,72.5)">
+		<text x="387.5" y="77.5">Day.1</text>
+	</g>
+	<line stroke="black" stroke-width="1" x1="455" x2="155" y1="155" y2="455" />
+	<g fill="black" font-family="Arial" font-size="15" stroke="none" transform="rotate(-45,537.5,222.5)">
+		<text x="537.5" y="227.5">Day.29</text>
+	</g>
+	<g fill="black" font-family="Arial" font-size="15" stroke="none" transform="rotate(45,72.5,222.5)">
+		<text text-anchor="end" x="72.5" y="227.5">Day.1</text>
+	</g>
+	<line stroke="black" stroke-width="1" x1="5" x2="155" y1="305" y2="455" />
+	<line stroke="black" stroke-width="1" x1="605" x2="455" y1="305" y2="455" />
+	<g fill="black" font-family="Arial" font-size="15" stroke="none" transform="rotate(-45,687.5,372.5)">
+		<text x="687.5" y="377.5" />
+	</g>
+	<g fill="black" font-family="Arial" font-size="15" stroke="none" transform="rotate(45,222.5,72.5)">
+		<text text-anchor="end" x="222.5" y="77.5">Day.29</text>
+	</g>
+	<line stroke="black" stroke-width="1" x1="155" x2="455" y1="155" y2="455" />
+	<line stroke="black" stroke-width="1" x1="305" x2="605" y1="5" y2="305" />
+	<text fill="black" font-family="Arial" font-size="10" stroke="none" text-anchor="middle" x="180" y="508.33">Beta Diversity</text>
+	<line stroke="black" stroke-width="0.5" x1="80" x2="280" y1="485" y2="485" />
+	<line stroke="black" stroke-width="0.5" x1="80" x2="80" y1="485" y2="488" />
+	<text fill="black" font-family="Arial" font-size="10" stroke="none" text-anchor="middle" x="80" y="497">0</text>
+	<line stroke="black" stroke-width="0.5" x1="180" x2="180" y1="485" y2="488" />
+	<text fill="black" font-family="Arial" font-size="10" stroke="none" text-anchor="middle" x="180" y="497">0.3</text>
+	<line stroke="black" stroke-width="0.5" x1="280" x2="280" y1="485" y2="488" />
+	<text fill="black" font-family="Arial" font-size="10" stroke="none" text-anchor="middle" x="280" y="497">0.6</text>
+	<linearGradient gradientUnits="userSpaceOnUse" id="gradient_1" x1="80" x2="280" y1="0" y2="0">
+		<stop offset="0" stop-opacity="1" style="stop-color:rgb(255,0,0)" />
+		<stop offset="100%" stop-opacity="1" style="stop-color:rgb(255,256,0)" />
+	</linearGradient>
+	<rect fill="url(#gradient_1)" height="20" width="200" x="80" y="465" />
+	<!--
+	Generated using the Perl SVG Module V2.84
+	by Ronan Oger
+	Info: http://www.roitsystems.com/
+	-->
+</svg>
