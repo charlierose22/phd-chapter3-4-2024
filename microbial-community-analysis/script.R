@@ -1,6 +1,10 @@
 # load libraries
 library(tidyverse)
 library(readxl)
+<<<<<<< Updated upstream
+=======
+library(grafify)
+>>>>>>> Stashed changes
 
 # import data
 top_30_genus_days <- read_excel("microbial-community-analysis/novogene-edited/top-30-genus-days.xlsx")

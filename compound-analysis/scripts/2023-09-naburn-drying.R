@@ -603,6 +603,226 @@ dunnTest(group_area ~ day,
          data = chem_time_factor_other,
          method = "bh")
 
+<<<<<<< Updated upstream
+=======
+# location study statistics
+# all classes
+# one way anova
+loc_one_way <- aov(group_area ~ class, data = chem_location_factor)
+summary(loc_one_way)
+loc_one_way_height <- aov(group_area ~ height, data = chem_location_factor)
+summary(loc_one_way_height)
+# two way anova
+loc_two_way <- aov(group_area ~ height * class, data = chem_location_factor)
+summary(loc_two_way)
+# check normal distribution
+par(mfrow=c(2,2))
+plot(loc_one_way)
+par(mfrow=c(1,1))
+# kruskal wallis 
+kruskal.test(data = chem_location_factor, group_area ~ class)
+kruskal.test(data = chem_location_factor, group_area ~ height)
+# post-hoc test
+dunnTest(group_area ~ height,
+         data = chem_location_factor,
+         method = "bh")
+dunnTest(group_area ~ class,
+         data = chem_location_factor,
+         method = "bh")
+
+ggplot(chem_location_factor, aes(x = class, y = group_area) ) +
+  geom_boxplot() +
+  scale_x_discrete(name = "Antibiotic Class") +
+  scale_y_continuous(name = "UHPLC Peak Intensity") +
+  theme_classic()
+
+# aminoglycoside
+# one way anova
+loc_one_way_amino <- aov(group_area ~ name.x, data = chem_loc_factor_amino)
+summary(loc_one_way_amino)
+loc_one_way_height_amino <- aov(group_area ~ height, data = chem_loc_factor_amino)
+summary(loc_one_way_height_amino)
+# two way anova
+loc_two_way_amino <- aov(group_area ~ height * name.x, data = chem_loc_factor_amino)
+summary(loc_two_way_amino)
+# check normal distribution
+par(mfrow=c(2,2))
+plot(loc_one_way_amino)
+par(mfrow=c(1,1))
+# kruskal wallis 
+kruskal.test(data = chem_loc_factor_amino, group_area ~ name.x)
+kruskal.test(data = chem_loc_factor_amino, group_area ~ height)
+# post-hoc test
+dunnTest(group_area ~ height,
+         data = chem_loc_factor_amino,
+         method = "bh")
+dunnTest(group_area ~ name.x,
+         data = chem_loc_factor_amino,
+         method = "bh")
+
+# beta lactam
+# one way anova
+loc_one_way_beta <- aov(group_area ~ name.x, data = chem_loc_factor_beta)
+summary(loc_one_way_beta)
+loc_one_way_height_beta <- aov(group_area ~ height, data = chem_loc_factor_beta)
+summary(loc_one_way_height_beta)
+# two way anova
+loc_two_way_beta <- aov(group_area ~ height * name.x, data = chem_loc_factor_beta)
+summary(loc_two_way_beta)
+# check normal distribution
+par(mfrow=c(2,2))
+plot(loc_one_way_beta)
+par(mfrow=c(1,1))
+# kruskal wallis 
+kruskal.test(data = chem_loc_factor_beta, group_area ~ name.x)
+kruskal.test(data = chem_loc_factor_beta, group_area ~ height)
+# post-hoc test
+dunnTest(group_area ~ height,
+         data = chem_loc_factor_beta,
+         method = "bh")
+dunnTest(group_area ~ name.x,
+         data = chem_loc_factor_beta,
+         method = "bh")
+
+ggplot(chem_loc_factor_beta, aes(x = name.x, y = group_area) ) +
+  geom_boxplot() +
+  scale_x_discrete(name = "Antibiotic Name") +
+  scale_y_continuous(name = "UHPLC Peak Intensity") +
+  theme_classic()
+
+# macrolides
+# one way anova
+loc_one_way_height_mac <- aov(group_area ~ height, data = chem_loc_factor_mac)
+summary(loc_one_way_height_mac)
+# check normal distribution
+par(mfrow=c(2,2))
+plot(loc_one_way_height_mac)
+par(mfrow=c(1,1))
+# kruskal wallis 
+kruskal.test(data = chem_loc_factor_mac, group_area ~ height)
+# post-hoc test
+dunnTest(group_area ~ height,
+         data = chem_loc_factor_mac,
+         method = "bh")
+
+# phenicol
+# one way anova
+loc_one_way_height_phen <- aov(group_area ~ height, data = chem_loc_factor_phen)
+summary(loc_one_way_height_phen)
+# check normal distribution
+par(mfrow=c(2,2))
+plot(loc_one_way_height_phen)
+par(mfrow=c(1,1))
+# kruskal wallis 
+kruskal.test(data = chem_loc_factor_phen, group_area ~ height)
+# post-hoc test
+dunnTest(group_area ~ height,
+         data = chem_loc_factor_phen,
+         method = "bh")
+
+# quinolone
+# one way anova
+loc_one_way_quin <- aov(group_area ~ name.x, data = chem_loc_factor_quin)
+summary(loc_one_way_quin)
+loc_one_way_height_quin <- aov(group_area ~ height, data = chem_loc_factor_quin)
+summary(loc_one_way_height_quin)
+# two way anova
+loc_two_way_quin <- aov(group_area ~ height * name.x, data = chem_loc_factor_quin)
+summary(loc_two_way_quin)
+# check normal distribution
+par(mfrow=c(2,2))
+plot(loc_one_way_quin)
+par(mfrow=c(1,1))
+# kruskal wallis 
+kruskal.test(data = chem_loc_factor_quin, group_area ~ name.x)
+kruskal.test(data = chem_loc_factor_quin, group_area ~ height)
+# post-hoc test
+dunnTest(group_area ~ height,
+         data = chem_loc_factor_quin,
+         method = "bh")
+dunnTest(group_area ~ name.x,
+         data = chem_loc_factor_quin,
+         method = "bh")
+
+ggplot(chem_loc_factor_quin, aes(x = name.x, y = group_area) ) +
+  geom_boxplot() +
+  scale_x_discrete(name = "Antibiotic Name") +
+  scale_y_continuous(name = "UHPLC Peak Intensity") +
+  theme_classic()
+
+# sulf
+# one way anova
+loc_one_way_sulf <- aov(group_area ~ name.x, data = chem_loc_factor_sulf)
+summary(loc_one_way_sulf)
+loc_one_way_height_sulf <- aov(group_area ~ height, data = chem_loc_factor_sulf)
+summary(loc_one_way_height_sulf)
+# two way anova
+loc_two_way_sulf <- aov(group_area ~ height * name.x, data = chem_loc_factor_sulf)
+summary(loc_two_way_sulf)
+# check normal distribution
+par(mfrow=c(2,2))
+plot(loc_one_way_sulf)
+par(mfrow=c(1,1))
+# kruskal wallis 
+kruskal.test(data = chem_loc_factor_sulf, group_area ~ name.x)
+kruskal.test(data = chem_loc_factor_sulf, group_area ~ height)
+# post-hoc test
+dunnTest(group_area ~ height,
+         data = chem_loc_factor_sulf,
+         method = "bh")
+dunnTest(group_area ~ name.x,
+         data = chem_loc_factor_sulf,
+         method = "bh")
+
+# tet
+# one way anova
+loc_one_way_tet <- aov(group_area ~ name.x, data = chem_loc_factor_tet)
+summary(loc_one_way_tet)
+loc_one_way_height_tet <- aov(group_area ~ height, data = chem_loc_factor_tet)
+summary(loc_one_way_height_tet)
+# two way anova
+loc_two_way_tet <- aov(group_area ~ height * name.x, data = chem_loc_factor_tet)
+summary(loc_two_way_tet)
+# check normal distribution
+par(mfrow=c(2,2))
+plot(loc_one_way_tet)
+par(mfrow=c(1,1))
+# kruskal wallis 
+kruskal.test(data = chem_loc_factor_tet, group_area ~ name.x)
+kruskal.test(data = chem_loc_factor_tet, group_area ~ height)
+# post-hoc test
+dunnTest(group_area ~ height,
+         data = chem_loc_factor_tet,
+         method = "bh")
+dunnTest(group_area ~ name.x,
+         data = chem_loc_factor_tet,
+         method = "bh")
+
+# other
+# one way anova
+loc_one_way_other <- aov(group_area ~ name.x, data = chem_loc_factor_other)
+summary(loc_one_way_other)
+loc_one_way_height_other <- aov(group_area ~ height, data = chem_loc_factor_other)
+summary(loc_one_way_height_other)
+# two way anova
+loc_two_way_other <- aov(group_area ~ height * name.x, data = chem_loc_factor_other)
+summary(loc_two_way_other)
+# check normal distribution
+par(mfrow=c(2,2))
+plot(loc_one_way_other)
+par(mfrow=c(1,1))
+# kruskal wallis 
+kruskal.test(data = chem_loc_factor_other, group_area ~ name.x)
+kruskal.test(data = chem_loc_factor_other, group_area ~ height)
+# post-hoc test
+dunnTest(group_area ~ height,
+         data = chem_loc_factor_other,
+         method = "bh")
+dunnTest(group_area ~ name.x,
+         data = chem_loc_factor_other,
+         method = "bh")
+
+>>>>>>> Stashed changes
 # PLOTTING
 chem_count_loc %>% 
   ggplot(aes(fill = class, y = count, x = height, label = count)) + 
@@ -615,188 +835,200 @@ chem_count_loc %>%
   theme_bw(base_size = 12)
 
 box_chem_location_study %>% 
-ggplot(aes(x = height, y = group_area, fill = height)) +
-  geom_boxplot() +
+  ggplot(aes(x = height, y = group_area, fill = height)) +
+  geom_boxplot(show.legend = FALSE) +
   scale_y_continuous(trans = 'log10') +
-  scale_fill_grafify(palette = "vibrant",
-                     labels = c("~20 cm from\nthe ground", "~1m from\nthe ground", "~20 cm from\nthe surface")) +
-  scale_x_discrete(labels = c("~20 cm from\nthe ground", "~1m from\nthe ground", "~20 cm from\nthe surface")) +
-  labs(y = "UHPLC Compound Peak Intensity (log10)", x = "Height in the Biosolid Pile",
-       fill = "Height") +
+  scale_fill_grafify(palette = "vibrant") +
+  scale_x_discrete(labels = c("~20 cm from\n ground", "~1m from\n ground", "~20 cm from\n surface")) +
+  labs(y = "UHPLC Compound Peak Intensity (log10)", x = "Height in the Biosolid Pile") +
   facet_wrap(~class, ncol = 3) +
   theme_bw(base_size = 12)
 
 # aminoglycoside total location
 box_chem_loc_amino %>%
   ggplot(aes(x = height, y = group_area, fill = height)) +
-  geom_boxplot() +
-  geom_jitter(position=position_jitter(0.2), color = "grey35", shape = 4) +
-  scale_y_continuous(trans = "log10") +
-  scale_fill_grafify(palette = "vibrant",
-                     labels = c("~20 cm from\nthe ground", "~20 cm from\nthe surface")) +
-  scale_x_discrete(labels = c("~20 cm from\nthe ground", "~20 cm from\nthe surface")) +
-  labs(x = "Height in the Biosolid Pile", y = "UHPLC Compound Peak Intensity (log10)", fill = "Height in the Biosolid Pile") +
+  geom_boxplot(show.legend = FALSE) +
+  scale_y_continuous(trans = 'log10') +
+  geom_jitter(position=position_jitter(0.2), color = "grey35", shape = 4, show.legend = FALSE) +
+  scale_fill_grafify(palette = "vibrant") +
+  scale_x_discrete(labels = c("~20 cm from\n ground", "~20 cm from\n surface")) +
+  labs(y = "UHPLC Compound Peak Intensity (log10)", x = "Height in the Biosolid Pile") +
   theme_bw(base_size = 12)
 
 # per gene
 box_chem_loc_amino %>%
-  ggplot(aes(x = height, y = delta_ct, fill = height)) +
-  geom_boxplot() +
-  geom_jitter(position=position_jitter(0.2), color = "grey35", shape = 4) +
-  scale_y_continuous(trans='log10') +
-  scale_fill_grafify(palette = "okabe_ito",
-                     labels = c("~20 cm from\n ground", "~1m from\n ground", "~20 cm from\n surface")) +
-  scale_x_discrete(labels = c("~20 cm from\n ground", "~1m from\n ground", "~20 cm from\n surface")) +
-  labs(x = "Pile height", y = "Relative gene abundance", fill = "Pile height") +
-  facet_wrap(~gene) +
+  ggplot(aes(x = height, y = group_area, fill = height)) +
+  geom_boxplot(show.legend = FALSE) +
+  scale_y_continuous(trans = 'log10') +
+  geom_jitter(position=position_jitter(0.2), color = "grey35", shape = 4, show.legend = FALSE) +
+  scale_fill_grafify(palette = "vibrant") +
+  scale_x_discrete(labels = c("~20 cm from\n ground", "~20 cm from\n surface")) +
+  labs(y = "UHPLC Compound Peak Intensity (log10)", x = "Height in the Biosolid Pile") +
+  facet_wrap(~name.x) +
   theme_bw(base_size = 12)
 
 # beta-lac location
 box_chem_loc_beta %>%
   ggplot(aes(x = height, y = group_area, fill = height)) +
-  geom_boxplot() +
-  geom_jitter(position=position_jitter(0.2), color = "antiquewhite4", shape = 4) +
-  scale_y_continuous(trans='log10') +
-  scale_fill_manual(values = brewer.pal("Accent", n = 3)) +
-  labs(x = "height", y = "compound intensity", fill = "height") +
-  facet_wrap(~day) +
-  theme_minimal(base_size = 12)
+  geom_boxplot(show.legend = FALSE) +
+  scale_y_continuous(trans = 'log10') +
+  geom_jitter(position=position_jitter(0.2), color = "grey35", shape = 4, show.legend = FALSE) +
+  scale_fill_grafify(palette = "vibrant") +
+  scale_x_discrete(labels = c("~20 cm from\n ground", "~1m from\n ground", "~20 cm from\n surface")) +
+  labs(y = "UHPLC Compound Peak Intensity (log10)", x = "Height in the Biosolid Pile") +
+  theme_bw(base_size = 12)
 
 # per gene
 box_chem_loc_beta %>%
-  ggplot(aes(x = day, y = group_area, fill = height)) +
-  geom_boxplot() +
-  scale_y_continuous(trans='log10') +
-  scale_fill_manual(values = brewer.pal("Accent", n = 3)) +
-  labs(x = "day", y = "relative abundance", fill = "height") +
+  ggplot(aes(x = height, y = group_area, fill = height)) +
+  geom_boxplot(show.legend = FALSE) +
+  scale_y_continuous(trans = 'log10') +
+  geom_jitter(position=position_jitter(0.2), color = "grey35", shape = 4, show.legend = FALSE) +
+  scale_fill_grafify(palette = "vibrant") +
+  scale_x_discrete(labels = c("~20 cm from\n ground", "~1m from\n ground", "~20 cm from\n surface")) +
+  labs(y = "UHPLC Compound Peak Intensity (log10)", x = "Height in the Biosolid Pile") +
   facet_wrap(~name.x) +
-  theme_minimal(base_size = 12)
+  theme_bw(base_size = 12)
 
 # mac location
 box_chem_loc_mac %>%
   ggplot(aes(x = height, y = group_area, fill = height)) +
-  geom_boxplot() +
-  geom_jitter(position=position_jitter(0.2), color = "antiquewhite4", shape = 4) +
-  scale_y_continuous(trans='log10') +
-  scale_fill_manual(values = brewer.pal("Accent", n = 3)) +
-  labs(x = "height", y = "compound intensity", fill = "height") +
-  facet_wrap(~day) +
-  theme_minimal(base_size = 12)
+  geom_boxplot(show.legend = FALSE) +
+  scale_y_continuous(trans = 'log10') +
+  geom_jitter(position=position_jitter(0.2), color = "grey35", shape = 4, show.legend = FALSE) +
+  scale_fill_grafify(palette = "vibrant") +
+  scale_x_discrete(labels = c("~20 cm from\n ground", "~1m from\n ground", "~20 cm from\n surface")) +
+  labs(y = "UHPLC Compound Peak Intensity (log10)", x = "Height in the Biosolid Pile") +
+  theme_bw(base_size = 12)
 
 # per gene
 box_chem_loc_mac %>%
-  ggplot(aes(x = day, y = group_area, fill = height)) +
-  geom_boxplot() +
-  scale_y_continuous(trans='log10') +
-  scale_fill_manual(values = brewer.pal("Accent", n = 3)) +
-  labs(x = "day", y = "relative abundance", fill = "height") +
+  ggplot(aes(x = height, y = group_area, fill = height)) +
+  geom_boxplot(show.legend = FALSE) +
+  scale_y_continuous(trans = 'log10') +
+  geom_jitter(position=position_jitter(0.2), color = "grey35", shape = 4, show.legend = FALSE) +
+  scale_fill_grafify(palette = "vibrant") +
+  scale_x_discrete(labels = c("~20 cm from\n ground", "~1m from\n ground", "~20 cm from\n surface")) +
+  labs(y = "UHPLC Compound Peak Intensity (log10)", x = "Height in the Biosolid Pile") +
   facet_wrap(~name.x) +
-  theme_minimal(base_size = 12)
+  theme_bw(base_size = 12)
 
 # other location
 box_chem_loc_other %>%
   ggplot(aes(x = height, y = group_area, fill = height)) +
-  geom_boxplot() +
-  geom_jitter(position=position_jitter(0.2), color = "antiquewhite4", shape = 4) +
-  scale_y_continuous(trans='log10') +
-  scale_fill_manual(values = brewer.pal("Accent", n = 3)) +
-  labs(x = "height", y = "compound intensity", fill = "height") +
-  facet_wrap(~day) +
-  theme_minimal(base_size = 12)
+  geom_boxplot(show.legend = FALSE) +
+  scale_y_continuous(trans = 'log10') +
+  geom_jitter(position=position_jitter(0.2), color = "grey35", shape = 4, show.legend = FALSE) +
+  scale_fill_grafify(palette = "vibrant") +
+  scale_x_discrete(labels = c("~20 cm from\n ground", "~1m from\n ground", "~20 cm from\n surface")) +
+  labs(y = "UHPLC Compound Peak Intensity (log10)", x = "Height in the Biosolid Pile") +
+  theme_bw(base_size = 12)
 
 # per gene
 box_chem_loc_other %>%
-  ggplot(aes(x = day, y = group_area, fill = height)) +
-  geom_boxplot() +
-  scale_y_continuous(trans='log10') +
-  scale_fill_manual(values = brewer.pal("Accent", n = 3)) +
-  labs(x = "day", y = "relative abundance", fill = "height") +
+  ggplot(aes(x = height, y = group_area, fill = height)) +
+  geom_boxplot(show.legend = FALSE) +
+  scale_y_continuous(trans = 'log10') +
+  geom_jitter(position=position_jitter(0.2), color = "grey35", shape = 4, show.legend = FALSE) +
+  scale_fill_grafify(palette = "vibrant") +
+  scale_x_discrete(labels = c("~20 cm from\n ground", "~1m from\n ground", "~20 cm from\n surface")) +
+  labs(y = "UHPLC Compound Peak Intensity (log10)", x = "Height in the Biosolid Pile") +
   facet_wrap(~name.x) +
-  theme_minimal(base_size = 12)
+  theme_bw(base_size = 12)
 
 # phenicol location
 box_chem_loc_phen %>%
   ggplot(aes(x = height, y = group_area, fill = height)) +
-  geom_boxplot() +
-  geom_jitter(position=position_jitter(0.2), color = "antiquewhite4", shape = 4) +
-  scale_y_continuous(trans='log10') +
-  scale_fill_manual(values = brewer.pal("Accent", n = 3)) +
-  labs(x = "height", y = "compound intensity", fill = "height") +
-  facet_wrap(~day) +
-  theme_minimal(base_size = 12)
+  geom_boxplot(show.legend = FALSE) +
+  scale_y_continuous(trans = 'log10') +
+  geom_jitter(position=position_jitter(0.2), color = "grey35", shape = 4, show.legend = FALSE) +
+  scale_fill_grafify(palette = "vibrant") +
+  scale_x_discrete(labels = c("~20 cm from\n ground", "~1m from\n ground", "~20 cm from\n surface")) +
+  labs(y = "UHPLC Compound Peak Intensity (log10)", x = "Height in the Biosolid Pile") +
+  theme_bw(base_size = 12)
 
 # per gene
 box_chem_loc_phen %>%
-  ggplot(aes(x = day, y = group_area, fill = height)) +
-  geom_boxplot() +
-  scale_y_continuous(trans='log10') +
-  scale_fill_manual(values = brewer.pal("Accent", n = 3)) +
-  labs(x = "day", y = "relative abundance", fill = "height") +
+  ggplot(aes(x = height, y = group_area, fill = height)) +
+  geom_boxplot(show.legend = FALSE) +
+  scale_y_continuous(trans = 'log10') +
+  geom_jitter(position=position_jitter(0.2), color = "grey35", shape = 4, show.legend = FALSE) +
+  scale_fill_grafify(palette = "vibrant") +
+  scale_x_discrete(labels = c("~20 cm from\n ground", "~1m from\n ground", "~20 cm from\n surface")) +
+  labs(y = "UHPLC Compound Peak Intensity (log10)", x = "Height in the Biosolid Pile") +
   facet_wrap(~name.x) +
-  theme_minimal(base_size = 12)
+  theme_bw(base_size = 12)
 
 # quinolone location
 box_chem_loc_quin %>%
   ggplot(aes(x = height, y = group_area, fill = height)) +
-  geom_boxplot() +
-  geom_jitter(position=position_jitter(0.2), color = "antiquewhite4", shape = 4) +
-  scale_y_continuous(trans='log10') +
-  scale_fill_manual(values = brewer.pal("Accent", n = 3)) +
-  labs(x = "height", y = "compound intensity", fill = "height") +
-  facet_wrap(~day) +
-  theme_minimal(base_size = 12)
+  geom_boxplot(show.legend = FALSE) +
+  scale_y_continuous(trans = 'log10') +
+  geom_jitter(position=position_jitter(0.2), color = "grey35", shape = 4, show.legend = FALSE) +
+  scale_fill_grafify(palette = "vibrant") +
+  scale_x_discrete(labels = c("~20 cm from\n ground", "~1m from\n ground", "~20 cm from\n surface")) +
+  labs(y = "UHPLC Compound Peak Intensity (log10)", x = "Height in the Biosolid Pile") +
+  theme_bw(base_size = 12)
 
 # per gene
 box_chem_loc_quin %>%
-  ggplot(aes(x = day, y = group_area, fill = height)) +
-  geom_boxplot() +
-  scale_y_continuous(trans='log10') +
-  scale_fill_manual(values = brewer.pal("Accent", n = 3)) +
-  labs(x = "day", y = "relative abundance", fill = "height") +
+  ggplot(aes(x = height, y = group_area, fill = height)) +
+  geom_boxplot(show.legend = FALSE) +
+  scale_y_continuous(trans = 'log10') +
+  geom_jitter(position=position_jitter(0.2), color = "grey35", shape = 4, show.legend = FALSE) +
+  scale_fill_grafify(palette = "vibrant") +
+  scale_x_discrete(labels = c("~20 cm from\n ground", "~1m from\n ground", "~20 cm from\n surface")) +
+  labs(y = "UHPLC Compound Peak Intensity (log10)", x = "Height in the Biosolid Pile") +
   facet_wrap(~name.x) +
-  theme_minimal(base_size = 12)
+  theme_bw(base_size = 12)
 
 # sulf location
 box_chem_loc_sulf %>%
   ggplot(aes(x = height, y = group_area, fill = height)) +
-  geom_boxplot() +
-  geom_jitter(position=position_jitter(0.2), color = "antiquewhite4", shape = 4) +
-  scale_y_continuous(trans='log10') +
-  scale_fill_manual(values = brewer.pal("Accent", n = 3)) +
-  labs(x = "height", y = "compound intensity", fill = "height") +
-  facet_wrap(~day) +
-  theme_minimal(base_size = 12)
+  geom_boxplot(show.legend = FALSE) +
+  scale_y_continuous(trans = 'log10') +
+  geom_jitter(position=position_jitter(0.2), color = "grey35", shape = 4, show.legend = FALSE) +
+  scale_fill_grafify(palette = "vibrant") +
+  scale_x_discrete(labels = c("~20 cm from\n ground", "~1m from\n ground", "~20 cm from\n surface")) +
+  labs(y = "UHPLC Compound Peak Intensity (log10)", x = "Height in the Biosolid Pile") +
+  theme_bw(base_size = 12)
 
 # per gene
 box_chem_loc_sulf %>%
-  ggplot(aes(x = day, y = group_area, fill = height)) +
-  geom_boxplot() +
-  scale_y_continuous(trans='log10') +
-  scale_fill_manual(values = brewer.pal("Accent", n = 3)) +
-  labs(x = "day", y = "relative abundance", fill = "height") +
-  facet_wrap(~name.x, ncol = 3) +
-  theme_minimal(base_size = 12)
+  ggplot(aes(x = height, y = group_area, fill = height)) +
+  geom_boxplot(show.legend = FALSE) +
+  scale_y_continuous(trans = 'log10') +
+  geom_jitter(position=position_jitter(0.2), color = "grey35", shape = 4, show.legend = FALSE) +
+  scale_fill_grafify(palette = "vibrant") +
+  scale_x_discrete(labels = c("~20 cm from\n ground", "~1m from\n ground", "~20 cm from\n surface")) +
+  labs(y = "UHPLC Compound Peak Intensity (log10)", x = "Height in the Biosolid Pile") +
+  facet_wrap(~name.x) +
+  theme_bw(base_size = 12)
 
 # tet location
 box_chem_loc_tet %>%
   ggplot(aes(x = height, y = group_area, fill = height)) +
-  geom_boxplot() +
-  geom_jitter(position=position_jitter(0.2), color = "antiquewhite4", shape = 4) +
-  scale_y_continuous(trans='log10') +
-  scale_fill_manual(values = brewer.pal("Accent", n = 3)) +
-  labs(x = "height", y = "compound intensity", fill = "height") +
-  facet_wrap(~day) +
-  theme_minimal(base_size = 12)
+  geom_boxplot(show.legend = FALSE) +
+  scale_y_continuous(trans = 'log10') +
+  geom_jitter(position=position_jitter(0.2), color = "grey35", shape = 4, show.legend = FALSE) +
+  scale_fill_grafify(palette = "vibrant") +
+  scale_x_discrete(labels = c("~20 cm from\n ground", "~1m from\n ground", "~20 cm from\n surface")) +
+  labs(y = "UHPLC Compound Peak Intensity (log10)", x = "Height in the Biosolid Pile") +
+  theme_bw(base_size = 12)
 
 # per gene
 box_chem_loc_tet %>%
-  ggplot(aes(x = day, y = group_area, fill = height)) +
-  geom_boxplot() +
-  scale_y_continuous(trans='log10') +
-  scale_fill_manual(values = brewer.pal("Accent", n = 3)) +
-  labs(x = "day", y = "relative abundance", fill = "height") +
+  ggplot(aes(x = height, y = group_area, fill = height)) +
+  geom_boxplot(show.legend = FALSE) +
+  scale_y_continuous(trans = 'log10') +
+  geom_jitter(position=position_jitter(0.2), color = "grey35", shape = 4, show.legend = FALSE) +
+  scale_fill_grafify(palette = "vibrant") +
+  scale_x_discrete(labels = c("~20 cm from\n ground", "~1m from\n ground", "~20 cm from\n surface")) +
+  labs(y = "UHPLC Compound Peak Intensity (log10)", x = "Height in the Biosolid Pile") +
   facet_wrap(~name.x) +
-  theme_minimal(base_size = 12)
+  theme_bw(base_size = 12)
+
+
 
 # TIME ------------
 
