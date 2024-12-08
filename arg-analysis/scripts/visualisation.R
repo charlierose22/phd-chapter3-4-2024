@@ -491,8 +491,6 @@ emmeans(one_way_all_loc, ~ height) |> pairs()
 # plot
 emmeans(one_way_all_loc, ~ height) |> plot()
 
-<<<<<<< Updated upstream
-=======
 # one way anova
 one_way_all_loc <- aov(delta_ct ~ height, data = location_factor)
 summary(one_way_all_loc)
@@ -590,12 +588,12 @@ emmeans(one_way_glyc_height, ~ height) |> plot()
 
 # mlsb
 # one way anova
-one_way_mlsb <- aov(delta_ct ~ gene, data = loc_factor_mlsb)
+one_way_mlsb <- aov(delta_ct ~ gene, data = loc_factor_mac)
 summary(one_way_mlsb)
-one_way_mlsb_height <- aov(delta_ct ~ height, data = loc_factor_mlsb)
+one_way_mlsb_height <- aov(delta_ct ~ height, data = loc_factor_mac)
 summary(one_way_mlsb_height)
 # two way anova
-two_way_mlsb <- aov(delta_ct ~ height * gene, data = loc_factor_mlsb)
+two_way_mlsb <- aov(delta_ct ~ height * gene, data = loc_factor_mac)
 summary(two_way_mlsb)
 TukeyHSD(two_way_mlsb, which = 'height:gene')
 # check normal distribution
@@ -795,7 +793,6 @@ emmeans(one_way_mge, ~ gene) |> plot()
 emmeans(one_way_mge_height, ~ height) |> pairs()
 # plot
 emmeans(one_way_mge_height, ~ height) |> plot()
->>>>>>> Stashed changes
 
 # plots
 # count

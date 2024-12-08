@@ -178,6 +178,7 @@ pharmaceuticals <- splitmasslist$"kps_pharmaceuticals"
 # clean compound names in antibiotics dataset.
 antibiotics$name <- antibiotics$name %>%
   fedmatch::clean_strings()
+list_abx <- unique(antibiotics$name)
 
 # wide view for samples and fully annotated view
 antibiotics_means <- antibiotics %>%
@@ -603,8 +604,6 @@ dunnTest(group_area ~ day,
          data = chem_time_factor_other,
          method = "bh")
 
-<<<<<<< Updated upstream
-=======
 # location study statistics
 # all classes
 # one way anova
@@ -822,7 +821,6 @@ dunnTest(group_area ~ name.x,
          data = chem_loc_factor_other,
          method = "bh")
 
->>>>>>> Stashed changes
 # PLOTTING
 chem_count_loc %>% 
   ggplot(aes(fill = class, y = count, x = height, label = count)) + 
