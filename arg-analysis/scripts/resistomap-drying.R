@@ -245,12 +245,13 @@ colnames(transposed_ct) <- as.character(assay_names[1, ])
 # Calculate delta ct and make sure the output is as a data frame.
 df_transposed_ct <- as.data.frame(transposed_ct)
 delta_ct <- df_transposed_ct[, 2:70] - df_transposed_ct[, "AY1"]
+delta_ct_pwr <- 2^(-delta_ct)
 
 # create delta ct csv
-write.csv(delta_ct, "arg-analysis/data/processed-data/delta_ct_nostats.csv", row.names = TRUE)
+write.csv(delta_ct_pwr, "arg-analysis/data/processed-data/delta_ct_nostats.csv", row.names = TRUE)
 
 # Turn the rownames into the first column to preserve them.
-delta_ct_rownames <- rownames_to_column(delta_ct, "sample")
+delta_ct_rownames <- rownames_to_column(delta_ct_pwr, "sample")
 
 # pivot longer
 delta_ct_long <- delta_ct_rownames %>%

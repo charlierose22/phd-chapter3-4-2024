@@ -150,7 +150,7 @@ split_time_factor <- split(time_factor, time_factor$class)
 time_factor_amino <- split_time_factor$Aminoglycoside
 time_factor_beta <- split_time_factor$'Beta-lactam'
 time_factor_glyc <- split_time_factor$'Glycopeptides and Metronidazole'
-time_factor_mac <- split_time_factor$MLSB
+time_factor_mlsb <- split_time_factor$MLSB
 time_factor_mdr <- split_time_factor$'Multi-Drug Resistance'
 time_factor_mge <- split_time_factor$'MGEs and Integrons'
 time_factor_other <- split_time_factor$Other
@@ -179,6 +179,16 @@ anova(one_way_all_time)
 emmeans(one_way_all_time, ~ class) |> pairs()
 # plot
 emmeans(one_way_all_time, ~ class) |> plot()
+# kruskal wallis 
+kruskal.test(data = time_factor, delta_ct ~ class)
+kruskal.test(data = time_factor, delta_ct ~ day)
+# post-hoc test
+dunnTest(delta_ct ~ class,
+         data = time_factor,
+         method = "bh")
+dunnTest(delta_ct ~ day,
+         data = time_factor,
+         method = "bh")
 
 # all mechanisms
 # one way anova
@@ -209,17 +219,18 @@ summary(two_way_amino)
 par(mfrow=c(2,2))
 plot(one_way_amino_day)
 par(mfrow=c(1,1))
-# anova
-anova(one_way_amino_gene)
-anova(one_way_amino_day)
-# tukey
-emmeans(one_way_amino_gene, ~ gene) |> pairs()
-# plot
-emmeans(one_way_amino_gene, ~ gene) |> plot()
-# tukey
-emmeans(one_way_amino_day, ~ day) |> pairs()
-# plot
-emmeans(one_way_amino_day, ~ day) |> plot()
+# kruskal wallis 
+kruskal.test(data = time_factor_amino, delta_ct ~ gene)
+kruskal.test(data = time_factor_amino, delta_ct ~ day)
+# post-hoc test
+time_factor_amino$gene <- as.factor(time_factor_amino$gene)
+dunnTest(delta_ct ~ gene,
+         data = time_factor_amino,
+         method = "bh")
+time_factor_amino$day <- as.factor(time_factor_amino$day)
+dunnTest(delta_ct ~ day,
+         data = time_factor_amino,
+         method = "bh")
 
 # Beta-lactams
 # one way anova
@@ -234,17 +245,18 @@ summary(two_way_beta)
 par(mfrow=c(2,2))
 plot(one_way_beta_day)
 par(mfrow=c(1,1))
-# anova
-anova(one_way_beta_gene)
-anova(one_way_beta_day)
-# tukey
-emmeans(one_way_beta_gene, ~ gene) |> pairs()
-# plot
-emmeans(one_way_beta_gene, ~ gene) |> plot()
-# tukey
-emmeans(one_way_beta_day, ~ day) |> pairs()
-# plot
-emmeans(one_way_beta_day, ~ day) |> plot()
+# kruskal wallis 
+kruskal.test(data = time_factor_beta, delta_ct ~ gene)
+kruskal.test(data = time_factor_beta, delta_ct ~ day)
+# post-hoc test
+time_factor_beta$gene <- as.factor(time_factor_beta$gene)
+dunnTest(delta_ct ~ gene,
+         data = time_factor_beta,
+         method = "bh")
+time_factor_beta$day <- as.factor(time_factor_beta$day)
+dunnTest(delta_ct ~ day,
+         data = time_factor_beta,
+         method = "bh")
 
 # Glycopeptides and Metronidazole
 # one way anova
@@ -259,42 +271,44 @@ summary(two_way_glyc)
 par(mfrow=c(2,2))
 plot(one_way_glyc_day)
 par(mfrow=c(1,1))
-# anova
-anova(one_way_glyc_gene)
-anova(one_way_glyc_day)
-# tukey
-emmeans(one_way_glyc_gene, ~ gene) |> pairs()
-# plot
-emmeans(one_way_glyc_gene, ~ gene) |> plot()
-# tukey
-emmeans(one_way_glyc_day, ~ day) |> pairs()
-# plot
-emmeans(one_way_glyc_day, ~ day) |> plot()
+# kruskal wallis 
+kruskal.test(data = time_factor_glyc, delta_ct ~ gene)
+kruskal.test(data = time_factor_glyc, delta_ct ~ day)
+# post-hoc test
+time_factor_glyc$gene <- as.factor(time_factor_glyc$gene)
+dunnTest(delta_ct ~ gene,
+         data = time_factor_glyc,
+         method = "bh")
+time_factor_glyc$day <- as.factor(time_factor_glyc$day)
+dunnTest(delta_ct ~ day,
+         data = time_factor_glyc,
+         method = "bh")
 
 #MLSB
 # one way anova
-one_way_mlsb_gene <- aov(delta_ct ~ gene, data = time_factor_mac)
+one_way_mlsb_gene <- aov(delta_ct ~ gene, data = time_factor_mlsb)
 summary(one_way_mlsb_gene)
-one_way_mlsb_day <- aov(delta_ct ~ day, data = time_factor_mac)
+one_way_mlsb_day <- aov(delta_ct ~ day, data = time_factor_mlsb)
 summary(one_way_mlsb_day)
 # two way anova
-two_way_mlsb <- aov(delta_ct ~ day * gene, data = time_factor_mac)
+two_way_mlsb <- aov(delta_ct ~ day * gene, data = time_factor_mlsb)
 summary(two_way_mlsb)
 # check normal distribution
 par(mfrow=c(2,2))
 plot(one_way_mlsb_day)
 par(mfrow=c(1,1))
-# anova
-anova(one_way_mlsb_gene)
-anova(one_way_mlsb_day)
-# tukey
-emmeans(one_way_mlsb_gene, ~ gene) |> pairs()
-# plot
-emmeans(one_way_mlsb_gene, ~ gene) |> plot()
-# tukey
-emmeans(one_way_mlsb_day, ~ day) |> pairs()
-# plot
-emmeans(one_way_mlsb_day, ~ day) |> plot()
+# kruskal wallis 
+kruskal.test(data = time_factor_mlsb, delta_ct ~ gene)
+kruskal.test(data = time_factor_mlsb, delta_ct ~ day)
+# post-hoc test
+time_factor_mlsb$gene <- as.factor(time_factor_mlsb$gene)
+dunnTest(delta_ct ~ gene,
+         data = time_factor_mlsb,
+         method = "bh")
+time_factor_mlsb$day <- as.factor(time_factor_mlsb$day)
+dunnTest(delta_ct ~ day,
+         data = time_factor_mlsb,
+         method = "bh")
 
 # Chloramphenicol
 # one way anova
@@ -309,17 +323,18 @@ summary(two_way_phen)
 par(mfrow=c(2,2))
 plot(one_way_phen_day)
 par(mfrow=c(1,1))
-# anova
-anova(one_way_phen_gene)
-anova(one_way_phen_day)
-# tukey
-emmeans(one_way_phen_gene, ~ gene) |> pairs()
-# plot
-emmeans(one_way_phen_gene, ~ gene) |> plot()
-# tukey
-emmeans(one_way_phen_day, ~ day) |> pairs()
-# plot
-emmeans(one_way_phen_day, ~ day) |> plot()
+# kruskal wallis 
+kruskal.test(data = time_factor_phen, delta_ct ~ gene)
+kruskal.test(data = time_factor_phen, delta_ct ~ day)
+# post-hoc test
+time_factor_phen$gene <- as.factor(time_factor_phen$gene)
+dunnTest(delta_ct ~ gene,
+         data = time_factor_phen,
+         method = "bh")
+time_factor_phen$day <- as.factor(time_factor_phen$day)
+dunnTest(delta_ct ~ day,
+         data = time_factor_phen,
+         method = "bh")
 
 # Quinolones
 # one way anova
@@ -334,17 +349,20 @@ summary(two_way_quin)
 par(mfrow=c(2,2))
 plot(one_way_quin_day)
 par(mfrow=c(1,1))
-# anova
-anova(one_way_quin_gene)
-anova(one_way_quin_day)
-# tukey
-emmeans(one_way_quin_gene, ~ gene) |> pairs()
-# plot
-emmeans(one_way_quin_gene, ~ gene) |> plot()
-# tukey
-emmeans(one_way_quin_day, ~ day) |> pairs()
-# plot
-emmeans(one_way_quin_day, ~ day) |> plot()
+# kruskal wallis 
+kruskal.test(data = time_factor_quin, delta_ct ~ gene)
+kruskal.test(data = time_factor_quin, delta_ct ~ day)
+# post-hoc test
+time_factor_quin$gene <- as.factor(time_factor_quin$gene)
+dunnTest(delta_ct ~ gene,
+         data = time_factor_quin,
+         method = "bh")
+time_factor_quin$day <- as.factor(time_factor_quin$day)
+time_factor_qnrD <- time_factor_quin %>% 
+  filter(gene == "qnrD")
+dunnTest(delta_ct ~ day,
+         data = time_factor_quin,
+         method = "bh")
 
 # Sulfonamides and Trimethoprim
 # one way anova
@@ -359,17 +377,18 @@ summary(two_way_sulf)
 par(mfrow=c(2,2))
 plot(one_way_sulf_day)
 par(mfrow=c(1,1))
-# anova
-anova(one_way_sulf_gene)
-anova(one_way_sulf_day)
-# tukey
-emmeans(one_way_sulf_gene, ~ gene) |> pairs()
-# plot
-emmeans(one_way_sulf_gene, ~ gene) |> plot()
-# tukey
-emmeans(one_way_sulf_day, ~ day) |> pairs()
-# plot
-emmeans(one_way_sulf_day, ~ day) |> plot()
+# kruskal wallis 
+kruskal.test(data = time_factor_sulf, delta_ct ~ gene)
+kruskal.test(data = time_factor_sulf, delta_ct ~ day)
+# post-hoc test
+time_factor_sulf$gene <- as.factor(time_factor_sulf$gene)
+dunnTest(delta_ct ~ gene,
+         data = time_factor_sulf,
+         method = "bh")
+time_factor_sulf$day <- as.factor(time_factor_sulf$day)
+dunnTest(delta_ct ~ day,
+         data = time_factor_sulf,
+         method = "bh")
 
 # Tetracyclines
 # one way anova
@@ -384,17 +403,18 @@ summary(two_way_tet)
 par(mfrow=c(2,2))
 plot(one_way_tet_day)
 par(mfrow=c(1,1))
-# anova
-anova(one_way_tet_gene)
-anova(one_way_tet_day)
-# tukey
-emmeans(one_way_tet_gene, ~ gene) |> pairs()
-# plot
-emmeans(one_way_tet_gene, ~ gene) |> plot()
-# tukey
-emmeans(one_way_tet_day, ~ day) |> pairs()
-# plot
-emmeans(one_way_tet_day, ~ day) |> plot()
+# kruskal wallis 
+kruskal.test(data = time_factor_tet, delta_ct ~ gene)
+kruskal.test(data = time_factor_tet, delta_ct ~ day)
+# post-hoc test
+time_factor_tet$gene <- as.factor(time_factor_tet$gene)
+dunnTest(delta_ct ~ gene,
+         data = time_factor_tet,
+         method = "bh")
+time_factor_tet$day <- as.factor(time_factor_tet$day)
+dunnTest(delta_ct ~ day,
+         data = time_factor_tet,
+         method = "bh")
 
 # Other
 # one way anova
@@ -409,17 +429,18 @@ summary(two_way_other)
 par(mfrow=c(2,2))
 plot(one_way_other_day)
 par(mfrow=c(1,1))
-# anova
-anova(one_way_other_gene)
-anova(one_way_other_day)
-# tukey
-emmeans(one_way_other_gene, ~ gene) |> pairs()
-# plot
-emmeans(one_way_other_gene, ~ gene) |> plot()
-# tukey
-emmeans(one_way_other_day, ~ day) |> pairs()
-# plot
-emmeans(one_way_other_day, ~ day) |> plot()
+# kruskal wallis 
+kruskal.test(data = time_factor_other, delta_ct ~ gene)
+kruskal.test(data = time_factor_other, delta_ct ~ day)
+# post-hoc test
+time_factor_other$gene <- as.factor(time_factor_other$gene)
+dunnTest(delta_ct ~ gene,
+         data = time_factor_other,
+         method = "bh")
+time_factor_other$day <- as.factor(time_factor_other$day)
+dunnTest(delta_ct ~ day,
+         data = time_factor_other,
+         method = "bh")
 
 # Multi-Drug Resistance
 # one way anova
@@ -434,17 +455,18 @@ summary(two_way_mdr)
 par(mfrow=c(2,2))
 plot(one_way_mdr_day)
 par(mfrow=c(1,1))
-# anova
-anova(one_way_mdr_gene)
-anova(one_way_mdr_day)
-# tukey
-emmeans(one_way_mdr_gene, ~ gene) |> pairs()
-# plot
-emmeans(one_way_mdr_gene, ~ gene) |> plot()
-# tukey
-emmeans(one_way_mdr_day, ~ day) |> pairs()
-# plot
-emmeans(one_way_mdr_day, ~ day) |> plot()
+# kruskal wallis 
+kruskal.test(data = time_factor_mdr, delta_ct ~ gene)
+kruskal.test(data = time_factor_mdr, delta_ct ~ day)
+# post-hoc test
+time_factor_mdr$gene <- as.factor(time_factor_mdr$gene)
+dunnTest(delta_ct ~ gene,
+         data = time_factor_mdr,
+         method = "bh")
+time_factor_mdr$day <- as.factor(time_factor_mdr$day)
+dunnTest(delta_ct ~ day,
+         data = time_factor_mdr,
+         method = "bh")
 
 # MGEs and Integrons
 # one way anova
@@ -459,17 +481,18 @@ summary(two_way_mge)
 par(mfrow=c(2,2))
 plot(one_way_mge_day)
 par(mfrow=c(1,1))
-# anova
-anova(one_way_mge_gene)
-anova(one_way_mge_day)
-# tukey
-emmeans(one_way_mge_gene, ~ gene) |> pairs()
-# plot
-emmeans(one_way_mge_gene, ~ gene) |> plot()
-# tukey
-emmeans(one_way_mge_day, ~ day) |> pairs()
-# plot
-emmeans(one_way_mge_day, ~ day) |> plot()
+# kruskal wallis 
+kruskal.test(data = time_factor_mge, delta_ct ~ gene)
+kruskal.test(data = time_factor_mge, delta_ct ~ day)
+# post-hoc test
+time_factor_mge$gene <- as.factor(time_factor_mge$gene)
+dunnTest(delta_ct ~ gene,
+         data = time_factor_mge,
+         method = "bh")
+time_factor_mge$day <- as.factor(time_factor_mge$day)
+dunnTest(delta_ct ~ day,
+         data = time_factor_mge,
+         method = "bh")
 
 # location study
 
@@ -477,36 +500,19 @@ emmeans(one_way_mge_day, ~ day) |> plot()
 # one way anova
 one_way_all_loc <- aov(delta_ct ~ height, data = location_factor)
 summary(one_way_all_loc)
-# two way anova
-two_way_all_loc <- aov(delta_ct ~ height * class, data = location_factor)
-summary(two_way_all_loc)
 # check normal distribution
 par(mfrow=c(2,2))
 plot(one_way_all_loc)
 par(mfrow=c(1,1))
-# anova
-anova(one_way_all_loc)
-# tukey
-emmeans(one_way_all_loc, ~ height) |> pairs()
-# plot
-emmeans(one_way_all_loc, ~ height) |> plot()
-
-# one way anova
-one_way_all_loc <- aov(delta_ct ~ height, data = location_factor)
-summary(one_way_all_loc)
-# two way anova
-two_way_all_loc <- aov(delta_ct ~ height * mechanism, data = location_factor)
-summary(two_way_all_loc)
-# check normal distribution
-par(mfrow=c(2,2))
-plot(one_way_all_loc)
-par(mfrow=c(1,1))
-# anova
-anova(one_way_all_loc)
-# tukey
-emmeans(one_way_all_loc, ~ height) |> pairs()
-# plot
-emmeans(one_way_all_loc, ~ height) |> plot()
+# kruskal wallis 
+kruskal.test(data = location_factor, delta_ct ~ class)
+kruskal.test(data = location_factor, delta_ct ~ height)
+kruskal.test(data = location_factor, delta_ct ~ mechanism)
+# post-hoc test
+location_factor$height <- as.factor(location_factor$height)
+dunnTest(delta_ct ~ height,
+         data = location_factor,
+         method = "bh")
 
 # aminoglycosides
 # one way anova
@@ -522,17 +528,19 @@ TukeyHSD(two_way_amino, which = 'height:gene')
 par(mfrow=c(2,2))
 plot(one_way_amino)
 par(mfrow=c(1,1))
-# anova
-anova(one_way_amino)
-anova(one_way_amino_height)
-# tukey
-emmeans(one_way_amino, ~ gene) |> pairs()
-# plot
-emmeans(one_way_amino, ~ gene) |> plot()
-# tukey
-emmeans(one_way_amino_height, ~ height) |> pairs()
-# plot
-emmeans(one_way_amino_height, ~ height) |> plot()
+# kruskal wallis 
+kruskal.test(data = loc_factor_amino, delta_ct ~ gene)
+kruskal.test(data = loc_factor_amino, delta_ct ~ height)
+kruskal.test(data = loc_factor_amino, delta_ct ~ day)
+# post-hoc test
+loc_factor_amino$height <- as.factor(loc_factor_amino$height)
+dunnTest(delta_ct ~ height,
+         data = loc_factor_amino,
+         method = "bh")
+loc_factor_amino$gene <- as.factor(loc_factor_amino$gene)
+dunnTest(delta_ct ~ gene,
+         data = loc_factor_amino,
+         method = "bh")
 
 # beta-lactam
 # one way anova
@@ -548,17 +556,19 @@ TukeyHSD(two_way_beta, which = 'height:gene')
 par(mfrow=c(2,2))
 plot(one_way_beta)
 par(mfrow=c(1,1))
-# anova
-anova(one_way_beta)
-anova(one_way_beta_height)
-# tukey
-emmeans(one_way_beta, ~ gene) |> pairs()
-# plot
-emmeans(one_way_beta, ~ gene) |> plot()
-# tukey
-emmeans(one_way_beta_height, ~ height) |> pairs()
-# plot
-emmeans(one_way_beta_height, ~ height) |> plot()
+# kruskal wallis 
+kruskal.test(data = loc_factor_beta, delta_ct ~ gene)
+kruskal.test(data = loc_factor_beta, delta_ct ~ height)
+kruskal.test(data = loc_factor_beta, delta_ct ~ day)
+# post-hoc test
+loc_factor_beta$height <- as.factor(loc_factor_beta$height)
+dunnTest(delta_ct ~ height,
+         data = loc_factor_beta,
+         method = "bh")
+loc_factor_beta$gene <- as.factor(loc_factor_beta$gene)
+dunnTest(delta_ct ~ gene,
+         data = loc_factor_beta,
+         method = "bh")
 
 # glycopeptides and metronidazole
 # one way anova
@@ -574,17 +584,19 @@ TukeyHSD(two_way_glyc, which = 'height:gene')
 par(mfrow=c(2,2))
 plot(one_way_glyc)
 par(mfrow=c(1,1))
-# anova
-anova(one_way_glyc)
-anova(one_way_glyc_height)
-# tukey
-emmeans(one_way_glyc, ~ gene) |> pairs()
-# plot
-emmeans(one_way_glyc, ~ gene) |> plot()
-# tukey
-emmeans(one_way_glyc_height, ~ height) |> pairs()
-# plot
-emmeans(one_way_glyc_height, ~ height) |> plot()
+# kruskal wallis 
+kruskal.test(data = loc_factor_glyc, delta_ct ~ gene)
+kruskal.test(data = loc_factor_glyc, delta_ct ~ height)
+kruskal.test(data = loc_factor_glyc, delta_ct ~ day)
+# post-hoc test
+loc_factor_glyc$height <- as.factor(loc_factor_glyc$height)
+dunnTest(delta_ct ~ height,
+         data = loc_factor_glyc,
+         method = "bh")
+loc_factor_glyc$gene <- as.factor(loc_factor_glyc$gene)
+dunnTest(delta_ct ~ gene,
+         data = loc_factor_glyc,
+         method = "bh")
 
 # mlsb
 # one way anova
@@ -600,17 +612,19 @@ TukeyHSD(two_way_mlsb, which = 'height:gene')
 par(mfrow=c(2,2))
 plot(one_way_mlsb)
 par(mfrow=c(1,1))
-# anova
-anova(one_way_mlsb)
-anova(one_way_mlsb_height)
-# tukey
-emmeans(one_way_mlsb, ~ gene) |> pairs()
-# plot
-emmeans(one_way_mlsb, ~ gene) |> plot()
-# tukey
-emmeans(one_way_mlsb_height, ~ height) |> pairs()
-# plot
-emmeans(one_way_mlsb_height, ~ height) |> plot()
+# kruskal wallis 
+kruskal.test(data = loc_factor_mac, delta_ct ~ gene)
+kruskal.test(data = loc_factor_mac, delta_ct ~ height)
+kruskal.test(data = loc_factor_mac, delta_ct ~ day)
+# post-hoc test
+loc_factor_mac$height <- as.factor(loc_factor_mac$height)
+dunnTest(delta_ct ~ height,
+         data = loc_factor_mac,
+         method = "bh")
+loc_factor_mac$gene <- as.factor(loc_factor_mac$gene)
+dunnTest(delta_ct ~ gene,
+         data = loc_factor_mac,
+         method = "bh")
 
 # phenicol
 # one way anova
@@ -626,17 +640,19 @@ TukeyHSD(two_way_phen, which = 'height:gene')
 par(mfrow=c(2,2))
 plot(one_way_phen)
 par(mfrow=c(1,1))
-# anova
-anova(one_way_phen)
-anova(one_way_phen_height)
-# tukey
-emmeans(one_way_phen, ~ gene) |> pairs()
-# plot
-emmeans(one_way_phen, ~ gene) |> plot()
-# tukey
-emmeans(one_way_phen_height, ~ height) |> pairs()
-# plot
-emmeans(one_way_phen_height, ~ height) |> plot()
+# kruskal wallis 
+kruskal.test(data = loc_factor_phen, delta_ct ~ gene)
+kruskal.test(data = loc_factor_phen, delta_ct ~ height)
+kruskal.test(data = loc_factor_phen, delta_ct ~ day)
+# post-hoc test
+loc_factor_phen$height <- as.factor(loc_factor_phen$height)
+dunnTest(delta_ct ~ height,
+         data = loc_factor_phen,
+         method = "bh")
+loc_factor_phen$gene <- as.factor(loc_factor_phen$gene)
+dunnTest(delta_ct ~ gene,
+         data = loc_factor_phen,
+         method = "bh")
 
 # quinolone
 # one way anova
@@ -652,17 +668,19 @@ TukeyHSD(two_way_quin, which = 'height:gene')
 par(mfrow=c(2,2))
 plot(one_way_quin)
 par(mfrow=c(1,1))
-# anova
-anova(one_way_quin)
-anova(one_way_quin_height)
-# tukey
-emmeans(one_way_quin, ~ gene) |> pairs()
-# plot
-emmeans(one_way_quin, ~ gene) |> plot()
-# tukey
-emmeans(one_way_quin_height, ~ height) |> pairs()
-# plot
-emmeans(one_way_quin_height, ~ height) |> plot()
+# kruskal wallis 
+kruskal.test(data = loc_factor_quin, delta_ct ~ gene)
+kruskal.test(data = loc_factor_quin, delta_ct ~ height)
+kruskal.test(data = loc_factor_quin, delta_ct ~ day)
+# post-hoc test
+loc_factor_quin$height <- as.factor(loc_factor_quin$height)
+dunnTest(delta_ct ~ height,
+         data = loc_factor_quin,
+         method = "bh")
+loc_factor_quin$gene <- as.factor(loc_factor_quin$gene)
+dunnTest(delta_ct ~ gene,
+         data = loc_factor_quin,
+         method = "bh")
 
 # sulfonamides and trimethoprim
 # one way anova
@@ -678,17 +696,19 @@ TukeyHSD(two_way_sulf, which = 'height:gene')
 par(mfrow=c(2,2))
 plot(one_way_sulf)
 par(mfrow=c(1,1))
-# anova
-anova(one_way_sulf)
-anova(one_way_sulf_height)
-# tukey
-emmeans(one_way_sulf, ~ gene) |> pairs()
-# plot
-emmeans(one_way_sulf, ~ gene) |> plot()
-# tukey
-emmeans(one_way_sulf_height, ~ height) |> pairs()
-# plot
-emmeans(one_way_sulf_height, ~ height) |> plot()
+# kruskal wallis 
+kruskal.test(data = loc_factor_sulf, delta_ct ~ gene)
+kruskal.test(data = loc_factor_sulf, delta_ct ~ height)
+kruskal.test(data = loc_factor_sulf, delta_ct ~ day)
+# post-hoc test
+loc_factor_sulf$height <- as.factor(loc_factor_sulf$height)
+dunnTest(delta_ct ~ height,
+         data = loc_factor_sulf,
+         method = "bh")
+loc_factor_sulf$gene <- as.factor(loc_factor_sulf$gene)
+dunnTest(delta_ct ~ gene,
+         data = loc_factor_sulf,
+         method = "bh")
 
 # tetracycline
 # one way anova
@@ -704,17 +724,19 @@ TukeyHSD(two_way_tet, which = 'height:gene')
 par(mfrow=c(2,2))
 plot(one_way_tet)
 par(mfrow=c(1,1))
-# anova
-anova(one_way_tet)
-anova(one_way_tet_height)
-# tukey
-emmeans(one_way_tet, ~ gene) |> pairs()
-# plot
-emmeans(one_way_tet, ~ gene) |> plot()
-# tukey
-emmeans(one_way_tet_height, ~ height) |> pairs()
-# plot
-emmeans(one_way_tet_height, ~ height) |> plot()
+# kruskal wallis 
+kruskal.test(data = loc_factor_tet, delta_ct ~ gene)
+kruskal.test(data = loc_factor_tet, delta_ct ~ height)
+kruskal.test(data = loc_factor_tet, delta_ct ~ day)
+# post-hoc test
+loc_factor_tet$height <- as.factor(loc_factor_tet$height)
+dunnTest(delta_ct ~ height,
+         data = loc_factor_tet,
+         method = "bh")
+loc_factor_tet$gene <- as.factor(loc_factor_tet$gene)
+dunnTest(delta_ct ~ gene,
+         data = loc_factor_tet,
+         method = "bh")
 
 # other
 # one way anova
@@ -730,17 +752,19 @@ TukeyHSD(two_way_other, which = 'height:gene')
 par(mfrow=c(2,2))
 plot(one_way_other)
 par(mfrow=c(1,1))
-# anova
-anova(one_way_other)
-anova(one_way_other_height)
-# tukey
-emmeans(one_way_other, ~ gene) |> pairs()
-# plot
-emmeans(one_way_other, ~ gene) |> plot()
-# tukey
-emmeans(one_way_other_height, ~ height) |> pairs()
-# plot
-emmeans(one_way_other_height, ~ height) |> plot()
+# kruskal wallis 
+kruskal.test(data = loc_factor_other, delta_ct ~ gene)
+kruskal.test(data = loc_factor_other, delta_ct ~ height)
+kruskal.test(data = loc_factor_other, delta_ct ~ day)
+# post-hoc test
+loc_factor_other$height <- as.factor(loc_factor_other$height)
+dunnTest(delta_ct ~ height,
+         data = loc_factor_other,
+         method = "bh")
+loc_factor_other$gene <- as.factor(loc_factor_other$gene)
+dunnTest(delta_ct ~ gene,
+         data = loc_factor_other,
+         method = "bh")
 
 # mdr
 # one way anova
@@ -756,17 +780,19 @@ TukeyHSD(two_way_mdr, which = 'height:gene')
 par(mfrow=c(2,2))
 plot(one_way_mdr)
 par(mfrow=c(1,1))
-# anova
-anova(one_way_mdr)
-anova(one_way_mdr_height)
-# tukey
-emmeans(one_way_mdr, ~ gene) |> pairs()
-# plot
-emmeans(one_way_mdr, ~ gene) |> plot()
-# tukey
-emmeans(one_way_mdr_height, ~ height) |> pairs()
-# plot
-emmeans(one_way_mdr_height, ~ height) |> plot()
+# kruskal wallis 
+kruskal.test(data = loc_factor_mdr, delta_ct ~ gene)
+kruskal.test(data = loc_factor_mdr, delta_ct ~ height)
+kruskal.test(data = loc_factor_mdr, delta_ct ~ day)
+# post-hoc test
+loc_factor_mdr$height <- as.factor(loc_factor_mdr$height)
+dunnTest(delta_ct ~ height,
+         data = loc_factor_mdr,
+         method = "bh")
+loc_factor_mdr$gene <- as.factor(loc_factor_mdr$gene)
+dunnTest(delta_ct ~ gene,
+         data = loc_factor_mdr,
+         method = "bh")
 
 # mge
 # one way anova
@@ -782,17 +808,19 @@ TukeyHSD(two_way_mge, which = 'height:gene')
 par(mfrow=c(2,2))
 plot(one_way_mge)
 par(mfrow=c(1,1))
-# anova
-anova(one_way_mge)
-anova(one_way_mge_height)
-# tukey
-emmeans(one_way_mge, ~ gene) |> pairs()
-# plot
-emmeans(one_way_mge, ~ gene) |> plot()
-# tukey
-emmeans(one_way_mge_height, ~ height) |> pairs()
-# plot
-emmeans(one_way_mge_height, ~ height) |> plot()
+# kruskal wallis 
+kruskal.test(data = loc_factor_mge, delta_ct ~ gene)
+kruskal.test(data = loc_factor_mge, delta_ct ~ height)
+kruskal.test(data = loc_factor_mge, delta_ct ~ day)
+# post-hoc test
+loc_factor_mge$height <- as.factor(loc_factor_mge$height)
+dunnTest(delta_ct ~ height,
+         data = loc_factor_mge,
+         method = "bh")
+loc_factor_mge$gene <- as.factor(loc_factor_mge$gene)
+dunnTest(delta_ct ~ gene,
+         data = loc_factor_mge,
+         method = "bh")
 
 # plots
 # count
@@ -1103,7 +1131,7 @@ mean_time_total %>%
                                  "Quinolones",
                                  "Sulfonamides and\nTrimethoprim",
                                  "Tetracyclines")) +
-  scale_y_continuous(trans='log10') +
+#  scale_y_continuous(trans='log10') +
   scale_x_continuous(limits = c(0, 30), 
                      breaks = c(0, 5, 10, 15, 20, 25, 30)) +
   theme_bw(base_size = 12) +
@@ -1175,7 +1203,6 @@ mechanism_time_total %>%
                                  "Integrase",
                                  "Phage",
                                  "Transposase")) +
-  scale_y_continuous(trans='log10') +
   scale_x_continuous(limits = c(0, 30), 
                      breaks = c(0, 5, 10, 15, 20, 25, 30)) +
   theme_bw(base_size = 12) +
@@ -1190,7 +1217,7 @@ time_amino %>%
                     ymax = mean + se),
                 width = .6) +
   geom_line() +
-  labs(x = "Day of Drying Period", y = "Relative Gene Abundance (∆Ct)", color = "Gene Name") +
+  labs(x = "Day of Drying Period", y = "Relative Gene Abundance", color = "Gene Name") +
   scale_color_grafify(palette = "kelly") +
   scale_x_continuous(limits = c(0, 30), 
                      breaks = c(0, 5, 10, 15, 20, 25, 30)) +
@@ -1206,7 +1233,7 @@ time_beta %>%
                     ymax = mean + se),
                 width = .6) +
   geom_line() +
-  labs(x = "Day of Drying Period", y = "Relative Gene Abundance (∆Ct)", color = "Gene Name") +
+  labs(x = "Day of Drying Period", y = "Relative Gene Abundance", color = "Gene Name") +
   scale_color_grafify(palette = "kelly") +
   scale_x_continuous(limits = c(0, 30), 
                      breaks = c(0, 5, 10, 15, 20, 25, 30)) +
@@ -1222,7 +1249,7 @@ time_glyc %>%
                     ymax = mean + se),
                 width = .6) +
   geom_line() +
-  labs(x = "Day of Drying Period", y = "Relative Gene Abundance (∆Ct)", color = "Gene Name") +
+  labs(x = "Day of Drying Period", y = "Relative Gene Abundance", color = "Gene Name") +
   scale_color_grafify(palette = "kelly") +
   scale_x_continuous(limits = c(0, 30), 
                      breaks = c(0, 5, 10, 15, 20, 25, 30)) +
@@ -1238,7 +1265,7 @@ time_mac %>%
                     ymax = mean + se),
                 width = .6) +
   geom_line() +
-  labs(x = "Day of Drying Period", y = "Relative Gene Abundance (∆Ct)", color = "Gene Name") +
+  labs(x = "Day of Drying Period", y = "Relative Gene Abundance", color = "Gene Name") +
   scale_color_grafify(palette = "kelly") +
   scale_x_continuous(limits = c(0, 30), 
                      breaks = c(0, 5, 10, 15, 20, 25, 30)) +
@@ -1254,7 +1281,7 @@ time_mdr %>%
                     ymax = mean + se),
                 width = .6) +
   geom_line() +
-  labs(x = "Day of Drying Period", y = "Relative Gene Abundance (∆Ct)", color = "Gene Name") +
+  labs(x = "Day of Drying Period", y = "Relative Gene Abundance", color = "Gene Name") +
   scale_color_grafify(palette = "kelly") +
   scale_x_continuous(limits = c(0, 30), 
                      breaks = c(0, 5, 10, 15, 20, 25, 30)) +
@@ -1270,7 +1297,7 @@ time_mge %>%
                     ymax = mean + se),
                 width = .6) +
   geom_line() +
-  labs(x = "Day of Drying Period", y = "Relative Gene Abundance (∆Ct)", color = "Gene Name") +
+  labs(x = "Day of Drying Period", y = "Relative Gene Abundance", color = "Gene Name") +
   scale_color_grafify(palette = "kelly") +
   scale_x_continuous(limits = c(0, 30), 
                      breaks = c(0, 5, 10, 15, 20, 25, 30)) +
@@ -1286,7 +1313,7 @@ time_other %>%
                     ymax = mean + se),
                 width = .6) +
   geom_line() +
-  labs(x = "Day of Drying Period", y = "Relative Gene Abundance (∆Ct)", color = "Gene Name") +
+  labs(x = "Day of Drying Period", y = "Relative Gene Abundance", color = "Gene Name") +
   scale_color_grafify(palette = "kelly") +
   scale_x_continuous(limits = c(0, 30), 
                      breaks = c(0, 5, 10, 15, 20, 25, 30)) +
@@ -1302,7 +1329,7 @@ time_phen %>%
                     ymax = mean + se),
                 width = .6) +
   geom_line() +
-  labs(x = "Day of Drying Period", y = "Relative Gene Abundance (∆Ct)", color = "Gene Name") +
+  labs(x = "Day of Drying Period", y = "Relative Gene Abundance", color = "Gene Name") +
   scale_color_grafify(palette = "kelly") +
   scale_x_continuous(limits = c(0, 30), 
                      breaks = c(0, 5, 10, 15, 20, 25, 30)) +
@@ -1318,7 +1345,7 @@ time_quin %>%
                     ymax = mean + se),
                 width = .6) +
   geom_line() +
-  labs(x = "Day of Drying Period", y = "Relative Gene Abundance (∆Ct)", color = "Gene Name") +
+  labs(x = "Day of Drying Period", y = "Relative Gene Abundance", color = "Gene Name") +
   scale_color_grafify(palette = "kelly") +
   scale_x_continuous(limits = c(0, 30), 
                      breaks = c(0, 5, 10, 15, 20, 25, 30)) +
@@ -1334,7 +1361,7 @@ time_sulf %>%
                     ymax = mean + se),
                 width = .6) +
   geom_line() +
-  labs(x = "Day of Drying Period", y = "Relative Gene Abundance (∆Ct)", color = "Gene Name") +
+  labs(x = "Day of Drying Period", y = "Relative Gene Abundance", color = "Gene Name") +
   scale_color_grafify(palette = "kelly") +
   scale_x_continuous(limits = c(0, 30), 
                      breaks = c(0, 5, 10, 15, 20, 25, 30)) +
@@ -1350,7 +1377,7 @@ time_tet %>%
                     ymax = mean + se),
                 width = .6) +
   geom_line() +
-  labs(x = "Day of Drying Period", y = "Relative Gene Abundance (∆Ct)", color = "Gene Name") +
+  labs(x = "Day of Drying Period", y = "Relative Gene Abundance", color = "Gene Name") +
   scale_color_grafify(palette = "kelly") +
   scale_x_continuous(limits = c(0, 30), 
                      breaks = c(0, 5, 10, 15, 20, 25, 30)) +
